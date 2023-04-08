@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Silkscreen_400Regular, Silkscreen_700Bold, useFonts } from '@expo-google-fonts/silkscreen'
+import { Text } from 'react-native'
+import Layout from './app/ui/Layout/Layout'
+import FullScreenLoader from './app/ui/Loader/FullScreenLoader'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+ let [fontsLoaded] = useFonts({
+  Silkscreen_400Regular,
+  Silkscreen_700Bold,
+ });
+ if (!fontsLoaded) {
+  console.log('Fonts not loaded')
+  return <FullScreenLoader />;
+ }
+ return (
+    <Layout>
+      <Text style={{
+        fontFamily: 'Silkscreen_400Regular',
+       fontSize: 20,
+       letterSpacing: -3,
+      }}>Open up App.tsx to start working on your app!</Text>
+    </Layout>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

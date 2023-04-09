@@ -17,12 +17,12 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
 	return (
 		<Pressable  delayHoverIn={0} onPress={() => nav(item.path)}>
-			<View style={{ backgroundColor: isActive ? '#702DF5' : '#121212' }}
+			<View style={{ backgroundColor: isActive ? '#000' : "#6C6A6A" }}
 			      className='items-center justify-center p-1.5 rounded-lg'>
 				<Feather
 					name={item.iconName}
 					size={30}
-					color={isActive ? 'white' : '#949494'}
+					color={isActive ? 'white' : '#D9D7D5'}
 				/>
 			</View>
 		</Pressable>

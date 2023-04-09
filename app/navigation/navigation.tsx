@@ -1,10 +1,9 @@
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useEffect, useState } from 'react'
-import { View } from 'react-native'
-import BottomMenu from '../components/ui/bottomMenu/bottomMenu'
 import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
 import { userRoutes } from '../types/navigation/user.routes'
+import BottomMenu from '../ui/bottomMenu/BottomMenu'
 
 const Navigation = () => {
 	const Stack = createNativeStackNavigator<TypeRootStackParamList>()
@@ -29,9 +28,9 @@ const Navigation = () => {
 				<Stack.Navigator
 					initialRouteName={'Home'}
 					screenOptions={{
-						animation: 'fade_from_bottom',
+						animation: 'simple_push',
 						headerShown: false,
-						contentStyle: { backgroundColor: '#121212' }
+						contentStyle: { backgroundColor: '#E4E4E4' }
 					}}
 				>
 					{
@@ -45,9 +44,7 @@ const Navigation = () => {
 						}
 				</Stack.Navigator>
 				{currentRoute !== 'ReadPage' ? (
-					<View className='bg-black'>
 						<BottomMenu currentRoute={currentRoute} />
-					</View>
 				) : null}
 			</NavigationContainer>
 	)

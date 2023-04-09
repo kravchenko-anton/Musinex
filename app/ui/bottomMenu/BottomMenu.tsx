@@ -5,16 +5,14 @@ import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import MenuItem from '../../navigation/menuItem'
 import { menuItems } from '../../navigation/menuList'
 
-const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
-	                                                              currentRoute
-                                                              }) => {
+const BottomMenu: FC<{ currentRoute: string | undefined }> = ({ currentRoute }) => {
 	const { navigate } = useTypedNavigation()
 	const { bottom } = useSafeAreaInsets()
 	
 	return (
 		<View
 			style={{ paddingBottom: bottom + 5 }}
-			className='flex-row bg-[#181818] rounded-t-xl h-[65px] pt-0  items-center pl-10 pr-10 w-full  justify-between'
+			className='flex-row bg-[#D9D7D5] h-[65px] pt-0  items-center pl-10 pr-10 w-full  justify-between'
 		>
 			{menuItems.map(item => (
 				<MenuItem

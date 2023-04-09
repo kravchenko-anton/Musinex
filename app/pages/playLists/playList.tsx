@@ -2,12 +2,12 @@ import React from 'react'
 
 import { Text } from 'react-native'
 
-const playList = () => {
+const PlayList = () => {
 	return (
 		<Text>
-			
+		dsasa
 		</Text>
 	)
 }
 
-export default playList
+export default PlayList

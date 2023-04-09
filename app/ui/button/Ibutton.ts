@@ -1,7 +1,15 @@
-import { PressableProps } from 'react-native'
+import { Ionicons } from '@expo/vector-icons/'
 
-export interface Ibutton extends PressableProps{
-	size?: 'small' | 'medium' | 'large',
-	variant?: 'primary' | 'secondary' | 'tertiary',
-	fontFamily?: "Silkscreen_400Regular" | "Silkscreen_700Bold",
+export interface Ibutton{
+	size: 'small' | 'medium' | 'large',
+	width?: number | string,
+	classNames?: string,
+	text: string,
+	textSize?: number,
+	iconSize?: number,
+	center?: boolean,
+	icon?: keyof typeof Ionicons.glyphMap,
+	borderRadius?: number,
+	onClick?: () => void,
+	variant?: 'dark' | 'light',
 }

@@ -1,4 +1,4 @@
-import { Feather } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons/'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
@@ -19,7 +19,7 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 		<Pressable  delayHoverIn={0} onPress={() => nav(item.path)}>
 			<View style={{ backgroundColor: isActive ? '#000' : "#6C6A6A" }}
 			      className='items-center justify-center p-1.5 rounded-lg'>
-				<Feather
+				<Ionicons
 					name={item.iconName}
 					size={30}
 					color={isActive ? 'white' : '#D9D7D5'}

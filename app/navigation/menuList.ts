@@ -11,12 +11,12 @@ export const menuItems: IMenuItem[] = [
 		path: 'Search'
 	},
 	{
-		iconName: 'book-open',
+		iconName: 'home',
 		path: 'Home'
 	},
 	
 	{
-		iconName: 'user',
+		iconName: 'heart',
 		path: 'favorites'
 	}
 ]

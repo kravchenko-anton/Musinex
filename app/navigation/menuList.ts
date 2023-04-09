@@ -16,7 +16,7 @@ export const menuItems: IMenuItem[] = [
 	},
 	
 	{
-		iconName: 'heart',
+		iconName: 'albums',
 		path: 'favorites'
 	}
 ]

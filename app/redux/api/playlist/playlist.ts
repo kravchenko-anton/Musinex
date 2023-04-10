@@ -1,8 +1,10 @@
 import { api } from '../api'
+import { ISearchPlayListById } from './types/ISearchPlayListById'
+import { ISearchPlayListContentById } from './types/ISearchPlayListContentById'
 
 export const playlistApi = api.injectEndpoints({
 	endpoints: build => ({
-		searchPlayListById: build.query({
+		searchPlayListById: build.query<ISearchPlayListById, string>({
 			query: (id) => {
 				return {
 					url: '/playlist/metadata',
@@ -12,16 +14,20 @@ export const playlistApi = api.injectEndpoints({
 				}
 			},
 		}),
-		searchAlbomTrackById: build.query({
+		searchPlayListContentById: build.query<ISearchPlayListContentById, string>({
 			query: (id) => {
 				return {
-					url: '/album/tracks',
+					url: '/playlist/contents',
 					params: {
-						albumId: id,
+						playlistId: id,
 					}
 				}
 			},
 		}),
+	
 	})
 })
-export const {useSearchPlayListByIdQuery} = playlistApi
+export const {
+	useSearchPlayListByIdQuery,
+	useSearchPlayListContentByIdQuery,
+} = playlistApi

@@ -5,7 +5,7 @@ import { Text } from 'react-native'
 import FullScreenLoader from '../Loader/FullScreenLoader'
 import { ITitle } from './Ititle'
 
-const Title:FC<ITitle> = ({classNames,center, text,size, fontFamily, ...rest}) => {
+const Title:FC<ITitle> = (props, {...rest}) => {
 	let [fontsLoaded] = useFonts({
 		Silkscreen_400Regular,
 		Silkscreen_700Bold,
@@ -14,14 +14,14 @@ const Title:FC<ITitle> = ({classNames,center, text,size, fontFamily, ...rest}) =
 		return <FullScreenLoader />;
 	}
 		return (
-			<Text className={classNames} style={{
-				fontFamily:fontFamily || "Silkscreen_400Regular",
-				fontSize:size || 20,
+			<Text className={props.classNames} style={{
+				fontFamily:props.fontFamily || "Silkscreen_400Regular",
+				fontSize:props.size || 20,
 				letterSpacing: -3,
-				textAlign: center ? 'center' : "left"
+				textAlign: props.center ? 'center' : "left"
 			}} {...rest}
 			>
-				{text}
+				{props.text}
 			</Text>
 	)
 }

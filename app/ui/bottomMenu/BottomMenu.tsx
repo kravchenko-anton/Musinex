@@ -5,10 +5,12 @@ import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import MenuItem from '../../navigation/menuItem'
 import { menuItems } from '../../navigation/menuList'
 
-const BottomMenu: FC<{ currentRoute: string | undefined }> = ({ currentRoute }) => {
+const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
+	currentRoute
+}) => {
 	const { navigate } = useTypedNavigation()
 	const { bottom } = useSafeAreaInsets()
-	
+
 	return (
 		<View
 			style={{ paddingBottom: bottom + 5 }}

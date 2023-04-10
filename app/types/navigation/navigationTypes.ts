@@ -10,7 +10,6 @@ export type TypeRootStackParamList = {
 	Author: undefined
 	playList: undefined
 	playLists: undefined
-	
 }
 
 export interface iRoutes {

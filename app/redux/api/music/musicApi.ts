@@ -6,16 +6,11 @@ import { IgetTopSong } from './types/IgetTopSong'
 export const musicApi = api.injectEndpoints({
 	endpoints: build => ({
 		getTopSong: build.query<IgetTopSong, null>({
-			query: () => '/chart/tracks/top',
+			query: () => '/chart/tracks/top'
 		}),
 		getTopVirusSong: build.query<IgetTopSong, null>({
-			query: () => '/chart/tracks/viral',
-		}),
-		
+			query: () => '/chart/tracks/viral'
+		})
 	})
 })
-export const {
-	useGetTopSongQuery,
-	useGetTopVirusSongQuery,
-	
-} = musicApi
+export const { useGetTopSongQuery, useGetTopVirusSongQuery } = musicApi

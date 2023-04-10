@@ -1,5 +1,5 @@
 import { ViewProps } from 'react-native'
 
-export interface IHeader extends ViewProps{
+export interface IHeader extends ViewProps {
 	logoSize: number
 }

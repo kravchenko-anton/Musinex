@@ -4,44 +4,42 @@ import { IListTopArtists } from './types/IListTopArtists'
 import { ISearchArtistById } from './types/ISearchArtistById'
 import { ISearchArtistbyName } from './types/ISearchArtistbyName'
 
-
 export const artistApi = api.injectEndpoints({
 	endpoints: build => ({
 		ListTopArtists: build.query<IListTopArtists, null>({
-	query: () => '/chart/artists/top'
+			query: () => '/chart/artists/top'
 		}),
-		
-		
+
 		searchArtistByName: build.query<ISearchArtistbyName, string>({
-			query: (name) => {
+			query: name => {
 				return {
 					url: '/artist/search',
 					params: {
-						name,
+						name
 					}
 				}
-			},
+			}
 		}),
 		searchArtistById: build.query<ISearchArtistById, string>({
-			query: (id) => {
+			query: id => {
 				return {
 					url: '/artist/overview',
 					params: {
-						artistId: id,
+						artistId: id
 					}
 				}
-			},
+			}
 		}),
-		ArtistAlbumsById: build.query<IArtistAlbumsById,string>({
-			query: (id) => {
+		ArtistAlbumsById: build.query<IArtistAlbumsById, string>({
+			query: id => {
 				return {
 					url: '/artist/albums',
 					params: {
-						artistId: id,
+						artistId: id
 					}
 				}
-			},
-		}),
+			}
+		})
 	})
 })
 export const {

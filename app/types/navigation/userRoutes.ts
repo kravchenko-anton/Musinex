@@ -12,7 +12,7 @@ import { iRoutes } from './navigationTypes'
 export const userRoutes: iRoutes[] = [
 	{
 		name: 'Home',
-		component: Home,
+		component: Home
 	},
 	{
 		name: 'Settings',
@@ -34,12 +34,12 @@ export const userRoutes: iRoutes[] = [
 		name: 'Author',
 		component: Author
 	},
-	
+
 	{
 		name: 'playList',
 		component: playList
 	},
-	
+
 	{
 		name: 'playLists',
 		component: playLists

@@ -7,7 +7,7 @@ import { ISearch } from './types/Isearch'
 export const songApi = api.injectEndpoints({
 	endpoints: build => ({
 		search: build.query<ISearch, string>({
-			query: (term) => {
+			query: term => {
 				return {
 					url: '/search',
 					params: {
@@ -15,50 +15,49 @@ export const songApi = api.injectEndpoints({
 						type: 'all'
 					}
 				}
-			},
+			}
 		}),
-		
+
 		getTrackByName: build.query<IGetTackByName, string>({
-			query: (name) => {
+			query: name => {
 				return {
 					url: '/track/search',
 					params: {
-						name,
+						name
 					}
 				}
-			},
+			}
 		}),
 		getTrackById: build.query<IGetTrackById, string>({
-			query: (id) => {
+			query: id => {
 				return {
 					url: '/track/metadata',
 					params: {
-						trackId: id,
+						trackId: id
 					}
 				}
-			},
+			}
 		}),
 		getTrackLyricsById: build.query<string, string>({
-			query: (id) => {
+			query: id => {
 				return {
 					url: '/track/lyrics',
 					params: {
-						trackId: id,
+						trackId: id
 					}
 				}
-			},
+			}
 		}),
 		getTrackMP3ByName: build.query<IGetMp3Data, string>({
-			query: (name) => {
+			query: name => {
 				return {
 					url: '/track/download/soundcloud',
 					params: {
-						track: name,
+						track: name
 					}
 				}
-			},
-		}),
-
+			}
+		})
 	})
 })
 export const {
@@ -66,5 +65,5 @@ export const {
 	useGetTrackByNameQuery,
 	useGetTrackByIdQuery,
 	useGetTrackLyricsByIdQuery,
-	useGetTrackMP3ByNameQuery,
+	useGetTrackMP3ByNameQuery
 } = songApi

@@ -6,16 +6,13 @@ import { store } from './app/redux/store'
 import Toast from './app/ui/Toast'
 
 export default function App() {
-
- return (
-  <Provider store={store}>
-     <SafeAreaProvider>
-      <Navigation />
-      <StatusBar style='dark' />
-      <Toast />
-     </SafeAreaProvider>
-  </Provider>
-  );
+	return (
+		<Provider store={store}>
+			<SafeAreaProvider>
+				<Navigation />
+				<StatusBar style='dark' />
+				<Toast />
+			</SafeAreaProvider>
+		</Provider>
+	)
 }
-
-

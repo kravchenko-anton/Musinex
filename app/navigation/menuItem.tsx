@@ -16,9 +16,11 @@ interface IMenuItemProps {
 const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
 	return (
-		<Pressable  delayHoverIn={0} onPress={() => nav(item.path)}>
-			<View style={{ backgroundColor: isActive ? '#000' : "#6C6A6A" }}
-			      className='items-center justify-center p-1.5 rounded-lg'>
+		<Pressable delayHoverIn={0} onPress={() => nav(item.path)}>
+			<View
+				style={{ backgroundColor: isActive ? '#000' : '#6C6A6A' }}
+				className='items-center justify-center p-1.5 rounded-lg'
+			>
 				<Ionicons
 					name={item.iconName}
 					size={30}

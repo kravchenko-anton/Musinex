@@ -8,18 +8,16 @@ export const genreApi = api.injectEndpoints({
 			query: () => '/home'
 		}),
 		getGenreContentById: build.query<IGenreContentById, string>({
-			query: (id) => {
+			query: id => {
 				return {
 					url: '/genre/contents',
 					params: {
-						genreId: id,
+						genreId: id
 					}
 				}
-			},
-		}),
+			}
+		})
 	})
 })
-export const {
-	useGetHomePageGenreQuery,
-	useGetGenreContentByIdQuery
-} = genreApi
+export const { useGetHomePageGenreQuery, useGetGenreContentByIdQuery } =
+	genreApi

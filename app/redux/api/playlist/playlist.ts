@@ -5,29 +5,26 @@ import { ISearchPlayListContentById } from './types/ISearchPlayListContentById'
 export const playlistApi = api.injectEndpoints({
 	endpoints: build => ({
 		searchPlayListById: build.query<ISearchPlayListById, string>({
-			query: (id) => {
+			query: id => {
 				return {
 					url: '/playlist/metadata',
 					params: {
-						playlistId: id,
+						playlistId: id
 					}
 				}
-			},
+			}
 		}),
 		searchPlayListContentById: build.query<ISearchPlayListContentById, string>({
-			query: (id) => {
+			query: id => {
 				return {
 					url: '/playlist/contents',
 					params: {
-						playlistId: id,
+						playlistId: id
 					}
 				}
-			},
-		}),
-	
+			}
+		})
 	})
 })
-export const {
-	useSearchPlayListByIdQuery,
-	useSearchPlayListContentByIdQuery,
-} = playlistApi
+export const { useSearchPlayListByIdQuery, useSearchPlayListContentByIdQuery } =
+	playlistApi

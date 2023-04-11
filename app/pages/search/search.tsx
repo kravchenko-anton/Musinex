@@ -1,12 +1,21 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
-import { ScrollView, Text } from 'react-native'
+import { ScrollView } from 'react-native'
+import Field from '../../ui/Flield/Field'
+import Layout from '../../ui/Layout/Layout'
 
 const Search = () => {
-	return <ScrollView>
-<Text>Search</Text>
-		
+	const {control, watch} = useForm()
+	// const {data} = useSearchQuery("", {
+	// 	skip: !watch('Search'),
+	// 	refetchOnMountOrArgChange: 2000
+	// })
+	return <Layout>
+	<ScrollView>
+		<Field control={control} name={'Search'} />
 	</ScrollView>
+	</Layout>
 }
 
 export default Search

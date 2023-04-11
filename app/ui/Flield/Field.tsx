@@ -20,10 +20,10 @@ const Field = <T extends Record<string, any>>({
 			         }) => (
 				<>
 					<View style={{
-						backgroundColor: error	? '#ff0' : '#000',
+						borderWidth: error		? 1 : 0,
 					}}
 						className={
-							'bg-[#232323] w-full border rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
+							'bg-darkGray w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
 					>
 						<TextInput
 							autoCapitalize={'none'}

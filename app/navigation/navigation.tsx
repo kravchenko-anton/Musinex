@@ -29,7 +29,7 @@ const Navigation = () => {
 				screenOptions={{
 					animation: 'slide_from_bottom',
 					headerShown: false,
-					contentStyle: { backgroundColor: '#E4E4E4' }
+					contentStyle: { backgroundColor: '#121212' }
 				}}
 			>
 				{userRoutes.map(route => (

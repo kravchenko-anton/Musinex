@@ -19,7 +19,7 @@ const Home = () => {
 			<Layout>
 			<ScrollView showsVerticalScrollIndicator={false}>
 			<Header className={'mb-5'} logoSize={24}>
-				<FontAwesome5 name='bell' size={26} color='black' />
+				<FontAwesome5 name='bell' size={26} color='white' />
 			</Header>
 			<Title
 				size={40}
@@ -41,7 +41,7 @@ const Home = () => {
 							name={item.title}
 							artists={item.artist.name}
 							image={{
-								url: item.album.cover_medium,
+								url: item.album.cover_big,
 								width: 220,
 								height: 220
 							}}
@@ -61,7 +61,7 @@ const Home = () => {
 							           ImageClassNames={'rounded-full'}
 							           WrapClassNames={'mr-3'}
 							           image={{
-								           url: item.picture_medium,
+								           url: item.picture_big,
 								           width: 150,
 								           height: 150
 							           }}
@@ -83,7 +83,7 @@ const Home = () => {
 						           <AlbumItem
 							           WrapClassNames={'mr-3'}
 							           image={{
-								           url: item.cover_medium,
+								           url: item.cover_big,
 								           width: 200,
 								           height: 200
 							           }}
@@ -105,7 +105,7 @@ const Home = () => {
 						           <PlayListItem
 							           WrapClassNames={'mr-3'}
 							           image={{
-								           url: item.picture_medium,
+								           url: item.picture_big,
 								           width: 200,
 								           height: 200
 							           }}

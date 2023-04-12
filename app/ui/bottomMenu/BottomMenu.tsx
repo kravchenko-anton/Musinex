@@ -14,7 +14,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 	return (
 		<View
 			style={{ paddingBottom: bottom + 5 }}
-			className='flex-row bg-[#D9D7D5] h-[65px] pt-0  items-center pl-10 pr-10 w-full  justify-between'
+			className='flex-row bg-[#151515] h-[65px] pt-0 items-center pl-10 pr-10 w-full  justify-between'
 		>
 			{menuItems.map(item => (
 				<MenuItem

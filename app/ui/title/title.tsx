@@ -22,6 +22,7 @@ const Title: FC<ITitle> = (props, { ...rest }) => {
 				fontSize: props.size || 20,
 				letterSpacing: -3,
 				textAlign: props.center ? 'center' : 'auto',
+				color: 'white',
 			}}
 			{...rest}
 		>

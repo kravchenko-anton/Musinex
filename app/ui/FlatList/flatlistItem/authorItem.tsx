@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { View } from 'react-native'
 import { IFlatListArtistItem } from '../../../types/FlatListTypes'
-import GrayScaleImage from '../../image/grayScaleImage'
+import UImage from '../../image/Image'
 import Title from '../../title/title'
 
 
@@ -12,7 +12,7 @@ const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 			width: props.image.width,
 			maxWidth: props.image.width,
 		}}  {...rest}>
-			<GrayScaleImage
+			<UImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}
 				height={props.image.height}

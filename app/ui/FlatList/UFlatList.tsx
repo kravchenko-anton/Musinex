@@ -23,7 +23,7 @@ const UFlatList = <T,>({ data,
 					<Title text={headerText} fontFamily={'Silkscreen_700Bold'} />
 					<View className='flex-row items-center'>
 						<Title text={'See More'} fontFamily={'Silkscreen_700Bold'} classNames='mr-1 mb-1' />
-						<Ionicons name='ios-arrow-forward' size={20} color='black' />
+						<Ionicons name='ios-arrow-forward' size={20} color='white' />
 					</View>
 				</View>
 			) : null}

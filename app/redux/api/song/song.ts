@@ -1,69 +1,42 @@
 import { api } from '../api'
-import { IGetMp3Data } from './types/IGetMp3FromSong'
-import { IGetTackByName } from './types/IGetTackByName'
-import { IGetTrackById } from './types/IGetTrackById'
-import { ISearch } from './types/Isearch'
+import { IdownloadTrackMp3 } from './types/IDownloadTrackMp3'
+import { IGetTrackByID } from './types/IGetTrackById'
+import { IGetTrackMp3ByName } from './types/IGetTrackMp3ByName'
 
 export const songApi = api.injectEndpoints({
 	endpoints: build => ({
-		search: build.query<ISearch, string>({
-			query: term => {
-				return {
-					url: '/search',
-					params: {
-						term,
-						type: 'all'
-					}
-				}
-			}
+		getTrackById: build.query<IGetTrackByID, number>({
+			query: id => ({
+				url: `/track/${id}`,
+			})
 		}),
-
-		getTrackByName: build.query<IGetTackByName, string>({
-			query: name => {
-				return {
-					url: '/track/search',
-					params: {
-						name
-					}
+		
+		getTrackMp3ByName: build.query<IGetTrackMp3ByName, string>({
+			query: name => ({
+				url: `https://soundcloud-downloader4.p.rapidapi.com/soundcloud/search`,
+				headers: {
+					'X-RapidAPI-Key': 'a08cec9b1amsh117eefa08d68c14p189742jsnd51114c548ec',
+					'X-RapidAPI-Host': 'soundcloud-downloader4.p.rapidapi.com'
+				},
+				params: {
+					query: name
 				}
-			}
+			})
 		}),
-		getTrackById: build.query<IGetTrackById, string>({
-			query: id => {
-				return {
-					url: '/track/metadata',
-					params: {
-						trackId: id
-					}
+		downloadTrackMp3: build.query<IdownloadTrackMp3, string>({
+			query: url => ({
+				url: "https://soundcloud-downloader4.p.rapidapi.com/soundcloud/track",
+				headers: {
+					'X-RapidAPI-Key': 'a08cec9b1amsh117eefa08d68c14p189742jsnd51114c548ec',
+					'X-RapidAPI-Host': 'soundcloud-downloader4.p.rapidapi.com'
+				},
+				params: {
+					url
 				}
-			}
-		}),
-		getTrackLyricsById: build.query<string, string>({
-			query: id => {
-				return {
-					url: '/track/lyrics',
-					params: {
-						trackId: id
-					}
-				}
-			}
-		}),
-		getTrackMP3ByName: build.query<IGetMp3Data, string>({
-			query: name => {
-				return {
-					url: '/track/download/soundcloud',
-					params: {
-						track: name
-					}
-				}
-			}
+			})
 		})
 	})
 })
 export const {
-	useSearchQuery,
-	useGetTrackByNameQuery,
-	useGetTrackByIdQuery,
-	useGetTrackLyricsByIdQuery,
-	useGetTrackMP3ByNameQuery
+
 } = songApi

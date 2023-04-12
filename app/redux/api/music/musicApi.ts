@@ -1,16 +1,20 @@
 import { api } from '../api'
-import { IgetTopSong } from './types/IgetTopSong'
+import { IChart } from './types/IChart'
+import { ISearch } from './types/ISearch'
 
-// getTopSong types === getTopVirusSong	types
 
 export const musicApi = api.injectEndpoints({
 	endpoints: build => ({
-		getTopSong: build.query<IgetTopSong, null>({
-			query: () => '/chart/tracks/top'
+		getChart: build.query<IChart, null>({
+			query: () => ({
+				url: '/chart?limit=100',
+			})
 		}),
-		getTopVirusSong: build.query<IgetTopSong, null>({
-			query: () => '/chart/tracks/viral'
-		})
+		search: build.query<ISearch, string>({
+			query: term => ({
+				url: `/search${term}`,
+			})
+		}),
 	})
 })
-export const { useGetTopSongQuery, useGetTopVirusSongQuery } = musicApi
+export const {  } = musicApi

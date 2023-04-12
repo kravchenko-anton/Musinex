@@ -1,22 +1,14 @@
 import { FontAwesome5 } from '@expo/vector-icons'
 import { ScrollView } from 'react-native'
+import { useGetChartQuery } from '../../redux/api/api'
 import Header from '../../ui/header/header'
 import Layout from '../../ui/Layout/Layout'
 import Title from '../../ui/title/title'
 
 const Home = () => {
-	// const { data:topSong } = useGetTopSongQuery(null)
-	// const { data:virusSong } = useGetTopVirusSongQuery(null, {
-	// 	skip: !topSong
-	// })
-	// const {data: artist} = useListTopArtistsQuery(null, {
-	// 	skip: !virusSong
-	// })
-	// const {data: album} = useListTopWeeklyAlbumQuery(null, {
-	// 	skip: !artist
-	// })
-	// console.log(virusSong, topSong, artist,	album)
-	// if (!topSong || !virusSong || !artist || !album) return <FullScreenLoader/>
+
+		const {data} = useGetChartQuery(null)
+	
 	return (
 		<Layout>
 			<ScrollView showsVerticalScrollIndicator={false}>

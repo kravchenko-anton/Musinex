@@ -1,30 +1,22 @@
 import { api } from '../api'
-import { ISearchPlayListById } from './types/ISearchPlayListById'
-import { ISearchPlayListContentById } from './types/ISearchPlayListContentById'
+import { IPlayListByID } from './types/IGetPlaylistById'
+import { IPlayListTrack } from './types/IGetPlayListTrack'
 
 export const playlistApi = api.injectEndpoints({
 	endpoints: build => ({
-		searchPlayListById: build.query<ISearchPlayListById, string>({
-			query: id => {
-				return {
-					url: '/playlist/metadata',
-					params: {
-						playlistId: id
-					}
-				}
-			}
+		
+		getPlaylistById: build.query<IPlayListByID, number>({
+			query: id => ({
+				url: `/playlist/${id}`,
+			})
 		}),
-		searchPlayListContentById: build.query<ISearchPlayListContentById, string>({
-			query: id => {
-				return {
-					url: '/playlist/contents',
-					params: {
-						playlistId: id
-					}
-				}
-			}
-		})
+		getPlaylistTracks: build.query<IPlayListTrack, number>({
+			query: id => ({
+				url: `/playlist/${id}/tracks`,
+			})
+		}),
+		
 	})
 })
-export const { useSearchPlayListByIdQuery, useSearchPlayListContentByIdQuery } =
+export const {  } =
 	playlistApi

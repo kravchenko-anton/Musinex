@@ -1,8 +1,4 @@
-import {
-	Silkscreen_400Regular,
-	Silkscreen_700Bold,
-	useFonts
-} from '@expo-google-fonts/silkscreen'
+import { Silkscreen_400Regular, Silkscreen_700Bold, useFonts } from '@expo-google-fonts/silkscreen'
 import React, { FC } from 'react'
 
 import { Text } from 'react-native'
@@ -25,7 +21,7 @@ const Title: FC<ITitle> = (props, { ...rest }) => {
 				fontFamily: props.fontFamily || 'Silkscreen_400Regular',
 				fontSize: props.size || 20,
 				letterSpacing: -3,
-				textAlign: props.center ? 'center' : 'left'
+				textAlign: props.center ? 'center' : 'auto',
 			}}
 			{...rest}
 		>

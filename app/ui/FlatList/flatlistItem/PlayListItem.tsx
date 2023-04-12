@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { View } from 'react-native'
-import { IFlatListAlbumItem } from '../../../types/FlatListTypes'
+import { IFlatListPlayListItem } from '../../../types/FlatListTypes'
 import GrayScaleImage from '../../image/grayScaleImage'
 import Title from '../../title/title'
 
-const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
+const PlayListItem: FC<IFlatListPlayListItem> = (props, { ...rest }) => {
 	return (
 		<View className={props.WrapClassNames}  style={{
 			width: props.image.width,
@@ -18,7 +18,7 @@ const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
 			/>
 			<View style={{
 				marginTop: 5,
-				alignItems: "center"
+			alignItems: "center"
 			}}>
 			<Title
 				text={props.name}
@@ -34,4 +34,4 @@ const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
 	)
 }
 
-export default AlbumItem
+export default PlayListItem

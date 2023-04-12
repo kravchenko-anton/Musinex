@@ -4298,6 +4298,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^16.0.3":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: abce82d99b45e2ebbd42625a78cadbfafe03072c15e6538b6a3a7ed204b6e091c0de929dd09231edc61f78afbdcd5b8a2f21b9e933e8ab27d75bee865a0e58c9
+  languageName: node
+  linkType: hard
+
 "dup@npm:^1.0.0":
   version: 1.0.0
   resolution: "dup@npm:1.0.0"
@@ -7253,6 +7260,7 @@ __metadata:
     react-hook-form: "npm:^7.43.9"
     react-native: "npm:0.71.6"
     react-native-color-matrix-image-filters: "npm:^6.0.3"
+    react-native-dotenv: "npm:^3.4.8"
     react-native-gesture-handler: "npm:^2.9.0"
     react-native-gl-image-filters: "npm:^0.5.0"
     react-native-safe-area-context: "npm:^4.5.0"
@@ -8381,6 +8389,17 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 6ba87e1339c33ac05f10bb1dd5ff87de4f0ea4424b99bbbb08100b2cc264cb620efbf8f736680be1d1fbecf78fb8f5eef9d32f8b21b02e1be6afabdf862cba88
+  languageName: node
+  linkType: hard
+
+"react-native-dotenv@npm:^3.4.8":
+  version: 3.4.8
+  resolution: "react-native-dotenv@npm:3.4.8"
+  dependencies:
+    dotenv: "npm:^16.0.3"
+  peerDependencies:
+    "@babel/runtime": ^7.20.6
+  checksum: fb415771684333fc82aa0e5fe6ceabb1b6ed8e72b6988cd3b63a03a401842787f3485318596b3b43b67b28bac18d3a6a5e8ab55277935b54d4dc1811ae522973
   languageName: node
   linkType: hard
 

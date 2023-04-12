@@ -8,7 +8,10 @@ import Title from '../../title/title'
 
 const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 	return (
-		<View className={props.WrapClassNames} {...rest}>
+		<View className={props.WrapClassNames}  style={{
+			width: props.image.width,
+			maxWidth: props.image.width,
+		}}  {...rest}>
 			<GrayScaleImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}
@@ -17,11 +20,10 @@ const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 			/>
 			<View style={{
 				marginTop: 5,
-				width:	props.image.width - 10
+		alignItems: "center"
 			}}>
 			<Title
 				text={props.name}
-				center
 				numberOfLines={1}
 			/>
 		

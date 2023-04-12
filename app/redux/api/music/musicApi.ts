@@ -17,4 +17,7 @@ export const musicApi = api.injectEndpoints({
 		}),
 	})
 })
-export const {  } = musicApi
+export const {
+	useGetChartQuery,
+	useSearchQuery,
+} = musicApi

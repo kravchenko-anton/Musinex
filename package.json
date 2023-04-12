@@ -30,6 +30,7 @@
 		"react-hook-form": "^7.43.9",
 		"react-native": "0.71.6",
 		"react-native-color-matrix-image-filters": "^6.0.3",
+		"react-native-dotenv": "^3.4.8",
 		"react-native-gesture-handler": "^2.9.0",
 		"react-native-gl-image-filters": "^0.5.0",
 		"react-native-safe-area-context": "^4.5.0",

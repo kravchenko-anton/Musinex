@@ -8,7 +8,7 @@ export interface IFlatListItem extends ViewProps {
 		width: number
 		height: number
 	}
-	songId: string
+	songId: number
 	ImageClassNames?: string
 	WrapClassNames?: string
 }
@@ -21,14 +21,27 @@ export interface IFlatListAlbumItem extends ViewProps {
 		width: number
 		height: number
 	}
-	albumId: string
+	albumId: number
 	ImageClassNames?: string
 	WrapClassNames?: string
 }
 
 export interface IFlatListArtistItem extends ViewProps {
 	name: string
-	authorId: string
+	authorId: number
+	image: {
+		url: string
+		width: number
+		height: number
+	}
+	ImageClassNames?: string
+	WrapClassNames?: string
+}
+
+export interface IFlatListPlayListItem extends ViewProps {
+	name: string
+	PlayListId: number
+	artists: string
 	image: {
 		url: string
 		width: number

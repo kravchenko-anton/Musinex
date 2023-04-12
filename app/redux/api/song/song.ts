@@ -15,7 +15,7 @@ export const songApi = api.injectEndpoints({
 			query: name => ({
 				url: `https://soundcloud-downloader4.p.rapidapi.com/soundcloud/search`,
 				headers: {
-					'X-RapidAPI-Key': 'a08cec9b1amsh117eefa08d68c14p189742jsnd51114c548ec',
+					'X-RapidAPI-Key': process.env.RAPID_API,
 					'X-RapidAPI-Host': 'soundcloud-downloader4.p.rapidapi.com'
 				},
 				params: {
@@ -27,7 +27,7 @@ export const songApi = api.injectEndpoints({
 			query: url => ({
 				url: "https://soundcloud-downloader4.p.rapidapi.com/soundcloud/track",
 				headers: {
-					'X-RapidAPI-Key': 'a08cec9b1amsh117eefa08d68c14p189742jsnd51114c548ec',
+					'X-RapidAPI-Key': process.env.RAPID_API,
 					'X-RapidAPI-Host': 'soundcloud-downloader4.p.rapidapi.com'
 				},
 				params: {

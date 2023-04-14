@@ -12,12 +12,7 @@ export interface IFlatList<T> extends Omit<FlatListProps<T>, "renderToHardwareTe
 	headerNavigate?: () => void
 }
 
-const UFlatList = <T,>({ data,
-	                       renderItem,
-	                       header,
-	headerNavigate,
-	                       wrapClassNames, headerText,
-	                       ...rest }: IFlatList<T>) => {
+const UFlatList = <T,>({ data, renderItem, header, headerNavigate, wrapClassNames, headerText, ...rest }: IFlatList<T>) => {
 	return (
 		<View className={wrapClassNames}>
 			{header && headerText ? (

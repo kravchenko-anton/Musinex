@@ -1,16 +1,18 @@
 import { api } from '../api'
+import { IGetAllGenre } from './types/IGetAllGenre'
+import { IGetChartInGenre } from './types/IGetChartInGenre'
 
 
 export const musicApi = api.injectEndpoints({
 	endpoints: build => ({
-		getAllGenre: build.query({
+		getAllGenre: build.query<IGetAllGenre, null>({
 			query: () => ({
 				url: '/genre',
 			})
 		}),
-		getChartInGenre: build.query({
+		getChartInGenre: build.query<IGetChartInGenre, number>({
 			query: id => ({
-				url: `/https://api.deezer.com/editorial/${id}/charts`,
+				url: `/editorial/${id}/charts`,
 			})
 		}),
 	})

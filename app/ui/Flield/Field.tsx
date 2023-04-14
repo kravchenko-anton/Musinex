@@ -23,14 +23,18 @@ const Field = <T extends Record<string, any>>({
 						borderWidth: error		? 1 : 0,
 					}}
 						className={
-							'bg-darkGray w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
+							'bg-white w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
 					>
 						<TextInput
 							autoCapitalize={'none'}
 							onChangeText={onChange}
-							onBlur={onBlur}
+							onBlur={onBlur} style={{
+								fontFamily: 'Silkscreen_700Bold',
+							letterSpacing: -1,
+						}}
+							placeholderTextColor={'#000'}
 							value={(value || '').toString()}
-							className='text-white text-base'
+							className='text-primaryBlack text-base'
 							{...rest}
 						/>
 					</View>

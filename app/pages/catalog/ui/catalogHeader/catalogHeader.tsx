@@ -36,7 +36,7 @@ const CatalogHeader:FC<ICatalogHeaderProps> = (props) => {
 					}
 				]}
 
-				className='bg-[#0D0404]'
+				className='bg-primaryBlack'
 			/>
 			<BlurButton	icon='arrow-back' onPress={goBack}/>
 			

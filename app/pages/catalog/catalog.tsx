@@ -13,9 +13,9 @@ const Catalog = () => {
 	const y = useRef(new Animated.Value(0)).current
 	console.log(params)
 	return <Layout className={'p-0'}>
-			<CatalogHeader title={'Top Song'} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y}/>
+			<CatalogHeader title={params.headerText} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y}/>
 			<CatalogBackground poster={params.headerImage} y={y}/>
-		<CatalogContent musicList={params.data} y={y} />
+		<CatalogContent headerTitle={params.headerText} musicList={params.data} y={y} />
 	</Layout>
 }
 

@@ -5,9 +5,9 @@ import Title from '../title/title'
 
 export interface IFlatList<T> extends Omit<FlatListProps<T>, "renderToHardwareTextureAndroid" | "bounces"> {
 	data: T[]
-	headerText: string
 	renderItem: ListRenderItem<T>
 	header?: boolean
+	headerText?: string
 	wrapClassNames?: string
 	headerNavigate?: () => void
 }
@@ -20,7 +20,7 @@ const UFlatList = <T,>({ data,
 	                       ...rest }: IFlatList<T>) => {
 	return (
 		<View className={wrapClassNames}>
-			{header ? (
+			{header && headerText ? (
 				<View className='flex-row justify-between items-center mb-3'>
 					<Title text={headerText} fontFamily={'Silkscreen_700Bold'} />
 					<Pressable onPress={headerNavigate} className='flex-row items-center'>

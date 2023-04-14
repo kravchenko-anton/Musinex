@@ -14,8 +14,8 @@ import Title from '../../ui/title/title'
 
 const Home = () => {
 		const {data: chart} = useGetChartQuery(null)
-		if (!chart) return <FullScreenLoader/>
 		const {navigate} = useTypedNavigation()
+		if (!chart) return <FullScreenLoader/>
 		return (
 			<Layout>
 			<ScrollView showsVerticalScrollIndicator={false}>
@@ -40,7 +40,7 @@ const Home = () => {
 					}
 				}),
 				headerText: 'Top Song',
-				headerImage: chart.tracks.data[1].album.cover_big,
+				headerImage: chart.tracks.data[0].album.cover_big,
 			})}
 				showsHorizontalScrollIndicator={false}
 				horizontal

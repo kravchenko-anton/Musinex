@@ -27,7 +27,7 @@ const Navigation = () => {
 			<Stack.Navigator
 				initialRouteName={'Home'}
 				screenOptions={{
-					animation: 'slide_from_bottom',
+					animation: 'slide_from_right',
 					headerShown: false,
 					contentStyle: { backgroundColor: '#101010' }
 				}}

@@ -5,16 +5,17 @@ import React, { FC, useRef } from 'react'
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { ICatalogTypes } from '../../../../types/catalogTypes'
 import FullScreenLoader from '../../../../ui/Loader/FullScreenLoader'
-import Title from '../../../../ui/title/title'
 import { HEADER_HEIGHT } from '../../catalogConstant'
+import MusicItem from '../musicItem/musicItem'
 import CatalogContentHeader from './catalogContentHeader'
 
 export interface ICatalogContent {
 	musicList: ICatalogTypes[]
+	headerTitle: string
 	y: Animated.Value
 }
 
-const CatalogContent:FC<ICatalogContent> = ({y, musicList}) => {
+const CatalogContent:FC<ICatalogContent> = ({y, musicList, headerTitle}) => {
 	if (!musicList) return <FullScreenLoader/>
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
@@ -38,18 +39,16 @@ const CatalogContent:FC<ICatalogContent> = ({y, musicList}) => {
 			}}
 		>
 	
-	<CatalogContentHeader title={'Top Song'} y={y}/>
+	<CatalogContentHeader description={'by ' + musicList[0].artist + ' and other'} title={headerTitle} y={y}/>
 			<LinearGradient
 				style={{ ...StyleSheet.absoluteFillObject, height: HEADER_HEIGHT /0.8}}
 				start={[0, 0.1]}
 				end={[0, 0.8]}
 				colors={['transparent', '#101010']}
 			/>
-			<View className='bg-[#101010] px-6 pt-1 pb-24'>
+			<View className='bg-[#101010] px-6 pt-1 pb-5'>
 				{musicList.map((item) => {
-					return <View>
-						<Title text={item.title} />
-					</View>
+					return <MusicItem key={item.id} artist={item.artist} title={item.title} image={item.image} likeFunc={() => console.log(1)} />
 				})}
 			</View>
 		</Animated.ScrollView>

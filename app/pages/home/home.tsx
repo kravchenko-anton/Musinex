@@ -1,5 +1,5 @@
-import { FontAwesome5 } from '@expo/vector-icons'
 import { ScrollView } from 'react-native'
+import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetChartQuery } from '../../redux/api/music/musicApi'
 import AlbumItem from '../../ui/FlatList/flatlistItem/AlbumItem'
 import AuthorItem from '../../ui/FlatList/flatlistItem/authorItem'
@@ -7,19 +7,20 @@ import PlayListItem from '../../ui/FlatList/flatlistItem/PlayListItem'
 import TrackItem from '../../ui/FlatList/flatlistItem/trackItem'
 import UFlatList from '../../ui/FlatList/UFlatList'
 import Header from '../../ui/header/header'
+import Icon from '../../ui/icon/defaultIcon/Icon'
 import Layout from '../../ui/Layout/Layout'
 import FullScreenLoader from '../../ui/Loader/FullScreenLoader'
 import Title from '../../ui/title/title'
 
 const Home = () => {
-
 		const {data: chart} = useGetChartQuery(null)
 		if (!chart) return <FullScreenLoader/>
-	return (
+		const {navigate} = useTypedNavigation()
+		return (
 			<Layout>
 			<ScrollView showsVerticalScrollIndicator={false}>
-			<Header className={'mb-5'} logoSize={24}>
-				<FontAwesome5 name='bell' size={26} color='white' />
+			<Header className={'mb-5'} logoSize={30}>
+	<Icon  name={'mail'} size={24} borderRadius={100} padding={10} />
 			</Header>
 			<Title
 				size={40}
@@ -28,7 +29,19 @@ const Home = () => {
 				fontFamily={'Silkscreen_700Bold'}
 				text={'Select you music! '}
 			/>
-			<UFlatList headerText={'Top Song'}
+			<UFlatList headerText={'Top Song'} headerNavigate={() => navigate('catalog', {
+				data: chart.tracks.data.map((item) => {
+					return {
+						id: item.id,
+						title: item.title,
+						image: item.album.cover_medium,
+						artist: item.artist.name,
+						playTime:	item.duration,
+					}
+				}),
+				headerText: 'Top Song',
+				headerImage: chart.tracks.data[1].album.cover_big,
+			})}
 				showsHorizontalScrollIndicator={false}
 				horizontal
 				header
@@ -38,7 +51,7 @@ const Home = () => {
 						<TrackItem
 							ImageClassNames={'rounded-lg'}
 							WrapClassNames={'mr-3 '}
-							name={item.title}
+							name={item.title_short}
 							artists={item.artist.name}
 							image={{
 								url: item.album.cover_big,
@@ -94,6 +107,7 @@ const Home = () => {
 					           )
 				           }}
 				/>
+				
 				
 				<UFlatList headerText={'Top PlayList'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}

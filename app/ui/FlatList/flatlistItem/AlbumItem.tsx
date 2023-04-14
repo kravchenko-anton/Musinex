@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { View } from 'react-native'
 import { IFlatListAlbumItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
@@ -34,4 +34,4 @@ const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
 	)
 }
 
-export default AlbumItem
+export default memo(AlbumItem)

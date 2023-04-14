@@ -2,51 +2,31 @@ import { ViewProps } from 'react-native'
 
 export interface IFlatListItem extends ViewProps {
 	name: string
-	artists: string
 	image: {
 		url: string
 		width: number
 		height: number
 	}
+	ImageClassNames?: string
+	WrapClassNames?: string
+}
+
+export interface IFlatListSongItem extends IFlatListItem {
+	artists: string
 	songId: number
-	ImageClassNames?: string
-	WrapClassNames?: string
 }
 
-export interface IFlatListAlbumItem extends ViewProps {
-	name: string
+
+export interface IFlatListAlbumItem extends IFlatListItem {
 	artists: string
-	image: {
-		url: string
-		width: number
-		height: number
-	}
 	albumId: number
-	ImageClassNames?: string
-	WrapClassNames?: string
 }
 
-export interface IFlatListArtistItem extends ViewProps {
-	name: string
+export interface IFlatListArtistItem extends IFlatListItem {
 	authorId: number
-	image: {
-		url: string
-		width: number
-		height: number
-	}
-	ImageClassNames?: string
-	WrapClassNames?: string
 }
 
-export interface IFlatListPlayListItem extends ViewProps {
-	name: string
+export interface IFlatListPlayListItem extends IFlatListItem  {
 	PlayListId: number
 	artists: string
-	image: {
-		url: string
-		width: number
-		height: number
-	}
-	ImageClassNames?: string
-	WrapClassNames?: string
 }

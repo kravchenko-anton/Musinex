@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 
 import { View } from 'react-native'
-import { IFlatListItem } from '../../../types/FlatListTypes'
+import { IFlatListSongItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
 import Title from '../../title/title'
 
 
-const TrackItem: FC<IFlatListItem> = (props, { ...rest }) => {
+const TrackItem: FC<IFlatListSongItem> = (props, { ...rest }) => {
 	return (
 		<View className={props.WrapClassNames} style={{
 			width: props.image.width,
@@ -36,4 +36,4 @@ const TrackItem: FC<IFlatListItem> = (props, { ...rest }) => {
 	)
 }
 
-export default TrackItem
+export default memo(TrackItem)

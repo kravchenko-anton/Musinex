@@ -10,7 +10,7 @@ export default function App() {
 		<Provider store={store}>
 			<SafeAreaProvider>
 				<Navigation />
-				<StatusBar style='dark' />
+				<StatusBar style='light' />
 				<Toast />
 			</SafeAreaProvider>
 		</Provider>

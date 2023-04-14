@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 
 import { View } from 'react-native'
 import { IFlatListArtistItem } from '../../../types/FlatListTypes'
@@ -32,4 +32,4 @@ const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 	)
 }
 
-export default AuthorItem
+export default memo(AuthorItem)

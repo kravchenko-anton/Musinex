@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { View } from 'react-native'
 import { IFlatListPlayListItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
@@ -34,4 +34,4 @@ const PlayListItem: FC<IFlatListPlayListItem> = (props, { ...rest }) => {
 	)
 }
 
-export default PlayListItem
+export default memo(PlayListItem)

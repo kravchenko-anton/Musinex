@@ -1,12 +1,12 @@
 import React, { FC, memo } from 'react'
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { IFlatListAlbumItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
 import Title from '../../title/title'
 
 const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
 	return (
-		<View className={props.WrapClassNames}  style={{
+		<Pressable className={props.WrapClassNames}  style={{
 			width: props.image.width,
 			maxWidth: props.image.width,
 		}}  {...rest}>
@@ -31,7 +31,7 @@ const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
 				color={'silver'}
 			/>
 			</View>
-		</View>
+		</Pressable>
 	)
 }
 

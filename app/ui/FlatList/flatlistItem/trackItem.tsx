@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react'
 
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { IFlatListSongItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
 import Title from '../../title/title'
@@ -8,7 +8,7 @@ import Title from '../../title/title'
 
 const TrackItem: FC<IFlatListSongItem> = (props, { ...rest }) => {
 	return (
-		<View className={props.WrapClassNames} style={{
+		<Pressable className={props.WrapClassNames} style={{
 			width: props.image.width,
 			maxWidth: props.image.width,
 		}} {...rest}>
@@ -34,7 +34,7 @@ const TrackItem: FC<IFlatListSongItem> = (props, { ...rest }) => {
 				
 			/>
 			</View>
-		</View>
+		</Pressable>
 	)
 }
 

@@ -56,7 +56,19 @@ const Home = () => {
 					)
 				}}
 			/>
-				<UFlatList headerText={'Top Author'} wrapClassNames={'mt-10 mb-5'}
+				<UFlatList  headerNavigate={() => navigate('catalog', {
+					data: chart.artists.data.map((item) => {
+						return {
+							id: item.id,
+							title: item.name,
+							image: item.picture_big,
+							artist: item.name,
+						}
+					}),
+					headerText: chart.artists.data[0].name,
+					headerImage: chart.artists.data[0].picture_big,
+				})}
+					headerText={'Top Author'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -79,7 +91,19 @@ const Home = () => {
 				/>
 	
 				
-				<UFlatList headerText={'Top Album'} wrapClassNames={'mt-10 mb-5'}
+				<UFlatList headerNavigate={() => navigate('catalog', {
+					data: chart.albums.data.map((item) => {
+						return {
+							id: item.id,
+							title: item.title,
+							image: item.cover_medium,
+							artist: item.artist.name,
+						}
+					}),
+					headerText: chart.albums.data[0].title,
+					headerImage: chart.albums.data[0].cover_big,
+				})}
+					headerText={'Top Album'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -102,7 +126,19 @@ const Home = () => {
 				/>
 				
 				
-				<UFlatList headerText={'Top PlayList'} wrapClassNames={'mt-10 mb-5'}
+				<UFlatList  headerNavigate={() => navigate('catalog', {
+					data: chart.playlists.data.map((item) => {
+						return {
+							id: item.id,
+							title: item.title,
+							image: item.picture_big,
+							artist: item.user.name,
+						}
+					}),
+					headerText: chart.playlists.data[0].title,
+					headerImage: chart.playlists.data[0].picture_big,
+				})}
+					headerText={'Top PlayList'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header

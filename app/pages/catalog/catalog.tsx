@@ -11,7 +11,6 @@ import CatalogHeader from './ui/catalogHeader/catalogHeader'
 const Catalog = () => {
 	const {params} = useTypedRoute<"catalog">()
 	const y = useRef(new Animated.Value(0)).current
-	console.log(params)
 	return <Layout className={'p-0'}>
 			<CatalogHeader title={params.headerText} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y}/>
 			<CatalogBackground poster={params.headerImage} y={y}/>

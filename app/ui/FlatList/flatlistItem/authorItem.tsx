@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react'
 
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { IFlatListArtistItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
 import Title from '../../title/title'
@@ -8,10 +8,10 @@ import Title from '../../title/title'
 
 const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 	return (
-		<View className={props.WrapClassNames}  style={{
+		<Pressable className={props.WrapClassNames}  style={{
 			width: props.image.width,
 			maxWidth: props.image.width,
-		}}  {...rest}>
+		}}   {...rest}>
 			<UImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}
@@ -28,7 +28,7 @@ const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 			/>
 		
 			</View>
-		</View>
+		</Pressable>
 	)
 }
 

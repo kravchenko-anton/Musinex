@@ -18,7 +18,7 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	return (
 		<Pressable delayHoverIn={0} onPress={() => nav(item.path)}>
 			<View
-				style={{ backgroundColor: isActive ? '#000' : '#141414' }}
+				style={{ backgroundColor: isActive ? '#000' : '#151515' }}
 				className='items-center justify-center p-1.5 rounded-lg'
 			>
 				<Ionicons

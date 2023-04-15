@@ -29,8 +29,6 @@ const Field = <T extends Record<string, any>>({
 							autoCapitalize={'none'}
 							onChangeText={onChange}
 							onBlur={onBlur} style={{
-								fontFamily: 'Silkscreen_700Bold',
-							letterSpacing: -1,
 						}}
 							placeholderTextColor={'#000'}
 							value={(value || '').toString()}

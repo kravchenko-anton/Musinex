@@ -10,7 +10,6 @@ import Header from '../../ui/header/header'
 import Icon from '../../ui/icon/defaultIcon/Icon'
 import Layout from '../../ui/Layout/Layout'
 import FullScreenLoader from '../../ui/Loader/FullScreenLoader'
-import Title from '../../ui/title/title'
 
 const Home = () => {
 		const {data: chart} = useGetChartQuery(null)
@@ -20,15 +19,9 @@ const Home = () => {
 			<Layout>
 			<ScrollView showsVerticalScrollIndicator={false}>
 			<Header className={'mb-5'} logoSize={30}>
-	<Icon  name={'mail'} size={24} borderRadius={100} padding={10} />
+	<Icon name={'mail'} size={24} borderRadius={100} padding={10} />
 			</Header>
-			<Title
-				size={40}
-				numberOfLines={2}
-				classNames={'mb-4'}
-				fontFamily={'Silkscreen_700Bold'}
-				text={'Select you music! '}
-			/>
+	
 			<UFlatList headerText={'Top Song'} headerNavigate={() => navigate('catalog', {
 				data: chart.tracks.data.map((item) => {
 					return {

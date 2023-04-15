@@ -1,20 +1,18 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
+import Icon from '../icon/defaultIcon/Icon'
 import Title from '../title/title'
 import { IHeader } from './IHeader'
 
-const Header: FC<PropsWithChildren<IHeader>> = ({
-	children,
-	logoSize,
-	...rest
-}) => {
-	const {navigate} = useTypedNavigation()
+const NavigateHeader: FC<PropsWithChildren<IHeader>> = ({ children, logoSize, ...rest }) => {
+	const { goBack, navigate} = useTypedNavigation()
 	return (
 		<View className='flex-row justify-between items-center' {...rest}>
+			<Icon name={'arrow-back'} onPress={() => goBack()} size={logoSize} />
 			<Title
-				text={'Musinex'}
 				onPress={() => navigate('Home')}
+				text={'Musinex'}
 				fontFamily={'Montserrat_900Black_Italic'}
 				size={logoSize}
 			/>
@@ -23,4 +21,4 @@ const Header: FC<PropsWithChildren<IHeader>> = ({
 	)
 }
 
-export default Header
+export default NavigateHeader

@@ -20,6 +20,10 @@ export type TypeRootStackParamList = {
 	Song: undefined
 	Author: undefined
 	playList: undefined
+	genreCatalog: {
+	genreId: number
+	genreName: string
+	}
 	playLists: undefined
 }
 

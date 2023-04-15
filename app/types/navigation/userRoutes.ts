@@ -4,6 +4,7 @@ import Favorites from '../../pages/favorites/favorites'
 import Home from '../../pages/home/home'
 import playList from '../../pages/playLists/playList'
 import playLists from '../../pages/playLists/playLists'
+import GenreCatalog from '../../pages/search/genreCatalog/genreCatalog'
 import Search from '../../pages/search/search'
 import Settings from '../../pages/settings/settings'
 import Song from '../../pages/song/song'
@@ -21,6 +22,10 @@ export const userRoutes: iRoutes[] = [
 	{
 		name: 'catalog',
 		component: Catalog
+	},
+	{
+		name: 'genreCatalog',
+		component: GenreCatalog
 	},
 	{
 		name: 'favorites',

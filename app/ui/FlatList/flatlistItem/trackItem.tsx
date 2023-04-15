@@ -30,6 +30,8 @@ const TrackItem: FC<IFlatListSongItem> = (props, { ...rest }) => {
 				text={"by " + props.artists}
 				classNames={"mt-1"}
 				numberOfLines={1}
+				color={'silver'}
+				
 			/>
 			</View>
 		</View>

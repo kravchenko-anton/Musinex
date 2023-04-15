@@ -17,11 +17,13 @@ const UFlatList = <T,>({ data, renderItem, header, headerNavigate, wrapClassName
 		<View className={wrapClassNames}>
 			{header && headerText ? (
 				<View className='flex-row justify-between items-center mb-3'>
-					<Title text={headerText} fontFamily={'Silkscreen_700Bold'} />
+					<Title text={headerText} size={25} fontFamily={'Montserrat_500Medium'} />
+					{data.length > 5 ?
 					<Pressable onPress={headerNavigate} className='flex-row items-center'>
-						<Title text={'See More'} fontFamily={'Silkscreen_700Bold'} classNames='mr-1 mb-1' />
+						<Title text={'See More'} size={25} fontFamily={'Montserrat_500Medium'} classNames='mr-1 mb-1' />
 						<Ionicons name='ios-arrow-forward' size={20} color='white' />
 					</Pressable>
+					: null}
 				</View>
 			) : null}
 			<FlatList

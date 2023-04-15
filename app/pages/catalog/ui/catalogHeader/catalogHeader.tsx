@@ -49,7 +49,7 @@ const CatalogHeader:FC<ICatalogHeaderProps> = (props) => {
 					})
 				}}
 			>
-				<Title text={props.title} numberOfLines={1} fontFamily={'Silkscreen_700Bold'} center/>
+				<Title text={props.title} numberOfLines={1} fontFamily={'Montserrat_500Medium'} center/>
 			</Animated.View>
 			{props.rightIcon && <BlurButton icon={props.rightIcon} onPress={props.rightIconFunction}/>}
 		</View>

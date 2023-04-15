@@ -1,4 +1,24 @@
-import { Silkscreen_400Regular, Silkscreen_700Bold, useFonts } from '@expo-google-fonts/silkscreen'
+import {
+	Montserrat_100Thin,
+	Montserrat_100Thin_Italic,
+	Montserrat_200ExtraLight,
+	Montserrat_200ExtraLight_Italic,
+	Montserrat_300Light,
+	Montserrat_300Light_Italic,
+	Montserrat_400Regular,
+	Montserrat_400Regular_Italic,
+	Montserrat_500Medium,
+	Montserrat_500Medium_Italic,
+	Montserrat_600SemiBold,
+	Montserrat_600SemiBold_Italic,
+	Montserrat_700Bold,
+	Montserrat_700Bold_Italic,
+	Montserrat_800ExtraBold,
+	Montserrat_800ExtraBold_Italic,
+	Montserrat_900Black,
+	Montserrat_900Black_Italic,
+	useFonts
+} from '@expo-google-fonts/montserrat'
 import { Ionicons } from '@expo/vector-icons/'
 import React, { FC, PropsWithChildren } from 'react'
 import { Pressable, Text, View } from 'react-native'
@@ -7,8 +27,24 @@ import { Ibutton } from './Ibutton'
 
 const Button: FC<PropsWithChildren<Ibutton>> = (props, { ...rest }) => {
 	let [fontsLoaded] = useFonts({
-		Silkscreen_400Regular,
-		Silkscreen_700Bold
+		Montserrat_100Thin,
+		Montserrat_200ExtraLight,
+		Montserrat_300Light,
+		Montserrat_400Regular,
+		Montserrat_500Medium,
+		Montserrat_600SemiBold,
+		Montserrat_700Bold,
+		Montserrat_800ExtraBold,
+		Montserrat_900Black,
+		Montserrat_100Thin_Italic,
+		Montserrat_200ExtraLight_Italic,
+		Montserrat_300Light_Italic,
+		Montserrat_400Regular_Italic,
+		Montserrat_500Medium_Italic,
+		Montserrat_600SemiBold_Italic,
+		Montserrat_700Bold_Italic,
+		Montserrat_800ExtraBold_Italic,
+		Montserrat_900Black_Italic,
 	})
 	if (!fontsLoaded) {
 		return <FullScreenLoader />
@@ -64,7 +100,7 @@ const Button: FC<PropsWithChildren<Ibutton>> = (props, { ...rest }) => {
 					<Text
 						style={{
 							color: props.variant === 'dark' ? '#fff' : '#000',
-							fontFamily: 'Silkscreen_400Regular',
+							fontFamily: 'Rubik_400Regular',
 							fontSize: props.textSize
 								? props.textSize
 								: props.size === 'small'

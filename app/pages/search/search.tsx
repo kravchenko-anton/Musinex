@@ -29,7 +29,7 @@ const Search = () => {
 				width: '100%',
 				zIndex: 100
 			}} data={genre.data.slice(1,20)} renderItem={({ item }) => {
-				return <GenreItem name={item.name} picture_big={item.picture_big}/>
+				return <GenreItem id={item.id}  name={item.name} picture_big={item.picture_big}/>
 			}}/>
 		
 	</Layout>

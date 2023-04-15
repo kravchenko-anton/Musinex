@@ -7099,6 +7099,7 @@ __metadata:
     react-native-safe-area-context: "npm:^4.5.0"
     react-native-screens: "npm:^3.20.0"
     react-native-toast-message: "npm:^2.1.6"
+    react-native-track-player: "npm:^3.2.0"
     react-redux: "npm:^8.0.5"
     tailwindcss: "npm:^3.3.1"
     typescript: "npm:^4.9.4"
@@ -8247,6 +8248,20 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: fea8eca7573fc8571c7568eaaeb90c232b60c0c2ef82ed6821eb66865332d808918ebc1ff5aa123d29ee20bdd79e1fd773cb1384517db6e027e4cbbd971b104f
+  languageName: node
+  linkType: hard
+
+"react-native-track-player@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "react-native-track-player@npm:3.2.0"
+  peerDependencies:
+    react: ">=16.8.6"
+    react-native: ">=0.60.0-rc.2"
+    react-native-windows: ">=0.63.0"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 4a77df95683d248d60b9290a9d4e0574a90957e03f25c88709d08b5d7ffc28613dd8bf75ba666cbf1f6d119ae32896f950e62d02a5c4454372e836d503d19afa
   languageName: node
   linkType: hard
 

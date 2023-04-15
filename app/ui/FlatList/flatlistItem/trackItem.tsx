@@ -1,17 +1,21 @@
 import React, { FC, memo } from 'react'
 
 import { Pressable, View } from 'react-native'
+import { useTypedNavigation } from '../../../hook/useTypedNavigation'
 import { IFlatListSongItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
 import Title from '../../title/title'
 
 
 const TrackItem: FC<IFlatListSongItem> = (props, { ...rest }) => {
+	const {navigate} = useTypedNavigation()
 	return (
 		<Pressable className={props.WrapClassNames} style={{
 			width: props.image.width,
 			maxWidth: props.image.width,
-		}}  {...rest}>
+		}} {...rest} onPress={() => navigate('Song', {
+			id: props.songId,
+		})}>
 			<UImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}

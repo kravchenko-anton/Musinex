@@ -35,7 +35,7 @@ const CatalogContent:FC<ICatalogContent> = ({y, musicList, headerTitle}) => {
 				}
 			)}
 			contentContainerStyle={{
-				paddingTop: HEADER_HEIGHT / 1.3
+				paddingTop: HEADER_HEIGHT / 1.3,
 			}}
 		>
 	
@@ -46,7 +46,7 @@ const CatalogContent:FC<ICatalogContent> = ({y, musicList, headerTitle}) => {
 				end={[0, 0.8]}
 				colors={['transparent', '#101010']}
 			/>
-			<View className='bg-primaryBlack px-6 pt-1 pb-5'>
+			<View className='bg-primaryBlack px-3 pt-1 pb-5'>
 				{musicList.map((item) => {
 					return <MusicItem key={item.id} artist={item.artist} title={item.title} image={item.image} likeFunc={() => console.log(1)} />
 				})}

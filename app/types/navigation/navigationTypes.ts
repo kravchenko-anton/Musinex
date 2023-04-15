@@ -16,7 +16,9 @@ export type TypeRootStackParamList = {
 	
 	}
 	favorites: undefined
-	Song: undefined
+	Song: {
+		id: number
+	}
 	Author: undefined
 	playList: undefined
 	genreCatalog: {

@@ -12,7 +12,6 @@ import NavigateHeader from '../../../ui/header/navigateHeader'
 import Layout from '../../../ui/Layout/Layout'
 import FullScreenLoader from '../../../ui/Loader/FullScreenLoader'
 import Title from '../../../ui/title/title'
-import { cutString } from '../../../utils/cutString'
 
 const GenreCatalog:FC = () => {
 	const {params} = useTypedRoute<"genreCatalog">()
@@ -29,7 +28,7 @@ const GenreCatalog:FC = () => {
 			fontFamily={'Montserrat_900Black_Italic'}
 			text={params.genreName}
 		/>
-		<UFlatList headerText={cutString(params.genreName, 6) + ' Song'}
+		<UFlatList headerText={'Song'}
 		           showsHorizontalScrollIndicator={false}
 		           horizontal
 		           header
@@ -51,11 +50,11 @@ const GenreCatalog:FC = () => {
 			           )
 		           }}
 		/>
-		<UFlatList headerText={cutString(params.genreName, 6)  + ' Author'} wrapClassNames={'mt-10 mb-5'}
+		<UFlatList headerText={'Author'} wrapClassNames={'mt-10 mb-5'}
 		           showsHorizontalScrollIndicator={false}
 		           horizontal
 		           header
-		           data={chart.artists.data.slice(0, 10)}
+		           data={chart.artists.data.slice(1, 10)}
 		           renderItem={({ item }) => {
 			           return (
 				           <AuthorItem
@@ -74,7 +73,7 @@ const GenreCatalog:FC = () => {
 		/>
 		
 		
-		<UFlatList headerText={ cutString(params.genreName, 6)  + ' Album'} wrapClassNames={'mt-10 mb-5'}
+		<UFlatList headerText={ 'Album'} wrapClassNames={'mt-10 mb-5'}
 		           showsHorizontalScrollIndicator={false}
 		           horizontal
 		           header
@@ -97,7 +96,7 @@ const GenreCatalog:FC = () => {
 		/>
 		
 		
-		<UFlatList headerText={  cutString(params.genreName, 6)  + ' PlayList'} wrapClassNames={'mt-10 mb-5'}
+		<UFlatList headerText={'PlayList'} wrapClassNames={'mt-10 mb-5'}
 		           showsHorizontalScrollIndicator={false}
 		           horizontal
 		           header

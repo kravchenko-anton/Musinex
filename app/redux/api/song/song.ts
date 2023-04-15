@@ -38,5 +38,6 @@ export const songApi = api.injectEndpoints({
 	})
 })
 export const {
-
+	useGetTrackByIdQuery,
+	useGetTrackMp3ByNameQuery,
 } = songApi

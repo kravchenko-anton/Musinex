@@ -11,7 +11,7 @@ const TrackItem: FC<IFlatListSongItem> = (props, { ...rest }) => {
 		<Pressable className={props.WrapClassNames} style={{
 			width: props.image.width,
 			maxWidth: props.image.width,
-		}} {...rest}>
+		}}  {...rest}>
 			<UImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}

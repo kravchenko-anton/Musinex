@@ -11,7 +11,7 @@ const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 		<Pressable className={props.WrapClassNames}  style={{
 			width: props.image.width,
 			maxWidth: props.image.width,
-		}}   {...rest}>
+		}}    onPress={props.onPress} {...rest}>
 			<UImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}

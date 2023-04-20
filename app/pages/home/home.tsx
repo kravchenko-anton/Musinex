@@ -1,3 +1,4 @@
+import React from 'react'
 import { ScrollView } from 'react-native'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetChartQuery } from '../../redux/api/music/musicApi'

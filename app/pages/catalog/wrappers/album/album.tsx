@@ -8,7 +8,9 @@ const AlbumWrapperCatalog = () => {
 	const { data: album } = useGetAlbumByIdQuery(params.albumId)
 	const { data: tracks } = useGetAlbumTracksByIdQuery(params.albumId)
 	if (!album || !tracks) return <FullScreenLoader />
-	return <CatalogWithProps headerImage={album.cover_big} data={tracks.data.map(item => {
+	return <CatalogWithProps headerCatalogDescription={
+		album.release_date + ' • ' + album.nb_tracks + ' songs'
+	} headerImage={album.cover_big} data={tracks.data.map(item => {
 		return {
 			title: item.title,
 			image: album.cover_medium,

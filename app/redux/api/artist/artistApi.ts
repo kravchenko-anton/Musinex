@@ -11,7 +11,7 @@ export const artistApi = api.injectEndpoints({
 		}),
 		getArtistTracks: build.query<IGetArtistTrackByID, number>({
 			query: id => ({
-				url: `/artist/${id}/top?limit=50`
+				url: `/artist/${id}/top?limit=100`
 			})
 		})
 	})

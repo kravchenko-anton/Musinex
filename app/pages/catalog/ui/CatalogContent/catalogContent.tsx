@@ -13,10 +13,11 @@ export interface ICatalogContent {
 	musicList: ICatalogTypes[]
 	headerTitle: string
 	y: Animated.Value
+	description?: string
 }
 
-const CatalogContent:FC<ICatalogContent> = ({y, musicList, headerTitle}) => {
-	if (!musicList) return <FullScreenLoader/>
+const CatalogContent: FC<ICatalogContent> = ({ y, description, musicList, headerTitle }) => {
+	if (!musicList) return <FullScreenLoader />
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
 	return (
@@ -35,20 +36,22 @@ const CatalogContent:FC<ICatalogContent> = ({y, musicList, headerTitle}) => {
 				}
 			)}
 			contentContainerStyle={{
-				paddingTop: HEADER_HEIGHT / 1.3,
+				paddingTop: HEADER_HEIGHT / 1.3
 			}}
 		>
-	
-	<CatalogContentHeader description={'by ' + musicList[0].artist + ' and other'} title={headerTitle} y={y}/>
+			
+			<CatalogContentHeader description={description ? description : 'by ' + musicList[0].artist + ' and other'}
+			                      title={headerTitle} y={y} />
 			<LinearGradient
-				style={{ ...StyleSheet.absoluteFillObject, height: HEADER_HEIGHT /0.8}}
+				style={{ ...StyleSheet.absoluteFillObject, height: HEADER_HEIGHT / 0.8 }}
 				start={[0, 0.1]}
 				end={[0, 0.8]}
 				colors={['transparent', '#101010']}
 			/>
 			<View className='bg-primaryBlack px-3 pt-1 pb-5'>
 				{musicList.map((item) => {
-					return <MusicItem key={item.id} artist={item.artist} title={item.title} image={item.image} likeFunc={() => console.log(1)} />
+					return <MusicItem key={item.id} artist={item.artist} title={item.title} image={item.image}
+					                  likeFunc={() => console.log(1)} />
 				})}
 			</View>
 		</Animated.ScrollView>

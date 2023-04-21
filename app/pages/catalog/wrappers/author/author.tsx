@@ -8,7 +8,9 @@ const AuthorWrapperCatalog = () => {
 	const { data: artist } = useGetArtistByIdQuery(params.authorId)
 	const { data: tracks } = useGetArtistTracksQuery(params.authorId)
 	if (!artist || !tracks) return <FullScreenLoader />
-	return <CatalogWithProps headerImage={artist.picture_big} data={tracks.data.map(item => {
+	return <CatalogWithProps headerCatalogDescription={
+		artist.nb_album + ' albums • ' + artist.nb_fan + ' fans'
+	} headerImage={artist.picture_big} data={tracks.data.map(item => {
 		return {
 			title: item.title,
 			image: item.album.cover_big,

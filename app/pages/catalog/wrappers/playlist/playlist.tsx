@@ -7,8 +7,11 @@ const PlayListWrapperCatalog = () => {
 	const { params } = useTypedRoute<'PlayListWrapperCatalog'>()
 	const { data: playlist } = useGetPlaylistByIdQuery(params.playListId)
 	const { data: tracks } = useGetPlaylistTracksQuery(params.playListId)
+	console.log(tracks)
 	if (!playlist || !tracks) return <FullScreenLoader />
-	return <CatalogWithProps headerImage={playlist.picture_big} data={tracks.data.map(item => {
+	return <CatalogWithProps headerCatalogDescription={
+		playlist.nb_tracks + ' songs'
+	} headerImage={playlist.picture_big} data={tracks.data.map(item => {
 		return {
 			title: item.title,
 			image: item.album.cover_big,

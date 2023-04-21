@@ -11,7 +11,7 @@ export const albumApi = api.injectEndpoints({
 		}),
 		getAlbumTracksById: build.query<IGetAlbumTrackByID, number>({
 			query: id => ({
-				url: `/album/${id}/tracks`
+				url: `/album/${id}/tracks?limit=100`
 			})
 		})
 		

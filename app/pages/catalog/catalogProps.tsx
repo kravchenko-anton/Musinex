@@ -14,6 +14,7 @@ export interface ICatalogProps {
 		artist: string
 		id: number | string
 	}[]
+	headerCatalogDescription?: string
 }
 
 const CatalogWithProps: FC<ICatalogProps> = (props) => {
@@ -21,7 +22,8 @@ const CatalogWithProps: FC<ICatalogProps> = (props) => {
 	return <Layout className={'p-0'}>
 		<CatalogHeader title={props.headerText} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y} />
 		<CatalogBackground poster={props.headerImage} y={y} />
-		<CatalogContent headerTitle={props.headerText} musicList={props.data} y={y} />
+		<CatalogContent description={props.headerCatalogDescription} headerTitle={props.headerText} musicList={props.data}
+		                y={y} />
 	</Layout>
 }
 

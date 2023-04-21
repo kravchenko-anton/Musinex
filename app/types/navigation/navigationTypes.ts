@@ -13,7 +13,15 @@ export type TypeRootStackParamList = {
 			artist: string
 			id: number
 		}[]
-	
+	}
+	AuthorWrapperCatalog: {
+		authorId: number
+	}
+	AlbumWrapperCatalog: {
+		albumId: number
+	}
+	PlayListWrapperCatalog: {
+		playListId: number
 	}
 	favorites: undefined
 	Song: {
@@ -22,8 +30,8 @@ export type TypeRootStackParamList = {
 	Author: undefined
 	playList: undefined
 	genreCatalog: {
-	genreId: number
-	genreName: string
+		genreId: number
+		genreName: string
 	}
 	playLists: undefined
 }

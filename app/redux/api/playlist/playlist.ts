@@ -7,16 +7,19 @@ export const playlistApi = api.injectEndpoints({
 		
 		getPlaylistById: build.query<IPlayListByID, number>({
 			query: id => ({
-				url: `/playlist/${id}`,
+				url: `/playlist/${id}`
 			})
 		}),
 		getPlaylistTracks: build.query<IPlayListTrack, number>({
 			query: id => ({
-				url: `/playlist/${id}/tracks`,
+				url: `/playlist/${id}/tracks`
 			})
-		}),
+		})
 		
 	})
 })
-export const {  } =
+export const {
+	useGetPlaylistByIdQuery,
+	useGetPlaylistTracksQuery
+} =
 	playlistApi

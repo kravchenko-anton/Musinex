@@ -5,11 +5,11 @@ import Title from '../title/title'
 import { IHeader } from './IHeader'
 
 const Header: FC<PropsWithChildren<IHeader>> = ({
-	children,
-	logoSize,
-	...rest
-}) => {
-	const {navigate} = useTypedNavigation()
+	                                                children,
+	                                                logoSize = 30,
+	                                                ...rest
+                                                }) => {
+	const { navigate } = useTypedNavigation()
 	return (
 		<View className='flex-row justify-between items-center' {...rest}>
 			<Title

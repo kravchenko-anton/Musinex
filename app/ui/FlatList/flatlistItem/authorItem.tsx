@@ -5,13 +5,12 @@ import { IFlatListArtistItem } from '../../../types/FlatListTypes'
 import UImage from '../../image/Image'
 import Title from '../../title/title'
 
-
 const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 	return (
-		<Pressable className={props.WrapClassNames}  style={{
+		<Pressable className={props.WrapClassNames} style={{
 			width: props.image.width,
-			maxWidth: props.image.width,
-		}}    onPress={props.onPress} {...rest}>
+			maxWidth: props.image.width
+		}} onPress={props.onPress}  {...rest}>
 			<UImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}
@@ -20,13 +19,13 @@ const AuthorItem: FC<IFlatListArtistItem> = (props, { ...rest }) => {
 			/>
 			<View style={{
 				marginTop: 5,
-		alignItems: "center"
+				alignItems: 'center'
 			}}>
-			<Title
-				text={props.name}
-				numberOfLines={1}
-			/>
-		
+				<Title
+					text={props.name}
+					numberOfLines={1}
+				/>
+			
 			</View>
 		</Pressable>
 	)

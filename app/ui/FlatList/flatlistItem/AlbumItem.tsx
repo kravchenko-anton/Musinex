@@ -6,10 +6,11 @@ import Title from '../../title/title'
 
 const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
 	return (
-		<Pressable className={props.WrapClassNames}  style={{
+		<Pressable className={props.WrapClassNames} style={{
 			width: props.image.width,
-			maxWidth: props.image.width,
-		}}  {...rest}>
+			maxWidth: props.image.width
+		}} onPress={props.onPress}
+		           {...rest}>
 			<UImage
 				classNames={props.ImageClassNames}
 				source={props.image.url}
@@ -18,18 +19,18 @@ const AlbumItem: FC<IFlatListAlbumItem> = (props, { ...rest }) => {
 			/>
 			<View style={{
 				marginTop: 5,
-				alignItems: "center"
+				alignItems: 'center'
 			}}>
-			<Title
-				text={props.name}
-				numberOfLines={1}
-			/>
-			<Title
-				text={"by " + props.artists}
-				classNames={"mt-1"}
-				numberOfLines={1}
-				color={'silver'}
-			/>
+				<Title
+					text={props.name}
+					numberOfLines={1}
+				/>
+				<Title
+					text={'by ' + props.artists}
+					classNames={'mt-1'}
+					numberOfLines={1}
+					color={'silver'}
+				/>
 			</View>
 		</Pressable>
 	)

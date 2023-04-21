@@ -6,15 +6,17 @@ export const artistApi = api.injectEndpoints({
 	endpoints: build => ({
 		getArtistById: build.query<IGetArtistByID, number>({
 			query: id => ({
-				url: `/artist/${id}`,
+				url: `/artist/${id}`
 			})
 		}),
 		getArtistTracks: build.query<IGetArtistTrackByID, number>({
 			query: id => ({
-				url: `/artist/${id}/top?limit=50`,
+				url: `/artist/${id}/top?limit=50`
 			})
-		}),
+		})
 	})
 })
 export const {
+	useGetArtistByIdQuery,
+	useGetArtistTracksQuery
 } = artistApi

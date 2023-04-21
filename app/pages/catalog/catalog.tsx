@@ -9,12 +9,13 @@ import CatalogHeader from './ui/catalogHeader/catalogHeader'
 
 
 const Catalog = () => {
-	const {params} = useTypedRoute<"catalog">()
+	const { params } = useTypedRoute<'catalog'>()
 	const y = useRef(new Animated.Value(0)).current
 	return <Layout className={'p-0'}>
-			<CatalogHeader title={params.headerText} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y}/>
-			<CatalogBackground poster={params.headerImage} y={y}/>
-		<CatalogContent headerTitle={params.headerText} musicList={params.data} y={y} />
+		<CatalogHeader title={params.headerText} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y} />
+		<CatalogBackground poster={params.headerImage} y={y} />
+		<CatalogContent description={params.headerDescription} headerTitle={params.headerText} musicList={params.data}
+		                y={y} />
 	</Layout>
 }
 

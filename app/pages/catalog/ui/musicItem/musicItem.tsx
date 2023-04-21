@@ -12,18 +12,18 @@ export interface IMusicItem {
 	likeFunc: () => void
 }
 
-const MusicItem:FC<IMusicItem> = (props) => {
+const MusicItem: FC<IMusicItem> = (props) => {
 	return (
-	<View className='flex-row items-center mb-3 w-full justify-between'>
+		<View className='flex-row items-center mb-3 w-full justify-between'>
 			<View className={'flex-row items-center'}>
-	<UImage source={props.image} classNames={'rounded-md'} width={80} height={80}/>
-		<View className='ml-3 max-w-[200px]'>
-			<Title text={props.title} />
-			<Title text={props.artist} />
+				<UImage source={props.image} classNames={'rounded-md'} width={80} height={80} />
+				<View className='ml-3 max-w-[200px]'>
+					<Title text={props.title} classNames={'font-bold'} />
+					<Title text={props.artist} color={'silver'} />
+				</View>
 			</View>
+			<Icon name={'heart'} size={25} onPress={props.likeFunc} />
 		</View>
-		<Icon	name={'heart'} size={25} onPress={props.likeFunc}/>
-	</View>
 	)
 }
 

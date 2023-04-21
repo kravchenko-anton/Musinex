@@ -13,6 +13,7 @@ export type TypeRootStackParamList = {
 			artist: string
 			id: number
 		}[]
+		headerDescription?: string
 	}
 	AuthorWrapperCatalog: {
 		authorId: number

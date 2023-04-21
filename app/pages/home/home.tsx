@@ -22,7 +22,6 @@ const Home = () => {
 				<Header className={'mb-5'} logoSize={30}>
 					<Icon name={'mail'} size={24} borderRadius={100} padding={10} />
 				</Header>
-				
 				<UFlatList headerText={'Top Song'} headerNavigate={() => navigate('catalog', {
 					data: chart.tracks.data.map((item) => {
 						return {
@@ -66,7 +65,7 @@ const Home = () => {
 							artist: item.name
 						}
 					}),
-					headerText: chart.artists.data[0].name,
+					headerText: 'Top Author',
 					headerImage: chart.artists.data[0].picture_big
 				})}
 				           headerText={'Top Author'} wrapClassNames={'mt-10 mb-5'}
@@ -101,7 +100,7 @@ const Home = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: chart.albums.data[0].title,
+					headerText: 'Top Album',
 					headerImage: chart.albums.data[0].cover_big
 				})}
 				           headerText={'Top Album'} wrapClassNames={'mt-10 mb-5'}
@@ -136,7 +135,7 @@ const Home = () => {
 							artist: item.user.name
 						}
 					}),
-					headerText: chart.playlists.data[0].title,
+					headerText: 'Top PlayList',
 					headerImage: chart.playlists.data[0].picture_big
 				})} headerText={'Top PlayList'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}

@@ -2,22 +2,28 @@ import React, { FC } from 'react'
 import { Image } from 'react-native'
 import { IImage } from './IImage'
 
-const UImage: FC<IImage> = (props, { ...rest }) => {
-	return (
+const UImage: FC<IImage> =
+	({
+		 source,
+		 width,
+		 height,
+		 ...rest
+	 }) => {
+		return (
 			<Image
 				source={{
-					uri: props.source,
-					width: props.width,
-					height: props.height
+					uri: source,
+					width: width,
+					height: height
 				}}
 				style={{
-					width: props.width,
-					height: props.height,
-					resizeMode: 'cover',
+					width: width,
+					height: height,
+					resizeMode: 'cover'
 				}}
-				className={props.classNames} {...rest}
+				{...rest}
 			/>
-	)
-}
+		)
+	}
 
 export default UImage

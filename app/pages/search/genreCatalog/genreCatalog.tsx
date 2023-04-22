@@ -26,7 +26,7 @@ const GenreCatalog: FC = () => {
 				<Title
 					size={40}
 					numberOfLines={2}
-					classNames={'mb-4'}
+					className={'mb-4'}
 					fontFamily={'Montserrat_900Black_Italic'}
 					text={params.genreName}
 				/>

@@ -16,7 +16,7 @@ const CatalogContentHeader: FC<ICatalogContentHeader> = ({ title, description, y
 	})
 	
 	return (
-		<Animated.View className='px-3 mb-3 z-10' style={{ opacity }}>
+		<Animated.View className='px-3 z-10' style={{ opacity }}>
 			<Title text={title} fontFamily={'Montserrat_600SemiBold'} size={45}
 			       className='font-semibold text-[#F9FCFC] mb-2 pr-2'
 			       numberOfLines={2}

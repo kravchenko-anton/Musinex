@@ -12,7 +12,7 @@ export interface ICatalogProps {
 		title: string
 		image: string
 		artist: string
-		id: number | string
+		id: number
 	}[]
 	headerCatalogDescription?: string
 }

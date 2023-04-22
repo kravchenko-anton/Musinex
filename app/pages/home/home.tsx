@@ -148,8 +148,8 @@ const Home = () => {
 						                         WrapClassNames={'mr-3'}
 						                         image={{
 							                         url: item.picture_big,
-							                         width: 200,
-							                         height: 200
+							                         width: 250,
+							                         height: 250
 						                         }}
 						                         artists={item.user.name}
 						                         name={item.title}

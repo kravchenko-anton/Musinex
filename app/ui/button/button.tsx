@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons/'
 import React, { FC, PropsWithChildren } from 'react'
-import { Pressable, View } from 'react-native'
+import { Pressable, View, ViewStyle } from 'react-native'
 import Title from '../title/title'
 import { Ibutton } from './Ibutton'
 
@@ -21,8 +21,8 @@ const Button: FC<PropsWithChildren<Ibutton>> =
 		
 		return (
 			<Pressable
-				style={{
-					backgroundColor: variant === 'dark' ? '#000' : '#fff',
+				style={[{
+					backgroundColor: variant === 'primary' ? '#5b0eeb' : '#fff',
 					borderRadius: borderRadius,
 					width: width
 						? width
@@ -32,9 +32,11 @@ const Button: FC<PropsWithChildren<Ibutton>> =
 								? 130
 								: 165,
 					padding: size === 'small' ? 10 : size === 'medium' ? 15 : 20
-				}}
-				{...rest}
+				}, rest.style as ViewStyle]}
+				{...!rest.style && rest}
 			>
+				
+				
 				{!!(children && !(icon && text)) ? (
 					children
 				) : (
@@ -48,6 +50,14 @@ const Button: FC<PropsWithChildren<Ibutton>> =
 							gap: size === 'small' ? 10 : size === 'medium' ? 10 : 10
 						}}
 					>
+						<Title text={text} color={variant === 'primary' ? '#fff' : '#000'} fontFamily={'Montserrat_700Bold'}
+						       size={textSize
+							       ? textSize
+							       : size === 'small'
+								       ? 15
+								       : size === 'medium'
+									       ? 18
+									       : 25} />
 						{icon &&
 							<Ionicons
 								size={
@@ -62,20 +72,13 @@ const Button: FC<PropsWithChildren<Ibutton>> =
 								color={
 									variant === 'light'
 										? '#000'
-										: variant === 'dark'
+										: variant === 'primary'
 											? '#fff'
 											: '#000'
 								}
 								name={icon}
 							/>
 						}
-						<Title text={text} color={variant === 'dark' ? '#fff' : '#000'} fontFamily={'Montserrat_700Bold'} size={textSize
-							? textSize
-							: size === 'small'
-								? 15
-								: size === 'medium'
-									? 18
-									: 25} />
 					</View>
 				)}
 			</Pressable>

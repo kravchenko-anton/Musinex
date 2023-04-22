@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons/'
+import { PressableProps } from 'react-native'
 
-export interface Ibutton {
+export interface Ibutton extends PressableProps {
 	size: 'small' | 'medium' | 'large'
 	width?: number | string
 	text: string
@@ -9,5 +10,5 @@ export interface Ibutton {
 	center?: boolean
 	icon?: keyof typeof Ionicons.glyphMap
 	borderRadius?: number
-	variant?: 'dark' | 'light'
+	variant?: 'primary' | 'light'
 }

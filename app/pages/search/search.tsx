@@ -18,13 +18,11 @@ const Search = () => {
 	const { navigate } = useTypedNavigation()
 	const { data: genre } = useGetAllGenreQuery(null)
 	if (!genre || isLoading) return <FullScreenLoader />
-	console.log(tracks)
 	return <Layout className='h-full'>
 		<Field name='searchTerm'
 		       keyboardType='web-search' control={control} placeholder={'Type anything... '} />
 		{(searchTerm && tracks && playlists && albums && author) ?
 			<ScrollView showsVerticalScrollIndicator={false} className='mt-4'>
-				
 				<UFlatList headerText={'Song'} headerNavigate={() => navigate('catalog', {
 					data: tracks.data.map((item) => {
 						return {
@@ -68,10 +66,10 @@ const Search = () => {
 							artist: item.name
 						}
 					}),
-					headerText: 'Top Author',
+					headerText: 'Author',
 					headerImage: author.data[0].picture_big
 				})}
-				           headerText={'Top Author'} wrapClassNames={'mt-10 mb-5'}
+				           headerText={'Author'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -103,10 +101,10 @@ const Search = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Top Album',
+					headerText: 'Album',
 					headerImage: albums.data[0].cover_big
 				})}
-				           headerText={'Top Album'} wrapClassNames={'mt-10 mb-5'}
+				           headerText={'Album'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -138,9 +136,9 @@ const Search = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Top PlayList',
+					headerText: 'PlayList',
 					headerImage: playlists.data[0].cover_big
-				})} headerText={'Top PlayList'} wrapClassNames={'mt-10 mb-5'}
+				})} headerText={'PlayList'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header

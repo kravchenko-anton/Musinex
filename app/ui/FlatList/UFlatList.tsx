@@ -22,9 +22,10 @@ const UFlatList = <T, >
 	 headerText,
 	 ...rest
  }: IFlatList<T>) => {
+	if (data.length === 0) return null
 	return (
 		<View className={wrapClassNames}>
-			{header && headerText ? (
+			{(header && headerText && data.length !== 0) ? (
 				<View className='flex-row justify-between items-center mb-3'>
 					<Title text={headerText} size={25} fontFamily={'Montserrat_500Medium'} />
 					{data.length > 5 ?

@@ -23,7 +23,7 @@ const Search = () => {
 		       keyboardType='web-search' control={control} placeholder={'Type anything... '} />
 		{(searchTerm && tracks && playlists && albums && author) ?
 			<ScrollView showsVerticalScrollIndicator={false} className='mt-4'>
-				<UFlatList headerText={'Song'} headerNavigate={() => navigate('catalog', {
+				<UFlatList headerText={'Songs'} headerNavigate={() => navigate('catalog', {
 					data: tracks.data.map((item) => {
 						return {
 							id: item.id,

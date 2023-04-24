@@ -6003,7 +6003,7 @@ react-native-toast-message@^2.1.6:
 
 react-native-track-player@^4.0.0-rc04:
   version "4.0.0-rc04"
-  resolved "https://registry.npmjs.org/react-native-track-player/-/react-native-track-player-4.0.0-rc04.tgz"
+  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-4.0.0-rc04.tgz#eb5892a623ae746e37bead80afbefe93561861f8"
   integrity sha512-zagx73cFcZAmrB5yZdFbmigkbko9AIiF0cl6G5L6QQWCMPOoZnNItMJkyDmcnQXHsTrrgSuUwuR/2xKt8ALHhQ==
 
 react-native@0.71.6:

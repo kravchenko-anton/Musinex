@@ -1,7 +1,9 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
+import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetChartQuery } from '../../redux/api/music/musicApi'
+import { actions } from '../../redux/player/playerSlice'
 import AlbumItem from '../../ui/FlatList/flatlistItem/AlbumItem'
 import AuthorItem from '../../ui/FlatList/flatlistItem/authorItem'
 import PlayListItem from '../../ui/FlatList/flatlistItem/PlayListItem'
@@ -15,6 +17,7 @@ import FullScreenLoader from '../../ui/Loader/FullScreenLoader'
 const Home = () => {
 	const { data: chart } = useGetChartQuery(null)
 	const { navigate } = useTypedNavigation()
+	const dispatch = useDispatch()
 	if (!chart) return <FullScreenLoader />
 	return (
 		<Layout>
@@ -51,7 +54,16 @@ const Home = () => {
 								           width: 220,
 								           height: 220
 							           }}
-							           songId={item.id}
+							           songId={item.id} onPress={() => {
+							           dispatch(actions.addToPlayer({
+								           url: item.preview,
+								           title: item.title_short,
+								           artwork: item.album.cover_big,
+								           artist: item.artist.name,
+								           id: item.id,
+								           duration: item.duration
+							           }))
+						           }}
 						           />
 					           )
 				           }}

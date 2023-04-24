@@ -14,4 +14,4 @@ export const favoriteSlice = createSlice({
 		}
 	}
 })
-export const { reducer, actions } = favoriteSlice
+export const { reducer: favoriteReducer, actions } = favoriteSlice

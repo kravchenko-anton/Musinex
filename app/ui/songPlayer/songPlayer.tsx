@@ -16,7 +16,8 @@ const SongPlayer = () => {
 	
 	const addTracks = async () => {
 		await TrackPlayer.reset().then(() => {
-			TrackPlayer.add(selector).then(() => {
+			TrackPlayer.add(selector[0].data).then(() => {
+				TrackPlayer.skip(selector[0].PressedSongIndex)
 				TrackPlayer.play()
 				setIsPlayerReady(true)
 			})
@@ -37,7 +38,7 @@ const SongPlayer = () => {
 	useEffect(() => {
 		if (selector.length <= 0 || !isPlayerReady) return
 		addTracks()
-	}, [selector.length])
+	}, [selector])
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return <View></View>
 	return <View
 		className='bg-[#115143] rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>

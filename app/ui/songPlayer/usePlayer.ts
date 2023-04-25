@@ -7,7 +7,10 @@ export async function setupPlayer() {
 		await TrackPlayer.getActiveTrack()
 		isSetup = true
 	} catch {
-		await TrackPlayer.setupPlayer()
+		await TrackPlayer.setupPlayer({
+			autoHandleInterruptions: false,
+			maxCacheSize: 10
+		})
 		await TrackPlayer.updateOptions({
 			android: {
 				appKilledPlaybackBehavior:

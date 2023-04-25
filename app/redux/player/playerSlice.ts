@@ -5,11 +5,8 @@ export const playerSlice = createSlice({
 	initialState: [],
 	reducers: {
 		addToPlayer: (state, { payload }) => {
-			
-			// @ts-ignore
-			if (state.some(r => r.title === payload.title)) return
-			state.push(payload as never)
-			
+			state.length = 0                  // Clear contents
+			state.push.apply(state, [{ PressedSongIndex: payload.songIndex, data: payload.data }] as never)  // Append new contents
 		}
 		
 	}

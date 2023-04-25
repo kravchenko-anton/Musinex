@@ -42,7 +42,7 @@ const Home = () => {
 				           horizontal
 				           header
 				           data={chart.tracks.data.slice(0, 10)}
-				           renderItem={({ item }) => {
+				           renderItem={({ item, index }) => {
 					           return (
 						           <TrackItem
 							           ImageClassNames={'rounded-lg'}
@@ -56,12 +56,17 @@ const Home = () => {
 							           }}
 							           songId={item.id} onPress={() => {
 							           dispatch(actions.addToPlayer({
-								           url: item.preview,
-								           title: item.title_short,
-								           artwork: item.album.cover_big,
-								           artist: item.artist.name,
-								           id: item.id,
-								           duration: item.duration
+								           data: chart.tracks.data.map((track, i) => {
+									           return {
+										           url: track.preview,
+										           title: track.title_short,
+										           artwork: track.album.cover_big,
+										           artist: track.artist.name,
+										           id: i++,
+										           duration: track.duration
+									           }
+								           }),
+								           songIndex: index
 							           }))
 						           }}
 						           />

@@ -4,12 +4,13 @@ import { favoriteReducer } from './favorite/favoriteSlice'
 import { playerReducer } from './player/playerSlice'
 
 const reducers = combineReducers({
+	[api.reducerPath]: api.reducer,
 	favorites: favoriteReducer,
-	player: playerReducer,
-	[api.reducerPath]: api.reducer
+	player: playerReducer
 })
 export const store = configureStore({
 	reducer: reducers,
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware().concat(api.middleware)
 })
+export type TypeRootState = ReturnType<typeof reducers>

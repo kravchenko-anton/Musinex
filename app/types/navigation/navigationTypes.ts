@@ -11,7 +11,7 @@ export type TypeRootStackParamList = {
 			title: string
 			image: string
 			artist: string
-			id: number
+			id: number,
 		}[]
 		headerDescription?: string
 	}

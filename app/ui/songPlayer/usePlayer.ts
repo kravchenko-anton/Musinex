@@ -21,12 +21,16 @@ export async function setupPlayer() {
 				Capability.Pause,
 				Capability.SkipToNext,
 				Capability.SkipToPrevious,
-				Capability.SeekTo
+				Capability.SeekTo,
+				Capability.Stop
+			
 			],
 			compactCapabilities: [
 				Capability.Play,
 				Capability.Pause,
-				Capability.SkipToNext
+				Capability.SkipToNext,
+				Capability.SkipToPrevious,
+				Capability.SeekTo
 			]
 		})
 		

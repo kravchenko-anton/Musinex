@@ -12,8 +12,6 @@ const SongPlayer = () => {
 	const playBackState = usePlaybackState()
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
 	const trackInfo = useActiveTrack()
-	
-	
 	const addTracks = async () => {
 		await TrackPlayer.reset().then(() => {
 			TrackPlayer.add(selector[0].data).then(() => {
@@ -39,7 +37,7 @@ const SongPlayer = () => {
 		if (selector.length <= 0 || !isPlayerReady) return
 		addTracks()
 	}, [selector])
-	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return <View></View>
+	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
 	return <View
 		className='bg-[#115143] rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>
 		<View className='flex flex-row justify-between items-center h-full'>

@@ -62,8 +62,9 @@ const Home = () => {
 										           title: track.title_short,
 										           artwork: track.album.cover_big,
 										           artist: track.artist.name,
-										           id: i++,
+										           id: track.id,
 										           duration: track.duration
+										           
 									           }
 								           }),
 								           songIndex: index

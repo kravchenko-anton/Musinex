@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import Icon from '../../../../ui/icon/defaultIcon/Icon'
 import UImage from '../../../../ui/image/Image'
 import Title from '../../../../ui/title/title'
@@ -10,11 +10,13 @@ export interface IMusicItem {
 	image: string
 	artist: string
 	likeFunc: () => void
+	playFunc: () => void
 }
 
 const MusicItem: FC<IMusicItem> = (props) => {
+	
 	return (
-		<View className='flex-row items-center mb-3 w-full justify-between'>
+		<Pressable className='flex-row items-center mb-3 w-full justify-between' onPress={props.playFunc}>
 			<View className={'flex-row items-center'}>
 				<UImage source={props.image} className={'rounded-md'} width={80} height={80} />
 				<View className='ml-3 max-w-[200px]'>
@@ -23,7 +25,7 @@ const MusicItem: FC<IMusicItem> = (props) => {
 				</View>
 			</View>
 			<Icon name={'heart'} size={25} onPress={props.likeFunc} />
-		</View>
+		</Pressable>
 	)
 }
 

@@ -1,8 +1,9 @@
 import { useScrollToTop } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { FC, useRef } from 'react'
-
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { actions } from '../../../../redux/player/playerSlice'
 import { ICatalogTypes } from '../../../../types/catalogTypes'
 import FullScreenLoader from '../../../../ui/Loader/FullScreenLoader'
 import { HEADER_HEIGHT } from '../../catalogConstant'
@@ -20,6 +21,7 @@ const CatalogContent: FC<ICatalogContent> = ({ y, description, musicList, header
 	if (!musicList) return <FullScreenLoader />
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
+	const dispatch = useDispatch()
 	return (
 		<Animated.ScrollView
 			ref={ref}
@@ -49,8 +51,21 @@ const CatalogContent: FC<ICatalogContent> = ({ y, description, musicList, header
 				colors={['transparent', '#101010']}
 			/>
 			<View className='bg-primaryBlack px-3 pt-1 pb-5'>
-				{musicList.map((item) => {
+				{musicList.map((item, index) => {
 					return <MusicItem key={item.id} artist={item.artist} title={item.title} image={item.image}
+					                  playFunc={() => {
+						                  dispatch(actions.addToPlayer({
+							                  data: musicList.map((track, i) => {
+								                  return {
+									                  title: track.title,
+									                  artwork: track.image,
+									                  artist: track.artist,
+									                  id: track.id
+								                  }
+							                  }),
+							                  songIndex: index
+						                  }))
+					                  }}
 					                  likeFunc={() => console.log(1)} />
 				})}
 			</View>

@@ -2,23 +2,25 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 export const playerSlice = createSlice({
-	name: 'player',
-	initialState: [] as Array<{
-		PressedSongIndex: number, data: {
-			url: string,
-			title: string,
-			artwork: string,
-			artist: string,
-			id: number,
-			duration: number
+		name: 'player',
+		initialState: [] as Array<{
+			PressedSongIndex: number, data: {
+				id: number,
+			}[]
+		}>,
+		reducers: {
+			addToPlayer: (state, { payload }) => {
+				state.length = 0
+				state.push.apply(state, [{ PressedSongIndex: payload.songIndex, data: payload.data }])
+			}, skipToNext: (state) => {
+				console.log(state[0].PressedSongIndex, state[0].PressedSongIndex + 1)
+				state[0].PressedSongIndex = state[0].PressedSongIndex + 1
+			}, skipToPrevious: (state) => {
+				console.log(state[0].PressedSongIndex, state[0].PressedSongIndex - 1)
+				
+				state[0].PressedSongIndex = state[0].PressedSongIndex - 1
+			}
 		}
-	}>,
-	reducers: {
-		addToPlayer: (state, { payload }) => {
-			state.length = 0
-			state.push.apply(state, [{ PressedSongIndex: payload.songIndex, data: payload.data }])
-		}
-		
 	}
-})
+)
 export const { reducer: playerReducer, actions } = playerSlice

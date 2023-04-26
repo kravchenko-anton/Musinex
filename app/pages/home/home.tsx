@@ -56,15 +56,9 @@ const Home = () => {
 							           }}
 							           songId={item.id} onPress={() => {
 							           dispatch(actions.addToPlayer({
-								           data: chart.tracks.data.map((track, i) => {
+								           data: chart.tracks.data.map((track) => {
 									           return {
-										           url: track.preview,
-										           title: track.title_short,
-										           artwork: track.album.cover_big,
-										           artist: track.artist.name,
-										           id: track.id,
-										           duration: track.duration
-										           
+										           id: track.id
 									           }
 								           }),
 								           songIndex: index
@@ -75,7 +69,7 @@ const Home = () => {
 				           }}
 				/>
 				<UFlatList headerNavigate={() => navigate('catalog', {
-					data: chart.artists.data.map((item) => {
+					data: chart.artists.data.slice(0, 10).map((item) => {
 						return {
 							id: item.id,
 							title: item.name,

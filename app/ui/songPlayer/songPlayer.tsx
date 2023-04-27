@@ -16,8 +16,8 @@ const SongPlayer = () => {
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
 	const trackInfo = useActiveTrack()
 	const dispatch = useDispatch()
-	const [trackMp3Name] = useGetTrackMp3ByNameMutation()
-	const [trackMp3Mutation] = useDownloadTrackMp3Mutation()
+	const [trackMp3Name, { isLoading: trackLoading }] = useGetTrackMp3ByNameMutation()
+	const [trackMp3Mutation, { isLoading: mp3Loading }] = useDownloadTrackMp3Mutation()
 	useEffect(() => {
 		async function setup() {
 			let isSetup = await setupPlayer()
@@ -27,14 +27,13 @@ const SongPlayer = () => {
 		
 		setup()
 	}, [])
-	
 	useEffect(() => {
 		const trackData = selector.length ? selector[0].data.find((value, index) => index === selector[0].PressedSongIndex) : null
 		if (selector.length <= 0 || !isPlayerReady || !trackData) return
 		trackMp3Name(trackData.title).unwrap().then((trackMp3NameRes) => {
-			console.log(trackMp3NameRes, '2')
-			trackMp3Mutation(trackMp3NameRes.result.find((track) => track.title === trackData?.title).url).unwrap().then((trackMp3) => {
-				console.log(trackMp3, '3')
+			trackMp3Mutation(trackMp3NameRes.result.find((track) => track.title === trackData?.title)?.url || trackMp3NameRes.result[0].url
+			).unwrap().then((trackMp3) => {
+				console.log(trackMp3.music.download_url)
 				TrackPlayer.load({
 					id: trackData.id,
 					title: trackData.title,
@@ -46,7 +45,6 @@ const SongPlayer = () => {
 					genre: trackMp3.music.genres
 					
 				}).then(() => {
-					TrackPlayer.seekTo(0)
 					TrackPlayer.play()
 					setIsPlayerReady(true)
 				})
@@ -56,8 +54,7 @@ const SongPlayer = () => {
 		
 	}, [selector, isPlayerReady])
 	
-	
-	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
+	if (!isPlayerReady || selector.length <= 0 || !trackInfo || trackLoading || mp3Loading) return null
 	return <View
 		className='bg-[#115143] rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>
 		<View className='flex flex-row justify-between items-center h-full'>

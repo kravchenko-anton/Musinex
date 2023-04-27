@@ -58,7 +58,10 @@ const Home = () => {
 							           dispatch(actions.addToPlayer({
 								           data: chart.tracks.data.map((track) => {
 									           return {
-										           id: track.id
+										           id: track.id,
+										           title: track.title,
+										           artist: track.artist.name,
+										           artwork: track.album.cover_big
 									           }
 								           }),
 								           songIndex: index

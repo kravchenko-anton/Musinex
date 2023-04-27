@@ -3,11 +3,12 @@ import { View } from 'react-native'
 import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import { useDispatch } from 'react-redux'
 import { useTypedSelector } from '../../hook/useTypedSelector'
+import { useDownloadTrackMp3Mutation, useGetTrackMp3ByNameMutation } from '../../redux/api/song/song'
 import { actions } from '../../redux/player/playerSlice'
 import Icon from '../icon/defaultIcon/Icon'
 import UImage from '../image/Image'
 import Title from '../title/title'
-import { getSong, setupPlayer } from './usePlayer'
+import { setupPlayer } from './usePlayer'
 
 const SongPlayer = () => {
 	const selector = useTypedSelector((state) => state.player)
@@ -15,10 +16,8 @@ const SongPlayer = () => {
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
 	const trackInfo = useActiveTrack()
 	const dispatch = useDispatch()
-	const [activeTrackId, setActiveTrackId] = useState<number>()
-	const track = getSong(activeTrackId as number)
-	
-	
+	const [trackMp3Name] = useGetTrackMp3ByNameMutation()
+	const [trackMp3Mutation] = useDownloadTrackMp3Mutation()
 	useEffect(() => {
 		async function setup() {
 			let isSetup = await setupPlayer()
@@ -30,27 +29,34 @@ const SongPlayer = () => {
 	}, [])
 	
 	useEffect(() => {
-		if (selector.length <= 0 || !isPlayerReady) return
-		setActiveTrackId(selector[0].data.find((value, index) => index === selector[0].PressedSongIndex)?.id as number)
-		
-		
-		if (!track) return
-		const Track = {
-			id: track.id,
-			url: track.url,
-			title: track.title,
-			artist: track.artist,
-			artwork: track.artwork
-		}
-		
-		TrackPlayer.reset().then(() => {
-			TrackPlayer.load(Track).then(() => {
-				TrackPlayer.seekTo(0)
-				TrackPlayer.play()
-				setIsPlayerReady(true)
+		const trackData = selector.length ? selector[0].data.find((value, index) => index === selector[0].PressedSongIndex) : null
+		if (selector.length <= 0 || !isPlayerReady || !trackData) return
+		trackMp3Name(trackData.title).unwrap().then((trackMp3NameRes) => {
+			console.log(trackMp3NameRes, '2')
+			trackMp3Mutation(trackMp3NameRes.result.find((track) => track.title === trackData?.title).url).unwrap().then((trackMp3) => {
+				console.log(trackMp3, '3')
+				TrackPlayer.load({
+					id: trackData.id,
+					title: trackData.title,
+					artist: trackData.artist,
+					artwork: trackData.artwork,
+					url: trackMp3.music.download_url,
+					duration: trackMp3.music.duration,
+					description: trackMp3.music.descriptions,
+					genre: trackMp3.music.genres
+					
+				}).then(() => {
+					TrackPlayer.seekTo(0)
+					TrackPlayer.play()
+					setIsPlayerReady(true)
+				})
 			})
 		})
-	}, [selector, activeTrackId, isPlayerReady])
+		
+		
+	}, [selector, isPlayerReady])
+	
+	
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
 	return <View
 		className='bg-[#115143] rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>

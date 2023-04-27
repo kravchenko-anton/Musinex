@@ -6,6 +6,9 @@ export const playerSlice = createSlice({
 		initialState: [] as Array<{
 			PressedSongIndex: number, data: {
 				id: number,
+				title: string,
+				artist: string,
+				artwork: string,
 			}[]
 		}>,
 		reducers: {

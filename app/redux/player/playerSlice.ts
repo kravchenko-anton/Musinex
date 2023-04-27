@@ -6,6 +6,7 @@ export const playerSlice = createSlice({
 		initialState: [] as Array<{
 			PressedSongIndex: number, data: {
 				id: number,
+				url: string,
 				title: string,
 				artist: string,
 				artwork: string,
@@ -15,13 +16,6 @@ export const playerSlice = createSlice({
 			addToPlayer: (state, { payload }) => {
 				state.length = 0
 				state.push.apply(state, [{ PressedSongIndex: payload.songIndex, data: payload.data }])
-			}, skipToNext: (state) => {
-				console.log(state[0].PressedSongIndex, state[0].PressedSongIndex + 1)
-				state[0].PressedSongIndex = state[0].PressedSongIndex + 1
-			}, skipToPrevious: (state) => {
-				console.log(state[0].PressedSongIndex, state[0].PressedSongIndex - 1)
-				
-				state[0].PressedSongIndex = state[0].PressedSongIndex - 1
 			}
 		}
 	}

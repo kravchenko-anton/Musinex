@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import { View } from 'react-native'
 import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
-import { useDispatch } from 'react-redux'
 import { useTypedSelector } from '../../hook/useTypedSelector'
-import { useDownloadTrackMp3Mutation, useGetTrackMp3ByNameMutation } from '../../redux/api/song/song'
-import { actions } from '../../redux/player/playerSlice'
 import Icon from '../icon/defaultIcon/Icon'
 import UImage from '../image/Image'
 import Title from '../title/title'
@@ -15,9 +12,6 @@ const SongPlayer = () => {
 	const playBackState = usePlaybackState()
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
 	const trackInfo = useActiveTrack()
-	const dispatch = useDispatch()
-	const [trackMp3Name, { isLoading: trackLoading }] = useGetTrackMp3ByNameMutation()
-	const [trackMp3Mutation, { isLoading: mp3Loading }] = useDownloadTrackMp3Mutation()
 	useEffect(() => {
 		async function setup() {
 			let isSetup = await setupPlayer()
@@ -27,36 +21,44 @@ const SongPlayer = () => {
 		
 		setup()
 	}, [])
+	
+	
 	useEffect(() => {
-		const trackData = selector.length ? selector[0].data.find((value, index) => index === selector[0].PressedSongIndex) : null
-		if (selector.length <= 0 || !isPlayerReady || !trackData) return
-		trackMp3Name(trackData.title).unwrap().then((trackMp3NameRes) => {
-			trackMp3Mutation(trackMp3NameRes.result.find((track) => track.title === trackData?.title)?.url || trackMp3NameRes.result[0].url
-			).unwrap().then((trackMp3) => {
-				console.log(trackMp3.music.download_url)
-				TrackPlayer.load({
-					id: trackData.id,
-					title: trackData.title,
-					artist: trackData.artist,
-					artwork: trackData.artwork,
-					url: trackMp3.music.download_url,
-					duration: trackMp3.music.duration,
-					description: trackMp3.music.descriptions,
-					genre: trackMp3.music.genres
+		if (selector.length <= 0 || !isPlayerReady) return
+		const addTracks = async () => {
+			await TrackPlayer.reset().then(() => {
+				TrackPlayer.add(selector[0].data.map((item) => {
 					
-				}).then(() => {
+					return {
+						id: item.id,
+						url: item.url,
+						title: item.title,
+						artist: item.artist,
+						artwork: item.artwork,
+						color: randomBeautifulColor()
+					}
+				})).then(() => {
+					TrackPlayer.skip(selector[0].PressedSongIndex)
 					TrackPlayer.play()
 					setIsPlayerReady(true)
 				})
 			})
-		})
+		}
+		addTracks()
 		
-		
-	}, [selector, isPlayerReady])
+	}, [selector])
 	
-	if (!isPlayerReady || selector.length <= 0 || !trackInfo || trackLoading || mp3Loading) return null
-	return <View
-		className='bg-[#115143] rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>
+	function randomBeautifulColor() {
+		const hue = Math.floor(Math.random() * 361)
+		const saturation = 80
+		const lightness = 21
+		return `hsl(${hue},${saturation}%,${lightness}%)`
+	}
+	
+	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
+	
+	return <View style={{ backgroundColor: trackInfo.color }}
+	             className='rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>
 		<View className='flex flex-row justify-between items-center h-full'>
 			<View className='flex flex-row items-center ml-3 mr-3'>
 				<UImage
@@ -70,12 +72,8 @@ const SongPlayer = () => {
 				</View>
 			</View>
 			<View className='flex-row'>
-				<Icon name='arrow-back-circle' onPress={() => {
-					dispatch(actions.skipToPrevious())
-				}} />
-				<Icon name={'arrow-forward-circle'} onPress={() => {
-					dispatch(actions.skipToNext())
-				}} />
+				<Icon name='arrow-back-circle' onPress={() => TrackPlayer.skipToPrevious()} />
+				<Icon name={'arrow-forward-circle'} onPress={() => TrackPlayer.skipToNext()} />
 				<Icon name={playBackState.state == State.Playing ? 'pause' : 'play'}
 				      onPress={() => playBackState.state === State.Playing ? TrackPlayer.pause() : TrackPlayer.play()
 					     

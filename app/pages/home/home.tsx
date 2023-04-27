@@ -60,6 +60,7 @@ const Home = () => {
 									           return {
 										           id: track.id,
 										           title: track.title,
+										           url: track.preview,
 										           artist: track.artist.name,
 										           artwork: track.album.cover_big
 									           }

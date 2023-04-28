@@ -20,4 +20,4 @@ export const playerSlice = createSlice({
 		}
 	}
 )
-export const { reducer: playerReducer, actions } = playerSlice
+export const { reducer: playerReducer, actions: PlayerAction } = playerSlice

@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react'
 import { Pressable, View } from 'react-native'
-import { IFlatListAlbumItem } from '../../../types/FlatListTypes'
-import UImage from '../../image/Image'
+import { IFlatListAlbumItem } from '../../../types/flatListTypes'
+import UImage from '../../image/image'
 import Title from '../../title/title'
 
 const AlbumItem: FC<IFlatListAlbumItem> =

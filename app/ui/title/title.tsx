@@ -11,15 +11,16 @@ import {
 	Montserrat_900Black_Italic,
 	useFonts
 } from '@expo-google-fonts/montserrat'
+import { useColorScheme } from 'nativewind'
 import React, { FC } from 'react'
 import { Text } from 'react-native'
-import FullScreenLoader from '../Loader/FullScreenLoader'
+import FullScreenLoader from '../loader/fullScreenLoader'
 import { ITitle } from './Ititle'
 
 const Title: FC<ITitle> =
 	({
 		 numberOfLines = 1,
-		 color = '#fff',
+		 color,
 		 fontFamily = 'Montserrat_300Light',
 		 text,
 		 size = 20,
@@ -38,6 +39,7 @@ const Title: FC<ITitle> =
 			Montserrat_900Black,
 			Montserrat_900Black_Italic
 		})
+		const { colorScheme } = useColorScheme()
 		if (!fontsLoaded) {
 			return <FullScreenLoader />
 		}
@@ -47,7 +49,7 @@ const Title: FC<ITitle> =
 					fontFamily: fontFamily,
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
-					color: color
+					color: color ? color : colorScheme === 'light' ? '#000' : '#fff'
 				}, rest.style]}
 				numberOfLines={numberOfLines}
 				{...!rest.style && rest}

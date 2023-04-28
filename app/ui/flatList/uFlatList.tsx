@@ -1,6 +1,6 @@
-import { Ionicons } from '@expo/vector-icons/'
 import React from 'react'
 import { FlatList, FlatListProps, ListRenderItem, Pressable, View } from 'react-native'
+import Icon from '../icon/defaultIcon/Icon'
 import Title from '../title/title'
 
 export interface IFlatList<T> extends Omit<FlatListProps<T>, 'renderToHardwareTextureAndroid' | 'bounces'> {
@@ -31,7 +31,7 @@ const UFlatList = <T, >
 					{data.length > 5 ?
 						<Pressable onPress={headerNavigate} className='flex-row items-center'>
 							<Title text={'See More'} size={25} fontFamily={'Montserrat_500Medium'} className='mr-1' />
-							<Ionicons name='ios-arrow-forward' style={{ marginTop: 5 }} size={20} color='white' />
+							<Icon name='ios-arrow-forward' style={{ marginTop: 5 }} size={20} />
 						</Pressable>
 						: null}
 				</View>

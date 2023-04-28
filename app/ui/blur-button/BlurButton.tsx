@@ -1,18 +1,19 @@
 import { Ionicons } from '@expo/vector-icons/'
 import { BlurView } from 'expo-blur'
+import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren } from 'react'
 import { Pressable } from 'react-native'
-
 import { IBlurButton } from './blur-button.interface'
 
 const BlurButton: FC<PropsWithChildren<IBlurButton>> = ({
-	children,
-	color = '#fff',
-	iconSize = 21,
-	isSmall = false,
-	icon,
-	...rest
-}) => {
+	                                                        children,
+	                                                        color,
+	                                                        iconSize = 21,
+	                                                        isSmall = false,
+	                                                        icon,
+	                                                        ...rest
+                                                        }) => {
+	const { colorScheme } = useColorScheme()
 	return (
 		<Pressable {...rest}>
 			<BlurView
@@ -28,7 +29,7 @@ const BlurButton: FC<PropsWithChildren<IBlurButton>> = ({
 				{children ? (
 					children
 				) : (
-					<Ionicons name={icon} size={iconSize} color={color} />
+					<Ionicons name={icon} size={iconSize} color={color ? color : colorScheme === 'light' ? '#000' : '#fff'} />
 				)}
 			</BlurView>
 		</Pressable>

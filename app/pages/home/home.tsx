@@ -3,16 +3,16 @@ import { ScrollView } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetChartQuery } from '../../redux/api/music/musicApi'
-import { actions } from '../../redux/player/playerSlice'
-import AlbumItem from '../../ui/FlatList/flatlistItem/AlbumItem'
-import AuthorItem from '../../ui/FlatList/flatlistItem/authorItem'
-import PlayListItem from '../../ui/FlatList/flatlistItem/PlayListItem'
-import TrackItem from '../../ui/FlatList/flatlistItem/trackItem'
-import UFlatList from '../../ui/FlatList/UFlatList'
+import { PlayerAction } from '../../redux/player/playerSlice'
+import AlbumItem from '../../ui/flatList/flatlistItem/albumItem'
+import AuthorItem from '../../ui/flatList/flatlistItem/authorItem'
+import PlayListItem from '../../ui/flatList/flatlistItem/playListItem'
+import TrackItem from '../../ui/flatList/flatlistItem/trackItem'
+import UFlatList from '../../ui/flatList/uFlatList'
 import Header from '../../ui/header/header'
 import Icon from '../../ui/icon/defaultIcon/Icon'
-import Layout from '../../ui/Layout/Layout'
-import FullScreenLoader from '../../ui/Loader/FullScreenLoader'
+import Layout from '../../ui/layout/layout'
+import FullScreenLoader from '../../ui/loader/fullScreenLoader'
 
 const Home = () => {
 	const { data: chart } = useGetChartQuery(null)
@@ -55,7 +55,7 @@ const Home = () => {
 								           height: 220
 							           }}
 							           songId={item.id} onPress={() => {
-							           dispatch(actions.addToPlayer({
+							           dispatch(PlayerAction.addToPlayer({
 								           data: chart.tracks.data.map((track) => {
 									           return {
 										           id: track.id,
@@ -96,8 +96,8 @@ const Home = () => {
 						                       WrapClassNames={'mr-3'}
 						                       image={{
 							                       url: item.picture_big,
-							                       width: 150,
-							                       height: 150
+							                       width: 100,
+							                       height: 100
 						                       }}
 						                       name={item.name}
 						                       authorId={item.id}

@@ -4,7 +4,7 @@ import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from
 import { useTypedSelector } from '../../hook/useTypedSelector'
 import { randomBeautifulColor } from '../../utils/getRandomColor'
 import Icon from '../icon/defaultIcon/Icon'
-import UImage from '../image/Image'
+import UImage from '../image/image'
 import Title from '../title/title'
 import { setupPlayer } from './usePlayer'
 
@@ -63,14 +63,14 @@ const SongPlayer = () => {
 					} width={50} height={50} borderRadius={5}
 				/>
 				<View className='flex flex-col ml-2'>
-					<Title className='max-w-[200px]' size={20} text={trackInfo.title as string} />
-					<Title className='max-w-full' size={16} text={trackInfo.artist as string} />
+					<Title color={'#FFF'} className='max-w-[200px]' size={20} text={trackInfo.title as string} />
+					<Title color={'#FFF'} className='max-w-full' size={16} text={trackInfo.artist as string} />
 				</View>
 			</View>
 			<View className='flex-row'>
-				<Icon name='arrow-back-circle' onPress={() => TrackPlayer.skipToPrevious()} />
-				<Icon name={'arrow-forward-circle'} onPress={() => TrackPlayer.skipToNext()} />
-				<Icon name={playBackState.state == State.Playing ? 'pause' : 'play'}
+				<Icon color={'#fff'} name='arrow-back-circle' onPress={() => TrackPlayer.skipToPrevious()} />
+				<Icon color={'#fff'} name={'arrow-forward-circle'} onPress={() => TrackPlayer.skipToNext()} />
+				<Icon color={'#fff'} name={playBackState.state == State.Playing ? 'pause' : 'play'}
 				      onPress={() => playBackState.state === State.Playing ? TrackPlayer.pause() : TrackPlayer.play()
 					     
 					     

@@ -1,6 +1,6 @@
 import { useTypedRoute } from '../../../../hook/useTypedRoute'
 import { useGetPlaylistByIdQuery, useGetPlaylistTracksQuery } from '../../../../redux/api/playlist/playlist'
-import FullScreenLoader from '../../../../ui/Loader/FullScreenLoader'
+import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
 import CatalogWithProps from '../../catalogProps'
 
 const PlayListWrapperCatalog = () => {

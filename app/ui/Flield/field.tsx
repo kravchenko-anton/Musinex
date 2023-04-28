@@ -1,5 +1,6 @@
 import { Controller } from 'react-hook-form'
-import { Text, TextInput, View } from 'react-native'
+import { TextInput, View } from 'react-native'
+import Title from '../title/title'
 import { IField } from './types/FiledTypes'
 
 
@@ -39,7 +40,7 @@ const Field = <T extends Record<string, any>>
 							{...rest}
 						/>
 					</View>
-					{error && <Text className='text-red'>{error.message}</Text>}
+					{error && <Title className='text-red' text={error.message ? error.message : 'Error!'} />}
 				</>
 			)}
 		/>

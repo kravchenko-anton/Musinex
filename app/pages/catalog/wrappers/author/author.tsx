@@ -1,6 +1,6 @@
 import { useTypedRoute } from '../../../../hook/useTypedRoute'
 import { useGetArtistByIdQuery, useGetArtistTracksQuery } from '../../../../redux/api/artist/artistApi'
-import FullScreenLoader from '../../../../ui/Loader/FullScreenLoader'
+import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
 import CatalogWithProps from '../../catalogProps'
 
 const AuthorWrapperCatalog = () => {

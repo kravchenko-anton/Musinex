@@ -1,21 +1,18 @@
 import React, { FC, memo } from 'react'
 
 import { Pressable, View } from 'react-native'
-import { IFlatListSongItem } from '../../../types/FlatListTypes'
-import UImage from '../../image/Image'
+import { IFlatListArtistItem } from '../../../types/flatListTypes'
+import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const TrackItem: FC<IFlatListSongItem> =
+const AuthorItem: FC<IFlatListArtistItem> =
 	({
-		 name,
-		 artists,
 		 image,
+		 name,
 		 WrapClassNames,
 		 ImageClassNames,
-		 songId,
 		 ...rest
 	 }) => {
-		
 		return (
 			<Pressable className={WrapClassNames} style={{
 				width: image.width,
@@ -37,18 +34,10 @@ const TrackItem: FC<IFlatListSongItem> =
 						size={20}
 						fontFamily={'Montserrat_600SemiBold'}
 					/>
-					<Title
-						text={'by ' + artists}
-						className={'mt-1'}
-						size={14}
-						fontFamily={'Montserrat_500Medium'}
-						numberOfLines={1}
-						color='silver'
-					
-					/>
+				
 				</View>
 			</Pressable>
 		)
 	}
 
-export default memo(TrackItem)
+export default memo(AuthorItem)

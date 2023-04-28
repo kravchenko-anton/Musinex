@@ -1,14 +1,14 @@
 import React, { FC, memo } from 'react'
-
 import { Pressable, View } from 'react-native'
-import { IFlatListArtistItem } from '../../../types/FlatListTypes'
-import UImage from '../../image/Image'
+import { IFlatListPlayListItem } from '../../../types/flatListTypes'
+import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const AuthorItem: FC<IFlatListArtistItem> =
+const PlayListItem: FC<IFlatListPlayListItem> =
 	({
-		 image,
 		 name,
+		 artists,
+		 image,
 		 WrapClassNames,
 		 ImageClassNames,
 		 ...rest
@@ -17,7 +17,7 @@ const AuthorItem: FC<IFlatListArtistItem> =
 			<Pressable className={WrapClassNames} style={{
 				width: image.width,
 				maxWidth: image.width
-			}} {...rest}>
+			}}  {...rest}>
 				<UImage
 					className={ImageClassNames}
 					source={image.url}
@@ -34,10 +34,18 @@ const AuthorItem: FC<IFlatListArtistItem> =
 						size={20}
 						fontFamily={'Montserrat_600SemiBold'}
 					/>
-				
+					<Title
+						text={'by ' + artists}
+						className={'mt-1'}
+						numberOfLines={1}
+						size={14}
+						fontFamily={'Montserrat_500Medium'}
+						color={'silver'}
+					
+					/>
 				</View>
 			</Pressable>
 		)
 	}
 
-export default memo(AuthorItem)
+export default memo(PlayListItem)

@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons/'
+import { useColorScheme } from 'nativewind'
 import React, { FC, memo } from 'react'
 
 import { Pressable, PressableProps } from 'react-native'
@@ -16,13 +17,14 @@ export interface IconProps extends PressableProps {
 const Icon: FC<IconProps> =
 	({
 		 name,
-		 color = 'white',
+		 color,
 		 size = 24,
 		 backgroundColor = 'transparent',
 		 borderRadius = 10,
 		 padding = 10,
 		 ...rest
 	 }) => {
+		const { colorScheme } = useColorScheme()
 		return (
 			<Pressable style={{
 				justifyContent: 'center',
@@ -31,7 +33,9 @@ const Icon: FC<IconProps> =
 				backgroundColor: backgroundColor,
 				borderRadius: borderRadius
 			}}  {...rest}>
-				<Ionicons name={name} color={color} size={size} />
+				<Ionicons name={name} color={color ? color :
+					colorScheme === 'light' ? '#000' : '#fff'
+				} size={size} />
 			</Pressable>
 		)
 	}

@@ -1,8 +1,8 @@
 import { FC, useRef } from 'react'
 import { Animated } from 'react-native'
-import Layout from '../../ui/Layout/Layout'
+import Layout from '../../ui/layout/layout'
 import CatalogBackground from './ui/catalogBackground/catalogBackground'
-import CatalogContent from './ui/CatalogContent/catalogContent'
+import CatalogContent from './ui/catalogContent/catalogContent'
 import CatalogHeader from './ui/catalogHeader/catalogHeader'
 
 export interface ICatalogProps {

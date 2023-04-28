@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 
 import { Pressable, StyleSheet } from 'react-native'
 import { useTypedNavigation } from '../../../hook/useTypedNavigation'
-import UImage from '../../../ui/image/Image'
+import UImage from '../../../ui/image/image'
 import Title from '../../../ui/title/title'
 
 export interface IGenreItem {
@@ -27,7 +27,7 @@ const GenreItem: FC<IGenreItem> = ({ picture_big, id, name }) => {
 			/>
 			<UImage source={picture_big} width={250} height={130}
 			        className='absolute  rounded-md z-10' />
-			<Title size={18} className='absolute bottom-5 left-2 z-50 max-w-[80%]'
+			<Title color={'#fff'} size={18} className='absolute bottom-5 left-2 z-50 max-w-[80%]'
 			       fontFamily={'Montserrat_500Medium'}
 			       text={name} />
 		</Pressable>

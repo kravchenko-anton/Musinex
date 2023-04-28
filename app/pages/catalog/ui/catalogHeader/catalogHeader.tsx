@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons'
+import { useColorScheme } from 'nativewind'
 import React, { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -9,21 +10,22 @@ import { inputRange } from '../../catalogConstant'
 
 
 export interface ICatalogHeaderProps {
-title: string
-rightIcon?: keyof typeof Ionicons.glyphMap
-rightIconFunction?: () => void
+	title: string
+	rightIcon?: keyof typeof Ionicons.glyphMap
+	rightIconFunction?: () => void
 	y: Animated.Value
 }
 
-const CatalogHeader:FC<ICatalogHeaderProps> = (props) => {
-		const {goBack} = useTypedNavigation()
+const CatalogHeader: FC<ICatalogHeaderProps> = (props) => {
+	const { goBack } = useTypedNavigation()
 	const { top } = useSafeAreaInsets()
-	const {width} = useWindowDimensions()
+	const { width } = useWindowDimensions()
+	const { colorScheme } = useColorScheme()
 	return (
-		<View className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4'	style={{
+		<View className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4' style={{
 			marginTop: -top,
-			paddingTop:  top + 6,
-	width
+			paddingTop: top + 6,
+			width
 		}}>
 			<Animated.View
 				style={[
@@ -32,13 +34,12 @@ const CatalogHeader:FC<ICatalogHeaderProps> = (props) => {
 						opacity: props.y.interpolate({
 							inputRange,
 							outputRange: [0, 0, 1.8]
-						})
+						}), backgroundColor: colorScheme === 'light' ? '#FFF' : '#101010'
 					}
 				]}
-
-				className='bg-primaryBlack'
+			
 			/>
-			<BlurButton	icon='arrow-back' onPress={goBack}/>
+			<BlurButton icon='arrow-back' onPress={goBack} />
 			
 			<Animated.View
 				className='items-center w-2/3'
@@ -49,9 +50,9 @@ const CatalogHeader:FC<ICatalogHeaderProps> = (props) => {
 					})
 				}}
 			>
-				<Title text={props.title} numberOfLines={1} fontFamily={'Montserrat_500Medium'} center/>
+				<Title text={props.title} numberOfLines={1} fontFamily={'Montserrat_500Medium'} center />
 			</Animated.View>
-			{props.rightIcon && <BlurButton icon={props.rightIcon} onPress={props.rightIconFunction}/>}
+			{props.rightIcon && <BlurButton icon={props.rightIcon} onPress={props.rightIconFunction} />}
 		</View>
 	)
 }

@@ -6,9 +6,9 @@ import { useTypedRoute } from '../../hook/useTypedRoute'
 import { useDownloadTrackMp3Query, useGetTrackByIdQuery, useGetTrackMp3ByNameQuery } from '../../redux/api/song/song'
 import NavigateHeader from '../../ui/header/navigateHeader'
 import Icon from '../../ui/icon/defaultIcon/Icon'
-import UImage from '../../ui/image/Image'
-import Layout from '../../ui/Layout/Layout'
-import FullScreenLoader from '../../ui/Loader/FullScreenLoader'
+import UImage from '../../ui/image/image'
+import Layout from '../../ui/layout/layout'
+import FullScreenLoader from '../../ui/loader/fullScreenLoader'
 import Title from '../../ui/title/title'
 
 const Song = () => {

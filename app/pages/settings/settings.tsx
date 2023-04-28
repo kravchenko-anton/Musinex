@@ -1,25 +1,38 @@
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
-import React, { useEffect } from 'react'
-import { Pressable, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { NativeModules, Pressable, View } from 'react-native'
+import DropDownPicker from 'react-native-dropdown-picker'
+import { useDispatch } from 'react-redux'
+import { LanguageAction } from '../../redux/settings/languageSlice'
+import { ThemeAction } from '../../redux/settings/themeSlice'
 import Header from '../../ui/header/header'
-import Layout from '../../ui/Layout/Layout'
+import Layout from '../../ui/layout/layout'
 import Title from '../../ui/title/title'
 
 const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()
+	const dispatch = useDispatch()
 	const lottieRef = React.useRef<any>()
-	
+	const [DropDownOpen, setDropDownOpen] = useState(false)
+	const [DropDownValue, setDropDownValue] = useState(null)
 	useEffect(() => {
 		lottieRef.current.play(
-			colorScheme === 'light' ? 0 : 80
-			, colorScheme === 'light' ? 80 : 180)
+			colorScheme === 'light' ? 80 : 0
+			, colorScheme === 'light' ? 180 : 80)
 	}, [colorScheme, setColorScheme])
 	return <Layout>
 		<Header className='justify-between items-center' logoSize={30}>
-			<Pressable onPress={() => setColorScheme(colorScheme === 'light' ?
-				'dark' : 'light'
-			)}>
+			<Pressable onPress={() => {
+				console.warn(colorScheme === 'light' ?
+					'dark' : 'light')
+				dispatch(ThemeAction.setTheme(colorScheme === 'light' ?
+					'dark' : 'light'
+				))
+				setColorScheme(colorScheme === 'light' ?
+					'dark' : 'light'
+				)
+			}}>
 				<Lottie autoSize={true}
 				        autoPlay={false}
 				        duration={1000}
@@ -29,7 +42,27 @@ const Settings = () => {
 			</Pressable>
 		</Header>
 		<View>
-			<Title text={'Language Settings'} className='mt-2' />
+			<Title text={'Language Settings'} className='mt-2 mb-4' />
+			<DropDownPicker
+				disableBorderRadius={true}
+				onSelectItem={async (item) => {
+					console.warn(item.value)
+					dispatch(LanguageAction.setLanguage(item.value ? item.value : 'en'))
+					NativeModules.DevSettings.reload()
+				}}
+				closeAfterSelecting={true}
+				theme={colorScheme === 'light' ? 'LIGHT' : 'DARK'}
+				open={DropDownOpen}
+				value={DropDownValue}
+				items={[
+					{ label: 'English', value: 'en' },
+					{ label: 'Russian', value: 'ru' },
+					{ label: 'Polish', value: 'pl' },
+					{ label: 'Ukrainian', value: 'ua' }
+				]}
+				setOpen={setDropDownOpen}
+				setValue={setDropDownValue}
+			/>
 		</View>
 	</Layout>
 }

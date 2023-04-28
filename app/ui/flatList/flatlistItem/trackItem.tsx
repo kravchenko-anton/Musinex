@@ -1,23 +1,26 @@
 import React, { FC, memo } from 'react'
+
 import { Pressable, View } from 'react-native'
-import { IFlatListPlayListItem } from '../../../types/FlatListTypes'
-import UImage from '../../image/Image'
+import { IFlatListSongItem } from '../../../types/flatListTypes'
+import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const PlayListItem: FC<IFlatListPlayListItem> =
+const TrackItem: FC<IFlatListSongItem> =
 	({
 		 name,
 		 artists,
 		 image,
 		 WrapClassNames,
 		 ImageClassNames,
+		 songId,
 		 ...rest
 	 }) => {
+		
 		return (
 			<Pressable className={WrapClassNames} style={{
 				width: image.width,
 				maxWidth: image.width
-			}}  {...rest}>
+			}} {...rest}>
 				<UImage
 					className={ImageClassNames}
 					source={image.url}
@@ -37,10 +40,10 @@ const PlayListItem: FC<IFlatListPlayListItem> =
 					<Title
 						text={'by ' + artists}
 						className={'mt-1'}
-						numberOfLines={1}
 						size={14}
 						fontFamily={'Montserrat_500Medium'}
-						color={'silver'}
+						numberOfLines={1}
+						color='silver'
 					
 					/>
 				</View>
@@ -48,4 +51,4 @@ const PlayListItem: FC<IFlatListPlayListItem> =
 		)
 	}
 
-export default memo(PlayListItem)
+export default memo(TrackItem)

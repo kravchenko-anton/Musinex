@@ -2,9 +2,9 @@ import React, { useRef } from 'react'
 
 import { Animated } from 'react-native'
 import { useTypedRoute } from '../../hook/useTypedRoute'
-import Layout from '../../ui/Layout/Layout'
+import Layout from '../../ui/layout/layout'
 import CatalogBackground from './ui/catalogBackground/catalogBackground'
-import CatalogContent from './ui/CatalogContent/catalogContent'
+import CatalogContent from './ui/catalogContent/catalogContent'
 import CatalogHeader from './ui/catalogHeader/catalogHeader'
 
 

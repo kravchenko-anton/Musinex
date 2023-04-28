@@ -2,7 +2,7 @@ import React from 'react'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import Header from '../../ui/header/header'
 import Icon from '../../ui/icon/defaultIcon/Icon'
-import Layout from '../../ui/Layout/Layout'
+import Layout from '../../ui/layout/layout'
 
 const Favorites = () => {
 	const { navigate } = useTypedNavigation()

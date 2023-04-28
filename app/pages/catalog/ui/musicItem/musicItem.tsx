@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { Pressable, View } from 'react-native'
 import Icon from '../../../../ui/icon/defaultIcon/Icon'
-import UImage from '../../../../ui/image/Image'
+import UImage from '../../../../ui/image/image'
 import Title from '../../../../ui/title/title'
 
 export interface IMusicItem {

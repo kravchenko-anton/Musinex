@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { View } from 'react-native'
 import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import { useTypedSelector } from '../../hook/useTypedSelector'
+import { randomBeautifulColor } from '../../utils/getRandomColor'
 import Icon from '../icon/defaultIcon/Icon'
 import UImage from '../image/Image'
 import Title from '../title/title'
@@ -35,7 +36,7 @@ const SongPlayer = () => {
 						title: item.title,
 						artist: item.artist,
 						artwork: item.artwork,
-						color: randomBeautifulColor()
+						color: randomBeautifulColor(80, 21)
 					}
 				})).then(() => {
 					TrackPlayer.skip(selector[0].PressedSongIndex)
@@ -48,17 +49,12 @@ const SongPlayer = () => {
 		
 	}, [selector])
 	
-	function randomBeautifulColor() {
-		const hue = Math.floor(Math.random() * 361)
-		const saturation = 80
-		const lightness = 21
-		return `hsl(${hue},${saturation}%,${lightness}%)`
-	}
 	
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
 	
-	return <View style={{ backgroundColor: trackInfo.color }}
-	             className='rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>
+	return <View
+		style={{ backgroundColor: trackInfo.color }}
+		className='rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'>
 		<View className='flex flex-row justify-between items-center h-full'>
 			<View className='flex flex-row items-center ml-3 mr-3'>
 				<UImage

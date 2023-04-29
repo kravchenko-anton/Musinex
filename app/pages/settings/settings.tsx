@@ -43,7 +43,7 @@ const Settings = () => {
 			</Pressable>
 		</Header>
 		<View>
-			<Title text={'Language Settings'} className='mt-2 mb-4' />
+			<Title translate text={'Language Settings'} className='mt-2 mb-4' />
 			<DropDownPicker
 				disableBorderRadius={true}
 				onSelectItem={async (item) => {

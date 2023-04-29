@@ -3,7 +3,6 @@ import { TextInput, View } from 'react-native'
 import Title from '../title/title'
 import { IField } from './types/FiledTypes'
 
-
 const Field = <T extends Record<string, any>>
 ({
 	 control,
@@ -23,9 +22,8 @@ const Field = <T extends Record<string, any>>
 				<>
 					<View style={{
 						borderWidth: error ? 1 : 0
-					}}
-					      className={
-						      'bg-white w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
+					}} className={
+						'bg-white w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
 					>
 						<TextInput
 							autoCapitalize={'none'}

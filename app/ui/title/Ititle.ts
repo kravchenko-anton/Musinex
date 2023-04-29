@@ -14,4 +14,5 @@ export interface ITitle extends TextProps {
 		'Montserrat_900Black' |
 		'Montserrat_900Black_Italic'
 	color?: string
+	translate?: boolean
 }

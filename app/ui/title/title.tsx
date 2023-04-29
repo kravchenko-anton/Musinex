@@ -11,6 +11,7 @@ import {
 	Montserrat_900Black_Italic,
 	useFonts
 } from '@expo-google-fonts/montserrat'
+import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
 import React, { FC } from 'react'
 import { Text } from 'react-native'
@@ -24,6 +25,7 @@ const Title: FC<ITitle> =
 		 fontFamily = 'Montserrat_300Light',
 		 text,
 		 size = 20,
+		 translate = false,
 		 center = false,
 		 ...rest
 	 }) => {
@@ -54,7 +56,7 @@ const Title: FC<ITitle> =
 				numberOfLines={numberOfLines}
 				{...!rest.style && rest}
 			>
-				{text}
+				{translate ? I18n.t(text) : text}
 			</Text>
 		)
 	}

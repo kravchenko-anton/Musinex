@@ -1,3 +1,4 @@
+import I18n from 'i18n-js'
 import React from 'react'
 import { FlatList, ScrollView } from 'react-native'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
@@ -20,7 +21,7 @@ const Search = () => {
 	if (!genre || isLoading) return <FullScreenLoader />
 	return <Layout className='h-full'>
 		<Field name='searchTerm'
-		       keyboardType='web-search' control={control} placeholder={'Type anything... '} />
+		       keyboardType='web-search' control={control} placeholder={I18n.t('Type anything')} />
 		{(searchTerm && tracks && playlists && albums && author) ?
 			<ScrollView showsVerticalScrollIndicator={false} className='mt-4'>
 				<UFlatList headerText={'Songs'} headerNavigate={() => navigate('catalog', {
@@ -33,7 +34,7 @@ const Search = () => {
 							playTime: item.duration
 						}
 					}),
-					headerText: 'Song',
+					headerText: 'Songs',
 					headerImage: tracks.data[0].album.cover_big
 				})}
 				           showsHorizontalScrollIndicator={false}
@@ -66,10 +67,10 @@ const Search = () => {
 							artist: item.name
 						}
 					}),
-					headerText: 'Author',
+					headerText: 'Authors',
 					headerImage: author.data[0].picture_big
 				})}
-				           headerText={'Author'} wrapClassNames={'mt-10 mb-5'}
+				           headerText={'Authors'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -101,10 +102,10 @@ const Search = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Album',
+					headerText: 'Albums',
 					headerImage: albums.data[0].cover_big
 				})}
-				           headerText={'Album'} wrapClassNames={'mt-10 mb-5'}
+				           headerText={'Albums'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -136,9 +137,9 @@ const Search = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'PlayList',
+					headerText: 'Playlists',
 					headerImage: playlists.data[0].cover_big
-				})} headerText={'PlayList'} wrapClassNames={'mt-10 mb-5'}
+				})} headerText={'Playlists'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header

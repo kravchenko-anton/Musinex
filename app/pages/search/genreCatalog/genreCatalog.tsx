@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-
 import { ScrollView } from 'react-native'
 import { useTypedNavigation } from '../../../hook/useTypedNavigation'
 import { useTypedRoute } from '../../../hook/useTypedRoute'
@@ -40,10 +39,10 @@ const GenreCatalog: FC = () => {
 							}
 						}
 					),
-					headerText: 'Top Song',
+					headerText: 'Top Songs',
 					headerImage: chart.tracks.data[0].album.cover_big
 				})}
-				           headerText={'Song'}
+				           headerText={'Songs'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -75,10 +74,10 @@ const GenreCatalog: FC = () => {
 							}
 						}
 					),
-					headerText: 'Top Author',
+					headerText: 'Top Authors',
 					headerImage: chart.artists.data[0].picture_big
 				})}
-				           headerText={'Author'} wrapClassNames={'mt-10 mb-5'}
+				           headerText={'Authors'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header
@@ -111,10 +110,10 @@ const GenreCatalog: FC = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Top Album',
+					headerText: 'Top Albums',
 					headerImage: chart.albums.data[0].cover_big
 				})}
-				           headerText={'Album'}
+				           headerText={'Albums'}
 				           wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
@@ -150,9 +149,9 @@ const GenreCatalog: FC = () => {
 							artist: item.user.name
 						}
 					}),
-					headerText: 'Top PlayList',
+					headerText: 'Top Playlists',
 					headerImage: chart.playlists.data[0].picture_big
-				})} headerText={'PlayList'} wrapClassNames={'mt-10 mb-5'}
+				})} headerText={'Playlists'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
 				           horizontal
 				           header

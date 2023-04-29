@@ -27,10 +27,10 @@ const UFlatList = <T, >
 		<View className={wrapClassNames}>
 			{(header && headerText && data.length !== 0) ? (
 				<View className='flex-row justify-between items-center mb-3'>
-					<Title text={headerText} size={25} fontFamily={'Montserrat_500Medium'} />
+					<Title translate text={headerText} size={20} fontFamily={'Montserrat_500Medium'} />
 					{data.length > 5 ?
 						<Pressable onPress={headerNavigate} className='flex-row items-center'>
-							<Title text={'See More'} size={25} fontFamily={'Montserrat_500Medium'} className='mr-1' />
+							<Title translate text={'See More'} size={20} fontFamily={'Montserrat_500Medium'} className='mr-1' />
 							<Icon name='ios-arrow-forward' style={{ marginTop: 5 }} size={20} />
 						</Pressable>
 						: null}

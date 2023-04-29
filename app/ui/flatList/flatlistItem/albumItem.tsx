@@ -1,3 +1,4 @@
+import I18n from 'i18n-js'
 import React, { FC, memo } from 'react'
 import { Pressable, View } from 'react-native'
 import { IFlatListAlbumItem } from '../../../types/flatListTypes'
@@ -35,7 +36,7 @@ const AlbumItem: FC<IFlatListAlbumItem> =
 						fontFamily={'Montserrat_600SemiBold'}
 					/>
 					<Title
-						text={'by ' + artists}
+						text={I18n.t('by') + artists}
 						className={'mt-1'}
 						numberOfLines={1}
 						color={'silver'}

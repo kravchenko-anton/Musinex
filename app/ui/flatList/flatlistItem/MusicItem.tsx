@@ -1,17 +1,18 @@
 import I18n from 'i18n-js'
 import React, { FC, memo } from 'react'
 import { Pressable, View } from 'react-native'
-import { IFlatListAlbumItem } from '../../../types/flatListTypes'
+import { IFlatListItem } from '../../../types/flatListTypes'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const AlbumItem: FC<IFlatListAlbumItem> =
+const MusicItem: FC<IFlatListItem> =
 	({
 		 image,
 		 name,
 		 artists,
 		 WrapClassNames,
 		 ImageClassNames,
+		 textCenter,
 		 ...rest
 	 }) => {
 		return (
@@ -27,7 +28,7 @@ const AlbumItem: FC<IFlatListAlbumItem> =
 				/>
 				<View style={{
 					marginTop: 5,
-					alignItems: 'center'
+					alignItems: textCenter ? 'center' : 'flex-start'
 				}}>
 					<Title
 						text={name}
@@ -35,17 +36,19 @@ const AlbumItem: FC<IFlatListAlbumItem> =
 						size={20}
 						fontFamily={'Montserrat_600SemiBold'}
 					/>
-					<Title
-						text={I18n.t('by') + artists}
-						className={'mt-1'}
-						numberOfLines={1}
-						color={'silver'}
-						size={14}
-						fontFamily={'Montserrat_500Medium'}
-					/>
+					{
+						artists && <Title
+							text={I18n.t('by') + artists}
+							className={'mt-1'}
+							numberOfLines={1}
+							color={'silver'}
+							size={14}
+							fontFamily={'Montserrat_500Medium'}
+						/>
+					}
 				</View>
 			</Pressable>
 		)
 	}
 
-export default memo(AlbumItem)
+export default memo(MusicItem)

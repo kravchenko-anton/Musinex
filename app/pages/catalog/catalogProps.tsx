@@ -8,6 +8,7 @@ import CatalogHeader from './ui/catalogHeader/catalogHeader'
 export interface ICatalogProps {
 	headerImage: string
 	headerText: string
+	type: 'songs' | 'albums' | 'playlists' | 'authors'
 	data: {
 		title: string
 		image: string
@@ -22,7 +23,8 @@ const CatalogWithProps: FC<ICatalogProps> = (props) => {
 	return <Layout className={'p-0'}>
 		<CatalogHeader title={props.headerText} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y} />
 		<CatalogBackground poster={props.headerImage} y={y} />
-		<CatalogContent description={props.headerCatalogDescription} headerTitle={props.headerText} musicList={props.data}
+		<CatalogContent type={props.type} description={props.headerCatalogDescription} headerTitle={props.headerText}
+		                DataList={props.data}
 		                y={y} />
 	</Layout>
 }

@@ -3,8 +3,8 @@ import React from 'react'
 import { FlatList, ScrollView } from 'react-native'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetAllGenreQuery } from '../../redux/api/genre/genre'
-import AlbumItem from '../../ui/flatList/flatlistItem/albumItem'
 import AuthorItem from '../../ui/flatList/flatlistItem/authorItem'
+import AlbumItem from '../../ui/flatList/flatlistItem/MusicItem'
 import PlayListItem from '../../ui/flatList/flatlistItem/playListItem'
 import TrackItem from '../../ui/flatList/flatlistItem/trackItem'
 import UFlatList from '../../ui/flatList/uFlatList'
@@ -34,7 +34,8 @@ const Search = () => {
 							playTime: item.duration
 						}
 					}),
-					headerText: 'Songs',
+					type: 'songs',
+					headerText: I18n.t('Songs'),
 					headerImage: tracks.data[0].album.cover_big
 				})}
 				           showsHorizontalScrollIndicator={false}
@@ -53,7 +54,6 @@ const Search = () => {
 								           width: 220,
 								           height: 220
 							           }}
-							           songId={item.id}
 						           />
 					           )
 				           }}
@@ -67,7 +67,8 @@ const Search = () => {
 							artist: item.name
 						}
 					}),
-					headerText: 'Authors',
+					type: 'authors',
+					headerText: I18n.t('Authors'),
 					headerImage: author.data[0].picture_big
 				})}
 				           headerText={'Authors'} wrapClassNames={'mt-10 mb-5'}
@@ -86,7 +87,6 @@ const Search = () => {
 							                       height: 150
 						                       }}
 						                       name={item.name}
-						                       authorId={item.id}
 						           />
 					           )
 				           }}
@@ -102,7 +102,8 @@ const Search = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Albums',
+					type: 'albums',
+					headerText: I18n.t('Albums'),
 					headerImage: albums.data[0].cover_big
 				})}
 				           headerText={'Albums'} wrapClassNames={'mt-10 mb-5'}
@@ -121,7 +122,6 @@ const Search = () => {
 						                      }}
 						                      artists={item.artist.name}
 						                      name={item.title}
-						                      albumId={item.id}
 						           />
 					           )
 				           }}
@@ -137,7 +137,8 @@ const Search = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Playlists',
+					type: 'playlists',
+					headerText: I18n.t('Playlists'),
 					headerImage: playlists.data[0].cover_big
 				})} headerText={'Playlists'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
@@ -155,7 +156,6 @@ const Search = () => {
 						                         }}
 						                         artists={item.artist.name}
 						                         name={item.title}
-						                         PlayListId={item.id}
 						           />
 					           )
 				           }}

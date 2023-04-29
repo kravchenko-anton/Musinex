@@ -11,5 +11,9 @@ export const ru = {
 	'Authors': 'Исполнители',
 	'Albums': 'Альбомы',
 	'Playlists': 'Плейлисты',
-	'Language Settings': 'Настройки языка'
+	'Language Settings': 'Настройки языка',
+	'songs': ' песен',
+	'fans': ' фанатов',
+	'albums': ' альбомов',
+	'and other': ' и другие'
 }

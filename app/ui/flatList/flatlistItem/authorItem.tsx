@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react'
 
 import { Pressable, View } from 'react-native'
-import { IFlatListArtistItem } from '../../../types/flatListTypes'
+import { IFlatListItem } from '../../../types/flatListTypes'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const AuthorItem: FC<IFlatListArtistItem> =
+const AuthorItem: FC<IFlatListItem> =
 	({
 		 image,
 		 name,

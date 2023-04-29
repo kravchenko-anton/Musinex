@@ -5,7 +5,7 @@ import Icon from '../../../../ui/icon/defaultIcon/Icon'
 import UImage from '../../../../ui/image/image'
 import Title from '../../../../ui/title/title'
 
-export interface IMusicItem {
+export interface ISongItem {
 	title: string
 	image: string
 	artist: string
@@ -13,7 +13,7 @@ export interface IMusicItem {
 	playFunc: () => void
 }
 
-const MusicItem: FC<IMusicItem> = (props) => {
+const SongItem: FC<ISongItem> = (props) => {
 	
 	return (
 		<Pressable className='flex-row items-center mb-3 w-full justify-between' onPress={props.playFunc}>
@@ -29,4 +29,4 @@ const MusicItem: FC<IMusicItem> = (props) => {
 	)
 }
 
-export default MusicItem
+export default SongItem

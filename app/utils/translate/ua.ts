@@ -11,5 +11,9 @@ export const ua = {
 	'Authors': 'Виконавці',
 	'Albums': 'Альбоми',
 	'Playlists': 'Плейлисти',
-	'Language Settings': 'Налаштування мови'
+	'Language Settings': 'Налаштування мови',
+	'songs': ' пісень',
+	'fans': ' фанів',
+	'albums': ' альбомів',
+	'and other': ' і інші'
 }

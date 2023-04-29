@@ -1,18 +1,16 @@
 import React, { FC, memo } from 'react'
-
 import { Pressable, View } from 'react-native'
-import { IFlatListSongItem } from '../../../types/flatListTypes'
+import { IFlatListItem } from '../../../types/flatListTypes'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const TrackItem: FC<IFlatListSongItem> =
+const TrackItem: FC<IFlatListItem> =
 	({
 		 name,
 		 artists,
 		 image,
 		 WrapClassNames,
 		 ImageClassNames,
-		 songId,
 		 ...rest
 	 }) => {
 		

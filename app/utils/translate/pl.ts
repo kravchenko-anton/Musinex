@@ -11,5 +11,9 @@ export const pl = {
 	'Authors': 'Wykonawcy',
 	'Albums': 'Albumy',
 	'Playlists': 'Playlisty',
-	'Language Settings': 'Ustawienia języka'
+	'Language Settings': 'Ustawienia języka',
+	'songs': ' piosenki',
+	'fans': ' fani',
+	'albums': ' albumy',
+	'and other': ' i inni'
 }

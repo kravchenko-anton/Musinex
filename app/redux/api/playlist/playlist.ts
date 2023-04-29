@@ -12,7 +12,7 @@ export const playlistApi = api.injectEndpoints({
 		}),
 		getPlaylistTracks: build.query<IPlayListTrack, number>({
 			query: id => ({
-				url: `/playlist/${id}/tracks?limit=100`
+				url: `/playlist/${id}/tracks`
 			})
 		})
 		

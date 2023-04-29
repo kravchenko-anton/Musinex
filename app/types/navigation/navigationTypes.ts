@@ -7,7 +7,9 @@ export type TypeRootStackParamList = {
 	catalog: {
 		headerImage: string
 		headerText: string
+		type: 'songs' | 'albums' | 'playlists' | 'authors'
 		data: {
+			url?: string
 			title: string
 			image: string
 			artist: string

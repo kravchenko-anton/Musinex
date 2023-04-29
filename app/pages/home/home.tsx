@@ -1,11 +1,12 @@
+import I18n from 'i18n-js'
 import React from 'react'
 import { ScrollView } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetChartQuery } from '../../redux/api/music/musicApi'
 import { PlayerAction } from '../../redux/player/playerSlice'
-import AlbumItem from '../../ui/flatList/flatlistItem/albumItem'
 import AuthorItem from '../../ui/flatList/flatlistItem/authorItem'
+import AlbumItem from '../../ui/flatList/flatlistItem/MusicItem'
 import PlayListItem from '../../ui/flatList/flatlistItem/playListItem'
 import TrackItem from '../../ui/flatList/flatlistItem/trackItem'
 import UFlatList from '../../ui/flatList/uFlatList'
@@ -30,12 +31,14 @@ const Home = () => {
 						return {
 							id: item.id,
 							title: item.title,
+							url: item.preview,
 							image: item.album.cover_medium,
 							artist: item.artist.name,
 							playTime: item.duration
 						}
 					}),
-					headerText: 'Top Songs',
+					headerText: I18n.t('Top Songs'),
+					type: 'songs',
 					headerImage: chart.tracks.data[0].album.cover_big
 				})}
 				           showsHorizontalScrollIndicator={false}
@@ -54,20 +57,20 @@ const Home = () => {
 								           width: 220,
 								           height: 220
 							           }}
-							           songId={item.id} onPress={() => {
-							           dispatch(PlayerAction.addToPlayer({
-								           data: chart.tracks.data.map((track) => {
-									           return {
-										           id: track.id,
-										           title: track.title,
-										           url: track.preview,
-										           artist: track.artist.name,
-										           artwork: track.album.cover_big
-									           }
-								           }),
-								           songIndex: index
-							           }))
-						           }}
+							           onPress={() => {
+								           dispatch(PlayerAction.addToPlayer({
+									           data: chart.tracks.data.map((track) => {
+										           return {
+											           id: track.id,
+											           title: track.title,
+											           url: track.preview,
+											           artist: track.artist.name,
+											           artwork: track.album.cover_big
+										           }
+									           }),
+									           songIndex: index
+								           }))
+							           }}
 						           />
 					           )
 				           }}
@@ -81,7 +84,8 @@ const Home = () => {
 							artist: item.name
 						}
 					}),
-					headerText: 'Top Authors',
+					headerText: I18n.t('Top Authors'),
+					type: 'authors',
 					headerImage: chart.artists.data[0].picture_big
 				})}
 				           headerText={'Top Authors'} wrapClassNames={'mt-10 mb-5'}
@@ -100,7 +104,6 @@ const Home = () => {
 							                       height: 100
 						                       }}
 						                       name={item.name}
-						                       authorId={item.id}
 						           />
 					           )
 				           }}
@@ -116,7 +119,8 @@ const Home = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Top Albums',
+					headerText: I18n.t('Top Albums'),
+					type: 'albums',
 					headerImage: chart.albums.data[0].cover_big
 				})}
 				           headerText={'Top Albums'} wrapClassNames={'mt-10 mb-5'}
@@ -135,7 +139,6 @@ const Home = () => {
 						                      }}
 						                      artists={item.artist.name}
 						                      name={item.title}
-						                      albumId={item.id}
 						           />
 					           )
 				           }}
@@ -151,7 +154,8 @@ const Home = () => {
 							artist: item.user.name
 						}
 					}),
-					headerText: 'Top Playlists',
+					headerText: I18n.t('Top Playlists'),
+					type: 'playlists',
 					headerImage: chart.playlists.data[0].picture_big
 				})} headerText={'Top Playlists'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
@@ -169,7 +173,6 @@ const Home = () => {
 						                         }}
 						                         artists={item.user.name}
 						                         name={item.title}
-						                         PlayListId={item.id}
 						           />
 					           )
 				           }}

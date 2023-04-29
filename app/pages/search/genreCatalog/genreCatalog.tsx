@@ -1,10 +1,11 @@
+import I18n from 'i18n-js'
 import React, { FC } from 'react'
 import { ScrollView } from 'react-native'
 import { useTypedNavigation } from '../../../hook/useTypedNavigation'
 import { useTypedRoute } from '../../../hook/useTypedRoute'
 import { useGetChartInGenreQuery } from '../../../redux/api/genre/genre'
-import AlbumItem from '../../../ui/flatList/flatlistItem/albumItem'
 import AuthorItem from '../../../ui/flatList/flatlistItem/authorItem'
+import AlbumItem from '../../../ui/flatList/flatlistItem/MusicItem'
 import PlayListItem from '../../../ui/flatList/flatlistItem/playListItem'
 import TrackItem from '../../../ui/flatList/flatlistItem/trackItem'
 import UFlatList from '../../../ui/flatList/uFlatList'
@@ -39,7 +40,8 @@ const GenreCatalog: FC = () => {
 							}
 						}
 					),
-					headerText: 'Top Songs',
+					type: 'songs',
+					headerText: I18n.t('Songs'),
 					headerImage: chart.tracks.data[0].album.cover_big
 				})}
 				           headerText={'Songs'}
@@ -59,7 +61,6 @@ const GenreCatalog: FC = () => {
 								           width: 220,
 								           height: 220
 							           }}
-							           songId={item.id}
 						           />
 					           )
 				           }}
@@ -74,7 +75,8 @@ const GenreCatalog: FC = () => {
 							}
 						}
 					),
-					headerText: 'Top Authors',
+					type: 'authors',
+					headerText: I18n.t('Authors'),
 					headerImage: chart.artists.data[0].picture_big
 				})}
 				           headerText={'Authors'} wrapClassNames={'mt-10 mb-5'}
@@ -96,7 +98,6 @@ const GenreCatalog: FC = () => {
 								           height: 150
 							           }}
 							           name={item.name}
-							           authorId={item.id}
 						           />
 					           )
 				           }}
@@ -110,7 +111,8 @@ const GenreCatalog: FC = () => {
 							artist: item.artist.name
 						}
 					}),
-					headerText: 'Top Albums',
+					type: 'albums',
+					headerText: I18n.t('Albums'),
 					headerImage: chart.albums.data[0].cover_big
 				})}
 				           headerText={'Albums'}
@@ -133,7 +135,6 @@ const GenreCatalog: FC = () => {
 							           }}
 							           artists={item.artist.name}
 							           name={item.title}
-							           albumId={item.id}
 						           />
 					           )
 				           }}
@@ -149,7 +150,8 @@ const GenreCatalog: FC = () => {
 							artist: item.user.name
 						}
 					}),
-					headerText: 'Top Playlists',
+					type: 'playlists',
+					headerText: I18n.t('Playlists'),
 					headerImage: chart.playlists.data[0].picture_big
 				})} headerText={'Playlists'} wrapClassNames={'mt-10 mb-5'}
 				           showsHorizontalScrollIndicator={false}
@@ -170,7 +172,6 @@ const GenreCatalog: FC = () => {
 							           }}
 							           artists={item.user.name}
 							           name={item.title}
-							           PlayListId={item.id}
 						           />
 					           )
 				           }}

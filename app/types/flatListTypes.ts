@@ -4,29 +4,12 @@ export interface IFlatListItem extends PressableProps {
 	name: string
 	image: {
 		url: string
-		width: number
+		width: number | string
 		height: number
 	}
 	ImageClassNames?: string
 	WrapClassNames?: string
+	textCenter?: boolean
+	artists?: string
 }
 
-export interface IFlatListSongItem extends IFlatListItem {
-	artists: string
-	songId: number
-}
-
-
-export interface IFlatListAlbumItem extends IFlatListItem {
-	artists: string
-	albumId: number
-}
-
-export interface IFlatListArtistItem extends IFlatListItem {
-	authorId: number
-}
-
-export interface IFlatListPlayListItem extends IFlatListItem  {
-	PlayListId: number
-	artists: string
-}

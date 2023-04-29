@@ -13,7 +13,7 @@ import {
 } from '@expo-google-fonts/montserrat'
 import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { Text } from 'react-native'
 import FullScreenLoader from '../loader/fullScreenLoader'
 import { ITitle } from './Ititle'
@@ -61,4 +61,4 @@ const Title: FC<ITitle> =
 		)
 	}
 
-export default Title
+export default memo(Title)

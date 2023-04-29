@@ -1,4 +1,3 @@
-import { useColorScheme } from 'nativewind'
 import React, { FC } from 'react'
 import { Animated, View } from 'react-native'
 import Title from '../../../../ui/title/title'
@@ -11,7 +10,6 @@ export interface ICatalogContentHeader {
 }
 
 const CatalogContentHeader: FC<ICatalogContentHeader> = ({ title, description, y }) => {
-	const { colorScheme } = useColorScheme()
 	const opacity = y.interpolate({
 		inputRange: [-HEADER_HEIGHT, 0, HEADER_HEIGHT / 2],
 		outputRange: [1, 1, 0]

@@ -11,5 +11,11 @@ export const en = {
 	'Authors': 'Authors',
 	'Albums': 'Albums',
 	'Playlists': 'Playlists',
-	'Language Settings': 'Language Settings'
+	'Language Settings': 'Language Settings',
+	'songs': ' songs',
+	'fans': ' fans',
+	'albums': ' albums',
+	'and other': ' and other'
+	
+	
 }

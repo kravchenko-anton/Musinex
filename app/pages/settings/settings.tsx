@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { NativeModules, Pressable, View } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker'
 import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '../../hook/useTypedSelector'
 import { LanguageAction } from '../../redux/settings/languageSlice'
 import { ThemeAction } from '../../redux/settings/themeSlice'
 import Header from '../../ui/header/header'
@@ -15,7 +16,8 @@ const Settings = () => {
 	const dispatch = useDispatch()
 	const lottieRef = React.useRef<any>()
 	const [DropDownOpen, setDropDownOpen] = useState(false)
-	const [DropDownValue, setDropDownValue] = useState(null)
+	const selector = useTypedSelector((state) => state.language)
+	const [DropDownValue, setDropDownValue] = useState(selector)
 	useEffect(() => {
 		lottieRef.current.play(
 			colorScheme === 'light' ? 80 : 0
@@ -24,8 +26,7 @@ const Settings = () => {
 	return <Layout>
 		<Header className='justify-between items-center' logoSize={30}>
 			<Pressable onPress={() => {
-				console.warn(colorScheme === 'light' ?
-					'dark' : 'light')
+				
 				dispatch(ThemeAction.setTheme(colorScheme === 'light' ?
 					'dark' : 'light'
 				))
@@ -46,13 +47,13 @@ const Settings = () => {
 			<DropDownPicker
 				disableBorderRadius={true}
 				onSelectItem={async (item) => {
-					console.warn(item.value)
 					dispatch(LanguageAction.setLanguage(item.value ? item.value : 'en'))
 					NativeModules.DevSettings.reload()
 				}}
 				closeAfterSelecting={true}
 				theme={colorScheme === 'light' ? 'LIGHT' : 'DARK'}
 				open={DropDownOpen}
+				
 				value={DropDownValue}
 				items={[
 					{ label: 'English', value: 'en' },

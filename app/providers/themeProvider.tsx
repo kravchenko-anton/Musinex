@@ -1,16 +1,14 @@
 import { useColorScheme } from 'nativewind'
-import { FC, PropsWithChildren, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useTypedSelector } from '../hook/useTypedSelector'
 
-const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
+const ThemeProvider = () => {
 	const { setColorScheme } = useColorScheme()
 	const selector = useTypedSelector((state) => state.theme)
 	useEffect(() => {
 		setColorScheme(selector)
 	}, [])
-	return <>
-		{children}
-	</>
+	return null
 }
 
 export default ThemeProvider

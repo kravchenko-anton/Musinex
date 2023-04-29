@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { configureStore } from '@reduxjs/toolkit'
-import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
+import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 import { api } from './api/api'
 import { reducers } from './rootReducer'
 
@@ -22,4 +22,6 @@ export const store = configureStore({
 		})
 			.concat(api.middleware)
 })
+export const persistor = persistStore(store)
+
 export type TypeRootState = ReturnType<typeof reducers>

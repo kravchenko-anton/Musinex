@@ -1,6 +1,6 @@
 export interface IGetAlbumByID {
 	id: string
-	title: Title
+	title: string
 	upc: string
 	link: string
 	share: string
@@ -17,7 +17,7 @@ export interface IGetAlbumByID {
 	duration: number
 	fans: number
 	release_date: Date
-	record_type: RecordTypeEnum
+	record_type: string
 	available: boolean
 	tracklist: string
 	explicit_lyrics: boolean
@@ -25,7 +25,7 @@ export interface IGetAlbumByID {
 	explicit_content_cover: number
 	contributors: Contributor[]
 	artist: IGetAlbumByIDArtist
-	type: RecordTypeEnum
+	type: string
 	tracks: Tracks
 }
 
@@ -38,12 +38,9 @@ export interface IGetAlbumByIDArtist {
 	picture_big: string
 	picture_xl: string
 	tracklist: string
-	type: ArtistType
+	type: string
 }
 
-export enum ArtistType {
-	Artist = 'artist'
-}
 
 export interface Contributor {
 	id: number
@@ -57,7 +54,7 @@ export interface Contributor {
 	picture_xl: string
 	radio: boolean
 	tracklist: string
-	type: ArtistType
+	type: string
 	role: string
 }
 
@@ -72,13 +69,6 @@ export interface GenresDatum {
 	type: string
 }
 
-export enum RecordTypeEnum {
-	Album = 'album'
-}
-
-export enum Title {
-	Discovery = 'Discovery'
-}
 
 export interface Tracks {
 	data: TracksDatum[]
@@ -100,12 +90,12 @@ export interface TracksDatum {
 	md5_image: string
 	artist: DatumArtist
 	album: Album
-	type: DatumType
+	type: string
 }
 
 export interface Album {
 	id: string
-	title: Title
+	title: string
 	cover: string
 	cover_small: string
 	cover_medium: string
@@ -113,16 +103,14 @@ export interface Album {
 	cover_xl: string
 	md5_image: string
 	tracklist: string
-	type: RecordTypeEnum
+	type: string
 }
 
 export interface DatumArtist {
 	id: string
 	name: string
 	tracklist: string
-	type: ArtistType
+	type: string
 }
 
-export enum DatumType {
-	Track = 'track'
-}
+

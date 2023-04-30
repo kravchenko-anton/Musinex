@@ -205,7 +205,7 @@ const Search = () => {
 							<GenreItem
 								id={item.id}
 								name={item.name}
-								picture_big={item.picture_big}
+								picture={item.picture_big}
 							/>
 						)
 					}}

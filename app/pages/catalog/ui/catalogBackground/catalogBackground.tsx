@@ -3,32 +3,18 @@ import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, Image, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { HEADER_HEIGHT, inputRange } from '../../catalogConstant'
+import { ICatalogTypes } from '../../../../types/catalogTypes'
+import { HEADER_HEIGHT } from '../../catalogConstant'
+import { useBackgroundAnimation } from './useBackgroundAnimation'
 
-export interface ICatalogBackgroundProps {
+interface ICatalogBackgroundProps extends ICatalogTypes {
 	poster: string
-	y: Animated.Value
 }
 
 const CatalogBackground: FC<ICatalogBackgroundProps> = ({ poster, y }) => {
 	const { top } = useSafeAreaInsets()
 	const { colorScheme } = useColorScheme()
-	const scale = y.interpolate({
-		inputRange,
-		outputRange: [3, 1, 2],
-		extrapolate: 'clamp'
-	})
-	const opacity = y.interpolate({
-		inputRange,
-		outputRange: [0, 1, 0],
-		extrapolate: 'clamp'
-	})
-
-	const translateY = y.interpolate({
-		inputRange,
-		outputRange: [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.01]
-	})
-
+	const { translateY, opacity, scale } = useBackgroundAnimation(y)
 	return (
 		<Animated.View
 			style={[

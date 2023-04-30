@@ -21,12 +21,12 @@ export interface AlbumsDatum {
 	cover_big: string
 	cover_xl: string
 	md5_image: string
-	record_type: RecordTypeEnum
+	record_type: string
 	tracklist: string
 	explicit_lyrics: boolean
 	position: number
 	artist: ArtistElement
-	type: RecordTypeEnum
+	type: string
 }
 
 export interface ArtistElement {
@@ -40,17 +40,10 @@ export interface ArtistElement {
 	picture_xl: string
 	radio: boolean
 	tracklist: string
-	type: ArtistType
+	type: string
 	position?: number
 }
 
-export enum ArtistType {
-	Artist = 'artist'
-}
-
-export enum RecordTypeEnum {
-	Album = 'album'
-}
 
 export interface Artists {
 	data: ArtistElement[]
@@ -77,25 +70,19 @@ export interface PlaylistsDatum {
 	tracklist: string
 	creation_date: Date
 	md5_image: string
-	picture_type: PictureTypeEnum
+	picture_type: string
 	user: User
-	type: PictureTypeEnum
+	type: string
 }
 
-export enum PictureTypeEnum {
-	Playlist = 'playlist'
-}
 
 export interface User {
 	id: number
 	name: string
 	tracklist: string
-	type: UserType
+	type: string
 }
 
-export enum UserType {
-	User = 'user'
-}
 
 export interface Podcasts {
 	data: PodcastsDatum[]
@@ -115,12 +102,9 @@ export interface PodcastsDatum {
 	picture_medium: string
 	picture_big: string
 	picture_xl: string
-	type: PurpleType
+	type: string
 }
 
-export enum PurpleType {
-	Podcast = 'podcast'
-}
 
 export interface Tracks {
 	data: TracksDatum[]
@@ -156,5 +140,5 @@ export interface Album {
 	cover_xl: string
 	md5_image: string
 	tracklist: string
-	type: RecordTypeEnum
+	type: string
 }

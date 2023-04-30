@@ -1,5 +1,6 @@
 import { FC, useRef } from 'react'
 import { Animated } from 'react-native'
+import { ICatalogList } from '../../types/catalogTypes'
 import Layout from '../../ui/layout/layout'
 import CatalogBackground from './ui/catalogBackground/catalogBackground'
 import CatalogContent from './ui/catalogContent/catalogContent'
@@ -9,12 +10,7 @@ export interface ICatalogProps {
 	headerImage: string
 	headerText: string
 	type: 'songs' | 'albums' | 'playlists' | 'authors'
-	data: {
-		title: string
-		image: string
-		artist: string
-		id: number | string
-	}[]
+	data: ICatalogList[]
 	headerCatalogDescription?: string
 }
 

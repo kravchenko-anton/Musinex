@@ -1,32 +1,27 @@
-import {
-	NavigationContainer,
-	useNavigationContainerRef
-} from '@react-navigation/native'
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
 import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
 import { userRoutes } from '../types/navigation/userRoutes'
-import BottomMenu from './bottomMenu/BottomMenu'
+import BottomMenu from './bottomMenu/bottomMenu'
 
 const Navigation = () => {
 	const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 	const navRef = useNavigationContainerRef()
-	const [currentRoute, setCurrentRoute] = useState<string | undefined>(
-		undefined
-	)
 	const { colorScheme } = useColorScheme()
+	const [currentRoute, setCurrentRoute] = useState<string | undefined>(undefined)
 	useEffect(() => {
 		setCurrentRoute(navRef.getCurrentRoute()?.name)
 		const listener = navRef.addListener('state', () =>
 			setCurrentRoute(navRef.getCurrentRoute()?.name)
 		)
-
+		
 		return () => {
 			navRef.removeListener('state', listener)
 		}
 	}, [])
-
+	
 	return (
 		<NavigationContainer ref={navRef}>
 			<Stack.Navigator
@@ -47,9 +42,7 @@ const Navigation = () => {
 					/>
 				))}
 			</Stack.Navigator>
-			{currentRoute !== 'ReadPage' ? (
-				<BottomMenu currentRoute={currentRoute} />
-			) : null}
+			<BottomMenu currentRoute={currentRoute} />
 		</NavigationContainer>
 	)
 }

@@ -22,7 +22,7 @@ export interface Datum {
 	time_add: number
 	artist: Artist
 	album: Album
-	type: DatumType
+	type: string
 }
 
 export interface Album {
@@ -52,13 +52,6 @@ export interface Artist {
 	picture_big: string
 	picture_xl: string
 	tracklist: string
-	type: ArtistType
+	type: string
 }
 
-export enum ArtistType {
-	Artist = 'artist'
-}
-
-export enum DatumType {
-	Track = 'track'
-}

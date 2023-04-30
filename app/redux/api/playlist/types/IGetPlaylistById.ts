@@ -29,14 +29,10 @@ export interface Creator {
 	id: string
 	name: string
 	tracklist: string
-	type: CreatorType
+	type: string
 	link?: string
 }
 
-export enum CreatorType {
-	Artist = 'artist',
-	User = 'user'
-}
 
 export interface Tracks {
 	data: Datum[]
@@ -60,7 +56,7 @@ export interface Datum {
 	time_add: number
 	artist: Creator
 	album: Album
-	type: DatumType
+	type: string
 }
 
 export interface Album {
@@ -73,13 +69,5 @@ export interface Album {
 	cover_xl: string
 	md5_image: string
 	tracklist: string
-	type: AlbumType
-}
-
-export enum AlbumType {
-	Album = 'album'
-}
-
-export enum DatumType {
-	Track = 'track'
+	type: string
 }

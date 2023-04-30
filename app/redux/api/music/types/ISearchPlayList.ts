@@ -19,23 +19,16 @@ export interface Datum {
 	tracklist: string
 	creation_date: Date
 	md5_image: string
-	picture_type: PictureTypeEnum
+	picture_type: string
 	user: User
-	type: PictureTypeEnum
+	type: string
 }
 
-export enum PictureTypeEnum {
-	Cover = 'cover',
-	Playlist = 'playlist'
-}
 
 export interface User {
 	id: number
 	name: string
 	tracklist: string
-	type: UserType
+	type: string
 }
 
-export enum UserType {
-	User = 'user'
-}

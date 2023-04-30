@@ -7,8 +7,7 @@ import { menuItems } from './menuList'
 export type TypeNavigate = (screenName: keyof TypeRootStackParamList) => void
 
 interface IMenuItemProps {
-	// @ts-ignore
-	item: menuItems
+	item: typeof menuItems[0]
 	nav: TypeNavigate
 	currentRoute?: string
 }

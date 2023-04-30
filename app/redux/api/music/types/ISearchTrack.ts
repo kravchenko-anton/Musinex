@@ -9,7 +9,7 @@ export interface Datum {
 	readable: boolean
 	title: string
 	title_short: string
-	title_version?: TitleVersion
+	title_version?: string
 	link: string
 	duration: string
 	rank: string
@@ -33,12 +33,9 @@ export interface Album {
 	cover_xl: string
 	md5_image: string
 	tracklist: string
-	type: AlbumType
+	type: string
 }
 
-export enum AlbumType {
-	Album = 'album'
-}
 
 export interface Artist {
 	id: string
@@ -50,19 +47,9 @@ export interface Artist {
 	picture_big: string
 	picture_xl: string
 	tracklist: string
-	type: ArtistType
+	type: string
 }
 
-export enum ArtistType {
-	Artist = 'artist'
-}
-
-export enum TitleVersion {
-	Clean = '(Clean)',
-	Empty = '',
-	From8MileSoundtrack = '(From "8 Mile" Soundtrack)',
-	MusicFromTheMotionPicture = '(Music From The Motion Picture)'
-}
 
 export enum DatumType {
 	Track = 'track'

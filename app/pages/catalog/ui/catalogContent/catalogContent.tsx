@@ -8,7 +8,7 @@ import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
-import { ICatalogTypes } from '../../../../types/catalogTypes'
+import { ICatalogList, ICatalogTypes } from '../../../../types/catalogTypes'
 import CatalogAuthorItem from '../../../../ui/flatList/catalogItem/catalogAuthorItem'
 import CatalogSongItem from '../../../../ui/flatList/catalogItem/catalogSongItem'
 import MusicItem from '../../../../ui/flatList/flatlistItem/musicCart'
@@ -17,11 +17,10 @@ import { cutString } from '../../../../utils/cutString'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import CatalogContentHeader from './catalogContentHeader'
 
-export interface ICatalogContent {
-	DataList: ICatalogTypes[]
+interface ICatalogContent extends ICatalogTypes {
+	DataList: ICatalogList[]
 	type: 'songs' | 'albums' | 'playlists' | 'authors'
 	headerTitle: string
-	y: Animated.Value
 	description?: string
 }
 
@@ -44,15 +43,9 @@ const CatalogContent: FC<ICatalogContent> =
 				ref={ref}
 				showsVerticalScrollIndicator={false}
 				scrollEventThrottle={16}
-				onScroll={Animated.event(
-					[
-						{
-							nativeEvent: { contentOffset: { y } }
-						}
-					],
-					{
-						useNativeDriver: true
-					}
+				onScroll={Animated.event([{
+						nativeEvent: { contentOffset: { y } }
+					}], { useNativeDriver: true }
 				)}
 				contentContainerStyle={{
 					paddingTop: HEADER_HEIGHT / 1.3

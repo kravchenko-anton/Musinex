@@ -10,9 +10,6 @@ export interface Datum {
 	picture_medium: string
 	picture_big: string
 	picture_xl: string
-	type: Type
+	type: string
 }
 
-export enum Type {
-	Genre = 'genre'
-}

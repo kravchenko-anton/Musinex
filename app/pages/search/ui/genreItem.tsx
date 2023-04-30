@@ -8,11 +8,11 @@ import Title from '../../../ui/title/title'
 
 export interface IGenreItem {
 	name: string
-	picture_big: string
+	picture: string
 	id: number
 }
 
-const GenreItem: FC<IGenreItem> = ({ picture_big, id, name }) => {
+const GenreItem: FC<IGenreItem> = ({ picture, id, name }) => {
 	const { navigate } = useTypedNavigation()
 	return (
 		<Pressable
@@ -31,7 +31,7 @@ const GenreItem: FC<IGenreItem> = ({ picture_big, id, name }) => {
 				colors={['transparent', 'rgba(0, 0, 0, 1)']}
 			/>
 			<UImage
-				source={picture_big}
+				source={picture}
 				width={250}
 				height={130}
 				className='absolute  rounded-md z-10'

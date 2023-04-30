@@ -16,16 +16,16 @@ export interface Datum {
 	md5_image: string
 	genre_id: number
 	nb_tracks: number
-	record_type: RecordTypeEnum
+	record_type: string
 	tracklist: string
 	explicit_lyrics: boolean
 	artist: Artist
-	type: RecordTypeEnum
+	type: string
 }
 
 export interface Artist {
 	id: string
-	name: Name
+	name: string
 	link: string
 	picture: string
 	picture_small: string
@@ -33,20 +33,6 @@ export interface Artist {
 	picture_big: string
 	picture_xl: string
 	tracklist: string
-	type: ArtistType
+	type: string
 }
 
-export enum Name {
-	Eminem = 'Eminem',
-	JustinaValentine = 'Justina Valentine',
-	PNk = 'P!nk'
-}
-
-export enum ArtistType {
-	Artist = 'artist'
-}
-
-export enum RecordTypeEnum {
-	Album = 'album',
-	Single = 'single'
-}

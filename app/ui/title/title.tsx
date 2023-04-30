@@ -16,18 +16,18 @@ import { useColorScheme } from 'nativewind'
 import React, { FC, memo } from 'react'
 import { Text } from 'react-native'
 import FullScreenLoader from '../loader/fullScreenLoader'
-import { ITitle } from './Ititle'
+import { ITitle } from './types/Ititle'
 
 const Title: FC<ITitle> = ({
-	numberOfLines = 1,
-	color,
-	fontFamily = 'Montserrat_300Light',
-	text,
-	size = 20,
-	translate = false,
-	center = false,
-	...rest
-}) => {
+	                           numberOfLines = 1,
+	                           color,
+	                           fontFamily = 'Montserrat_300Light',
+	                           text,
+	                           size = 20,
+	                           translate = false,
+	                           center = false,
+	                           ...rest
+                           }) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_100Thin,
 		Montserrat_200ExtraLight,

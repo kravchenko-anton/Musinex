@@ -1,23 +1,23 @@
 import { Controller } from 'react-hook-form'
 import { TextInput, View } from 'react-native'
 import Title from '../title/title'
-import { IField } from './types/FiledTypes'
+import { IField } from './types/Ifiled'
 
 const Field = <T extends Record<string, any>>({
-	control,
-	rules,
-	name,
-	...rest
-}: IField<T>): JSX.Element => {
+	                                              control,
+	                                              rules,
+	                                              name,
+	                                              ...rest
+                                              }: IField<T>): JSX.Element => {
 	return (
 		<Controller
 			control={control}
 			name={name}
 			rules={rules}
 			render={({
-				field: { value, onChange, onBlur },
-				fieldState: { error }
-			}) => (
+				         field: { value, onChange, onBlur },
+				         fieldState: { error }
+			         }) => (
 				<>
 					<View
 						style={{

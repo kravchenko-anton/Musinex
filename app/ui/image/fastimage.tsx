@@ -8,7 +8,7 @@ import { useImageLoading } from './useImageLoading'
 const UFastImage: FC<IFastImage> = ({ source, width, height, ...rest }) => {
 	const imageLoad = useImageLoading(source)
 	if (!imageLoad) return <View
-		style={[{ width, height, backgroundColor: randomBeautifulColor(80, 20) }, rest.style]} />
+		style={[{ width, height, backgroundColor: randomBeautifulColor(80, 25) }, rest.style]} />
 	return (
 		<FastImage
 			source={{

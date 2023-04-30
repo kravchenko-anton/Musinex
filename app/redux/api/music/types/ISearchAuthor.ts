@@ -17,9 +17,6 @@ export interface Datum {
 	nb_fan: number
 	radio: boolean
 	tracklist: string
-	type: Type
+	type: string
 }
 
-export enum Type {
-	Artist = 'artist'
-}

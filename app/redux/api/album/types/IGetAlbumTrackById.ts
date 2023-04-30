@@ -21,20 +21,14 @@ export interface Datum {
 	preview: string
 	md5_image: string
 	artist: Artist
-	type: DatumType
+	type: string
 }
 
 export interface Artist {
 	id: string
 	name: string
 	tracklist: string
-	type: ArtistType
+	type: string
 }
 
-export enum ArtistType {
-	Artist = 'artist'
-}
 
-export enum DatumType {
-	Track = 'track'
-}

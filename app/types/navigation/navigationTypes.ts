@@ -1,4 +1,5 @@
 import { ComponentType } from 'react'
+import { ICatalogList } from '../catalogTypes'
 
 export type TypeRootStackParamList = {
 	Home: undefined
@@ -8,13 +9,7 @@ export type TypeRootStackParamList = {
 		headerImage: string
 		headerText: string
 		type: 'songs' | 'albums' | 'playlists' | 'authors'
-		data: {
-			url?: string
-			title: string
-			image: string
-			artist: string
-			id: number
-		}[]
+		data: ICatalogList[]
 		headerDescription?: string
 	}
 	AuthorWrapperCatalog: {
@@ -28,7 +23,7 @@ export type TypeRootStackParamList = {
 	}
 	favorites: undefined
 	Song: {
-		id: number
+		id: number | string
 	}
 	Author: undefined
 	playList: undefined

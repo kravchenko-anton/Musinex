@@ -4,15 +4,15 @@ import React, { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
+import { ICatalogTypes } from '../../../../types/catalogTypes'
 import BlurButton from '../../../../ui/blur-button/BlurButton'
 import Title from '../../../../ui/title/title'
 import { inputRange } from '../../catalogConstant'
 
-export interface ICatalogHeaderProps {
+interface ICatalogHeaderProps extends ICatalogTypes {
 	title: string
 	rightIcon?: keyof typeof Ionicons.glyphMap
 	rightIconFunction?: () => void
-	y: Animated.Value
 }
 
 const CatalogHeader: FC<ICatalogHeaderProps> = props => {
@@ -42,7 +42,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 				]}
 			/>
 			<BlurButton icon='arrow-back' onPress={goBack} />
-
+			
 			<Animated.View
 				className='items-center w-2/3'
 				style={{

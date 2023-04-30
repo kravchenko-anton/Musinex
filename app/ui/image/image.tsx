@@ -1,21 +1,23 @@
 import React, { FC, memo } from 'react'
-import FastImage from 'react-native-fast-image'
-import { IImage } from './IImage'
+import { Image } from 'react-native'
+import { IImage } from './types/IImage'
 
 const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
 	return (
-		<FastImage
-			fallback={true}
+		<Image
 			defaultSource={require('../../assets/no-image.jpg')}
 			source={{
 				uri: source,
-				priority: FastImage.priority.normal
-			}}
-			{...!rest.style && rest}
-			style={[{
 				width,
 				height
-			}, rest.style]}
+			}}
+			style={[
+				{
+					width,
+					height
+				}, rest.style
+			]}
+			{...rest}
 		/>
 	)
 }

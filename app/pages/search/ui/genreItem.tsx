@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 
 import { Pressable, StyleSheet } from 'react-native'
 import { useTypedNavigation } from '../../../hook/useTypedNavigation'
-import UImage from '../../../ui/image/image'
+import UImage from '../../../ui/image/fastimage'
 import Title from '../../../ui/title/title'
 
 export interface IGenreItem {

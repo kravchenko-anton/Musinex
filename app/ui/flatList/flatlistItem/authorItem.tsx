@@ -2,16 +2,16 @@ import React, { FC, memo } from 'react'
 
 import { Pressable, View } from 'react-native'
 import { IFlatListItem } from '../../../types/flatListTypes'
-import UImage from '../../image/image'
+import UImage from '../../image/fastimage'
 import Title from '../../title/title'
 
 const AuthorItem: FC<IFlatListItem> = ({
-	image,
-	name,
-	WrapClassNames,
-	ImageClassNames,
-	...rest
-}) => {
+	                                       image,
+	                                       name,
+	                                       WrapClassNames,
+	                                       ImageClassNames,
+	                                       ...rest
+                                       }) => {
 	return (
 		<Pressable
 			className={WrapClassNames}

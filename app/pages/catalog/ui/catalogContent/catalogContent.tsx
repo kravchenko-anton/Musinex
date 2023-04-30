@@ -92,6 +92,8 @@ const CatalogContent: FC<ICatalogContent> =
 					<FlashList
 						extraData={DataList}
 						drawDistance={0.1}
+						decelerationRate={0.9}
+						estimatedFirstItemOffset={10}
 						estimatedItemSize={200}
 						// Oh, my good 👇 this crash my component of start,  if I not add it he gets error in console 😂
 						// estimatedListSize={{

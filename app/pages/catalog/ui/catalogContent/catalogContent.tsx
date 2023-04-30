@@ -1,10 +1,10 @@
 import { useScrollToTop } from '@react-navigation/native'
-import { MasonryFlashList } from '@shopify/flash-list'
+import { FlashList } from '@shopify/flash-list'
 import { LinearGradient } from 'expo-linear-gradient'
 import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
 import React, { FC, useRef } from 'react'
-import { Animated, Dimensions, ScrollView, StyleSheet, View } from 'react-native'
+import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
@@ -89,14 +89,15 @@ const CatalogContent: FC<ICatalogContent> =
 					{/*
 					 Its one list who work with scroll View and for big list it good choice for performance 👇
 					*/}
-					<MasonryFlashList
-						
+					<FlashList
+						extraData={DataList}
+						drawDistance={0.1}
 						estimatedItemSize={200}
-						drawDistance={6}
-						estimatedListSize={{
-							width: Dimensions.get('window').width,
-							height: Dimensions.get('window').height
-						}}
+						// Oh, my good 👇 this crash my component of start,  if I not add it he gets error in console 😂
+						// estimatedListSize={{
+						// 	width: Dimensions.get('window').width,
+						// 	height: Dimensions.get('window').height
+						// }}
 						numColumns={(type === 'playlists' || type === 'albums') ? 2 : 1}
 						data={DataList}
 						renderItem={({ item, index }) => {

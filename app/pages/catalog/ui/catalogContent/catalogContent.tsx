@@ -86,10 +86,15 @@ const CatalogContent: FC<ICatalogContent> =
 					}}
 					className='pt-1 px-3 pb-5 w-full flex-1'
 				>
+					{/*
+					 Its one list who work with scroll View and for big list it good choice for performance 👇
+					*/}
 					<MasonryFlashList
+						
 						estimatedItemSize={200}
+						drawDistance={6}
 						estimatedListSize={{
-							width: Dimensions.get('window').width - 20,
+							width: Dimensions.get('window').width,
 							height: Dimensions.get('window').height
 						}}
 						numColumns={(type === 'playlists' || type === 'albums') ? 2 : 1}

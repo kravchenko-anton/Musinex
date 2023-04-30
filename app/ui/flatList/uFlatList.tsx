@@ -13,15 +13,16 @@ export interface IFlatList<T>
 	headerNavigate?: () => void
 }
 
-const UFlatList = <T, >({
-	                        data,
-	                        renderItem,
-	                        header,
-	                        headerNavigate,
-	                        wrapClassNames,
-	                        headerText,
-	                        ...rest
-                        }: IFlatList<T>) => {
+const UFlatList = <T, >
+({
+	 data,
+	 renderItem,
+	 header,
+	 headerNavigate,
+	 wrapClassNames,
+	 headerText,
+	 ...rest
+ }: IFlatList<T>) => {
 	if (data.length === 0) return null
 	return (
 		<View className={wrapClassNames}>
@@ -53,6 +54,8 @@ const UFlatList = <T, >({
 						</Pressable>
 					) : null}
 				</View>
+				
+				// I not use FlashList because it has a bug with height and if you're using big image he gets 30 fps 🤦‍♂️
 			) : null}
 			<FlatList
 				data={data}

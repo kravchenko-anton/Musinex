@@ -1,11 +1,15 @@
 import React, { FC, memo } from 'react'
-import { Image } from 'react-native'
+import { Image, View } from 'react-native'
+import { randomBeautifulColor } from '../../utils/getRandomColor'
 import { IImage } from './types/IImage'
+import { useImageLoading } from './useImageLoading'
 
 const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
+	const imageLoad = useImageLoading(source)
+	if (!imageLoad) return <View
+		style={[{ width, height, backgroundColor: randomBeautifulColor(80, 20) }, rest.style]} />
 	return (
 		<Image
-			defaultSource={require('../../assets/no-image.jpg')}
 			source={{
 				uri: source,
 				width,

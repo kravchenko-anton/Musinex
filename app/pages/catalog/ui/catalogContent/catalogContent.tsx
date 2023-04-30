@@ -86,20 +86,13 @@ const CatalogContent: FC<ICatalogContent> =
 					}}
 					className='pt-1 px-3 pb-5 w-full flex-1'
 				>
-					{/*
-					 Its one list who work with scroll View and for big list it good choice for performance 👇
-					*/}
 					<FlashList
+						// Its one list who work with scroll View and for big list it good choice for performance 👇
+						// if I not add  estimatedListSize my list in start rendering get only 2 element and after scroll get all element, if I add it, my list load great but if you wait 1-3 second, list be bugged 😢
 						extraData={DataList}
 						drawDistance={0.1}
-						decelerationRate={0.9}
-						estimatedFirstItemOffset={10}
+						decelerationRate={'fast'}
 						estimatedItemSize={200}
-						// Oh, my good 👇 this crash my component of start,  if I not add it he gets error in console 😂
-						// estimatedListSize={{
-						// 	width: Dimensions.get('window').width,
-						// 	height: Dimensions.get('window').height
-						// }}
 						numColumns={(type === 'playlists' || type === 'albums') ? 2 : 1}
 						data={DataList}
 						renderItem={({ item, index }) => {

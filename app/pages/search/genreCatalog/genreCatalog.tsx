@@ -98,8 +98,8 @@ const GenreCatalog: FC = () => {
 								WrapClassNames={'mr-3'}
 								image={{
 									url: item.picture_big,
-									width: 150,
-									height: 150
+									width: 90,
+									height: 90
 								}}
 								name={item.name}
 							/>

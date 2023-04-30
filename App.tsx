@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import { useColorScheme } from 'nativewind'
+import { LogBox } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -13,6 +14,7 @@ import Toast from './app/ui/Toast'
 
 export default function App() {
 	const { colorScheme } = useColorScheme()
+	LogBox.ignoreAllLogs()
 	return (
 		<Provider store={store}>
 			<PersistGate persistor={persistor} loading={<FullScreenLoader />}>

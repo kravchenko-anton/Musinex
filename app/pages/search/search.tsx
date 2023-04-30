@@ -3,10 +3,7 @@ import React from 'react'
 import { FlatList, ScrollView } from 'react-native'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetAllGenreQuery } from '../../redux/api/genre/genre'
-import AuthorItem from '../../ui/flatList/flatlistItem/authorItem'
-import AlbumItem from '../../ui/flatList/flatlistItem/MusicItem'
-import PlayListItem from '../../ui/flatList/flatlistItem/playListItem'
-import TrackItem from '../../ui/flatList/flatlistItem/trackItem'
+import MusicCart from '../../ui/flatList/flatlistItem/musicCart'
 import UFlatList from '../../ui/flatList/uFlatList'
 import Field from '../../ui/Flield/field'
 import Layout from '../../ui/layout/layout'
@@ -54,7 +51,7 @@ const Search = () => {
 						data={tracks.data.slice(0, 10)}
 						renderItem={({ item }) => {
 							return (
-								<TrackItem
+								<MusicCart
 									ImageClassNames={'rounded-lg'}
 									WrapClassNames={'mr-3 '}
 									name={item.title_short}
@@ -92,7 +89,7 @@ const Search = () => {
 						data={author.data.slice(0, 10)}
 						renderItem={({ item }) => {
 							return (
-								<AuthorItem
+								<MusicCart
 									onPress={() =>
 										navigate('AuthorWrapperCatalog', { authorId: item.id })
 									}
@@ -108,7 +105,7 @@ const Search = () => {
 							)
 						}}
 					/>
-
+					
 					<UFlatList
 						headerNavigate={() =>
 							navigate('catalog', {
@@ -133,7 +130,7 @@ const Search = () => {
 						data={albums.data.slice(0, 10)}
 						renderItem={({ item }) => {
 							return (
-								<AlbumItem
+								<MusicCart
 									onPress={() =>
 										navigate('AlbumWrapperCatalog', { albumId: item.id })
 									}
@@ -149,7 +146,7 @@ const Search = () => {
 							)
 						}}
 					/>
-
+					
 					<UFlatList
 						headerNavigate={() =>
 							navigate('catalog', {
@@ -174,7 +171,7 @@ const Search = () => {
 						data={playlists.data.slice(0, 10)}
 						renderItem={({ item }) => {
 							return (
-								<PlayListItem
+								<MusicCart
 									onPress={() =>
 										navigate('PlayListWrapperCatalog', { playListId: item.id })
 									}

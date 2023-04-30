@@ -5,10 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetChartQuery } from '../../redux/api/music/musicApi'
 import { PlayerAction } from '../../redux/player/playerSlice'
-import AuthorItem from '../../ui/flatList/flatlistItem/authorItem'
-import AlbumItem from '../../ui/flatList/flatlistItem/MusicItem'
-import PlayListItem from '../../ui/flatList/flatlistItem/playListItem'
-import TrackItem from '../../ui/flatList/flatlistItem/trackItem'
+import MusicCart from '../../ui/flatList/flatlistItem/musicCart'
 import UFlatList from '../../ui/flatList/uFlatList'
 import Header from '../../ui/header/header'
 import Icon from '../../ui/icon/defaultIcon/Icon'
@@ -51,7 +48,7 @@ const Home = () => {
 					data={chart.tracks.data.slice(0, 10)}
 					renderItem={({ item, index }) => {
 						return (
-							<TrackItem
+							<MusicCart
 								ImageClassNames={'rounded-lg'}
 								WrapClassNames={'mr-3 '}
 								name={item.title_short}
@@ -105,7 +102,7 @@ const Home = () => {
 					data={chart.artists.data.slice(0, 10)}
 					renderItem={({ item }) => {
 						return (
-							<AuthorItem
+							<MusicCart
 								onPress={() =>
 									navigate('AuthorWrapperCatalog', { authorId: item.id })
 								}
@@ -146,7 +143,7 @@ const Home = () => {
 					data={chart.albums.data.slice(0, 10)}
 					renderItem={({ item }) => {
 						return (
-							<AlbumItem
+							<MusicCart
 								textCenter
 								onPress={() =>
 									navigate('AlbumWrapperCatalog', { albumId: item.id })
@@ -188,7 +185,7 @@ const Home = () => {
 					data={chart.playlists.data.slice(0, 10)}
 					renderItem={({ item }) => {
 						return (
-							<PlayListItem
+							<MusicCart
 								onPress={() =>
 									navigate('PlayListWrapperCatalog', { playListId: item.id })
 								}

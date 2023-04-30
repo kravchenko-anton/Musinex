@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 
 import { Pressable, View } from 'react-native'
-import Icon from '../../../../ui/icon/defaultIcon/Icon'
-import UImage from '../../../../ui/image/fastimage'
-import Title from '../../../../ui/title/title'
+import Icon from '../../icon/defaultIcon/Icon'
+import UImage from '../../image/fastimage'
+import Title from '../../title/title'
 
 export interface ISongItem {
 	title: string
@@ -13,7 +13,7 @@ export interface ISongItem {
 	playFunc: () => void
 }
 
-const SongItem: FC<ISongItem> = props => {
+const CatalogSongItem: FC<ISongItem> = props => {
 	return (
 		<Pressable
 			className='flex-row items-center mb-3 w-full justify-between'
@@ -40,4 +40,4 @@ const SongItem: FC<ISongItem> = props => {
 	)
 }
 
-export default SongItem
+export default CatalogSongItem

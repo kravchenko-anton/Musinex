@@ -9,12 +9,12 @@ import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
 import { ICatalogTypes } from '../../../../types/catalogTypes'
-import MusicItem from '../../../../ui/flatList/flatlistItem/MusicItem'
+import CatalogAuthorItem from '../../../../ui/flatList/catalogItem/catalogAuthorItem'
+import CatalogSongItem from '../../../../ui/flatList/catalogItem/catalogSongItem'
+import MusicItem from '../../../../ui/flatList/flatlistItem/musicCart'
 import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
 import { cutString } from '../../../../utils/cutString'
 import { HEADER_HEIGHT } from '../../catalogConstant'
-import AuthorItem from '../songItem/authorItem'
-import SongItem from '../songItem/songItem'
 import CatalogContentHeader from './catalogContentHeader'
 
 export interface ICatalogContent {
@@ -105,7 +105,7 @@ const CatalogContent: FC<ICatalogContent> =
 						renderItem={({ item, index }) => {
 							if (type === 'songs') {
 								return (
-									<SongItem
+									<CatalogSongItem
 										title={item.title}
 										image={item.image}
 										artist={item.artist}
@@ -130,7 +130,7 @@ const CatalogContent: FC<ICatalogContent> =
 								)
 							} else if (type === 'authors') {
 								return (
-									<AuthorItem
+									<CatalogAuthorItem
 										onPress={() =>
 											navigate('AuthorWrapperCatalog', {
 												authorId: item.id
@@ -143,14 +143,14 @@ const CatalogContent: FC<ICatalogContent> =
 								)
 							} else {
 								return (
-									<MusicItem
-										className='w-[100%] p-2 mt-2 mb-2'
-										onPress={() =>
-											type === 'albums' ? navigate('AlbumWrapperCatalog', { albumId: item.id }) :
-												navigate('PlayListWrapperCatalog', { playListId: item.id })
-										}
-										image={{ url: item.image, height: 180, width: '100%' }}
-										name={cutString(item.title, 10)}
+									<MusicItem defaultImage textCenter={false}
+									           className='w-[100%] p-2 mt-2 mb-2'
+									           onPress={() =>
+										           type === 'albums' ? navigate('AlbumWrapperCatalog', { albumId: item.id }) :
+											           navigate('PlayListWrapperCatalog', { playListId: item.id })
+									           }
+									           image={{ url: item.image, height: 180, width: 180 }}
+									           name={cutString(item.title, 10)}
 									/>
 								)
 							}

@@ -4,10 +4,7 @@ import { ScrollView } from 'react-native'
 import { useTypedNavigation } from '../../../hook/useTypedNavigation'
 import { useTypedRoute } from '../../../hook/useTypedRoute'
 import { useGetChartInGenreQuery } from '../../../redux/api/genre/genre'
-import AuthorItem from '../../../ui/flatList/flatlistItem/authorItem'
-import AlbumItem from '../../../ui/flatList/flatlistItem/MusicItem'
-import PlayListItem from '../../../ui/flatList/flatlistItem/playListItem'
-import TrackItem from '../../../ui/flatList/flatlistItem/trackItem'
+import MusicCart from '../../../ui/flatList/flatlistItem/musicCart'
 import UFlatList from '../../../ui/flatList/uFlatList'
 import NavigateHeader from '../../../ui/header/navigateHeader'
 import Layout from '../../../ui/layout/layout'
@@ -53,7 +50,7 @@ const GenreCatalog: FC = () => {
 					data={chart.tracks.data.slice(0, 10)}
 					renderItem={({ item }) => {
 						return (
-							<TrackItem
+							<MusicCart
 								ImageClassNames={'rounded-lg'}
 								WrapClassNames={'mr-3 '}
 								name={item.title_short}
@@ -91,7 +88,7 @@ const GenreCatalog: FC = () => {
 					data={chart.artists.data.slice(0, 10)}
 					renderItem={({ item }) => {
 						return (
-							<AuthorItem
+							<MusicCart
 								onPress={() =>
 									navigate('AuthorWrapperCatalog', {
 										authorId: item.id
@@ -133,7 +130,7 @@ const GenreCatalog: FC = () => {
 					data={chart.albums.data.slice(0, 10)}
 					renderItem={({ item }) => {
 						return (
-							<AlbumItem
+							<MusicCart
 								onPress={() =>
 									navigate('AlbumWrapperCatalog', {
 										albumId: item.id
@@ -151,7 +148,7 @@ const GenreCatalog: FC = () => {
 						)
 					}}
 				/>
-
+				
 				<UFlatList
 					headerNavigate={() =>
 						navigate('catalog', {
@@ -176,7 +173,7 @@ const GenreCatalog: FC = () => {
 					data={chart.playlists.data.slice(0, 10)}
 					renderItem={({ item }) => {
 						return (
-							<PlayListItem
+							<MusicCart
 								onPress={() =>
 									navigate('PlayListWrapperCatalog', {
 										playListId: item.id

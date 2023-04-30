@@ -1,17 +1,16 @@
 import React, { FC } from 'react'
-
 import { Pressable, PressableProps, View } from 'react-native'
-import Icon from '../../../../ui/icon/defaultIcon/Icon'
-import UImage from '../../../../ui/image/fastimage'
-import Title from '../../../../ui/title/title'
+import Icon from '../../icon/defaultIcon/Icon'
+import UImage from '../../image/fastimage'
+import Title from '../../title/title'
 
-export interface IAuthorItem extends PressableProps {
+export interface ICatalogAuthorItem extends PressableProps {
 	name: string
 	image: string
 	likeFunc: () => void
 }
 
-const AuthorItem: FC<IAuthorItem> = ({ image, name, likeFunc, ...rest }) => {
+const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({ image, name, likeFunc, ...rest }) => {
 	return (
 		<Pressable
 			className='flex-row items-center mb-3 w-full justify-between'
@@ -33,4 +32,4 @@ const AuthorItem: FC<IAuthorItem> = ({ image, name, likeFunc, ...rest }) => {
 	)
 }
 
-export default AuthorItem
+export default CatalogAuthorItem

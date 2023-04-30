@@ -2,18 +2,21 @@ import I18n from 'i18n-js'
 import React, { FC, memo } from 'react'
 import { Pressable, View } from 'react-native'
 import { IFlatListItem } from '../../../types/flatListTypes'
-import UImage from '../../image/fastimage'
+import UFastImage from '../../image/fastimage'
+import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const MusicItem: FC<IFlatListItem> = ({
-	                                      image,
-	                                      name,
-	                                      artists,
-	                                      WrapClassNames,
-	                                      ImageClassNames,
-	                                      textCenter,
-	                                      ...rest
-                                      }) => {
+const MusicCart: FC<IFlatListItem>
+	= ({
+		   image,
+		   name,
+		   artists,
+		   defaultImage = false,
+		   WrapClassNames,
+		   ImageClassNames,
+		   textCenter = true,
+		   ...rest
+	   }) => {
 	return (
 		<Pressable
 			className={WrapClassNames}
@@ -23,12 +26,20 @@ const MusicItem: FC<IFlatListItem> = ({
 			}}
 			{...rest}
 		>
-			<UImage
-				className={ImageClassNames}
-				source={image.url}
-				height={image.height}
-				width={image.width}
-			/>
+			{
+				defaultImage ?
+					<UImage
+						className={ImageClassNames}
+						source={image.url}
+						height={image.height}
+						width={image.width} />
+					:
+					<UFastImage
+						className={ImageClassNames}
+						source={image.url}
+						height={image.height}
+						width={image.width} />
+			}
 			<View
 				style={{
 					marginTop: 5,
@@ -56,4 +67,4 @@ const MusicItem: FC<IFlatListItem> = ({
 	)
 }
 
-export default memo(MusicItem)
+export default memo(MusicCart)

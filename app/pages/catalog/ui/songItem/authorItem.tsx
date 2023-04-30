@@ -11,23 +11,26 @@ export interface IAuthorItem extends PressableProps {
 	likeFunc: () => void
 }
 
-const AuthorItem: FC<IAuthorItem> =
-	({
-		 image, name, likeFunc, ...rest
-	 }) => {
-		
-		return (
-			<Pressable className='flex-row items-center mb-3 w-full justify-between' {...rest}>
-				<View className={'flex-row items-center'}>
-					<UImage source={image} className={'rounded-full'} width={90} height={90} />
-					<View className='ml-3 max-w-[200px]'>
-						<Title text={name} fontFamily={'Montserrat_700Bold'} size={24} />
-					
-					</View>
+const AuthorItem: FC<IAuthorItem> = ({ image, name, likeFunc, ...rest }) => {
+	return (
+		<Pressable
+			className='flex-row items-center mb-3 w-full justify-between'
+			{...rest}
+		>
+			<View className={'flex-row items-center'}>
+				<UImage
+					source={image}
+					className={'rounded-full'}
+					width={90}
+					height={90}
+				/>
+				<View className='ml-3 max-w-[200px]'>
+					<Title text={name} fontFamily={'Montserrat_700Bold'} size={24} />
 				</View>
-				<Icon name={'heart'} size={25} onPress={likeFunc} />
-			</Pressable>
-		)
-	}
+			</View>
+			<Icon name={'heart'} size={25} onPress={likeFunc} />
+		</Pressable>
+	)
+}
 
 export default AuthorItem

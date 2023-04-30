@@ -30,153 +30,170 @@ const GenreCatalog: FC = () => {
 					fontFamily={'Montserrat_900Black_Italic'}
 					text={params.genreName}
 				/>
-				<UFlatList headerNavigate={() => navigate('catalog', {
-					data: chart.tracks.data.map((item) => {
-							return {
-								id: item.id,
-								title: item.title,
-								image: item.album.cover_medium,
-								artist: item.artist.name
-							}
-						}
-					),
-					type: 'songs',
-					headerText: I18n.t('Songs'),
-					headerImage: chart.tracks.data[0].album.cover_big
-				})}
-				           headerText={'Songs'}
-				           showsHorizontalScrollIndicator={false}
-				           horizontal
-				           header
-				           data={chart.tracks.data.slice(0, 10)}
-				           renderItem={({ item }) => {
-					           return (
-						           <TrackItem
-							           ImageClassNames={'rounded-lg'}
-							           WrapClassNames={'mr-3 '}
-							           name={item.title_short}
-							           artists={item.artist.name}
-							           image={{
-								           url: item.album.cover_big,
-								           width: 220,
-								           height: 220
-							           }}
-						           />
-					           )
-				           }}
+				<UFlatList
+					headerNavigate={() =>
+						navigate('catalog', {
+							data: chart.tracks.data.map(item => {
+								return {
+									id: item.id,
+									title: item.title,
+									image: item.album.cover_medium,
+									artist: item.artist.name
+								}
+							}),
+							type: 'songs',
+							headerText: I18n.t('Songs'),
+							headerImage: chart.tracks.data[0].album.cover_big
+						})
+					}
+					headerText={'Songs'}
+					showsHorizontalScrollIndicator={false}
+					horizontal
+					header
+					data={chart.tracks.data.slice(0, 10)}
+					renderItem={({ item }) => {
+						return (
+							<TrackItem
+								ImageClassNames={'rounded-lg'}
+								WrapClassNames={'mr-3 '}
+								name={item.title_short}
+								artists={item.artist.name}
+								image={{
+									url: item.album.cover_big,
+									width: 220,
+									height: 220
+								}}
+							/>
+						)
+					}}
 				/>
-				<UFlatList headerNavigate={() => navigate('catalog', {
-					data: chart.artists.data.map((item) => {
-							return {
-								id: item.id,
-								title: item.name,
-								image: item.picture_medium,
-								artist: item.name
-							}
-						}
-					),
-					type: 'authors',
-					headerText: I18n.t('Authors'),
-					headerImage: chart.artists.data[0].picture_big
-				})}
-				           headerText={'Authors'} wrapClassNames={'mt-10 mb-5'}
-				           showsHorizontalScrollIndicator={false}
-				           horizontal
-				           header
-				           data={chart.artists.data.slice(0, 10)}
-				           renderItem={({ item }) => {
-					           return (
-						           <AuthorItem
-							           onPress={() => navigate('AuthorWrapperCatalog', {
-								           authorId: item.id
-							           })}
-							           ImageClassNames={'rounded-full'}
-							           WrapClassNames={'mr-3'}
-							           image={{
-								           url: item.picture_big,
-								           width: 150,
-								           height: 150
-							           }}
-							           name={item.name}
-						           />
-					           )
-				           }}
+				<UFlatList
+					headerNavigate={() =>
+						navigate('catalog', {
+							data: chart.artists.data.map(item => {
+								return {
+									id: item.id,
+									title: item.name,
+									image: item.picture_medium,
+									artist: item.name
+								}
+							}),
+							type: 'authors',
+							headerText: I18n.t('Authors'),
+							headerImage: chart.artists.data[0].picture_big
+						})
+					}
+					headerText={'Authors'}
+					wrapClassNames={'mt-10 mb-5'}
+					showsHorizontalScrollIndicator={false}
+					horizontal
+					header
+					data={chart.artists.data.slice(0, 10)}
+					renderItem={({ item }) => {
+						return (
+							<AuthorItem
+								onPress={() =>
+									navigate('AuthorWrapperCatalog', {
+										authorId: item.id
+									})
+								}
+								ImageClassNames={'rounded-full'}
+								WrapClassNames={'mr-3'}
+								image={{
+									url: item.picture_big,
+									width: 150,
+									height: 150
+								}}
+								name={item.name}
+							/>
+						)
+					}}
 				/>
-				<UFlatList headerNavigate={() => navigate('catalog', {
-					data: chart.albums.data.map((item) => {
-						return {
-							id: item.id,
-							title: item.title,
-							image: item.cover_medium,
-							artist: item.artist.name
-						}
-					}),
-					type: 'albums',
-					headerText: I18n.t('Albums'),
-					headerImage: chart.albums.data[0].cover_big
-				})}
-				           headerText={'Albums'}
-				           wrapClassNames={'mt-10 mb-5'}
-				           showsHorizontalScrollIndicator={false}
-				           horizontal
-				           header
-				           data={chart.albums.data.slice(0, 10)}
-				           renderItem={({ item }) => {
-					           return (
-						           <AlbumItem
-							           onPress={() => navigate('AlbumWrapperCatalog', {
-								           albumId: item.id
-							           })}
-							           WrapClassNames={'mr-3'}
-							           image={{
-								           url: item.cover_big,
-								           width: 200,
-								           height: 200
-							           }}
-							           artists={item.artist.name}
-							           name={item.title}
-						           />
-					           )
-				           }}
+				<UFlatList
+					headerNavigate={() =>
+						navigate('catalog', {
+							data: chart.albums.data.map(item => {
+								return {
+									id: item.id,
+									title: item.title,
+									image: item.cover_medium,
+									artist: item.artist.name
+								}
+							}),
+							type: 'albums',
+							headerText: I18n.t('Albums'),
+							headerImage: chart.albums.data[0].cover_big
+						})
+					}
+					headerText={'Albums'}
+					wrapClassNames={'mt-10 mb-5'}
+					showsHorizontalScrollIndicator={false}
+					horizontal
+					header
+					data={chart.albums.data.slice(0, 10)}
+					renderItem={({ item }) => {
+						return (
+							<AlbumItem
+								onPress={() =>
+									navigate('AlbumWrapperCatalog', {
+										albumId: item.id
+									})
+								}
+								WrapClassNames={'mr-3'}
+								image={{
+									url: item.cover_big,
+									width: 200,
+									height: 200
+								}}
+								artists={item.artist.name}
+								name={item.title}
+							/>
+						)
+					}}
 				/>
-				
-				
-				<UFlatList headerNavigate={() => navigate('catalog', {
-					data: chart.playlists.data.map((item) => {
-						return {
-							id: item.id,
-							title: item.title,
-							image: item.picture_medium,
-							artist: item.user.name
-						}
-					}),
-					type: 'playlists',
-					headerText: I18n.t('Playlists'),
-					headerImage: chart.playlists.data[0].picture_big
-				})} headerText={'Playlists'} wrapClassNames={'mt-10 mb-5'}
-				           showsHorizontalScrollIndicator={false}
-				           horizontal
-				           header
-				           data={chart.playlists.data.slice(0, 10)}
-				           renderItem={({ item }) => {
-					           return (
-						           <PlayListItem
-							           onPress={() => navigate('PlayListWrapperCatalog', {
-								           playListId: item.id
-							           })}
-							           WrapClassNames={'mr-3'}
-							           image={{
-								           url: item.picture_big,
-								           width: 200,
-								           height: 200
-							           }}
-							           artists={item.user.name}
-							           name={item.title}
-						           />
-					           )
-				           }}
+
+				<UFlatList
+					headerNavigate={() =>
+						navigate('catalog', {
+							data: chart.playlists.data.map(item => {
+								return {
+									id: item.id,
+									title: item.title,
+									image: item.picture_medium,
+									artist: item.user.name
+								}
+							}),
+							type: 'playlists',
+							headerText: I18n.t('Playlists'),
+							headerImage: chart.playlists.data[0].picture_big
+						})
+					}
+					headerText={'Playlists'}
+					wrapClassNames={'mt-10 mb-5'}
+					showsHorizontalScrollIndicator={false}
+					horizontal
+					header
+					data={chart.playlists.data.slice(0, 10)}
+					renderItem={({ item }) => {
+						return (
+							<PlayListItem
+								onPress={() =>
+									navigate('PlayListWrapperCatalog', {
+										playListId: item.id
+									})
+								}
+								WrapClassNames={'mr-3'}
+								image={{
+									url: item.picture_big,
+									width: 200,
+									height: 200
+								}}
+								artists={item.user.name}
+								name={item.title}
+							/>
+						)
+					}}
 				/>
-			
 			</ScrollView>
 		</Layout>
 	)

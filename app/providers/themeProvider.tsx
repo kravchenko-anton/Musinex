@@ -4,7 +4,7 @@ import { useTypedSelector } from '../hook/useTypedSelector'
 
 const ThemeProvider = () => {
 	const { setColorScheme } = useColorScheme()
-	const selector = useTypedSelector((state) => state.theme)
+	const selector = useTypedSelector(state => state.theme)
 	useEffect(() => {
 		setColorScheme(selector)
 	}, [])

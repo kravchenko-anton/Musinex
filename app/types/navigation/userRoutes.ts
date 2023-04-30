@@ -35,13 +35,12 @@ export const userRoutes: iRoutes[] = [
 		name: 'Song',
 		component: Song
 	},
-	
+
 	{
 		name: 'Search',
 		component: Search
 	},
-	
-	
+
 	{
 		name: 'AuthorWrapperCatalog',
 		component: AuthorWrapperCatalog

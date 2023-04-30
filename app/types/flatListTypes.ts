@@ -12,4 +12,3 @@ export interface IFlatListItem extends PressableProps {
 	textCenter?: boolean
 	artists?: string
 }
-

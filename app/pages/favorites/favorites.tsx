@@ -6,11 +6,17 @@ import Layout from '../../ui/layout/layout'
 
 const Favorites = () => {
 	const { navigate } = useTypedNavigation()
-	return <Layout>
-		<Header logoSize={30}>
-			<Icon name={'settings'} size={24} onPress={() => navigate('Settings')} />
-		</Header>
-	</Layout>
+	return (
+		<Layout>
+			<Header logoSize={30}>
+				<Icon
+					name={'settings'}
+					size={24}
+					onPress={() => navigate('Settings')}
+				/>
+			</Header>
+		</Layout>
+	)
 }
 
 export default Favorites

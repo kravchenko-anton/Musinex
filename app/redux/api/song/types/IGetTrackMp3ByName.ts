@@ -1,15 +1,15 @@
 export interface IGetTrackMp3ByName {
-	result: Result[];
+	result: Result[]
 }
 
 export interface Result {
-	title:    string;
-	url:      string;
-	duration: number;
-	user:     User;
+	title: string
+	url: string
+	duration: number
+	user: User
 }
 
 export interface User {
-	username:      string;
-	permalink_url: string;
+	username: string
+	permalink_url: string
 }

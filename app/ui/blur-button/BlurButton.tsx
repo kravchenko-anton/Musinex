@@ -6,13 +6,13 @@ import { Pressable } from 'react-native'
 import { IBlurButton } from './blur-button.interface'
 
 const BlurButton: FC<PropsWithChildren<IBlurButton>> = ({
-	                                                        children,
-	                                                        color,
-	                                                        iconSize = 21,
-	                                                        isSmall = false,
-	                                                        icon,
-	                                                        ...rest
-                                                        }) => {
+	children,
+	color,
+	iconSize = 21,
+	isSmall = false,
+	icon,
+	...rest
+}) => {
 	const { colorScheme } = useColorScheme()
 	return (
 		<Pressable {...rest}>
@@ -29,7 +29,11 @@ const BlurButton: FC<PropsWithChildren<IBlurButton>> = ({
 				{children ? (
 					children
 				) : (
-					<Ionicons name={icon} size={iconSize} color={color ? color : colorScheme === 'light' ? '#000' : '#fff'} />
+					<Ionicons
+						name={icon}
+						size={iconSize}
+						color={color ? color : colorScheme === 'light' ? '#000' : '#fff'}
+					/>
 				)}
 			</BlurView>
 		</Pressable>

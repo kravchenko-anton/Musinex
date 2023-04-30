@@ -1,4 +1,9 @@
-import { Control, FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
+import {
+	Control,
+	FieldPath,
+	FieldValues,
+	RegisterOptions
+} from 'react-hook-form'
 import { TextInputProps } from 'react-native'
 
 export interface IField<T extends FieldValues>

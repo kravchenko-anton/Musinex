@@ -14,10 +14,6 @@ export const albumApi = api.injectEndpoints({
 				url: `/album/${id}/tracks?limit=100`
 			})
 		})
-		
 	})
 })
-export const {
-	useGetAlbumByIdQuery,
-	useGetAlbumTracksByIdQuery
-} = albumApi
+export const { useGetAlbumByIdQuery, useGetAlbumTracksByIdQuery } = albumApi

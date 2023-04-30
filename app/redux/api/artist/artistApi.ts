@@ -16,7 +16,4 @@ export const artistApi = api.injectEndpoints({
 		})
 	})
 })
-export const {
-	useGetArtistByIdQuery,
-	useGetArtistTracksQuery
-} = artistApi
+export const { useGetArtistByIdQuery, useGetArtistTracksQuery } = artistApi

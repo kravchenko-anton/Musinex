@@ -13,20 +13,31 @@ export interface ICatalogProps {
 		title: string
 		image: string
 		artist: string
-		id: number | string,
+		id: number | string
 	}[]
 	headerCatalogDescription?: string
 }
 
-const CatalogWithProps: FC<ICatalogProps> = (props) => {
+const CatalogWithProps: FC<ICatalogProps> = props => {
 	const y = useRef(new Animated.Value(0)).current
-	return <Layout className={'p-0'}>
-		<CatalogHeader title={props.headerText} rightIcon={'heart'} rightIconFunction={() => console.log(1)} y={y} />
-		<CatalogBackground poster={props.headerImage} y={y} />
-		<CatalogContent type={props.type} description={props.headerCatalogDescription} headerTitle={props.headerText}
-		                DataList={props.data}
-		                y={y} />
-	</Layout>
+	return (
+		<Layout className={'p-0'}>
+			<CatalogHeader
+				title={props.headerText}
+				rightIcon={'heart'}
+				rightIconFunction={() => console.log(1)}
+				y={y}
+			/>
+			<CatalogBackground poster={props.headerImage} y={y} />
+			<CatalogContent
+				type={props.type}
+				description={props.headerCatalogDescription}
+				headerTitle={props.headerText}
+				DataList={props.data}
+				y={y}
+			/>
+		</Layout>
+	)
 }
 
 export default CatalogWithProps

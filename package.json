@@ -14,7 +14,7 @@
 		"@react-navigation/native": "^6.1.6",
 		"@react-navigation/native-stack": "^6.9.12",
 		"@reduxjs/toolkit": "^1.9.3",
-		"@shopify/flash-list": "^1.4.3",
+		"@shopify/flash-list": "1.4.2",
 		"doctor": "^0.3.0",
 		"expo": "~48.0.11",
 		"expo-blur": "~12.2.2",

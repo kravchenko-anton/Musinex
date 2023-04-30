@@ -13,7 +13,6 @@ import Toast from './app/ui/Toast'
 
 export default function App() {
 	const { colorScheme } = useColorScheme()
-	
 	return (
 		<Provider store={store}>
 			<PersistGate persistor={persistor} loading={<FullScreenLoader />}>

@@ -1,5 +1,5 @@
 export interface ICatalogTypes {
-	id: number | string,
+	id: number | string
 	title: string
 	image: string
 	artist: string

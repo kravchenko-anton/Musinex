@@ -1,6 +1,5 @@
 import TrackPlayer, { Capability } from 'react-native-track-player'
 
-
 export async function setupPlayer() {
 	let isSetup = false
 	try {
@@ -23,7 +22,6 @@ export async function setupPlayer() {
 				Capability.SkipToPrevious,
 				Capability.SeekTo,
 				Capability.Stop
-			
 			],
 			compactCapabilities: [
 				Capability.Play,
@@ -33,11 +31,9 @@ export async function setupPlayer() {
 				Capability.SeekTo
 			]
 		})
-		
+
 		isSetup = true
 	} finally {
 		return isSetup
 	}
 }
-
-

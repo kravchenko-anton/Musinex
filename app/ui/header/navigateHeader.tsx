@@ -5,7 +5,11 @@ import Icon from '../icon/defaultIcon/Icon'
 import Title from '../title/title'
 import { IHeader } from './IHeader'
 
-const NavigateHeader: FC<PropsWithChildren<IHeader>> = ({ children, logoSize, ...rest }) => {
+const NavigateHeader: FC<PropsWithChildren<IHeader>> = ({
+	children,
+	logoSize,
+	...rest
+}) => {
 	const { goBack, navigate } = useTypedNavigation()
 	return (
 		<View className='flex-row justify-between items-center' {...rest}>

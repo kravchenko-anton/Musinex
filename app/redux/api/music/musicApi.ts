@@ -5,7 +5,6 @@ import { ISearchAuthor } from './types/ISearchAuthor'
 import { ISearchPlayList } from './types/ISearchPlayList'
 import { ISearchTrack } from './types/ISearchTrack'
 
-
 export const musicApi = api.injectEndpoints({
 	endpoints: build => ({
 		getChart: build.query<IChart, null>({

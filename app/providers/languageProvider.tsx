@@ -6,7 +6,7 @@ import { ru } from '../utils/translate/ru'
 import { ua } from '../utils/translate/ua'
 
 export const LanguageProvider = () => {
-	const selector = useTypedSelector((state) => state.language)
+	const selector = useTypedSelector(state => state.language)
 	I18n.translations = { en, ru, pl, ua }
 	I18n.locale = selector // it like 'en' or 'ru' 😘
 	I18n.fallbacks = true

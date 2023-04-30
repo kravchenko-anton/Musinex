@@ -1,25 +1,25 @@
 export interface ISearchAuthor {
-	data: Datum[];
-	total: number;
-	next: string;
+	data: Datum[]
+	total: number
+	next: string
 }
 
 export interface Datum {
-	id: number;
-	name: string;
-	link: string;
-	picture: string;
-	picture_small: string;
-	picture_medium: string;
-	picture_big: string;
-	picture_xl: string;
-	nb_album: number;
-	nb_fan: number;
-	radio: boolean;
-	tracklist: string;
-	type: Type;
+	id: number
+	name: string
+	link: string
+	picture: string
+	picture_small: string
+	picture_medium: string
+	picture_big: string
+	picture_xl: string
+	nb_album: number
+	nb_fan: number
+	radio: boolean
+	tracklist: string
+	type: Type
 }
 
 export enum Type {
-	Artist = 'artist',
+	Artist = 'artist'
 }

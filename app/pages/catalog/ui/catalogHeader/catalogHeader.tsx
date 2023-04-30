@@ -8,7 +8,6 @@ import BlurButton from '../../../../ui/blur-button/BlurButton'
 import Title from '../../../../ui/title/title'
 import { inputRange } from '../../catalogConstant'
 
-
 export interface ICatalogHeaderProps {
 	title: string
 	rightIcon?: keyof typeof Ionicons.glyphMap
@@ -16,17 +15,20 @@ export interface ICatalogHeaderProps {
 	y: Animated.Value
 }
 
-const CatalogHeader: FC<ICatalogHeaderProps> = (props) => {
+const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 	const { goBack } = useTypedNavigation()
 	const { top } = useSafeAreaInsets()
 	const { width } = useWindowDimensions()
 	const { colorScheme } = useColorScheme()
 	return (
-		<View className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4' style={{
-			marginTop: -top,
-			paddingTop: top + 6,
-			width
-		}}>
+		<View
+			className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4'
+			style={{
+				marginTop: -top,
+				paddingTop: top + 6,
+				width
+			}}
+		>
 			<Animated.View
 				style={[
 					{
@@ -34,13 +36,13 @@ const CatalogHeader: FC<ICatalogHeaderProps> = (props) => {
 						opacity: props.y.interpolate({
 							inputRange,
 							outputRange: [0, 0, 1.8]
-						}), backgroundColor: colorScheme === 'light' ? '#FFF' : '#101010'
+						}),
+						backgroundColor: colorScheme === 'light' ? '#FFF' : '#101010'
 					}
 				]}
-			
 			/>
 			<BlurButton icon='arrow-back' onPress={goBack} />
-			
+
 			<Animated.View
 				className='items-center w-2/3'
 				style={{
@@ -50,9 +52,16 @@ const CatalogHeader: FC<ICatalogHeaderProps> = (props) => {
 					})
 				}}
 			>
-				<Title text={props.title} numberOfLines={1} fontFamily={'Montserrat_500Medium'} center />
+				<Title
+					text={props.title}
+					numberOfLines={1}
+					fontFamily={'Montserrat_500Medium'}
+					center
+				/>
 			</Animated.View>
-			{props.rightIcon && <BlurButton icon={props.rightIcon} onPress={props.rightIconFunction} />}
+			{props.rightIcon && (
+				<BlurButton icon={props.rightIcon} onPress={props.rightIconFunction} />
+			)}
 		</View>
 	)
 }

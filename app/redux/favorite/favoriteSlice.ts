@@ -5,4 +5,5 @@ export const favoriteSlice = createSlice({
 	initialState: [],
 	reducers: {}
 })
-export const { reducer: favoriteReducer, actions: FavoriteAction } = favoriteSlice
+export const { reducer: favoriteReducer, actions: FavoriteAction } =
+	favoriteSlice

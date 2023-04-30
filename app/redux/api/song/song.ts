@@ -8,10 +8,6 @@ export const songApi = api.injectEndpoints({
 				url: `/track/${id}`
 			})
 		})
-		
-		
 	})
 })
-export const {
-	useGetTrackByIdQuery
-} = songApi
+export const { useGetTrackByIdQuery } = songApi

@@ -1,4 +1,7 @@
-import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
+import {
+	NavigationContainer,
+	useNavigationContainerRef
+} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
@@ -18,12 +21,12 @@ const Navigation = () => {
 		const listener = navRef.addListener('state', () =>
 			setCurrentRoute(navRef.getCurrentRoute()?.name)
 		)
-		
+
 		return () => {
 			navRef.removeListener('state', listener)
 		}
 	}, [])
-	
+
 	return (
 		<NavigationContainer ref={navRef}>
 			<Stack.Navigator
@@ -31,7 +34,9 @@ const Navigation = () => {
 				screenOptions={{
 					animation: 'slide_from_right',
 					headerShown: false,
-					contentStyle: { backgroundColor: colorScheme === 'light' ? '#e7e7e7' : '#101010' }
+					contentStyle: {
+						backgroundColor: colorScheme === 'light' ? '#e7e7e7' : '#101010'
+					}
 				}}
 			>
 				{userRoutes.map(route => (

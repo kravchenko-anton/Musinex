@@ -7,6 +7,7 @@ import React, { FC, useRef } from 'react'
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
+import { FavoriteAction } from '../../../../redux/favorite/favoriteSlice'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
 import { ICatalogList, ICatalogTypes } from '../../../../types/catalogTypes'
 import CatalogAuthorItem from '../../../../ui/flatList/catalogItem/catalogAuthorItem'
@@ -95,7 +96,10 @@ const CatalogContent: FC<ICatalogContent> =
 										title={item.title}
 										image={item.image}
 										artist={item.artist}
-										likeFunc={() => console.log(1)}
+										likeFunc={() => dispatch(FavoriteAction.toggleFavorite({
+											id: item.id,
+											type: 'songs'
+										}))}
 										playFunc={() => {
 											dispatch(
 												PlayerAction.addToPlayer({

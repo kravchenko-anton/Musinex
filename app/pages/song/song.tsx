@@ -12,7 +12,6 @@ import Title from '../../ui/title/title'
 
 const Song = () => {
 	const { params } = useTypedRoute<'Song'>()
-	
 	const { songData, playBackState } = [] as any
 	if (!params) return <FullScreenLoader />
 	return (

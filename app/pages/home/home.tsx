@@ -178,7 +178,7 @@ const Home = () => {
 						})
 					}
 					headerText={'Top Playlists'}
-					wrapClassNames={'mt-5 mb-5'}
+					wrapClassNames={'mt-2 mb-2'}
 					showsHorizontalScrollIndicator={false}
 					horizontal
 					header

@@ -3,6 +3,7 @@ import { FlatList, FlatListProps, ListRenderItem, Pressable, View } from 'react-
 import Icon from '../icon/defaultIcon/Icon'
 import Title from '../title/title'
 
+
 export interface IFlatList<T>
 	extends Omit<FlatListProps<T>, 'renderToHardwareTextureAndroid' | 'bounces'> {
 	data: T[]

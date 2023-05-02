@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Pressable, PressableProps, View } from 'react-native'
 import Icon from '../../icon/defaultIcon/Icon'
-import UImage from '../../image/fastimage'
+import UImage from '../../image/image'
 import Title from '../../title/title'
 
 export interface ICatalogAuthorItem extends PressableProps {

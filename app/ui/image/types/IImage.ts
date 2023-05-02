@@ -5,6 +5,7 @@ export interface IFastImage extends Omit<FastImageProps, 'source'> {
 	source: string
 	width: number
 	height: number
+	borderRadius?: number
 }
 
 export interface IImage extends Omit<ImageProps, 'source'> {

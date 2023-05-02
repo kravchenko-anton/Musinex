@@ -5,10 +5,10 @@ import { randomBeautifulColor } from '../../utils/getRandomColor'
 import { IFastImage } from './types/IImage'
 import { useImageLoading } from './useImageLoading'
 
-const UFastImage: FC<IFastImage> = ({ source, width, height, ...rest }) => {
+const UFastImage: FC<IFastImage> = ({ source, width, borderRadius, height, ...rest }) => {
 	const imageLoad = useImageLoading(source)
 	if (!imageLoad) return <View
-		style={[{ width, height, backgroundColor: randomBeautifulColor(80, 25) }, rest.style]} />
+		style={[{ width, height, borderRadius, backgroundColor: randomBeautifulColor(80, 25) }, rest.style]} />
 	return (
 		<FastImage
 			source={{
@@ -18,7 +18,8 @@ const UFastImage: FC<IFastImage> = ({ source, width, height, ...rest }) => {
 			{...!rest.style && rest}
 			style={[{
 				width,
-				height
+				height,
+				borderRadius
 			}, rest.style]}
 		/>
 	)

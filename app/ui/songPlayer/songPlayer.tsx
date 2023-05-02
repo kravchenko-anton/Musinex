@@ -4,7 +4,7 @@ import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from
 import { useTypedSelector } from '../../hook/useTypedSelector'
 import { randomBeautifulColor } from '../../utils/getRandomColor'
 import Icon from '../icon/defaultIcon/Icon'
-import UImage from '../image/fastimage'
+import UFastImage from '../image/fastimage'
 import Title from '../title/title'
 import { setupPlayer } from './usePlayer'
 
@@ -53,11 +53,11 @@ const SongPlayer = () => {
 	return (
 		<View
 			style={{ backgroundColor: trackInfo.color }}
-			className='rounded-t-xl absolute self-center  bottom-[65px] h-[65px] w-full'
+			className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-10/12'
 		>
 			<View className='flex flex-row justify-between items-center h-full'>
 				<View className='flex flex-row items-center ml-3 mr-3'>
-					<UImage
+					<UFastImage
 						source={trackInfo.artwork as string}
 						width={50}
 						height={50}

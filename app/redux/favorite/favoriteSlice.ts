@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { ICatalogRenderTypes } from '../../types/catalogTypes'
 
 interface FavoritePayload {
-	type: 'songs' | 'albums' | 'playlists' | 'authors'
-	id: string | number
+	type: ICatalogRenderTypes
+	id: number | string
 }
 
 export const favoriteSlice = createSlice({
@@ -13,10 +14,10 @@ export const favoriteSlice = createSlice({
 		albums: [],
 		playlists: []
 	} as {
-		songs: { id: number | string } [],
-		artists: { id: number | string }[],
-		albums: { id: number | string }[],
-		playlists: { id: number | string }[]
+		songs: any[],
+		artists: any[],
+		albums: any[],
+		playlists: any[]
 	},
 	reducers: {
 		toggleFavorite: (state, { payload }: PayloadAction<FavoritePayload>) => {

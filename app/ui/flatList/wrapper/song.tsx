@@ -5,14 +5,13 @@ import CatalogSongItem from '../catalogItem/catalogSongItem'
 interface ISongWrapper {
 	id: number | string
 	playFunc: () => void
-	likeFunc: () => void
 }
 
 const SongWrapper: FC<ISongWrapper> = (props) => {
 	const { data: track } = useGetTrackByIdQuery(props.id)
 	if (!track) return null
-	return <CatalogSongItem title={track.title} image={track.album.cover_medium} artist={track.artist.name}
-	                        likeFunc={props.likeFunc}
+	return <CatalogSongItem id={track.id} title={track.title} image={track.album.cover_medium} artist={track.artist.name}
+	                        
 	                        playFunc={props.playFunc} />
 }
 

@@ -7,9 +7,8 @@ import React, { FC, useRef } from 'react'
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
-import { FavoriteAction } from '../../../../redux/favorite/favoriteSlice'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
-import { ICatalogList, ICatalogTypes } from '../../../../types/catalogTypes'
+import { ICatalogList, ICatalogRenderTypes, ICatalogTypes } from '../../../../types/catalogTypes'
 import CatalogAuthorItem from '../../../../ui/flatList/catalogItem/catalogAuthorItem'
 import CatalogSongItem from '../../../../ui/flatList/catalogItem/catalogSongItem'
 import MusicItem from '../../../../ui/flatList/flatlistItem/musicCart'
@@ -20,7 +19,7 @@ import CatalogContentHeader from './catalogContentHeader'
 
 interface ICatalogContent extends ICatalogTypes {
 	DataList: ICatalogList[]
-	type: 'songs' | 'albums' | 'playlists' | 'authors'
+	type: ICatalogRenderTypes
 	headerTitle: string
 	description?: string
 }
@@ -93,13 +92,10 @@ const CatalogContent: FC<ICatalogContent> =
 							if (type === 'songs') {
 								return (
 									<CatalogSongItem
+										id={item.id}
 										title={item.title}
 										image={item.image}
 										artist={item.artist}
-										likeFunc={() => dispatch(FavoriteAction.toggleFavorite({
-											id: item.id,
-											type: 'songs'
-										}))}
 										playFunc={() => {
 											dispatch(
 												PlayerAction.addToPlayer({
@@ -121,6 +117,7 @@ const CatalogContent: FC<ICatalogContent> =
 							} else if (type === 'authors') {
 								return (
 									<CatalogAuthorItem
+										id={item.id}
 										onPress={() =>
 											navigate('AuthorWrapperCatalog', {
 												authorId: item.id
@@ -128,7 +125,6 @@ const CatalogContent: FC<ICatalogContent> =
 										}
 										name={item.title}
 										image={item.image}
-										likeFunc={() => console.log(1)}
 									/>
 								)
 							} else {

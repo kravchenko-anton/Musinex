@@ -1,16 +1,16 @@
 import React, { FC } from 'react'
 import { Pressable, PressableProps, View } from 'react-native'
-import Icon from '../../icon/defaultIcon/Icon'
+import Heart from '../../icon/heart/heart'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
-export interface ICatalogAuthorItem extends PressableProps {
+export interface ICatalogAuthorItem extends Omit<PressableProps, 'id'> {
+	id: number | string
 	name: string
 	image: string
-	likeFunc: () => void
 }
 
-const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({ image, name, likeFunc, ...rest }) => {
+const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({ id, image, name, ...rest }) => {
 	return (
 		<Pressable
 			className='flex-row items-center mb-3 w-full justify-between'
@@ -27,7 +27,7 @@ const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({ image, name, likeFunc, ...r
 					<Title text={name} fontFamily={'Montserrat_700Bold'} size={24} />
 				</View>
 			</View>
-			<Icon name={'heart'} size={25} onPress={likeFunc} />
+			<Heart type={'authors'} id={id} />
 		</Pressable>
 	)
 }

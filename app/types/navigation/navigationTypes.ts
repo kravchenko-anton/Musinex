@@ -1,5 +1,5 @@
 import { ComponentType } from 'react'
-import { ICatalogList } from '../catalogTypes'
+import { ICatalogList, ICatalogRenderTypes } from '../catalogTypes'
 
 export type TypeRootStackParamList = {
 	Home: undefined
@@ -8,7 +8,7 @@ export type TypeRootStackParamList = {
 	catalog: {
 		headerImage: string
 		headerText: string
-		type: 'songs' | 'albums' | 'playlists' | 'authors'
+		type: ICatalogRenderTypes
 		data: ICatalogList[]
 		headerDescription?: string
 	}

@@ -5,7 +5,7 @@ import { FC, PropsWithChildren } from 'react'
 import { Pressable } from 'react-native'
 import { IblurButton } from './types/IblurButton'
 
-const BlurButton: FC<PropsWithChildren<IblurButton>> =
+const BlurIcon: FC<PropsWithChildren<IblurButton>> =
 	({
 		 children,
 		 color,
@@ -41,4 +41,4 @@ const BlurButton: FC<PropsWithChildren<IblurButton>> =
 		)
 	}
 
-export default BlurButton
+export default BlurIcon

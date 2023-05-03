@@ -12,3 +12,5 @@ export interface ICatalogList {
 export interface ICatalogTypes {
 	y: Animated.Value
 }
+
+export type ICatalogRenderTypes = 'songs' | 'albums' | 'playlists' | 'authors'

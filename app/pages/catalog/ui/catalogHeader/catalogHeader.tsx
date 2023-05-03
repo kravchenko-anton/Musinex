@@ -5,7 +5,7 @@ import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
 import { ICatalogTypes } from '../../../../types/catalogTypes'
-import BlurButton from '../../../../ui/blur-button/BlurButton'
+import BlurIcon from '../../../../ui/blur-button/BlurIcon'
 import Title from '../../../../ui/title/title'
 import { inputRange } from '../../catalogConstant'
 
@@ -41,7 +41,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 					}
 				]}
 			/>
-			<BlurButton icon='arrow-back' onPress={goBack} />
+			<BlurIcon icon='arrow-back' onPress={goBack} />
 			
 			<Animated.View
 				className='items-center w-2/3'
@@ -60,10 +60,12 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 				/>
 			</Animated.View>
 			{props.rightIcon && (
-				<BlurButton icon={props.rightIcon} onPress={props.rightIconFunction} />
+				<BlurIcon>
+					{/*//TODO: Add heart icon*/}
+					{/*<Heart />*/}
+				</BlurIcon>
 			)}
 		</View>
 	)
 }
-
 export default CatalogHeader

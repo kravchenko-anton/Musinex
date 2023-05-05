@@ -15,5 +15,6 @@ export const pl = {
 	songs: ' piosenki',
 	fans: ' fani',
 	albums: ' albumy',
-	'and other': ' i inni'
+	'and other': ' i inni',
+	'No results': 'Nie znaleziono wyników'
 }

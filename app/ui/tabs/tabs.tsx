@@ -3,6 +3,7 @@ import { FlatList, Pressable, View } from 'react-native'
 import Title from '../title/title'
 
 interface ITabs {
+	translate?: boolean
 	data: {
 		name: string
 		title: string
@@ -10,7 +11,7 @@ interface ITabs {
 	}[]
 }
 
-const Tabs: FC<ITabs> = ({ data: tabs }) => {
+const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 	const [activeTab, setActiveTab] = React.useState('songs')
 	const [index, setIndex] = React.useState(0)
 	let refList = React.useRef<FlatList>(null).current
@@ -29,11 +30,11 @@ const Tabs: FC<ITabs> = ({ data: tabs }) => {
 						setIndex(renderIndex)
 						setActiveTab(tab.name)
 					}}
-					className='p-2 rounded-xl mr-3 mb-2 items-center w-[100px]'
+					className='p-2 rounded-xl mr-3 mb-4 items-center'
 					style={{
 						backgroundColor: renderIndex === index ? '#5b0eeb' : '#202020'
 					}}>
-					<Title text={tab.title} />
+					<Title text={tab.title} translate={translate} />
 				</Pressable>
 			}} />
 		</View>

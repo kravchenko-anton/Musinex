@@ -3,7 +3,6 @@ import { FlatList, FlatListProps, ListRenderItem, Pressable, View } from 'react-
 import Icon from '../icon/defaultIcon/Icon'
 import Title from '../title/title'
 
-
 export interface IFlatList<T>
 	extends Omit<FlatListProps<T>, 'renderToHardwareTextureAndroid' | 'bounces'> {
 	data: T[]
@@ -24,7 +23,7 @@ const UFlatList = <T, >
 	 headerText,
 	 ...rest
  }: IFlatList<T>) => {
-	if (data.length === 0) return null
+	if (data.length === 0 && !rest.ListEmptyComponent) return null
 	return (
 		<View className={wrapClassNames}>
 			{header && headerText && data.length !== 0 ? (
@@ -59,10 +58,13 @@ const UFlatList = <T, >
 				// I not use FlashList because it has a bug with height and if you're using big image he gets 30 fps 🤦‍♂️
 			) : null}
 			<FlatList
-				data={data}
-				renderToHardwareTextureAndroid={true}
-				renderItem={renderItem}
 				bounces={false}
+				renderToHardwareTextureAndroid={true}
+				maxToRenderPerBatch={4}
+				windowSize={4}
+				decelerationRate={'fast'}
+				data={data}
+				renderItem={renderItem}
 				{...rest}
 			/>
 		</View>

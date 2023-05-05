@@ -15,5 +15,6 @@ export const ua = {
 	songs: ' пісень',
 	fans: ' фанів',
 	albums: ' альбомів',
-	'and other': ' і інші'
+	'and other': ' і інші',
+	'No results': 'Нічого не знайдено'
 }

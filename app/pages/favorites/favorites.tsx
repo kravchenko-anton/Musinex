@@ -18,7 +18,7 @@ const Favorites = () => {
 					onPress={() => navigate('Settings')}
 				/>
 			</Header>
-			<Tabs data={tabs} />
+			<Tabs data={tabs} translate={true} />
 		</Layout>
 	)
 }

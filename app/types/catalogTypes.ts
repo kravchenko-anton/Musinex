@@ -14,3 +14,8 @@ export interface ICatalogTypes {
 }
 
 export type ICatalogRenderTypes = 'songs' | 'albums' | 'playlists' | 'authors'
+
+export interface IHeartProps {
+	id: number | string
+	type: ICatalogRenderTypes
+}

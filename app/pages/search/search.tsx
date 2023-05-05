@@ -41,6 +41,7 @@ const Search = () => {
 									}
 								}),
 								type: 'songs',
+								id: tracks.data[0].id,
 								headerText: I18n.t('Songs'),
 								headerImage: tracks.data[0].album.cover_big
 							})
@@ -77,6 +78,7 @@ const Search = () => {
 									}
 								}),
 								type: 'authors',
+								id: author.data[0].id,
 								headerText: I18n.t('Authors'),
 								headerImage: author.data[0].picture_big
 							})
@@ -118,6 +120,7 @@ const Search = () => {
 									}
 								}),
 								type: 'albums',
+								id: albums.data[0].id,
 								headerText: I18n.t('Albums'),
 								headerImage: albums.data[0].cover_big
 							})
@@ -159,6 +162,7 @@ const Search = () => {
 									}
 								}),
 								type: 'playlists',
+								id: playlists.data[0].id,
 								headerText: I18n.t('Playlists'),
 								headerImage: playlists.data[0].cover_big
 							})

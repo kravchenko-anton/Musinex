@@ -4,12 +4,13 @@ import React, { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
-import { ICatalogTypes } from '../../../../types/catalogTypes'
+import { ICatalogTypes, IHeartProps } from '../../../../types/catalogTypes'
 import BlurIcon from '../../../../ui/blur-button/BlurIcon'
+import Heart from '../../../../ui/icon/heart/heart'
 import Title from '../../../../ui/title/title'
 import { inputRange } from '../../catalogConstant'
 
-interface ICatalogHeaderProps extends ICatalogTypes {
+interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
 	title: string
 	rightIcon?: keyof typeof Ionicons.glyphMap
 	rightIconFunction?: () => void
@@ -20,6 +21,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 	const { top } = useSafeAreaInsets()
 	const { width } = useWindowDimensions()
 	const { colorScheme } = useColorScheme()
+	console.log(props.id, props.type)
 	return (
 		<View
 			className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4'
@@ -61,8 +63,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 			</Animated.View>
 			{props.rightIcon && (
 				<BlurIcon>
-					{/*//TODO: Add heart icon*/}
-					{/*<Heart />*/}
+					<Heart id={props.id} type={props.type} />
 				</BlurIcon>
 			)}
 		</View>

@@ -8,9 +8,10 @@ export type TypeRootStackParamList = {
 	catalog: {
 		headerImage: string
 		headerText: string
-		type: ICatalogRenderTypes
 		data: ICatalogList[]
 		headerDescription?: string
+		id: number | string
+		type: ICatalogRenderTypes
 	}
 	AuthorWrapperCatalog: {
 		authorId: number | string

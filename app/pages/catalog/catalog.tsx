@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-
 import { Animated } from 'react-native'
 import { useTypedRoute } from '../../hook/useTypedRoute'
 import Layout from '../../ui/layout/layout'
@@ -13,6 +12,8 @@ const Catalog = () => {
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
+				type={params.type}
+				id={params.id}
 				title={params.headerText}
 				rightIcon={'heart'}
 				rightIconFunction={() => console.log(1)}
@@ -20,6 +21,7 @@ const Catalog = () => {
 			/>
 			<CatalogBackground poster={params.headerImage} y={y} />
 			<CatalogContent
+				id={params.id}
 				type={params.type}
 				description={params.headerDescription}
 				headerTitle={params.headerText}

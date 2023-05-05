@@ -1,9 +1,6 @@
 import I18n from 'i18n-js'
 import { useTypedRoute } from '../../../../hook/useTypedRoute'
-import {
-	useGetAlbumByIdQuery,
-	useGetAlbumTracksByIdQuery
-} from '../../../../redux/api/album/album'
+import { useGetAlbumByIdQuery, useGetAlbumTracksByIdQuery } from '../../../../redux/api/album/album'
 import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
 import CatalogWithProps from '../../catalogProps'
 
@@ -14,6 +11,7 @@ const AlbumWrapperCatalog = () => {
 	if (!album || !tracks) return <FullScreenLoader />
 	return (
 		<CatalogWithProps
+			id={album.id}
 			type={'songs'}
 			headerCatalogDescription={
 				album.release_date + ' • ' + album.nb_tracks + I18n.t('songs')

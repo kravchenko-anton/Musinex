@@ -8,7 +8,7 @@ import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
-import { ICatalogList, ICatalogRenderTypes, ICatalogTypes } from '../../../../types/catalogTypes'
+import { ICatalogList, ICatalogTypes, IHeartProps } from '../../../../types/catalogTypes'
 import CatalogAuthorItem from '../../../../ui/flatList/catalogItem/catalogAuthorItem'
 import CatalogSongItem from '../../../../ui/flatList/catalogItem/catalogSongItem'
 import MusicItem from '../../../../ui/flatList/flatlistItem/musicCart'
@@ -17,9 +17,8 @@ import { cutString } from '../../../../utils/cutString'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import CatalogContentHeader from './catalogContentHeader'
 
-interface ICatalogContent extends ICatalogTypes {
+interface ICatalogContent extends ICatalogTypes, IHeartProps {
 	DataList: ICatalogList[]
-	type: ICatalogRenderTypes
 	headerTitle: string
 	description?: string
 }

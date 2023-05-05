@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { useTypedSelector } from '../../hook/useTypedSelector'
 import UFlatList from '../../ui/flatList/uFlatList'
-import Title from '../../ui/title/title'
+import RenderItem from '../../ui/flatList/wrapper/renderItem'
 
 export const useFavorite = () => {
 	const selector = useTypedSelector(state => state.favorites)
@@ -14,11 +14,8 @@ export const useFavorite = () => {
 				return (
 					<View>
 						<UFlatList data={selector.songs} renderItem={({ item }) => {
-							console.log(item)
 							return (
-								<View>
-									<Title text={item.id} />
-								</View>
+								<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'songs'} />
 							)
 						}} />
 					</View>
@@ -33,9 +30,7 @@ export const useFavorite = () => {
 						<UFlatList data={selector.albums} renderItem={({ item }) => {
 							console.log(item)
 							return (
-								<View>
-									<Title text={item.id} />
-								</View>
+								<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'albums'} />
 							)
 						}} />
 					</View>
@@ -47,7 +42,12 @@ export const useFavorite = () => {
 			component: () => {
 				return (
 					<View>
-						<Title text={'Artists'} />
+						<UFlatList data={selector.artists} renderItem={({ item }) => {
+							console.log(item)
+							return (
+								<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'authors'} />
+							)
+						}} />
 					</View>
 				)
 			}
@@ -57,7 +57,12 @@ export const useFavorite = () => {
 			component: () => {
 				return (
 					<View>
-						<Title text={'Playlists'} />
+						<UFlatList data={selector.playlists} renderItem={({ item }) => {
+							console.log(item)
+							return (
+								<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'playlists'} />
+							)
+						}} />
 					</View>
 				)
 			}

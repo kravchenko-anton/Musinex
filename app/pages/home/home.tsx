@@ -37,6 +37,7 @@ const Home = () => {
 									playTime: item.duration
 								}
 							}),
+							id: chart.tracks.data[0].id,
 							headerText: I18n.t('Top Songs'),
 							type: 'songs',
 							headerImage: chart.tracks.data[0].album.cover_big
@@ -91,6 +92,7 @@ const Home = () => {
 							}),
 							headerText: I18n.t('Top Authors'),
 							type: 'authors',
+							id: chart.artists.data[0].id,
 							headerImage: chart.artists.data[0].picture_big
 						})
 					}
@@ -132,6 +134,7 @@ const Home = () => {
 							}),
 							headerText: I18n.t('Top Albums'),
 							type: 'albums',
+							id: chart.albums.data[0].id,
 							headerImage: chart.albums.data[0].cover_big
 						})
 					}
@@ -174,6 +177,7 @@ const Home = () => {
 							}),
 							headerText: I18n.t('Top Playlists'),
 							type: 'playlists',
+							id: chart.playlists.data[0].id,
 							headerImage: chart.playlists.data[0].picture_big
 						})
 					}

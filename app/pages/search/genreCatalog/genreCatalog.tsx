@@ -39,6 +39,7 @@ const GenreCatalog: FC = () => {
 								}
 							}),
 							type: 'songs',
+							id: chart.tracks.data[0].id,
 							headerText: I18n.t('Songs'),
 							headerImage: chart.tracks.data[0].album.cover_big
 						})
@@ -76,6 +77,7 @@ const GenreCatalog: FC = () => {
 								}
 							}),
 							type: 'authors',
+							id: chart.artists.data[0].id,
 							headerText: I18n.t('Authors'),
 							headerImage: chart.artists.data[0].picture_big
 						})
@@ -118,6 +120,7 @@ const GenreCatalog: FC = () => {
 								}
 							}),
 							type: 'albums',
+							id: chart.albums.data[0].id,
 							headerText: I18n.t('Albums'),
 							headerImage: chart.albums.data[0].cover_big
 						})
@@ -161,6 +164,7 @@ const GenreCatalog: FC = () => {
 								}
 							}),
 							type: 'playlists',
+							id: chart.playlists.data[0].id,
 							headerText: I18n.t('Playlists'),
 							headerImage: chart.playlists.data[0].picture_big
 						})

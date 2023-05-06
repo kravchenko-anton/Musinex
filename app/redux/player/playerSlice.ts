@@ -1,22 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+type PlayerState = {
+	songIndex: number
+	data: {
+		id: number | string
+		url: string
+		title: string
+		artist: string
+		artwork: string
+	}[]
+}
 export const playerSlice = createSlice({
 	name: 'player',
-	initialState: [] as Array<{
-		PressedSongIndex: number
-		data: {
-			id: number
-			url: string
-			title: string
-			artist: string
-			artwork: string
-		}[]
-	}>,
+	initialState: [] as Array<PlayerState>,
 	reducers: {
-		addToPlayer: (state, { payload }) => {
+		addToPlayer: (state, { payload }: PayloadAction<PlayerState>) => {
 			state.length = 0
 			state.push.apply(state, [
-				{ PressedSongIndex: payload.songIndex, data: payload.data }
+				{ songIndex: payload.songIndex, data: payload.data }
 			])
 		}
 	}

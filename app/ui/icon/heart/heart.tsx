@@ -14,12 +14,25 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 	const heart = useHeart({ id, type })
 	const dispatch = useDispatch()
 	let lottieRef = useRef<any>(null).current
+	const isFirstRun = useRef(true)
 	useEffect(() => {
-		lottieRef.play(
-			heart ? 0 : 80,
-			heart ? 80 : 180
-		)
+		if (isFirstRun.current) {
+			if (heart) {
+				lottieRef.play(80, 80)
+			} else {
+				lottieRef.play(180, 180)
+			}
+			isFirstRun.current = false
+		} else if (heart) {
+			lottieRef.play(0, 80)
+		} else {
+			lottieRef.play(80, 180)
+		}
+		
+		
 	}, [heart])
+	
+	
 	return <Pressable onPress={() => {
 		dispatch(FavoriteAction.toggleFavorite({ id, type }))
 	}}>

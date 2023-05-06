@@ -1,5 +1,4 @@
 import React from 'react'
-import { View } from 'react-native'
 import { useTypedSelector } from '../../hook/useTypedSelector'
 import FlatList404 from '../../ui/flatList/flatList404'
 import RenderItem from '../../ui/flatList/render/renderItem'
@@ -13,33 +12,28 @@ export const useFavorite = () => {
 			title: 'Songs',
 			component: () => {
 				return (
-					<View>
-						<UFlatList
-							ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-							data={selector.songs} renderItem={({ item }) => {
-							return (
-								<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'songs'} />
-							)
-						}} />
-					</View>
+					<UFlatList
+						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
+						data={selector.songs} renderItem={({ item }) => {
+						return (
+							<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'songs'} />
+						)
+					}} />
 				)
 			}
 		}, {
 			name: 'albums',
 			title: 'Albums',
 			component: () => {
-				console.log(selector.albums.length)
 				return (
-					<View>
-						<UFlatList
-							ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-							data={selector.albums} renderItem={({ item }) => {
-							console.log(item)
-							return (
-								<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'albums'} />
-							)
-						}} />
-					</View>
+					<UFlatList
+						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
+						data={selector.albums} renderItem={({ item }) => {
+						console.log(item)
+						return (
+							<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'albums'} />
+						)
+					}} />
 				)
 			}
 		}, {
@@ -47,16 +41,14 @@ export const useFavorite = () => {
 			title: 'Authors',
 			component: () => {
 				return (
-					<View>
-						<UFlatList data={selector.artists}
-						           ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-						           renderItem={({ item }) => {
-							           console.log(item)
-							           return (
-								           <RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'authors'} />
-							           )
-						           }} />
-					</View>
+					<UFlatList data={selector.artists}
+					           ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
+					           renderItem={({ item }) => {
+						           console.log(item)
+						           return (
+							           <RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'authors'} />
+						           )
+					           }} />
 				)
 			}
 		}, {
@@ -64,16 +56,14 @@ export const useFavorite = () => {
 			title: 'Playlists',
 			component: () => {
 				return (
-					<View>
-						<UFlatList
-							ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-							data={selector.playlists} renderItem={({ item }) => {
-							console.log(item)
-							return (
-								<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'playlists'} />
-							)
-						}} />
-					</View>
+					<UFlatList
+						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
+						data={selector.playlists} renderItem={({ item }) => {
+						console.log(item)
+						return (
+							<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'playlists'} />
+						)
+					}} />
 				)
 			}
 		}

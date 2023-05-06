@@ -39,7 +39,7 @@ const SongPlayer = () => {
 						}
 					})
 				).then(() => {
-					TrackPlayer.skip(selector[0].PressedSongIndex)
+					TrackPlayer.skip(selector[0].songIndex)
 					TrackPlayer.play()
 					setIsPlayerReady(true)
 				})

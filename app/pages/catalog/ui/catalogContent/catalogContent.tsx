@@ -102,9 +102,10 @@ const CatalogContent: FC<ICatalogContent> =
 														return {
 															id: track.id,
 															title: track.title,
-															url: track.url,
+															url: track.url as string,
 															artist: track.artist,
 															artwork: track.image
+															
 														}
 													}),
 													songIndex: index

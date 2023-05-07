@@ -19,4 +19,3 @@ export interface Datum {
 	tracklist: string
 	type: string
 }
-

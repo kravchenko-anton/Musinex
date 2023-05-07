@@ -8,7 +8,6 @@ export interface ICatalogList {
 	url?: string
 }
 
-
 export interface ICatalogTypes {
 	y: Animated.Value
 }

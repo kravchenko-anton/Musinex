@@ -10,7 +10,12 @@ export interface ICatalogAuthorItem extends Omit<PressableProps, 'id'> {
 	image: string
 }
 
-const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({ id, image, name, ...rest }) => {
+const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({
+	id,
+	image,
+	name,
+	...rest
+}) => {
 	return (
 		<Pressable
 			className='flex-row items-center mb-3 w-full justify-between'

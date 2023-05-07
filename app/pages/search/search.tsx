@@ -107,7 +107,7 @@ const Search = () => {
 							)
 						}}
 					/>
-					
+
 					<UFlatList
 						headerNavigate={() =>
 							navigate('catalog', {
@@ -149,7 +149,7 @@ const Search = () => {
 							)
 						}}
 					/>
-					
+
 					<UFlatList
 						headerNavigate={() =>
 							navigate('catalog', {

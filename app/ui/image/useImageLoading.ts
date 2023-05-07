@@ -6,21 +6,25 @@ export const useImageLoading = (source: string) => {
 	useEffect(() => {
 		async function load() {
 			if (!Image.queryCache) return
-			await Image.queryCache([source]).then((results) => {
-				if (results[source]) {
-					setImageLoad(true)
-				} else {
-					const imageLoader = Image.prefetch(source)
-					imageLoader.then(() => setImageLoad(true)).catch(() => {
-						setImageLoad(false)
-					})
-				}
-			}).catch(() => {
-				console.error('error')
-				setImageLoad(false)
-			})
+			await Image.queryCache([source])
+				.then(results => {
+					if (results[source]) {
+						setImageLoad(true)
+					} else {
+						const imageLoader = Image.prefetch(source)
+						imageLoader
+							.then(() => setImageLoad(true))
+							.catch(() => {
+								setImageLoad(false)
+							})
+					}
+				})
+				.catch(() => {
+					console.error('error')
+					setImageLoad(false)
+				})
 		}
-		
+
 		load()
 	}, [imageLoad])
 	return imageLoad

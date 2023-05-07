@@ -36,7 +36,6 @@ export interface Album {
 	type: string
 }
 
-
 export interface Artist {
 	id: string
 	name: string
@@ -49,7 +48,6 @@ export interface Artist {
 	tracklist: string
 	type: string
 }
-
 
 export enum DatumType {
 	Track = 'track'

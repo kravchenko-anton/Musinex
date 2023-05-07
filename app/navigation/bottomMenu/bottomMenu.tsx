@@ -16,14 +16,15 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> =
 		const { colorScheme } = useColorScheme()
 		return (
 			<View>
-				<LinearGradient pointerEvents={'none'}
-				                start={[0, 0.01]}
-				                end={[0, 0.85]}
-				                className='w-full absolute bottom-0 right-0 left-0 flex-1 h-[150px]'
-				                colors={['transparent', colorScheme === 'light' ? '#EEE' : '#101010']}
-				                style={{
-					                paddingBottom: bottom
-				                }}
+				<LinearGradient
+					pointerEvents={'none'}
+					start={[0, 0.01]}
+					end={[0, 0.85]}
+					className='w-full absolute bottom-0 right-0 left-0 flex-1 h-[150px]'
+					colors={['transparent', colorScheme === 'light' ? '#EEE' : '#101010']}
+					style={{
+						paddingBottom: bottom
+					}}
 				/>
 				<View className='flex-row justify-around w-full bottom-1 absolute items-center'>
 					{menuItems.map(item => (

@@ -41,7 +41,6 @@ export interface IGetAlbumByIDArtist {
 	type: string
 }
 
-
 export interface Contributor {
 	id: number
 	name: string
@@ -68,7 +67,6 @@ export interface GenresDatum {
 	picture: string
 	type: string
 }
-
 
 export interface Tracks {
 	data: TracksDatum[]
@@ -112,5 +110,3 @@ export interface DatumArtist {
 	tracklist: string
 	type: string
 }
-
-

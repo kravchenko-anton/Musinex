@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IHeartProps } from '../../types/catalogTypes'
 
-
 type dataState = {
 	id: number | string
 }[]
@@ -14,29 +13,42 @@ export const favoriteSlice = createSlice({
 		albums: [],
 		playlists: []
 	} as {
-		songs: dataState,
-		artists: dataState,
-		albums: dataState,
+		songs: dataState
+		artists: dataState
+		albums: dataState
 		playlists: dataState
 	},
 	reducers: {
 		toggleFavorite: (state, { payload }: PayloadAction<IHeartProps>) => {
 			switch (payload.type) {
 				case 'songs':
-					state.songs.some(song => song.id === payload.id) ? state.songs = state.songs.filter(song => song.id !== payload.id) : state.songs.push({ id: payload.id })
+					state.songs.some(song => song.id === payload.id)
+						? (state.songs = state.songs.filter(song => song.id !== payload.id))
+						: state.songs.push({ id: payload.id })
 					break
 				case 'albums':
-					state.albums.some(album => album.id === payload.id) ? state.albums = state.albums.filter(album => album.id !== payload.id) : state.albums.push({ id: payload.id })
+					state.albums.some(album => album.id === payload.id)
+						? (state.albums = state.albums.filter(
+								album => album.id !== payload.id
+						  ))
+						: state.albums.push({ id: payload.id })
 					break
 				case 'playlists':
-					state.playlists.some(playlists => playlists.id === payload.id) ? state.playlists = state.playlists.filter(playlists => playlists.id !== payload.id) : state.playlists.push({ id: payload.id })
+					state.playlists.some(playlists => playlists.id === payload.id)
+						? (state.playlists = state.playlists.filter(
+								playlists => playlists.id !== payload.id
+						  ))
+						: state.playlists.push({ id: payload.id })
 					break
 				case 'authors':
-					state.artists.some(authors => authors.id === payload.id) ? state.artists = state.artists.filter(authors => authors.id !== payload.id) : state.artists.push({ id: payload.id })
+					state.artists.some(authors => authors.id === payload.id)
+						? (state.artists = state.artists.filter(
+								authors => authors.id !== payload.id
+						  ))
+						: state.artists.push({ id: payload.id })
 					break
 			}
 		}
-		
 	}
 })
 export const { reducer: favoriteReducer, actions: FavoriteAction } =

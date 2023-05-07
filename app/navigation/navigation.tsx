@@ -10,7 +10,9 @@ const Navigation = () => {
 	const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 	const navRef = useNavigationContainerRef()
 	const { colorScheme } = useColorScheme()
-	const [currentRoute, setCurrentRoute] = useState<string | undefined>(undefined)
+	const [currentRoute, setCurrentRoute] = useState<string | undefined>(
+		undefined
+	)
 	useEffect(() => {
 		setCurrentRoute(navRef.getCurrentRoute()?.name)
 		const listener = navRef.addListener('state', () =>

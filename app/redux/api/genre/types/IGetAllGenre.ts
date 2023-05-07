@@ -12,4 +12,3 @@ export interface Datum {
 	picture_xl: string
 	type: string
 }
-

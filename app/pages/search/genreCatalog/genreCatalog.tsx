@@ -151,7 +151,7 @@ const GenreCatalog: FC = () => {
 						)
 					}}
 				/>
-				
+
 				<UFlatList
 					headerNavigate={() =>
 						navigate('catalog', {

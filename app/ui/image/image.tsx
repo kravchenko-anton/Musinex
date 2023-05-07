@@ -6,8 +6,15 @@ import { useImageLoading } from './useImageLoading'
 
 const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
 	const imageLoad = useImageLoading(source)
-	if (!imageLoad) return <View
-		style={[{ width, height, backgroundColor: randomBeautifulColor(80, 25) }, rest.style]} />
+	if (!imageLoad)
+		return (
+			<View
+				style={[
+					{ width, height, backgroundColor: randomBeautifulColor(80, 25) },
+					rest.style
+				]}
+			/>
+		)
 	return (
 		<Image
 			source={{
@@ -19,7 +26,8 @@ const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
 				{
 					width,
 					height
-				}, rest.style
+				},
+				rest.style
 			]}
 			{...rest}
 		/>

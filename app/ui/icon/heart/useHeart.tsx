@@ -15,5 +15,4 @@ export const useHeart = ({ id, type }: IHeartProps) => {
 		default:
 			return false
 	}
-	
 }

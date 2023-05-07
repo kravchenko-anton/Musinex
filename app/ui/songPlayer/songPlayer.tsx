@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react'
 import { View } from 'react-native'
-import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
+import TrackPlayer, {
+	RepeatMode,
+	State,
+	useActiveTrack,
+	usePlaybackState
+} from 'react-native-track-player'
 import { useTypedSelector } from '../../hook/useTypedSelector'
 import { randomBeautifulColor } from '../../utils/getRandomColor'
 import Icon from '../icon/defaultIcon/Icon'
@@ -19,10 +24,10 @@ const SongPlayer = () => {
 			setIsPlayerReady(isSetup)
 			await TrackPlayer.setRepeatMode(RepeatMode.Queue)
 		}
-		
+
 		setup()
 	}, [])
-	
+
 	useEffect(() => {
 		if (selector.length <= 0 || !isPlayerReady) return
 		const addTracks = async () => {
@@ -47,9 +52,9 @@ const SongPlayer = () => {
 		}
 		addTracks()
 	}, [selector])
-	
+
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
-	
+
 	return (
 		<View
 			style={{ backgroundColor: trackInfo.color }}

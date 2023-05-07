@@ -12,12 +12,12 @@ export const useBackgroundAnimation = (y: Animated.Value) => {
 		outputRange: [0, 1, 0],
 		extrapolate: 'clamp'
 	})
-	
+
 	const translateY = y.interpolate({
 		inputRange,
 		outputRange: [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.01]
 	})
-	
+
 	return {
 		scale,
 		opacity,

@@ -44,7 +44,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 				]}
 			/>
 			<BlurIcon icon='arrow-back' onPress={goBack} />
-			
+
 			<Animated.View
 				className='items-center w-2/3'
 				style={{

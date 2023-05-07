@@ -28,24 +28,29 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 		} else {
 			lottieRef.play(80, 180)
 		}
-		
-		
 	}, [heart])
-	
-	
-	return <Pressable onPress={() => {
-		dispatch(FavoriteAction.toggleFavorite({ id, type }))
-	}}>
-		<Lottie ref={ref => lottieRef = ref}
-		        autoSize={true}
-		        autoPlay={false}
-		        duration={1000}
-		        loop={false}
-		        style={{
-			        width: size,
-			        height: size
-		        }} source={require('../../../assets/heart.json')} {...rest} />
-	</Pressable>
+
+	return (
+		<Pressable
+			onPress={() => {
+				dispatch(FavoriteAction.toggleFavorite({ id, type }))
+			}}
+		>
+			<Lottie
+				ref={ref => (lottieRef = ref)}
+				autoSize={true}
+				autoPlay={false}
+				duration={1000}
+				loop={false}
+				style={{
+					width: size,
+					height: size
+				}}
+				source={require('../../../assets/heart.json')}
+				{...rest}
+			/>
+		</Pressable>
+	)
 }
 
 export default memo(Heart)

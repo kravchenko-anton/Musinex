@@ -58,7 +58,7 @@ const Title: FC<ITitle> = ({
 			numberOfLines={numberOfLines}
 			{...(!rest.style && rest)}
 		>
-			{translate ? I18n.t(text) : text}
+			{translate ? I18n.t(text.toString()) : text}
 		</Text>
 	)
 }

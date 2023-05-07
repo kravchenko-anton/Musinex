@@ -1,5 +1,11 @@
 import React from 'react'
-import { FlatList, FlatListProps, ListRenderItem, Pressable, View } from 'react-native'
+import {
+	FlatList,
+	FlatListProps,
+	ListRenderItem,
+	Pressable,
+	View
+} from 'react-native'
 import Icon from '../icon/defaultIcon/Icon'
 import Title from '../title/title'
 
@@ -13,16 +19,15 @@ export interface IFlatList<T>
 	headerNavigate?: () => void
 }
 
-const UFlatList = <T, >
-({
-	 data,
-	 renderItem,
-	 header,
-	 headerNavigate,
-	 wrapClassNames,
-	 headerText,
-	 ...rest
- }: IFlatList<T>) => {
+const UFlatList = <T,>({
+	data,
+	renderItem,
+	header,
+	headerNavigate,
+	wrapClassNames,
+	headerText,
+	...rest
+}: IFlatList<T>) => {
 	if (data.length === 0 && !rest.ListEmptyComponent) return null
 	return (
 		<View className={wrapClassNames}>
@@ -54,14 +59,12 @@ const UFlatList = <T, >
 						</Pressable>
 					) : null}
 				</View>
-				
-				// I not use FlashList because it has a bug with height and if you're using big image he gets 30 fps 🤦‍♂️
-			) : null}
+			) : // I not use FlashList because it has a bug with height and if you're using big image he gets 30 fps 🤦‍♂️
+			null}
 			<FlatList
 				bounces={false}
 				renderToHardwareTextureAndroid={true}
 				maxToRenderPerBatch={4}
-				windowSize={4}
 				showsHorizontalScrollIndicator={false}
 				showsVerticalScrollIndicator={false}
 				decelerationRate={'fast'}

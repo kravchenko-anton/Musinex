@@ -6,17 +6,16 @@ import UFastImage from '../../image/fastimage'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
-const MusicCart: FC<IFlatListItem>
-	= ({
-		   image,
-		   name,
-		   artists,
-		   defaultImage = false,
-		   WrapClassNames,
-		   ImageClassNames,
-		   textCenter = true,
-		   ...rest
-	   }) => {
+const MusicCart: FC<IFlatListItem> = ({
+	image,
+	name,
+	artists,
+	defaultImage = false,
+	WrapClassNames,
+	ImageClassNames,
+	textCenter = true,
+	...rest
+}) => {
 	return (
 		<Pressable
 			className={WrapClassNames}
@@ -26,20 +25,21 @@ const MusicCart: FC<IFlatListItem>
 			}}
 			{...rest}
 		>
-			{
-				defaultImage ?
-					<UImage
-						className={ImageClassNames}
-						source={image.url}
-						height={image.height}
-						width={image.width} />
-					:
-					<UFastImage
-						className={ImageClassNames}
-						source={image.url}
-						height={image.height}
-						width={image.width} />
-			}
+			{defaultImage ? (
+				<UImage
+					className={ImageClassNames}
+					source={image.url}
+					height={image.height}
+					width={image.width}
+				/>
+			) : (
+				<UFastImage
+					className={ImageClassNames}
+					source={image.url}
+					height={image.height}
+					width={image.width}
+				/>
+			)}
 			<View
 				style={{
 					marginTop: 5,

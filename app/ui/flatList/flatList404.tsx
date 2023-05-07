@@ -8,18 +8,28 @@ interface IFlatList404 {
 	height: number
 }
 
-const FlatList404: FC<IFlatList404> = (props) => {
-	return <View style={{
-		justifyContent: 'center',
-		alignItems: 'center',
-		flex: 1
-	}}>
-		<Lottie source={require('../../assets/90988-no-results.json')} style={{
-			width: props.width,
-			height: props.height
-		}} autoSize={true} autoPlay={true} loop={false} />
-		<Title translate text={'No results'} />
-	</View>
+const FlatList404: FC<IFlatList404> = props => {
+	return (
+		<View
+			style={{
+				justifyContent: 'center',
+				alignItems: 'center',
+				flex: 1
+			}}
+		>
+			<Lottie
+				source={require('../../assets/90988-no-results.json')}
+				style={{
+					width: props.width,
+					height: props.height
+				}}
+				autoSize={true}
+				autoPlay={true}
+				loop={false}
+			/>
+			<Title translate text={'No results'} />
+		</View>
+	)
 }
 
 export default FlatList404

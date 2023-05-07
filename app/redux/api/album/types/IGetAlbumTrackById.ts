@@ -30,5 +30,3 @@ export interface Artist {
 	tracklist: string
 	type: string
 }
-
-

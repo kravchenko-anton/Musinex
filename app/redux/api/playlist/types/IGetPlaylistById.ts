@@ -33,7 +33,6 @@ export interface Creator {
 	link?: string
 }
 
-
 export interface Tracks {
 	data: Datum[]
 	checksum: string

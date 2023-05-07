@@ -44,7 +44,6 @@ export interface ArtistElement {
 	position?: number
 }
 
-
 export interface Artists {
 	data: ArtistElement[]
 	total: number
@@ -74,7 +73,6 @@ export interface PlaylistsDatum {
 	user: User
 	type: string
 }
-
 
 export interface User {
 	id: number

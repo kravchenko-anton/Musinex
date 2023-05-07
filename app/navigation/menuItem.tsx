@@ -15,10 +15,9 @@ interface IMenuItemProps {
 const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
 	return (
-		<Pressable delayHoverIn={0} onPress={() => nav(item.path)}>
+		<Pressable pointerEvents={'auto'} delayHoverIn={0} onPress={() => nav(item.path)}>
 			<View
-				style={{ backgroundColor: isActive ? '#000' : '#151515' }}
-				className='items-center justify-center p-1.5 rounded-lg'
+				className='items-center pointer-events-auto justify-center p-1.5 rounded-lg'
 			>
 				<Ionicons
 					name={item.iconName}

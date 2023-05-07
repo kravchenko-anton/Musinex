@@ -1,5 +1,6 @@
+import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
@@ -14,21 +15,26 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> =
 		const { bottom } = useSafeAreaInsets()
 		const { colorScheme } = useColorScheme()
 		return (
-			
-			<View style={{
-				backgroundColor: colorScheme === 'light' ? '#FFF' : '#151515',
-				paddingBottom: bottom + 5
-			}}
-			      className='flex-row absolute bottom-0 rounded-t-3xl h-[65px] pt-0 items-center w-full justify-around'
-			>
-				{menuItems.map(item => (
-					<MenuItem
-						item={item}
-						key={item.path}
-						nav={navigate}
-						currentRoute={currentRoute}
-					/>
-				))}
+			<View>
+				<LinearGradient pointerEvents={'none'}
+				                start={[0, 0.1]}
+				                end={[0, 0.7]}
+				                className='w-full absolute bottom-0 right-0 left-0 flex-1 h-[100px]'
+				                colors={['transparent', colorScheme === 'light' ? '#EEE' : 'rgba(10,10,10,0.9)']}
+				                style={{
+					                paddingBottom: bottom
+				                }}
+				/>
+				<View className='flex-row justify-around w-full bottom-0 absolute items-center'>
+					{menuItems.map(item => (
+						<MenuItem
+							item={item}
+							key={item.path}
+							nav={navigate}
+							currentRoute={currentRoute}
+						/>
+					))}
+				</View>
 			</View>
 		)
 	}

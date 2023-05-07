@@ -12,7 +12,8 @@ const AuthorWrapperCatalog = () => {
 	return (
 		<CatalogWithProps
 			id={artist.id}
-			type={'songs'}
+			type={'authors'}
+			contentTypes={'songs'}
 			headerCatalogDescription={
 				artist.nb_album +
 				I18n.t('albums') +

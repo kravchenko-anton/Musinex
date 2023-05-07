@@ -12,7 +12,8 @@ const AlbumWrapperCatalog = () => {
 	return (
 		<CatalogWithProps
 			id={album.id}
-			type={'songs'}
+			type={'albums'}
+			contentTypes={'songs'}
 			headerCatalogDescription={
 				album.release_date + ' • ' + album.nb_tracks + I18n.t('songs')
 			}

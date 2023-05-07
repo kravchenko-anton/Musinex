@@ -32,7 +32,14 @@ const RenderItem: FC<IRenderWrapper> =
 			case 'albums':
 				const { data: album } = useGetAlbumByIdQuery(id)
 				if (!album) return null
-				return <MusicCart id={album.id} name={album.title} image={{
+				console.log({
+					id: album.id,
+					name: album.title,
+					url: album.cover_medium,
+					width: width,
+					height: height
+				})
+				return <MusicCart name={album.title} image={{
 					url: album.cover_medium,
 					width: width,
 					height: height
@@ -40,7 +47,7 @@ const RenderItem: FC<IRenderWrapper> =
 			case 'playlists':
 				const { data: playlist } = useGetPlaylistByIdQuery(id)
 				if (!playlist) return null
-				return <MusicCart id={playlist.id} name={playlist.title} image={{
+				return <MusicCart name={playlist.title} image={{
 					url: playlist.picture_medium,
 					width: width,
 					height: height

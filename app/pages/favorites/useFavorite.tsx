@@ -16,7 +16,7 @@ export const useFavorite = () => {
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						data={selector.songs} renderItem={({ item }) => {
 						return (
-							<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'songs'} />
+							<RenderItem playFunc={() => console.log(1)} id={item.id} type={'songs'} />
 						)
 					}} />
 				)
@@ -26,12 +26,12 @@ export const useFavorite = () => {
 			title: 'Albums',
 			component: () => {
 				return (
-					<UFlatList
-						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-						data={selector.albums} renderItem={({ item }) => {
+					<UFlatList numColumns={2}
+					           ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
+					           data={selector.albums} renderItem={({ item }) => {
 						console.log(item)
 						return (
-							<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'albums'} />
+							<RenderItem playFunc={() => console.log(1)} id={item.id} type={'albums'} />
 						)
 					}} />
 				)
@@ -46,7 +46,7 @@ export const useFavorite = () => {
 					           renderItem={({ item }) => {
 						           console.log(item)
 						           return (
-							           <RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'authors'} />
+							           <RenderItem playFunc={() => console.log(1)} id={item.id} type={'authors'} />
 						           )
 					           }} />
 				)
@@ -56,12 +56,12 @@ export const useFavorite = () => {
 			title: 'Playlists',
 			component: () => {
 				return (
-					<UFlatList
-						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-						data={selector.playlists} renderItem={({ item }) => {
+					<UFlatList numColumns={2}
+					           ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
+					           data={selector.playlists} renderItem={({ item }) => {
 						console.log(item)
 						return (
-							<RenderItem key={item.id} playFunc={() => console.log(1)} id={item.id} type={'playlists'} />
+							<RenderItem playFunc={() => console.log(1)} id={item.id} type={'playlists'} />
 						)
 					}} />
 				)

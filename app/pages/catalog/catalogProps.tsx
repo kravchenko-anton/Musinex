@@ -1,6 +1,6 @@
 import { FC, useRef } from 'react'
 import { Animated } from 'react-native'
-import { ICatalogList, IHeartProps } from '../../types/catalogTypes'
+import { ICatalogList, ICatalogRenderTypes, IHeartProps } from '../../types/catalogTypes'
 import Layout from '../../ui/layout/layout'
 import CatalogBackground from './ui/catalogBackground/catalogBackground'
 import CatalogContent from './ui/catalogContent/catalogContent'
@@ -11,6 +11,7 @@ export interface ICatalogProps extends IHeartProps {
 	headerText: string
 	data: ICatalogList[]
 	headerCatalogDescription?: string
+	contentTypes?: ICatalogRenderTypes
 }
 
 const CatalogWithProps: FC<ICatalogProps> = props => {
@@ -28,7 +29,7 @@ const CatalogWithProps: FC<ICatalogProps> = props => {
 			<CatalogBackground poster={props.headerImage} y={y} />
 			<CatalogContent
 				id={props.id}
-				type={props.type}
+				type={props.contentTypes ? props.contentTypes : props.type}
 				description={props.headerCatalogDescription}
 				headerTitle={props.headerText}
 				DataList={props.data}

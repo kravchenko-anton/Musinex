@@ -12,7 +12,8 @@ const PlayListWrapperCatalog = () => {
 	return (
 		<CatalogWithProps
 			id={playlist.id}
-			type={'songs'}
+			type={'playlists'}
+			contentTypes={'songs'}
 			headerCatalogDescription={playlist.nb_tracks + I18n.t('songs')}
 			headerImage={playlist.picture_big}
 			data={tracks.data.map(item => {

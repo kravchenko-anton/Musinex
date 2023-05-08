@@ -9,6 +9,7 @@ import UImage from '../../ui/image/fastimage'
 import Layout from '../../ui/layout/layout'
 import FullScreenLoader from '../../ui/loader/fullScreenLoader'
 import Title from '../../ui/title/title'
+import { cutString } from '../../utils/cutString'
 
 const Song = () => {
 	const { params } = useTypedRoute<'Song'>()
@@ -17,7 +18,7 @@ const Song = () => {
 	return (
 		<Layout>
 			<NavigateHeader logoSize={30} className='mb-4' />
-			<Title text={songData.title} size={30} className={'mx-auto mb-4'} />
+			<Title text={cutString(songData.title, 5)} size={30} className={'mx-auto mb-4'} />
 			<UImage
 				source={songData.album.cover_big}
 				className={'rounded-full mx-auto'}

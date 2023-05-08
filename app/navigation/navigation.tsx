@@ -14,7 +14,6 @@ const Navigation = () => {
 		undefined
 	)
 	useEffect(() => {
-		setCurrentRoute(navRef.getCurrentRoute()?.name)
 		const listener = navRef.addListener('state', () =>
 			setCurrentRoute(navRef.getCurrentRoute()?.name)
 		)

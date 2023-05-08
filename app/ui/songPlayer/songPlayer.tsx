@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react'
 import { View } from 'react-native'
-import TrackPlayer, {
-	RepeatMode,
-	State,
-	useActiveTrack,
-	usePlaybackState
-} from 'react-native-track-player'
+import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import { useTypedSelector } from '../../hook/useTypedSelector'
+import { cutString } from '../../utils/cutString'
 import { randomBeautifulColor } from '../../utils/getRandomColor'
 import Icon from '../icon/defaultIcon/Icon'
 import UFastImage from '../image/fastimage'
@@ -24,10 +20,10 @@ const SongPlayer = () => {
 			setIsPlayerReady(isSetup)
 			await TrackPlayer.setRepeatMode(RepeatMode.Queue)
 		}
-
+		
 		setup()
 	}, [])
-
+	
 	useEffect(() => {
 		if (selector.length <= 0 || !isPlayerReady) return
 		const addTracks = async () => {
@@ -52,9 +48,9 @@ const SongPlayer = () => {
 		}
 		addTracks()
 	}, [selector])
-
+	
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
-
+	
 	return (
 		<View
 			style={{ backgroundColor: trackInfo.color }}
@@ -73,13 +69,13 @@ const SongPlayer = () => {
 							color={'#FFF'}
 							className='max-w-[200px]'
 							size={20}
-							text={trackInfo.title as string}
+							text={cutString(trackInfo.title as string, 10)}
 						/>
 						<Title
 							color={'#FFF'}
 							className='max-w-full'
 							size={16}
-							text={trackInfo.artist as string}
+							text={cutString(trackInfo.artist as string, 13)}
 						/>
 					</View>
 				</View>

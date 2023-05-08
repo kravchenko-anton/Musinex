@@ -8,11 +8,7 @@ import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
-import {
-	ICatalogList,
-	ICatalogTypes,
-	IHeartProps
-} from '../../../../types/catalogTypes'
+import { ICatalogList, ICatalogTypes, IHeartProps } from '../../../../types/catalogTypes'
 import CatalogAuthorItem from '../../../../ui/flatList/catalogItem/catalogAuthorItem'
 import CatalogSongItem from '../../../../ui/flatList/catalogItem/catalogSongItem'
 import MusicItem from '../../../../ui/flatList/flatlistItem/musicCart'
@@ -28,12 +24,12 @@ interface ICatalogContent extends ICatalogTypes, IHeartProps {
 }
 
 const CatalogContent: FC<ICatalogContent> = ({
-	y,
-	description,
-	type,
-	DataList,
-	headerTitle
-}) => {
+	                                             y,
+	                                             description,
+	                                             type,
+	                                             DataList,
+	                                             headerTitle
+                                             }) => {
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
 	const dispatch = useDispatch()
@@ -54,7 +50,8 @@ const CatalogContent: FC<ICatalogContent> = ({
 				{ useNativeDriver: true }
 			)}
 			contentContainerStyle={{
-				paddingTop: HEADER_HEIGHT / 1.3
+				paddingTop: HEADER_HEIGHT / 1.3,
+				paddingBottom: 50
 			}}
 		>
 			<CatalogContentHeader
@@ -62,10 +59,10 @@ const CatalogContent: FC<ICatalogContent> = ({
 					description
 						? description
 						: I18n.t('by') +
-						  DataList[0].artist +
-						  (DataList.some(item => item.artist !== DataList[0].artist)
-								? I18n.t('and other')
-								: '')
+						DataList[0].artist +
+						(DataList.some(item => item.artist !== DataList[0].artist)
+							? I18n.t('and other')
+							: '')
 				}
 				title={headerTitle}
 				y={y}
@@ -143,8 +140,8 @@ const CatalogContent: FC<ICatalogContent> = ({
 										type === 'albums'
 											? navigate('AlbumWrapperCatalog', { albumId: item.id })
 											: navigate('PlayListWrapperCatalog', {
-													playListId: item.id
-											  })
+												playListId: item.id
+											})
 									}
 									image={{ url: item.image, height: 180, width: 180 }}
 									name={cutString(item.title, 10)}

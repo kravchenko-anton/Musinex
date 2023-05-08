@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { useTypedSelector } from '../../hook/useTypedSelector'
 import FlatList404 from '../../ui/flatList/flatList404'
 import RenderItem from '../../ui/flatList/render/renderItem'
@@ -6,6 +7,7 @@ import UFlatList from '../../ui/flatList/uFlatList'
 
 export const useFavorite = () => {
 	const selector = useTypedSelector(state => state.favorites)
+	const dispatch = useDispatch()
 	const tabs = [
 		{
 			name: 'songs',
@@ -14,11 +16,14 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-						data={selector.songs}
-						renderItem={({ item }) => {
+						data={selector.songs} style={{ height: '85%' }}
+						contentContainerStyle={{ paddingBottom: 100 }}
+						renderItem={({ item, index }) => {
 							return (
 								<RenderItem
-									playFunc={() => console.log(1)}
+									playFunc={() => {
+										console.log('play')
+									}}
 									id={item.id}
 									type={'songs'}
 								/>
@@ -34,8 +39,9 @@ export const useFavorite = () => {
 			component: () => {
 				return (
 					<UFlatList
-						contentContainerStyle={{ width: '100%', height: '100%' }}
+						contentContainerStyle={{ paddingBottom: 100 }}
 						numColumns={2}
+						style={{ height: '85%' }}
 						data={selector.albums}
 						renderItem={({ item }) => {
 							return (
@@ -56,6 +62,8 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						data={selector.artists}
+						style={{ height: '85%' }}
+						contentContainerStyle={{ paddingBottom: 100 }}
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						renderItem={({ item }) => {
 							console.log(item)
@@ -77,6 +85,7 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						numColumns={2}
+						style={{ height: '85%' }}
 						contentContainerStyle={{ paddingBottom: 100 }}
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						data={selector.playlists}

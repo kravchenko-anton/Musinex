@@ -1,6 +1,6 @@
 import I18n from 'i18n-js'
 import React from 'react'
-import { FlatList, ScrollView } from 'react-native'
+import { FlatList } from 'react-native'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetAllGenreQuery } from '../../redux/api/genre/genre'
 import MusicCart from '../../ui/flatList/flatlistItem/musicCart'
@@ -8,6 +8,7 @@ import UFlatList from '../../ui/flatList/uFlatList'
 import Field from '../../ui/Flield/field'
 import Layout from '../../ui/layout/layout'
 import FullScreenLoader from '../../ui/loader/fullScreenLoader'
+import UScrollView from '../../ui/scrollView/uScrollView'
 import GenreItem from './ui/genreItem'
 import { useSearch } from './useSearch'
 
@@ -26,7 +27,7 @@ const Search = () => {
 				placeholder={I18n.t('Type anything')}
 			/>
 			{searchTerm && tracks && playlists && albums && author ? (
-				<ScrollView showsVerticalScrollIndicator={false} className='mt-4'>
+				<UScrollView className='mt-4'>
 					<UFlatList
 						headerText={'Songs'}
 						headerNavigate={() =>
@@ -107,7 +108,7 @@ const Search = () => {
 							)
 						}}
 					/>
-
+					
 					<UFlatList
 						headerNavigate={() =>
 							navigate('catalog', {
@@ -149,7 +150,7 @@ const Search = () => {
 							)
 						}}
 					/>
-
+					
 					<UFlatList
 						headerNavigate={() =>
 							navigate('catalog', {
@@ -191,11 +192,14 @@ const Search = () => {
 							)
 						}}
 					/>
-				</ScrollView>
+				</UScrollView>
 			) : (
 				<FlatList
 					showsVerticalScrollIndicator={false}
 					numColumns={2}
+					contentContainerStyle={{
+						paddingBottom: 50
+					}}
 					columnWrapperStyle={{
 						justifyContent: 'space-between',
 						marginVertical: 10,

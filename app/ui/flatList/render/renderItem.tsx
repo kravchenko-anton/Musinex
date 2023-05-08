@@ -13,7 +13,7 @@ import MusicCart from '../flatlistItem/musicCart'
 interface IRenderItem {
 	id: number | string
 	type: ICatalogRenderTypes
-	playFunc?: () => void // тут должно быть что-то типа если type === 'songs' то playFunc: () => void иначе этого поля даже нет
+	playFunc?: () => void
 	height?: number
 	width?: number
 }

@@ -14,6 +14,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> =
 		const { navigate } = useTypedNavigation()
 		const { bottom } = useSafeAreaInsets()
 		const { colorScheme } = useColorScheme()
+		
 		return (
 			<View>
 				<LinearGradient

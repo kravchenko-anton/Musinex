@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from 'react-native'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import Header from '../../ui/header/header'
 import Icon from '../../ui/icon/defaultIcon/Icon'
@@ -18,7 +19,9 @@ const Favorites = () => {
 					onPress={() => navigate('Settings')}
 				/>
 			</Header>
-			<Tabs data={tabs} translate={true} />
+			<View className='h-full'>
+				<Tabs data={tabs} translate={true} />
+			</View>
 		</Layout>
 	)
 }

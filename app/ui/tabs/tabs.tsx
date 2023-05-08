@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react'
-import { FlatList, Pressable, ScrollView, View } from 'react-native'
+import { FlatList, Pressable, View } from 'react-native'
 import Title from '../title/title'
 
 interface ITabs {
@@ -20,7 +20,7 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 		refList.scrollToIndex({ index, animated: true })
 	}, [index])
 	return (
-		<View className='h-full'>
+		<View>
 			<View className='flex-row flex-wrap gap-2 mt-2'>
 				<FlatList
 					ref={ref => (refList = ref)}
@@ -46,11 +46,11 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 					}}
 				/>
 			</View>
-			<ScrollView showsVerticalScrollIndicator={false}>
-				{tabs.map(tab => {
-					return activeTab === tab.name ? tab.component() : null
-				})}
-			</ScrollView>
+			{tabs.map(tab => {
+				if (tab.name === activeTab) {
+					return tab.component()
+				}
+			})}
 		</View>
 	)
 }

@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons/'
+import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
@@ -14,6 +15,7 @@ interface IMenuItemProps {
 
 const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
+	const { colorScheme } = useColorScheme()
 	return (
 		<Pressable
 			pointerEvents={'auto'}
@@ -24,7 +26,7 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 				<Ionicons
 					name={item.iconName}
 					size={30}
-					color={isActive ? 'white' : '#D9D7D5'}
+					color={isActive ? colorScheme === 'dark' ? 'white' : '#5b0eeb' : colorScheme === 'dark' ? '#D9D7D5' : '#202020'}
 				/>
 			</View>
 		</Pressable>

@@ -40,7 +40,7 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 									backgroundColor: renderIndex === index ? '#5b0eeb' : '#202020'
 								}}
 							>
-								<Title text={tab.title} translate={translate} />
+								<Title text={tab.title} color={'#fff'} translate={translate} />
 							</Pressable>
 						)
 					}}

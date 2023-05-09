@@ -1,4 +1,4 @@
-export interface ISearchAuthor {
+export interface ISearchArtist {
 	data: Datum[]
 	total: number
 	next: string

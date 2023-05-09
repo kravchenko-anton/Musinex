@@ -6,7 +6,7 @@ import { useGetPlaylistByIdQuery } from '../../../redux/api/playlist/playlist'
 import { useGetTrackByIdQuery } from '../../../redux/api/song/song'
 import { ICatalogRenderTypes } from '../../../types/catalogTypes'
 import { cutString } from '../../../utils/cutString'
-import CatalogAuthorItem from '../catalogItem/catalogAuthorItem'
+import CatalogArtistItem from '../catalogItem/catalogArtistItem'
 import CatalogSongItem from '../catalogItem/catalogSongItem'
 import MusicCart from '../flatlistItem/musicCart'
 
@@ -70,14 +70,14 @@ const RenderItem: FC<IRenderItem> =
 						onPress={() => navigate('PlayListWrapperCatalog', { playListId: id })}
 					/>
 				)
-			case 'authors':
-				const { data: author } = useGetArtistByIdQuery(id)
-				if (!author) return null
+			case 'artists':
+				const { data: artist } = useGetArtistByIdQuery(id)
+				if (!artist) return null
 				return (
-					<CatalogAuthorItem
-						id={author.id}
-						name={author.name}
-						image={author.picture_medium}
+					<CatalogArtistItem
+						id={artist.id}
+						name={artist.name}
+						image={artist.picture_medium}
 					/>
 				)
 			default:

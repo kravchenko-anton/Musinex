@@ -88,13 +88,13 @@ const Home = () => {
 								artist: item.name
 							}
 						}),
-						headerText: I18n.t('Top Authors'),
-						type: 'authors',
+						headerText: I18n.t('Top Artists'),
+						type: 'artists',
 						id: chart.artists.data[0].id,
 						headerImage: chart.artists.data[0].picture_big
 					})
 				}
-				headerText={'Top Authors'}
+				headerText={'Top Artists'}
 				wrapClassNames={'mt-10 mb-5'}
 				showsHorizontalScrollIndicator={false}
 				horizontal
@@ -104,7 +104,7 @@ const Home = () => {
 					return (
 						<MusicCart
 							onPress={() =>
-								navigate('AuthorWrapperCatalog', { authorId: item.id })
+								navigate('ArtistWrapperCatalog', { artistId: item.id })
 							}
 							ImageClassNames={'rounded-full'}
 							WrapClassNames={'mr-3'}

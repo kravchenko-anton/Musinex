@@ -13,7 +13,7 @@ import GenreItem from './ui/genreItem'
 import { useSearch } from './useSearch'
 
 const Search = () => {
-	const { searchTerm, tracks, playlists, albums, author, isLoading, control } =
+	const { searchTerm, tracks, playlists, albums, artists, isLoading, control } =
 		useSearch()
 	const { navigate } = useTypedNavigation()
 	const { data: genre } = useGetAllGenreQuery(null)
@@ -26,7 +26,7 @@ const Search = () => {
 				control={control}
 				placeholder={I18n.t('Type anything')}
 			/>
-			{searchTerm && tracks && playlists && albums && author ? (
+			{searchTerm && tracks && playlists && albums && artists ? (
 				<UScrollView className='mt-4'>
 					<UFlatList
 						headerText={'Songs'}
@@ -70,7 +70,7 @@ const Search = () => {
 					<UFlatList
 						headerNavigate={() =>
 							navigate('catalog', {
-								data: author.data.map(item => {
+								data: artists.data.map(item => {
 									return {
 										id: item.id,
 										title: item.name,
@@ -78,23 +78,23 @@ const Search = () => {
 										artist: item.name
 									}
 								}),
-								type: 'authors',
-								id: author.data[0].id,
-								headerText: I18n.t('Authors'),
-								headerImage: author.data[0].picture_big
+								type: 'artists',
+								id: artists.data[0].id,
+								headerText: I18n.t('Artists'),
+								headerImage: artists.data[0].picture_big
 							})
 						}
-						headerText={'Authors'}
+						headerText={'Artists'}
 						wrapClassNames={'mt-10 mb-5'}
 						showsHorizontalScrollIndicator={false}
 						horizontal
 						header
-						data={author.data.slice(0, 10)}
+						data={artists.data.slice(0, 10)}
 						renderItem={({ item }) => {
 							return (
 								<MusicCart
 									onPress={() =>
-										navigate('AuthorWrapperCatalog', { authorId: item.id })
+										navigate('ArtistWrapperCatalog', { artistId: item.id })
 									}
 									ImageClassNames={'rounded-full'}
 									WrapClassNames={'mr-3'}
@@ -158,14 +158,14 @@ const Search = () => {
 									return {
 										id: item.id,
 										title: item.title,
-										image: item.cover_medium,
-										artist: item.artist.name
+										image: item.picture_medium,
+										artist: item.user.name
 									}
 								}),
 								type: 'playlists',
 								id: playlists.data[0].id,
 								headerText: I18n.t('Playlists'),
-								headerImage: playlists.data[0].cover_big
+								headerImage: playlists.data[0].picture_big
 							})
 						}
 						headerText={'Playlists'}
@@ -182,11 +182,11 @@ const Search = () => {
 									}
 									WrapClassNames={'mr-3'}
 									image={{
-										url: item.cover_big,
+										url: item.picture_medium,
 										width: 250,
 										height: 250
 									}}
-									artists={item.artist.name}
+									artists={item.user.name}
 									name={item.title}
 								/>
 							)

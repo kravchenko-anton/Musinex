@@ -13,8 +13,8 @@ export type TypeRootStackParamList = {
 		id: number | string
 		type: ICatalogRenderTypes
 	}
-	AuthorWrapperCatalog: {
-		authorId: number | string
+	ArtistWrapperCatalog: {
+		artistId: number | string
 	}
 	AlbumWrapperCatalog: {
 		albumId: number | string
@@ -26,13 +26,10 @@ export type TypeRootStackParamList = {
 	Song: {
 		id: number | string
 	}
-	Author: undefined
-	playList: undefined
 	genreCatalog: {
 		genreId: number
 		genreName: string
 	}
-	playLists: undefined
 }
 
 export interface iRoutes {

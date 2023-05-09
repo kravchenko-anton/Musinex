@@ -74,13 +74,13 @@ const GenreCatalog: FC = () => {
 								artist: item.name
 							}
 						}),
-						type: 'authors',
+						type: 'artists',
 						id: chart.artists.data[0].id,
-						headerText: I18n.t('Authors'),
+						headerText: I18n.t('Artists'),
 						headerImage: chart.artists.data[0].picture_big
 					})
 				}
-				headerText={'Authors'}
+				headerText={'Artists'}
 				wrapClassNames={'mt-10 mb-5'}
 				showsHorizontalScrollIndicator={false}
 				horizontal
@@ -90,8 +90,8 @@ const GenreCatalog: FC = () => {
 					return (
 						<MusicCart
 							onPress={() =>
-								navigate('AuthorWrapperCatalog', {
-									authorId: item.id
+								navigate('ArtistWrapperCatalog', {
+									artistId: item.id
 								})
 							}
 							ImageClassNames={'rounded-full'}

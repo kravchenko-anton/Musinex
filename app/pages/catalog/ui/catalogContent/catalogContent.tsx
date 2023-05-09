@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../../../hook/useTypedNavigation'
 import { PlayerAction } from '../../../../redux/player/playerSlice'
 import { ICatalogList, ICatalogTypes, IHeartProps } from '../../../../types/catalogTypes'
-import CatalogAuthorItem from '../../../../ui/flatList/catalogItem/catalogAuthorItem'
+import CatalogArtistItem from '../../../../ui/flatList/catalogItem/catalogArtistItem'
 import CatalogSongItem from '../../../../ui/flatList/catalogItem/catalogSongItem'
 import MusicItem from '../../../../ui/flatList/flatlistItem/musicCart'
 import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
@@ -117,13 +117,13 @@ const CatalogContent: FC<ICatalogContent> = ({
 									}}
 								/>
 							)
-						} else if (type === 'authors') {
+						} else if (type === 'artists') {
 							return (
-								<CatalogAuthorItem
+								<CatalogArtistItem
 									id={item.id}
 									onPress={() =>
-										navigate('AuthorWrapperCatalog', {
-											authorId: item.id
+										navigate('ArtistWrapperCatalog', {
+											artistId: item.id
 										})
 									}
 									name={item.title}

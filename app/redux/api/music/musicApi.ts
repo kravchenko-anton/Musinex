@@ -1,7 +1,7 @@
 import { api } from '../api'
 import { IChart } from './types/IChart'
 import { ISearchAlbum } from './types/ISearchAlbum'
-import { ISearchAuthor } from './types/ISearchAuthor'
+import { ISearchArtist } from './types/ISearchArtist'
 import { ISearchPlayList } from './types/ISearchPlayList'
 import { ISearchTrack } from './types/ISearchTrack'
 
@@ -12,7 +12,7 @@ export const musicApi = api.injectEndpoints({
 				url: '/chart?limit=100'
 			})
 		}),
-		searchAuthor: build.query<ISearchAuthor, string>({
+		searchArtist: build.query<ISearchArtist, string>({
 			query: term => ({
 				url: `/search/artist?q=${term}`
 			})
@@ -35,8 +35,8 @@ export const musicApi = api.injectEndpoints({
 	})
 })
 export const {
+	useSearchArtistQuery,
 	useGetChartQuery,
-	useSearchAuthorQuery,
 	useSearchTrackQuery,
 	useSearchAlbumQuery,
 	useSearchPlayListQuery

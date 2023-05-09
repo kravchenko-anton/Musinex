@@ -1,20 +1,21 @@
 import {
 	useSearchAlbumQuery,
-	useSearchAuthorQuery,
+	useSearchArtistQuery,
+	useSearchPlayListQuery,
 	useSearchTrackQuery
 } from '../../redux/api/music/musicApi'
 import { useSearchForm } from './useSearchForm'
 
 export const useSearch = () => {
 	const { searchTerm, debouncedSearch, control } = useSearchForm()
-
+	
 	const { data: tracks, isLoading: trackLoading } = useSearchTrackQuery(
 		debouncedSearch,
 		{
 			skip: !debouncedSearch
 		}
 	)
-	const { data: author, isLoading: authorLoading } = useSearchAuthorQuery(
+	const { data: artists, isLoading: artistsLoading } = useSearchArtistQuery(
 		debouncedSearch,
 		{
 			skip: !debouncedSearch
@@ -26,13 +27,13 @@ export const useSearch = () => {
 			skip: !debouncedSearch
 		}
 	)
-	const { data: playlists, isLoading: playlistLoading } = useSearchAlbumQuery(
+	const { data: playlists, isLoading: playlistLoading } = useSearchPlayListQuery(
 		debouncedSearch,
 		{
 			skip: !debouncedSearch
 		}
 	)
 	const isLoading =
-		trackLoading || authorLoading || albumLoading || playlistLoading
-	return { tracks, author, albums, playlists, isLoading, control, searchTerm }
+		trackLoading || artistsLoading || albumLoading || playlistLoading
+	return { tracks, artists, albums, playlists, isLoading, control, searchTerm }
 }

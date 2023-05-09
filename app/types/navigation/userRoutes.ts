@@ -1,6 +1,6 @@
 import Catalog from '../../pages/catalog/catalog'
 import AlbumWrapperCatalog from '../../pages/catalog/wrappers/album/album'
-import AuthorWrapperCatalog from '../../pages/catalog/wrappers/author/author'
+import ArtistWrapperCatalog from '../../pages/catalog/wrappers/artist/artist'
 import PlaylistWrapperCatalog from '../../pages/catalog/wrappers/playlist/playlist'
 import Favorites from '../../pages/favorites/favorites'
 import Home from '../../pages/home/home'
@@ -35,15 +35,15 @@ export const userRoutes: iRoutes[] = [
 		name: 'Song',
 		component: Song
 	},
-
+	
 	{
 		name: 'Search',
 		component: Search
 	},
-
+	
 	{
-		name: 'AuthorWrapperCatalog',
-		component: AuthorWrapperCatalog
+		name: 'ArtistWrapperCatalog',
+		component: ArtistWrapperCatalog
 	},
 	{
 		name: 'AlbumWrapperCatalog',

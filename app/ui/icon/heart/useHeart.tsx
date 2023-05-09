@@ -8,7 +8,7 @@ export const useHeart = ({ id, type }: IHeartProps) => {
 			return selector.songs.some(item => item.id === id)
 		case 'albums':
 			return selector.albums.some(item => item.id === id)
-		case 'authors':
+		case 'artists':
 			return selector.artists.some(item => item.id === id)
 		case 'playlists':
 			return selector.playlists.some(item => item.id === id)

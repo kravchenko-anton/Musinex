@@ -4,18 +4,18 @@ import Heart from '../../icon/heart/heart'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
-export interface ICatalogAuthorItem extends Omit<PressableProps, 'id'> {
+export interface ICatalogArtistsItem extends Omit<PressableProps, 'id'> {
 	id: number | string
 	name: string
 	image: string
 }
 
-const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({
-	id,
-	image,
-	name,
-	...rest
-}) => {
+const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
+	                                                    id,
+	                                                    image,
+	                                                    name,
+	                                                    ...rest
+                                                    }) => {
 	return (
 		<Pressable
 			className='flex-row items-center mb-3 w-full justify-between'
@@ -32,9 +32,9 @@ const CatalogAuthorItem: FC<ICatalogAuthorItem> = ({
 					<Title text={name} fontFamily={'Montserrat_700Bold'} size={24} />
 				</View>
 			</View>
-			<Heart type={'authors'} id={id} />
+			<Heart type={'artists'} id={id} />
 		</Pressable>
 	)
 }
 
-export default CatalogAuthorItem
+export default CatalogArtistItem

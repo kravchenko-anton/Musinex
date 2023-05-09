@@ -56,8 +56,8 @@ export const useFavorite = () => {
 			}
 		},
 		{
-			name: 'Authors',
-			title: 'Authors',
+			name: 'Artists',
+			title: 'Artists',
 			component: () => {
 				return (
 					<UFlatList
@@ -70,7 +70,7 @@ export const useFavorite = () => {
 							return (
 								<RenderItem
 									id={item.id}
-									type={'authors'}
+									type={'artists'}
 								/>
 							)
 						}}

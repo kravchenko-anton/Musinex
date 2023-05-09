@@ -29,22 +29,22 @@ export const favoriteSlice = createSlice({
 				case 'albums':
 					state.albums.some(album => album.id === payload.id)
 						? (state.albums = state.albums.filter(
-								album => album.id !== payload.id
-						  ))
+							album => album.id !== payload.id
+						))
 						: state.albums.push({ id: payload.id })
 					break
 				case 'playlists':
 					state.playlists.some(playlists => playlists.id === payload.id)
 						? (state.playlists = state.playlists.filter(
-								playlists => playlists.id !== payload.id
-						  ))
+							playlists => playlists.id !== payload.id
+						))
 						: state.playlists.push({ id: payload.id })
 					break
-				case 'authors':
-					state.artists.some(authors => authors.id === payload.id)
+				case 'artists':
+					state.artists.some(artists => artists.id === payload.id)
 						? (state.artists = state.artists.filter(
-								authors => authors.id !== payload.id
-						  ))
+							artists => artists.id !== payload.id
+						))
 						: state.artists.push({ id: payload.id })
 					break
 			}

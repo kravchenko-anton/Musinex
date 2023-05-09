@@ -43,7 +43,7 @@ const Field = <T extends Record<string, any>>
 					{error && (
 						<Title
 							className='text-red'
-							text={error.message ? error.message : 'Error!'}
+							text={error.message ? error.message : 'error!'}
 						/>
 					)}
 				</>

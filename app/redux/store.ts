@@ -1,16 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { configureStore } from '@reduxjs/toolkit'
-import {
-	FLUSH,
-	PAUSE,
-	PERSIST,
-	persistReducer,
-	persistStore,
-	PURGE,
-	REGISTER,
-	REHYDRATE
-} from 'redux-persist'
+import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 import { api } from './api/api'
+import { rtkQueryErrorLogger } from './middlewares/error.middleware'
 import { reducers } from './rootReducer'
 
 const persistConfig = {
@@ -29,7 +21,7 @@ export const store = configureStore({
 				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
 			},
 			immutableCheck: false
-		}).concat(api.middleware)
+		}).concat(rtkQueryErrorLogger).concat(api.middleware)
 })
 export const persistor = persistStore(store)
 

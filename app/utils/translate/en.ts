@@ -16,5 +16,6 @@ export const en = {
 	fans: ' fans',
 	albums: ' albums',
 	'and other': ' and other',
-	'No results': 'No results found'
+	'No results': 'No results found',
+	Error: 'Error'
 }

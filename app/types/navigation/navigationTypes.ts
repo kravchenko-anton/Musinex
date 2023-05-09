@@ -29,6 +29,9 @@ export type TypeRootStackParamList = {
 	genreCatalog: {
 		genreId: number
 		genreName: string
+	},
+	Error: {
+		error: string
 	}
 }
 

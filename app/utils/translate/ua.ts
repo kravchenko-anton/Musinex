@@ -16,5 +16,6 @@ export const ua = {
 	fans: ' фанів',
 	albums: ' альбомів',
 	'and other': ' і інші',
-	'No results': 'Нічого не знайдено'
+	'No results': 'Нічого не знайдено',
+	Error: 'Помилка'
 }

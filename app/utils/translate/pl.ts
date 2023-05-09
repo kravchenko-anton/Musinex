@@ -16,5 +16,6 @@ export const pl = {
 	fans: ' fani',
 	albums: ' albumy',
 	'and other': ' i inni',
-	'No results': 'Nie znaleziono wyników'
+	'No results': 'Nie znaleziono wyników',
+	Error: 'Błąd'
 }

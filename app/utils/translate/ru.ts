@@ -16,5 +16,6 @@ export const ru = {
 	fans: ' фанатов',
 	albums: ' альбомов',
 	'and other': ' и другие',
-	'No results': 'Ничего не найдено'
+	'No results': 'Ничего не найдено',
+	Error: 'Ошибка'
 }

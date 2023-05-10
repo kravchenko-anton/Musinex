@@ -1,9 +1,9 @@
+import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons/'
 import { useColorScheme } from 'nativewind'
 import React, { FC, memo } from 'react'
 
 import { Pressable, PressableProps } from 'react-native'
-import { getHexCode } from '../../../utils/getColor'
 
 export interface IconProps extends PressableProps {
 	name: keyof typeof Ionicons.glyphMap

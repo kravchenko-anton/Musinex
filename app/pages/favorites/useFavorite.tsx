@@ -1,6 +1,6 @@
+import { useTypedSelector } from '@/hook/useTypedSelector'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useTypedSelector } from '../../hook/useTypedSelector'
 import FlatList404 from '../../ui/flatList/flatList404'
 import RenderItem from '../../ui/flatList/render/renderItem'
 import UFlatList from '../../ui/flatList/uFlatList'

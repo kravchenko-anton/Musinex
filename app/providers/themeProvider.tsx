@@ -1,6 +1,6 @@
+import { useTypedSelector } from '@/hook/useTypedSelector'
 import { useColorScheme } from 'nativewind'
 import { useEffect } from 'react'
-import { useTypedSelector } from '../hook/useTypedSelector'
 
 const ThemeProvider = () => {
 	const { setColorScheme } = useColorScheme()

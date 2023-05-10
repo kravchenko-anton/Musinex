@@ -1,3 +1,4 @@
+import { getHexCode } from '@/utils/getColor'
 import {
 	Montserrat_100Thin,
 	Montserrat_200ExtraLight,
@@ -15,7 +16,6 @@ import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
 import React, { FC, memo } from 'react'
 import { Text } from 'react-native'
-import { getHexCode } from '../../utils/getColor'
 import FullScreenLoader from '../loader/fullScreenLoader'
 import { ITitle } from './types/Ititle'
 

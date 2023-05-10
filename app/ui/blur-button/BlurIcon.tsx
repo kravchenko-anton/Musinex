@@ -1,9 +1,9 @@
+import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons/'
 import { BlurView } from 'expo-blur'
 import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren } from 'react'
 import { Pressable } from 'react-native'
-import { getHexCode } from '../../utils/getColor'
 import { IblurButton } from './types/IblurButton'
 
 const BlurIcon: FC<PropsWithChildren<IblurButton>> = ({

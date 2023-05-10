@@ -1,14 +1,14 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import React, { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
-import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import Title from '../title/title'
 import { IHeader } from './types/IHeader'
 
 const Header: FC<PropsWithChildren<IHeader>> = ({
-	children,
-	logoSize = 30,
-	...rest
-}) => {
+	                                                children,
+	                                                logoSize = 30,
+	                                                ...rest
+                                                }) => {
 	const { navigate } = useTypedNavigation()
 	return (
 		<View className='flex-row justify-between items-center' {...rest}>

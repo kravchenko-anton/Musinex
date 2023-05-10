@@ -1,6 +1,6 @@
+import { getHexCode } from '@/utils/getColor'
 import React, { FC, useEffect } from 'react'
 import { FlatList, Pressable, View } from 'react-native'
-import { getHexCode } from '../../utils/getColor'
 import Title from '../title/title'
 
 interface ITabs {

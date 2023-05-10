@@ -1,7 +1,7 @@
+import { useTypedRoute } from '@/hook/useTypedRoute'
+import { useGetArtistByIdQuery, useGetArtistTracksQuery } from '@/redux/api/artist/artistApi'
+import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import I18n from 'i18n-js'
-import { useTypedRoute } from '../../../../hook/useTypedRoute'
-import { useGetArtistByIdQuery, useGetArtistTracksQuery } from '../../../../redux/api/artist/artistApi'
-import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
 import CatalogWithProps from '../../catalogProps'
 
 const ArtistWrapperCatalog = () => {

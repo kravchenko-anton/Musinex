@@ -3,7 +3,7 @@ import {
 	useSearchArtistQuery,
 	useSearchPlayListQuery,
 	useSearchTrackQuery
-} from '../../redux/api/music/musicApi'
+} from '@/redux/api/music/musicApi'
 import { useSearchForm } from './useSearchForm'
 
 export const useSearch = () => {

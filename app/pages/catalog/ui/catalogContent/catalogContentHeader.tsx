@@ -1,6 +1,6 @@
+import { ICatalogTypes } from '@/types/catalogTypes'
 import React, { FC } from 'react'
 import { Animated, View } from 'react-native'
-import { ICatalogTypes } from '../../../../types/catalogTypes'
 import Title from '../../../../ui/title/title'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 
@@ -10,15 +10,15 @@ interface ICatalogContentHeader extends ICatalogTypes {
 }
 
 const CatalogContentHeader: FC<ICatalogContentHeader> = ({
-	title,
-	description,
-	y
-}) => {
+	                                                         title,
+	                                                         description,
+	                                                         y
+                                                         }) => {
 	const opacity = y.interpolate({
 		inputRange: [-HEADER_HEIGHT, 0, HEADER_HEIGHT / 2],
 		outputRange: [1, 1, 0]
 	})
-
+	
 	return (
 		<Animated.View className='px-3 z-10' style={{ opacity }}>
 			<Title

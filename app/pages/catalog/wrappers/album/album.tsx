@@ -1,10 +1,7 @@
+import { useTypedRoute } from '@/hook/useTypedRoute'
+import { useGetAlbumByIdQuery, useGetAlbumTracksByIdQuery } from '@/redux/api/album/album'
+import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import I18n from 'i18n-js'
-import { useTypedRoute } from '../../../../hook/useTypedRoute'
-import {
-	useGetAlbumByIdQuery,
-	useGetAlbumTracksByIdQuery
-} from '../../../../redux/api/album/album'
-import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
 import CatalogWithProps from '../../catalogProps'
 
 const AlbumWrapperCatalog = () => {

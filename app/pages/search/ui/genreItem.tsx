@@ -1,10 +1,10 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import { getHexCode } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { FC } from 'react'
 import { Pressable, StyleSheet } from 'react-native'
-import { useTypedNavigation } from '../../../hook/useTypedNavigation'
 import UImage from '../../../ui/image/fastimage'
 import Title from '../../../ui/title/title'
-import { getHexCode } from '../../../utils/getColor'
 
 export interface IGenreItem {
 	name: string

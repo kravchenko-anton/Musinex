@@ -1,15 +1,15 @@
+import { useTypedRoute } from '@/hook/useTypedRoute'
+import { cutString } from '@/utils/cutString'
 import React from 'react'
 import { View } from 'react-native'
 import TrackPlayer, { State } from 'react-native-track-player'
 import { skipToPrevious } from 'react-native-track-player/lib/trackPlayer'
-import { useTypedRoute } from '../../hook/useTypedRoute'
 import NavigateHeader from '../../ui/header/navigateHeader'
 import Icon from '../../ui/icon/defaultIcon/Icon'
 import UImage from '../../ui/image/fastimage'
 import Layout from '../../ui/layout/layout'
 import FullScreenLoader from '../../ui/loader/fullScreenLoader'
 import Title from '../../ui/title/title'
-import { cutString } from '../../utils/cutString'
 
 const Song = () => {
 	const { params } = useTypedRoute<'Song'>()

@@ -1,6 +1,6 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import React from 'react'
 import { View } from 'react-native'
-import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import Header from '../../ui/header/header'
 import Icon from '../../ui/icon/defaultIcon/Icon'
 import Layout from '../../ui/layout/layout'

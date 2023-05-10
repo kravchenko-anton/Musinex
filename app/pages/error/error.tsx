@@ -1,8 +1,8 @@
+import { useTypedRoute } from '@/hook/useTypedRoute'
+import { getHexCode } from '@/utils/getColor'
 import Lottie from 'lottie-react-native'
-import { useTypedRoute } from '../../hook/useTypedRoute'
 import Layout from '../../ui/layout/layout'
 import Title from '../../ui/title/title'
-import { getHexCode } from '../../utils/getColor'
 
 const Error = () => {
 	const { params } = useTypedRoute<'Error'>()

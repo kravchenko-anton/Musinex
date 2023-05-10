@@ -1,5 +1,5 @@
+import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import { Ionicons } from '@expo/vector-icons'
-import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
 
 export interface IMenuItem {
 	iconName: keyof typeof Ionicons.glyphMap
@@ -15,7 +15,7 @@ export const menuItems: IMenuItem[] = [
 		iconName: 'search',
 		path: 'Search'
 	},
-
+	
 	{
 		iconName: 'albums',
 		path: 'favorites'

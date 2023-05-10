@@ -1,5 +1,5 @@
+import { IHeartProps } from '@/types/catalogTypes'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IHeartProps } from '../../types/catalogTypes'
 
 type dataState = {
 	id: number | string

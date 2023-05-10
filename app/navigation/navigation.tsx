@@ -1,10 +1,10 @@
+import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
+import { userRoutes } from '@/types/navigation/userRoutes'
+import { getHexCode } from '@/utils/getColor'
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
-import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
-import { userRoutes } from '../types/navigation/userRoutes'
-import { getHexCode } from '../utils/getColor'
 import BottomMenu from './bottomMenu/bottomMenu'
 
 const Navigation = () => {

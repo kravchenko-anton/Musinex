@@ -1,7 +1,7 @@
+import { getHexCode } from '@/utils/getColor'
 import { FC } from 'react'
 import RnToast, { BaseToast } from 'react-native-toast-message'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
-import { getHexCode } from '../utils/getColor'
 
 const options = (primaryColor: string) => ({
 	style: {

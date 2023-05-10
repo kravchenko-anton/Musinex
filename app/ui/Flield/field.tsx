@@ -1,6 +1,6 @@
+import { getHexCode } from '@/utils/getColor'
 import { Controller } from 'react-hook-form'
 import { TextInput, View } from 'react-native'
-import { getHexCode } from '../../utils/getColor'
 import Title from '../title/title'
 import { IField } from './types/Ifiled'
 

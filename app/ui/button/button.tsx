@@ -1,7 +1,7 @@
+import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons/'
 import React, { FC, PropsWithChildren } from 'react'
 import { Pressable, View, ViewStyle } from 'react-native'
-import { getHexCode } from '../../utils/getColor'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
 

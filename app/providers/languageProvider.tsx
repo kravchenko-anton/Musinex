@@ -1,9 +1,9 @@
+import { useTypedSelector } from '@/hook/useTypedSelector'
+import { en } from '@/utils/translate/en'
+import { pl } from '@/utils/translate/pl'
+import { ru } from '@/utils/translate/ru'
+import { ua } from '@/utils/translate/ua'
 import I18n from 'i18n-js'
-import { useTypedSelector } from '../hook/useTypedSelector'
-import { en } from '../utils/translate/en'
-import { pl } from '../utils/translate/pl'
-import { ru } from '../utils/translate/ru'
-import { ua } from '../utils/translate/ua'
 
 export const LanguageProvider = () => {
 	const selector = useTypedSelector(state => state.language)

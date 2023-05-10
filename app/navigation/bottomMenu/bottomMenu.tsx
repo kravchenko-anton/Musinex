@@ -1,10 +1,10 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import { getHexCode } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import React, { FC } from 'react'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { useTypedNavigation } from '../../hook/useTypedNavigation'
-import { getHexCode } from '../../utils/getColor'
 import MenuItem from '../menuItem'
 import { menuItems } from '../menuList'
 

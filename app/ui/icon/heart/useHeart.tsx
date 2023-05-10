@@ -1,5 +1,5 @@
-import { useTypedSelector } from '../../../hook/useTypedSelector'
-import { IHeartProps } from '../../../types/catalogTypes'
+import { useTypedSelector } from '@/hook/useTypedSelector'
+import { IHeartProps } from '@/types/catalogTypes'
 
 export const useHeart = ({ id, type }: IHeartProps) => {
 	const selector = useTypedSelector(state => state.favorites)

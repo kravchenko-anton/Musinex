@@ -1,6 +1,6 @@
+import { randomBeautifulColor } from '@/utils/getRandomColor'
 import React, { FC, memo } from 'react'
 import { Image, View } from 'react-native'
-import { randomBeautifulColor } from '../../utils/getRandomColor'
 import { IImage } from './types/IImage'
 import { useImageLoading } from './useImageLoading'
 

@@ -1,9 +1,9 @@
+import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
+import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons/'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
-import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
-import { getHexCode } from '../utils/getColor'
 import { menuItems } from './menuList'
 
 export type TypeNavigate = (screenName: keyof TypeRootStackParamList) => void

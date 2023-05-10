@@ -1,9 +1,9 @@
+import { FavoriteAction } from '@/redux/favorite/favoriteSlice'
+import { IHeartProps } from '@/types/catalogTypes'
 import Lottie, { AnimatedLottieViewProps } from 'lottie-react-native'
 import { FC, memo, useEffect, useRef } from 'react'
 import { Pressable } from 'react-native'
 import { useDispatch } from 'react-redux'
-import { FavoriteAction } from '../../../redux/favorite/favoriteSlice'
-import { IHeartProps } from '../../../types/catalogTypes'
 import { useHeart } from './useHeart'
 
 interface IHeart extends Omit<AnimatedLottieViewProps, 'source'>, IHeartProps {
@@ -29,7 +29,7 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 			lottieRef.play(80, 180)
 		}
 	}, [heart])
-
+	
 	return (
 		<Pressable
 			onPress={() => {

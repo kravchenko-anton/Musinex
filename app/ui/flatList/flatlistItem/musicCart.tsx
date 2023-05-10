@@ -1,21 +1,21 @@
+import { IFlatListItem } from '@/types/flatListTypes'
 import I18n from 'i18n-js'
 import React, { FC, memo } from 'react'
 import { Pressable, View } from 'react-native'
-import { IFlatListItem } from '../../../types/flatListTypes'
 import UFastImage from '../../image/fastimage'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
 const MusicCart: FC<IFlatListItem> = ({
-	image,
-	name,
-	artists,
-	defaultImage = false,
-	WrapClassNames,
-	ImageClassNames,
-	textCenter = true,
-	...rest
-}) => {
+	                                      image,
+	                                      name,
+	                                      artists,
+	                                      defaultImage = false,
+	                                      WrapClassNames,
+	                                      ImageClassNames,
+	                                      textCenter = true,
+	                                      ...rest
+                                      }) => {
 	return (
 		<Pressable
 			className={WrapClassNames}

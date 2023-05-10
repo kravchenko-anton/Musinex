@@ -1,10 +1,10 @@
+import { ICatalogTypes } from '@/types/catalogTypes'
+import { getHexCode } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, Image, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { ICatalogTypes } from '../../../../types/catalogTypes'
-import { getHexCode } from '../../../../utils/getColor'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import { useBackgroundAnimation } from './useBackgroundAnimation'
 

@@ -1,9 +1,9 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import FlatList404 from '@/ui/flatList/flatList404'
+import RenderItem from '@/ui/flatList/render/renderItem'
+import UFlatList from '@/ui/flatList/uFlatList'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import FlatList404 from '../../ui/flatList/flatList404'
-import RenderItem from '../../ui/flatList/render/renderItem'
-import UFlatList from '../../ui/flatList/uFlatList'
 
 export const useFavorite = () => {
 	const selector = useTypedSelector(state => state.favorites)
@@ -16,7 +16,7 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-						data={selector.songs} style={{ height: '85%' }}
+						data={selector.songs} className='h-[85%]'
 						contentContainerStyle={{ paddingBottom: 100 }}
 						renderItem={({ item, index }) => {
 							return (
@@ -41,7 +41,7 @@ export const useFavorite = () => {
 					<UFlatList
 						contentContainerStyle={{ paddingBottom: 100 }}
 						numColumns={2}
-						style={{ height: '85%' }}
+						className='h-[85%]'
 						data={selector.albums}
 						renderItem={({ item }) => {
 							return (
@@ -62,7 +62,7 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						data={selector.artists}
-						style={{ height: '85%' }}
+						className='h-[85%]'
 						contentContainerStyle={{ paddingBottom: 100 }}
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						renderItem={({ item }) => {
@@ -85,7 +85,7 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						numColumns={2}
-						style={{ height: '85%' }}
+						className='h-[85%]'
 						contentContainerStyle={{ paddingBottom: 100 }}
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						data={selector.playlists}

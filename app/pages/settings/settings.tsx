@@ -1,15 +1,15 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { LanguageAction } from '@/redux/settings/languageSlice'
 import { ThemeAction } from '@/redux/settings/themeSlice'
+import Header from '@/ui/header/header'
+import Layout from '@/ui/layout/layout'
+import Title from '@/ui/title/title'
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
 import React, { useEffect, useState } from 'react'
 import { NativeModules, Pressable, View } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker'
 import { useDispatch } from 'react-redux'
-import Header from '../../ui/header/header'
-import Layout from '../../ui/layout/layout'
-import Title from '../../ui/title/title'
 
 const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()

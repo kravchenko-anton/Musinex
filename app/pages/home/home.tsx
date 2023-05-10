@@ -1,15 +1,15 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useGetChartQuery } from '@/redux/api/music/musicApi'
 import { PlayerAction } from '@/redux/player/playerSlice'
+import MusicCart from '@/ui/flatList/flatlistItem/musicCart'
+import UFlatList from '@/ui/flatList/uFlatList'
+import Header from '@/ui/header/header'
+import Icon from '@/ui/icon/defaultIcon/Icon'
+import ScrollLayout from '@/ui/layout/scrollLayout'
+import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import I18n from 'i18n-js'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import MusicCart from '../../ui/flatList/flatlistItem/musicCart'
-import UFlatList from '../../ui/flatList/uFlatList'
-import Header from '../../ui/header/header'
-import Icon from '../../ui/icon/defaultIcon/Icon'
-import ScrollLayout from '../../ui/layout/scrollLayout'
-import FullScreenLoader from '../../ui/loader/fullScreenLoader'
 
 const Home = () => {
 	const { data: chart } = useGetChartQuery(null)

@@ -1,14 +1,14 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedRoute } from '@/hook/useTypedRoute'
 import { useGetChartInGenreQuery } from '@/redux/api/genre/genre'
+import MusicCart from '@/ui/flatList/flatlistItem/musicCart'
+import UFlatList from '@/ui/flatList/uFlatList'
+import NavigateHeader from '@/ui/header/navigateHeader'
+import ScrollLayout from '@/ui/layout/scrollLayout'
+import FullScreenLoader from '@/ui/loader/fullScreenLoader'
+import Title from '@/ui/title/title'
 import I18n from 'i18n-js'
 import React, { FC } from 'react'
-import MusicCart from '../../../ui/flatList/flatlistItem/musicCart'
-import UFlatList from '../../../ui/flatList/uFlatList'
-import NavigateHeader from '../../../ui/header/navigateHeader'
-import ScrollLayout from '../../../ui/layout/scrollLayout'
-import FullScreenLoader from '../../../ui/loader/fullScreenLoader'
-import Title from '../../../ui/title/title'
 
 const GenreCatalog: FC = () => {
 	const { params } = useTypedRoute<'genreCatalog'>()

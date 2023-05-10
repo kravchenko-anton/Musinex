@@ -1,10 +1,10 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import Header from '@/ui/header/header'
+import Icon from '@/ui/icon/defaultIcon/Icon'
+import Layout from '@/ui/layout/layout'
+import Tabs from '@/ui/tabs/tabs'
 import React from 'react'
 import { View } from 'react-native'
-import Header from '../../ui/header/header'
-import Icon from '../../ui/icon/defaultIcon/Icon'
-import Layout from '../../ui/layout/layout'
-import Tabs from '../../ui/tabs/tabs'
 import { useFavorite } from './useFavorite'
 
 const Favorites = () => {

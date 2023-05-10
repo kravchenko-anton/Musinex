@@ -1,7 +1,7 @@
 import { ICatalogTypes } from '@/types/catalogTypes'
+import Title from '@/ui/title/title'
 import React, { FC } from 'react'
 import { Animated, View } from 'react-native'
-import Title from '../../../../ui/title/title'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 
 interface ICatalogContentHeader extends ICatalogTypes {

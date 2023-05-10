@@ -31,7 +31,6 @@ const Field = <T extends Record<string, any>>
 							autoCapitalize={'none'}
 							onChangeText={onChange}
 							onBlur={onBlur}
-							style={{}}
 							keyboardAppearance='dark'
 							keyboardType={'default'}
 							renderToHardwareTextureAndroid={true}

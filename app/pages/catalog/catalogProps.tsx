@@ -1,7 +1,7 @@
 import { ICatalogList, ICatalogRenderTypes, IHeartProps } from '@/types/catalogTypes'
+import Layout from '@/ui/layout/layout'
 import { FC, useRef } from 'react'
 import { Animated } from 'react-native'
-import Layout from '../../ui/layout/layout'
 import CatalogBackground from './ui/catalogBackground/catalogBackground'
 import CatalogContent from './ui/catalogContent/catalogContent'
 import CatalogHeader from './ui/catalogHeader/catalogHeader'

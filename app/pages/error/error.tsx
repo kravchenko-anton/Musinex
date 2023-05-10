@@ -2,6 +2,7 @@ import Lottie from 'lottie-react-native'
 import { useTypedRoute } from '../../hook/useTypedRoute'
 import Layout from '../../ui/layout/layout'
 import Title from '../../ui/title/title'
+import { getHexCode } from '../../utils/getColor'
 
 const Error = () => {
 	const { params } = useTypedRoute<'Error'>()
@@ -16,7 +17,7 @@ const Error = () => {
 			        alignItems: 'center'
 		        }} />
 		<Title className={'text-center'} size={50} text={'Error'} translate />
-		<Title className={'text-center mt-5'} color={'#ccc'} numberOfLines={6} size={20}
+		<Title className={'text-center mt-5'} color={getHexCode('primary')} numberOfLines={6} size={20}
 		       text={params.error} />
 	</Layout>
 }

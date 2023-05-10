@@ -1,10 +1,10 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import React, { FC } from 'react'
-
 import { Pressable, StyleSheet } from 'react-native'
 import { useTypedNavigation } from '../../../hook/useTypedNavigation'
 import UImage from '../../../ui/image/fastimage'
 import Title from '../../../ui/title/title'
+import { getHexCode } from '../../../utils/getColor'
 
 export interface IGenreItem {
 	name: string
@@ -22,7 +22,7 @@ const GenreItem: FC<IGenreItem> = ({ picture, id, name }) => {
 					genreName: name
 				})
 			}
-			className='bg-VeryLightBlack overflow-hidden z-50 h-[130px] rounded-lg max-w-[48%] w-full'
+			className='bg-veryLightBlack overflow-hidden z-50 h-[130px] rounded-lg max-w-[48%] w-full'
 		>
 			<LinearGradient
 				style={{ ...StyleSheet.absoluteFillObject, zIndex: 50 }}
@@ -37,7 +37,7 @@ const GenreItem: FC<IGenreItem> = ({ picture, id, name }) => {
 				className='absolute  rounded-md z-10'
 			/>
 			<Title
-				color={'#fff'}
+				color={getHexCode('white')}
 				size={18}
 				className='absolute bottom-5 left-2 z-50 max-w-[80%]'
 				fontFamily={'Montserrat_500Medium'}

@@ -1,5 +1,6 @@
 import { Controller } from 'react-hook-form'
 import { TextInput, View } from 'react-native'
+import { getHexCode } from '../../utils/getColor'
 import Title from '../title/title'
 import { IField } from './types/Ifiled'
 
@@ -34,7 +35,7 @@ const Field = <T extends Record<string, any>>
 							keyboardAppearance='dark'
 							keyboardType={'default'}
 							renderToHardwareTextureAndroid={true}
-							placeholderTextColor={'#000'}
+							placeholderTextColor={getHexCode('dark')}
 							value={(value || '').toString()}
 							className='text-primaryBlack text-base'
 							{...rest}

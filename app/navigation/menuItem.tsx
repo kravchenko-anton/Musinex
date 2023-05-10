@@ -3,6 +3,7 @@ import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
+import { getHexCode } from '../utils/getColor'
 import { menuItems } from './menuList'
 
 export type TypeNavigate = (screenName: keyof TypeRootStackParamList) => void
@@ -26,7 +27,7 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 				<Ionicons
 					name={item.iconName}
 					size={30}
-					color={isActive ? colorScheme === 'dark' ? 'white' : '#5b0eeb' : colorScheme === 'dark' ? '#D9D7D5' : '#202020'}
+					color={isActive ? colorScheme === 'dark' ? getHexCode('white') : getHexCode('primary') : colorScheme === 'dark' ? getHexCode('lightGray') : getHexCode('veryLightBlack')}
 				/>
 			</View>
 		</Pressable>

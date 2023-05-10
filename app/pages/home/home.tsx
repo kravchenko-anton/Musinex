@@ -1,6 +1,5 @@
 import I18n from 'i18n-js'
 import React from 'react'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { useDispatch } from 'react-redux'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
 import { useGetChartQuery } from '../../redux/api/music/musicApi'
@@ -17,7 +16,6 @@ const Home = () => {
 	const dispatch = useDispatch()
 	const { navigate } = useTypedNavigation()
 	if (!chart) return <FullScreenLoader />
-	console.log(Colors)
 	return (
 		<ScrollLayout>
 			<Header className={'mb-5'} logoSize={30}>

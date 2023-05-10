@@ -3,6 +3,7 @@ import { useColorScheme } from 'nativewind'
 import React, { FC, memo } from 'react'
 
 import { Pressable, PressableProps } from 'react-native'
+import { getHexCode } from '../../../utils/getColor'
 
 export interface IconProps extends PressableProps {
 	name: keyof typeof Ionicons.glyphMap
@@ -14,14 +15,14 @@ export interface IconProps extends PressableProps {
 }
 
 const Icon: FC<IconProps> = ({
-	name,
-	color,
-	size = 24,
-	backgroundColor = 'transparent',
-	borderRadius = 10,
-	padding = 10,
-	...rest
-}) => {
+	                             name,
+	                             color,
+	                             size = 24,
+	                             backgroundColor = 'transparent',
+	                             borderRadius = 10,
+	                             padding = 10,
+	                             ...rest
+                             }) => {
 	const { colorScheme } = useColorScheme()
 	return (
 		<Pressable
@@ -36,7 +37,7 @@ const Icon: FC<IconProps> = ({
 		>
 			<Ionicons
 				name={name}
-				color={color ? color : colorScheme === 'light' ? '#000' : '#fff'}
+				color={color ? color : colorScheme === 'light' ? getHexCode('dark') : getHexCode('white')}
 				size={size}
 			/>
 		</Pressable>

@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useTypedNavigation } from '../../hook/useTypedNavigation'
+import { getHexCode } from '../../utils/getColor'
 import MenuItem from '../menuItem'
 import { menuItems } from '../menuList'
 
@@ -22,7 +23,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> =
 					start={[0, 0.01]}
 					end={[0, 0.85]}
 					className='w-full absolute bottom-0 right-0 left-0 flex-1 h-[150px]'
-					colors={['transparent', colorScheme === 'light' ? '#EEE' : '#101010']}
+					colors={['transparent', colorScheme === 'light' ? getHexCode('lightGray') : getHexCode('primaryBlack')]}
 					style={{
 						paddingBottom: bottom
 					}}

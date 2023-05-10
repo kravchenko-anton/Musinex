@@ -4,6 +4,7 @@ import { FC } from 'react'
 import { Animated, Image, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ICatalogTypes } from '../../../../types/catalogTypes'
+import { getHexCode } from '../../../../utils/getColor'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import { useBackgroundAnimation } from './useBackgroundAnimation'
 
@@ -42,7 +43,7 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({ poster, y }) => {
 				colors={[
 					'transparent',
 					'rgba(0, 0, 0, 0.2)',
-					colorScheme === 'light' ? '#EEE' : '#101010'
+					colorScheme === 'light' ? getHexCode('lightGray') : getHexCode('primaryBlack')
 				]}
 			/>
 		</Animated.View>

@@ -15,6 +15,7 @@ import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
 import React, { FC, memo } from 'react'
 import { Text } from 'react-native'
+import { getHexCode } from '../../utils/getColor'
 import FullScreenLoader from '../loader/fullScreenLoader'
 import { ITitle } from './types/Ititle'
 
@@ -51,7 +52,7 @@ const Title: FC<ITitle> = ({
 					fontFamily: fontFamily,
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
-					color: color ? color : colorScheme === 'light' ? '#000' : '#fff'
+					color: color ? color : colorScheme === 'light' ? getHexCode('dark') : getHexCode('white')
 				},
 				rest.style
 			]}

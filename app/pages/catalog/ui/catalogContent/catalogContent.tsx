@@ -14,6 +14,7 @@ import CatalogSongItem from '../../../../ui/flatList/catalogItem/catalogSongItem
 import MusicItem from '../../../../ui/flatList/flatlistItem/musicCart'
 import FullScreenLoader from '../../../../ui/loader/fullScreenLoader'
 import { cutString } from '../../../../utils/cutString'
+import { getHexCode } from '../../../../utils/getColor'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import CatalogContentHeader from './catalogContentHeader'
 
@@ -75,11 +76,11 @@ const CatalogContent: FC<ICatalogContent> =
 					}}
 					start={[0, 0.1]}
 					end={[0, 0.8]}
-					colors={['transparent', colorScheme === 'light' ? '#EEE' : '#101010']}
+					colors={['transparent', colorScheme === 'light' ? getHexCode('lightGray') : getHexCode('primaryBlack')]}
 				/>
 				<View
 					style={{
-						backgroundColor: colorScheme === 'light' ? '#EEE' : '#101010'
+						backgroundColor: colorScheme === 'light' ? getHexCode('lightGray') : getHexCode('primaryBlack')
 					}}
 					className='pt-1 px-3 pb-5 w-full flex-1'
 				>

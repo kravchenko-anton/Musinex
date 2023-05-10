@@ -1,14 +1,16 @@
 import { FC } from 'react'
 import RnToast, { BaseToast } from 'react-native-toast-message'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { getHexCode } from '../utils/getColor'
 
 const options = (primaryColor: string) => ({
 	style: {
-		backgroundColor: '#080808',
+		backgroundColor: Colors.primary,
 		borderLeftColor: primaryColor,
 		zIndex: 1000
 	},
 	text1Style: {
-		color: '#fff',
+		color: getHexCode('white'),
 		fontSize: 16
 	},
 	text2Style: {

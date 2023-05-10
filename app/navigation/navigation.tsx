@@ -4,6 +4,7 @@ import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
 import { TypeRootStackParamList } from '../types/navigation/navigationTypes'
 import { userRoutes } from '../types/navigation/userRoutes'
+import { getHexCode } from '../utils/getColor'
 import BottomMenu from './bottomMenu/bottomMenu'
 
 const Navigation = () => {
@@ -31,7 +32,7 @@ const Navigation = () => {
 					animation: 'slide_from_right',
 					headerShown: false,
 					contentStyle: {
-						backgroundColor: colorScheme === 'light' ? '#e7e7e7' : '#101010'
+						backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack')
 					}
 				}}
 			>

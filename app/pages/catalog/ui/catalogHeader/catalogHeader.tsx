@@ -8,6 +8,7 @@ import { ICatalogTypes, IHeartProps } from '../../../../types/catalogTypes'
 import BlurIcon from '../../../../ui/blur-button/BlurIcon'
 import Heart from '../../../../ui/icon/heart/heart'
 import Title from '../../../../ui/title/title'
+import { getHexCode } from '../../../../utils/getColor'
 import { inputRange } from '../../catalogConstant'
 
 interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
@@ -39,12 +40,12 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 							inputRange,
 							outputRange: [0, 0, 1.8]
 						}),
-						backgroundColor: colorScheme === 'light' ? '#FFF' : '#101010'
+						backgroundColor: colorScheme === 'light' ? getHexCode('white') : getHexCode('primaryBlack')
 					}
 				]}
 			/>
 			<BlurIcon icon='arrow-back' onPress={goBack} />
-
+			
 			<Animated.View
 				className='items-center w-2/3'
 				style={{

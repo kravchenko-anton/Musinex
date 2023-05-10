@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react'
 import { FlatList, Pressable, View } from 'react-native'
+import { getHexCode } from '../../utils/getColor'
 import Title from '../title/title'
 
 interface ITabs {
@@ -30,17 +31,19 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 					data={tabs}
 					renderItem={({ item: tab, index: renderIndex }) => {
 						return (
-							<Pressable
-								onPress={() => {
-									setIndex(renderIndex)
-									setActiveTab(tab.name)
-								}}
-								className='p-2 rounded-xl mr-3 mb-4 items-center'
-								style={{
-									backgroundColor: renderIndex === index ? '#5b0eeb' : '#202020'
-								}}
+							<Pressable key={tab.name}
+							           onPress={() => {
+								           setIndex(renderIndex)
+								           setActiveTab(tab.name)
+							           }}
+							           className='p-2 rounded-xl mr-3 mb-4 items-center'
+							           style={{
+								           backgroundColor: renderIndex === index ? getHexCode('primary') : getHexCode(
+									           'veryLightBlack'
+								           )
+							           }}
 							>
-								<Title text={tab.title} color={'#fff'} translate={translate} />
+								<Title text={tab.title} color={getHexCode('white')} translate={translate} />
 							</Pressable>
 						)
 					}}

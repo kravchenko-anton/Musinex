@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import { useTypedSelector } from '../../hook/useTypedSelector'
 import { cutString } from '../../utils/cutString'
+import { getHexCode } from '../../utils/getColor'
 import { randomBeautifulColor } from '../../utils/getRandomColor'
 import Icon from '../icon/defaultIcon/Icon'
 import UFastImage from '../image/fastimage'
@@ -66,13 +67,13 @@ const SongPlayer = () => {
 					/>
 					<View className='flex flex-col ml-2'>
 						<Title
-							color={'#FFF'}
+							color={getHexCode('white')}
 							className='max-w-[200px]'
 							size={20}
 							text={cutString(trackInfo.title as string, 10)}
 						/>
 						<Title
-							color={'#FFF'}
+							color={getHexCode('white')}
 							className='max-w-full'
 							size={16}
 							text={cutString(trackInfo.artist as string, 13)}
@@ -81,17 +82,17 @@ const SongPlayer = () => {
 				</View>
 				<View className='flex-row'>
 					<Icon
-						color={'#fff'}
+						color={getHexCode('white')}
 						name='arrow-back-circle'
 						onPress={() => TrackPlayer.skipToPrevious()}
 					/>
 					<Icon
-						color={'#fff'}
+						color={getHexCode('white')}
 						name={'arrow-forward-circle'}
 						onPress={() => TrackPlayer.skipToNext()}
 					/>
 					<Icon
-						color={'#fff'}
+						color={getHexCode('white')}
 						name={playBackState.state == State.Playing ? 'pause' : 'play'}
 						onPress={() =>
 							playBackState.state === State.Playing

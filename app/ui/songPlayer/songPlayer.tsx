@@ -1,9 +1,11 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import Heart from '@/ui/icon/heart/heart'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { randomBeautifulColor } from '@/utils/getRandomColor'
 import { useEffect, useState } from 'react'
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Icon from '../icon/defaultIcon/Icon'
 import UFastImage from '../image/fastimage'
@@ -15,6 +17,7 @@ const SongPlayer = () => {
 	const playBackState = usePlaybackState()
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
 	const trackInfo = useActiveTrack()
+	const { navigate } = useTypedNavigation()
 	useEffect(() => {
 		async function setup() {
 			let isSetup = await setupPlayer()
@@ -53,12 +56,12 @@ const SongPlayer = () => {
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
 	
 	return (
-		<View
-			style={{ backgroundColor: trackInfo.color }}
-			className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-10/12'
+		<Pressable onPress={() => navigate('Song')}
+		           style={{ backgroundColor: trackInfo.color }}
+		           className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-10/12'
 		>
 			<View className='flex flex-row justify-between items-center h-full'>
-				<View className='flex flex-row items-center ml-3 mr-3'>
+				<View className=' flex-row items-center ml-3 mr-3'>
 					<UFastImage
 						source={trackInfo.artwork as string}
 						width={50}
@@ -81,18 +84,10 @@ const SongPlayer = () => {
 					</View>
 				</View>
 				<View className='flex-row'>
+					<Heart id={trackInfo.id} type={'songs'} resizeMode={'cover'} />
 					<Icon
 						color={getHexCode('white')}
-						name='arrow-back-circle'
-						onPress={() => TrackPlayer.skipToPrevious()}
-					/>
-					<Icon
-						color={getHexCode('white')}
-						name={'arrow-forward-circle'}
-						onPress={() => TrackPlayer.skipToNext()}
-					/>
-					<Icon
-						color={getHexCode('white')}
+						className='mr-3 items-center justify-center'
 						name={playBackState.state == State.Playing ? 'pause' : 'play'}
 						onPress={() =>
 							playBackState.state === State.Playing
@@ -100,9 +95,10 @@ const SongPlayer = () => {
 								: TrackPlayer.play()
 						}
 					/>
+				
 				</View>
 			</View>
-		</View>
+		</Pressable>
 	)
 }
 

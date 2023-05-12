@@ -1,5 +1,6 @@
 import { LanguageProvider } from '@/providers/languageProvider'
 import { persistor, store } from '@/redux/store'
+import { getHexCode } from '@/utils/getColor'
 import { StatusBar } from 'expo-status-bar'
 import { useColorScheme } from 'nativewind'
 import { LogBox } from 'react-native'
@@ -9,7 +10,6 @@ import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from './app/navigation/navigation'
 import ThemeProvider from './app/providers/themeProvider'
 import FullScreenLoader from './app/ui/loader/fullScreenLoader'
-import SongPlayer from './app/ui/songPlayer/songPlayer'
 import Toast from './app/ui/Toast'
 
 export default function App() {
@@ -18,13 +18,14 @@ export default function App() {
 	return (
 		<Provider store={store}>
 			<PersistGate persistor={persistor} loading={<FullScreenLoader />}>
-				<SafeAreaProvider>
+				<SafeAreaProvider style={{
+					backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack')
+				}}>
 					<Navigation />
 					<ThemeProvider />
 					<LanguageProvider />
 					<StatusBar style={colorScheme === 'light' ? 'dark' : 'light'} />
 					<Toast />
-					<SongPlayer />
 				</SafeAreaProvider>
 			</PersistGate>
 		</Provider>

@@ -35,6 +35,7 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 			onPress={() => {
 				dispatch(FavoriteAction.toggleFavorite({ id, type }))
 			}}
+			style={rest.style}
 		>
 			<Lottie
 				ref={ref => (lottieRef = ref)}
@@ -47,7 +48,7 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 					height: size
 				}}
 				source={require('../../../assets/heart.json')}
-				{...rest}
+				{...!rest.style && rest}
 			/>
 		</Pressable>
 	)

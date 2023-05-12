@@ -1,10 +1,12 @@
 import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import { userRoutes } from '@/types/navigation/userRoutes'
+import SongPlayer from '@/ui/songPlayer/songPlayer'
 import { getHexCode } from '@/utils/getColor'
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
+import { View } from 'react-native'
 import BottomMenu from './bottomMenu/bottomMenu'
 
 const Navigation = () => {
@@ -29,10 +31,11 @@ const Navigation = () => {
 			<Stack.Navigator
 				initialRouteName={'Home'}
 				screenOptions={{
-					animation: 'slide_from_right',
+					animation: 'fade',
 					headerShown: false,
 					contentStyle: {
-						backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack')
+						backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack'),
+						flex: 1
 					}
 				}}
 			>
@@ -44,7 +47,12 @@ const Navigation = () => {
 					/>
 				))}
 			</Stack.Navigator>
-			<BottomMenu currentRoute={currentRoute} />
+			{currentRoute !== 'Song' && (
+				<View>
+					<BottomMenu currentRoute={currentRoute} />
+					<SongPlayer />
+				</View>
+			)}
 		</NavigationContainer>
 	)
 }

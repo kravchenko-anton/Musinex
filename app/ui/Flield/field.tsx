@@ -2,8 +2,7 @@ import { getHexCode } from '@/utils/getColor'
 import { Controller } from 'react-hook-form'
 import { TextInput, View } from 'react-native'
 import Title from '../title/title'
-import { IField } from './types/Ifiled'
-
+import { IField } from './types/Ifiled' //May be used in the future
 const Field = <T extends Record<string, any>>
 ({
 	 control,

@@ -4,7 +4,6 @@ import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Layout from '@/ui/layout/layout'
 import Tabs from '@/ui/tabs/tabs'
 import React from 'react'
-import { View } from 'react-native'
 import { useFavorite } from './useFavorite'
 
 const Favorites = () => {
@@ -19,9 +18,7 @@ const Favorites = () => {
 					onPress={() => navigate('Settings')}
 				/>
 			</Header>
-			<View className='h-full'>
-				<Tabs data={tabs} translate={true} />
-			</View>
+			<Tabs data={tabs} translate={true} />
 		</Layout>
 	)
 }

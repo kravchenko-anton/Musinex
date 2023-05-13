@@ -17,6 +17,10 @@ export const useFavorite = () => {
 					<UFlatList
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						data={selector.songs} className='h-[85%]'
+						maxToRenderPerBatch={1000}
+						windowSize={60}
+						updateCellsBatchingPeriod={50}
+						initialNumToRender={50}
 						contentContainerStyle={{ paddingBottom: 100 }}
 						renderItem={({ item, index }) => {
 							return (
@@ -84,6 +88,7 @@ export const useFavorite = () => {
 			component: () => {
 				return (
 					<UFlatList
+						
 						numColumns={2}
 						className='h-[85%]'
 						contentContainerStyle={{ paddingBottom: 100 }}

@@ -2,7 +2,7 @@ import { useDebounce } from '@/hook/useDebounde'
 import { useForm } from 'react-hook-form'
 
 export const useSearchForm = () => {
-	const { control, watch } = useForm({
+	const { control, watch, reset } = useForm({
 		mode: 'onChange',
 		defaultValues: {
 			searchTerm: ''
@@ -10,7 +10,7 @@ export const useSearchForm = () => {
 	})
 	
 	const searchTerm = watch('searchTerm')
-	const debouncedSearch = useDebounce(searchTerm, 500)
+	const debouncedSearch = useDebounce(searchTerm, 1000)
 	
-	return { debouncedSearch, searchTerm, control }
+	return { debouncedSearch, searchTerm, control, reset }
 }

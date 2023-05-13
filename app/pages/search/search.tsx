@@ -2,7 +2,7 @@ import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useGetAllGenreQuery } from '@/redux/api/genre/genre'
 import MusicCart from '@/ui/flatList/flatlistItem/musicCart'
 import UFlatList from '@/ui/flatList/uFlatList'
-import Field from '@/ui/Flield/field'
+import USearchBar from '@/ui/Flield/searchBar'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import UScrollView from '@/ui/scrollView/uScrollView'
@@ -20,12 +20,8 @@ const Search = () => {
 	if (!genre || isLoading) return <FullScreenLoader />
 	return (
 		<Layout className='h-full'>
-			<Field
-				name='searchTerm'
-				keyboardType='web-search'
-				control={control}
-				placeholder={I18n.t('Type anything')}
-			/>
+			<USearchBar control={control} name={'searchTerm'} />
+			
 			{searchTerm && tracks && playlists && albums && artists ? (
 				<UScrollView className='mt-4'>
 					<UFlatList

@@ -4,11 +4,11 @@ import { ICatalogList, ICatalogTypes, IHeartProps } from '@/types/catalogTypes'
 import CatalogArtistItem from '@/ui/flatList/catalogItem/catalogArtistItem'
 import CatalogSongItem from '@/ui/flatList/catalogItem/catalogSongItem'
 import MusicItem from '@/ui/flatList/flatlistItem/musicCart'
+import UFlatList from '@/ui/flatList/uFlatList'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { useScrollToTop } from '@react-navigation/native'
-import { FlashList } from '@shopify/flash-list'
 import { LinearGradient } from 'expo-linear-gradient'
 import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
@@ -84,13 +84,11 @@ const CatalogContent: FC<ICatalogContent> =
 					}}
 					className='pt-1 px-3 pb-5 w-full flex-1'
 				>
-					<FlashList
-						// Its one list who work with scroll View and for big list it good choice for performance 👇
-						// if I not add  estimatedListSize my list in start rendering get only 2 element and after scroll get all element, if I add it, my list load great but if you wait 1-3 second, list be bugged 😢
+					<UFlatList
 						extraData={DataList}
-						drawDistance={0.1}
-						decelerationRate={'fast'}
-						estimatedItemSize={200}
+						maxToRenderPerBatch={10}
+						removeClippedSubviews={true}
+						scrollEnabled={false}
 						numColumns={type === 'playlists' || type === 'albums' ? 2 : 1}
 						data={DataList}
 						renderItem={({ item, index }) => {

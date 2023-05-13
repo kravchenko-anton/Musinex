@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons/'
+import { IIconName } from '@/types/IconTypes'
 import { PressableProps } from 'react-native'
 
 export interface IButton extends PressableProps {
@@ -8,7 +8,7 @@ export interface IButton extends PressableProps {
 	textSize?: number
 	iconSize?: number
 	center?: boolean
-	icon?: keyof typeof Ionicons.glyphMap
+	icon?: IIconName
 	borderRadius?: number
 	variant?: 'primary' | 'light'
 }

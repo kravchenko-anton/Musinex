@@ -7,7 +7,7 @@ import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { randomBeautifulColor } from '@/utils/getRandomColor'
 import { useEffect, useState } from 'react'
-import { Pressable, StyleSheet, View } from 'react-native'
+import { Image, Pressable, StyleSheet, View } from 'react-native'
 import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Title from '../title/title'
 import { setupPlayer } from './usePlayer'
@@ -60,13 +60,15 @@ const SongPlayer = () => {
 		           className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-10/12 bg-dark'
 		>
 			
-			<UImage style={{ ...StyleSheet.absoluteFillObject, borderRadius: 12, opacity: 0.5 }}
-			        source={trackInfo.artwork as string}
-			        height={'100%' as any as number}
-			        width={'100%' as any as number}
-			        blurRadius={50}
+			<Image style={{ ...StyleSheet.absoluteFillObject, borderRadius: 12, opacity: 0.5 }}
+			       source={{
+				       uri: trackInfo.artwork as string,
+				       height: '100%' as any as number,
+				       width: '100%' as any as number
+			       }}
+			       blurRadius={50}
 			/>
-			<View className='flex flex-row justify-between items-center h-full'>
+			<View className='flex flex-row justify-between items-center'>
 				<View className='flex-row items-center ml-3 mr-3'>
 					<UImage
 						source={trackInfo.artwork as string}

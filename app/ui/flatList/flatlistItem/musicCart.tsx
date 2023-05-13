@@ -10,7 +10,6 @@ const MusicCart: FC<IFlatListItem> =
 		 image,
 		 name,
 		 artists,
-		 defaultImage = false,
 		 WrapClassNames,
 		 ImageClassNames,
 		 textCenter = true,
@@ -26,23 +25,12 @@ const MusicCart: FC<IFlatListItem> =
 				}}
 				{...rest}
 			>
-				<View>
-					{defaultImage ? (
-						<UImage
-							className={ImageClassNames}
-							source={image.url}
-							height={image.height}
-							width={image.width}
-						/>
-					) : (
-						<UImage
-							className={ImageClassNames}
-							source={image.url}
-							height={image.height}
-							width={image.width}
-						/>
-					)}
-				</View>
+				<UImage
+					className={ImageClassNames}
+					source={image.url}
+					height={image.height}
+					width={image.width}
+				/>
 				<View
 					style={{
 						marginTop: 5,

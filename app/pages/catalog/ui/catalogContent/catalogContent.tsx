@@ -87,7 +87,7 @@ const CatalogContent: FC<ICatalogContent> =
 					<UFlatList
 						extraData={DataList}
 						maxToRenderPerBatch={10}
-						removeClippedSubviews={true}
+						initialNumToRender={10}
 						scrollEnabled={false}
 						numColumns={type === 'playlists' || type === 'albums' ? 2 : 1}
 						data={DataList}
@@ -133,9 +133,8 @@ const CatalogContent: FC<ICatalogContent> =
 							} else {
 								return (
 									<MusicItem
-										defaultImage
 										textCenter={false}
-										className='w-[100%] p-2 mt-2 mb-2'
+										className='w-[50%] p-2 mt-2 mb-2'
 										onPress={() =>
 											type === 'albums'
 												? navigate('AlbumWrapperCatalog', { albumId: item.id })

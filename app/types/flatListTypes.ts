@@ -8,7 +8,6 @@ export interface IFlatListItem extends PressableProps {
 		height: number
 	}
 	ImageClassNames?: string
-	defaultImage?: boolean
 	WrapClassNames?: string
 	textCenter?: boolean
 	artists?: string

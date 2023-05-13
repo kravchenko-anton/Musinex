@@ -1,3 +1,4 @@
+import { IIconName } from '@/types/IconTypes'
 import { getHexCode } from '@/utils/getColor'
 import { Icon } from '@rneui/themed'
 import { useColorScheme } from 'nativewind'
@@ -5,7 +6,7 @@ import React, { FC, memo } from 'react'
 import { Pressable, PressableProps } from 'react-native'
 
 interface IconProps extends PressableProps {
-	name: string
+	name: IIconName
 	color?: string
 	size?: number
 	type?: 'material' | 'material-community' | 'simple-line-icon' | 'zocial' | 'font-awesome' | 'octicon' | 'ionicon' | 'foundation' | 'evilicon' | 'entypo' | 'antdesign'

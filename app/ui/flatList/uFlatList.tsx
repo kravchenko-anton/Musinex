@@ -4,7 +4,7 @@ import { FlatList, FlatListProps, ListRenderItem, Pressable, View } from 'react-
 import Title from '../title/title'
 
 interface IFlatList<T>
-	extends Omit<FlatListProps<T>, 'renderToHardwareTextureAndroid' | 'bounces'> {
+	extends Omit<FlatListProps<T>, 'renderToHardwareTextureAndroid' | 'bounces' | 'removeClippedSubviews'> {
 	data: T[]
 	renderItem: ListRenderItem<T>
 	header?: boolean
@@ -59,6 +59,7 @@ const UFlatList = <T, >({
 				bounces={false}
 				renderToHardwareTextureAndroid={true}
 				maxToRenderPerBatch={4}
+				removeClippedSubviews={true}
 				showsHorizontalScrollIndicator={false}
 				showsVerticalScrollIndicator={false}
 				decelerationRate={'fast'}

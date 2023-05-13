@@ -2,7 +2,6 @@ import { IFlatListItem } from '@/types/flatListTypes'
 import I18n from 'i18n-js'
 import React, { FC, memo } from 'react'
 import { Pressable, View } from 'react-native'
-import UFastImage from '../../image/fastimage'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
@@ -36,7 +35,7 @@ const MusicCart: FC<IFlatListItem> =
 							width={image.width}
 						/>
 					) : (
-						<UFastImage
+						<UImage
 							className={ImageClassNames}
 							source={image.url}
 							height={image.height}

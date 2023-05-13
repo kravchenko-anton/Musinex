@@ -1,5 +1,5 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import UImage from '@/ui/image/fastimage'
+import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'

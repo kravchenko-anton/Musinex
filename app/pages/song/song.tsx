@@ -4,13 +4,14 @@ import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
+import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
@@ -32,7 +33,8 @@ const Song = () => {
 		<View style={{
 			paddingTop: WindowHeight * 0.05,
 			justifyContent: 'space-between',
-			height: ScreenHeight * 0.96,
+			height: ScreenHeight,
+			paddingBottom: WindowHeight * 0.05,
 			backgroundColor: getHexCode('dark')
 		}}>
 			<StatusBar backgroundColor={'#ffffff00'} style={'light'} />
@@ -43,15 +45,12 @@ const Song = () => {
 				height: ScreenHeight,
 				opacity: 0.5
 			}}>
-				<Image resizeMode={'cover'} source={{
-					uri: trackInfo?.artwork as string,
-					width: WindowWidth,
-					height: ScreenHeight
-				}} style={{
-					width: WindowWidth,
-					height: ScreenHeight
-				}}
-				       blurRadius={50}
+				<UImage
+					height={ScreenHeight}
+					width={WindowWidth}
+					resizeMode={'cover'}
+					source={trackInfo?.artwork as string}
+					blurRadius={50}
 				/>
 			</View>
 			<View>
@@ -59,19 +58,18 @@ const Song = () => {
 					<UIcon onPress={() => goBack()} name='arrow-down' size={24} color='white' />
 					<UIcon name='ellipsis-vertical' size={24} color='white' />
 				</View>
-				
-				<Image source={{
-					uri: trackInfo?.artwork as string,
-					width: WindowWidth * 0.85,
-					height: WindowHeight * 0.4
-				}} style={{
-					width: WindowWidth * 0.85,
-					height: WindowHeight * 0.4,
-					marginTop: WindowHeight * 0.05,
-					borderRadius: 10
-				}}
-				       resizeMode={'cover'}
-				       className='relative self-center items-center justify-center' />
+				<View style={{
+					alignSelf: 'center'
+				}}>
+					<UImage height={WindowHeight * 0.45}
+					        width={WindowWidth * 0.85}
+					        source={trackInfo?.artwork as string}
+					        style={{
+						        marginTop: WindowHeight * 0.05
+					        }}
+					        resizeMode={'cover'}
+					        className=' relative items-center  justify-center' />
+				</View>
 			</View>
 			<View style={{
 				width: WindowWidth * 0.85,

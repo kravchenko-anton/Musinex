@@ -1,9 +1,11 @@
 import { ICatalogTypes } from '@/types/catalogTypes'
+import UImage from '@/ui/image/image'
 import { getHexCode } from '@/utils/getColor'
+import { WindowWidth } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
-import { Animated, Image, StyleSheet } from 'react-native'
+import { Animated, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import { useBackgroundAnimation } from './useBackgroundAnimation'
@@ -28,13 +30,12 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({ poster, y }) => {
 				}
 			]}
 		>
-			<Image
+			<UImage
 				style={StyleSheet.absoluteFill}
 				resizeMode='cover'
-				source={{
-					uri: poster,
-					height: HEADER_HEIGHT
-				}}
+				height={HEADER_HEIGHT}
+				width={WindowWidth}
+				source={poster}
 			/>
 			<LinearGradient
 				style={{ ...StyleSheet.absoluteFillObject, top: -HEADER_HEIGHT * 1.6 }}

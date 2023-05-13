@@ -12,6 +12,10 @@ const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
 				width,
 				height
 			}}
+			containerStyle={{
+				width,
+				height
+			}}
 			PlaceholderContent={<View
 				style={[
 					{ width, height, backgroundColor: randomBeautifulColor(80, 25) },

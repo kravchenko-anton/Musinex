@@ -28,6 +28,7 @@ const UIcon: FC<IconProps> =
 		const { colorScheme } = useColorScheme()
 		return (
 			<Pressable
+				pointerEvents={'auto'}
 				style={{
 					justifyContent: 'center',
 					alignItems: 'center',

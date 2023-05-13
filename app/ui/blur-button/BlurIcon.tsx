@@ -17,7 +17,7 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> =
 	 }) => {
 		const { colorScheme } = useColorScheme()
 		return (
-			<Pressable {...rest}>
+			<Pressable {...!rest.onPress && rest}>
 				<BlurView
 					intensity={22}
 					tint='light'
@@ -33,6 +33,7 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> =
 					) : (
 						<UIcon
 							type={'ionicon'}
+							onPress={rest.onPress}
 							name={icon}
 							size={iconSize}
 							color={color ? color : colorScheme === 'light' ? getHexCode('dark') : getHexCode('white')}

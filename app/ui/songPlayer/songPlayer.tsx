@@ -1,14 +1,13 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { randomBeautifulColor } from '@/utils/getRandomColor'
 import { useEffect, useState } from 'react'
-import { Pressable, View } from 'react-native'
+import { Image, Pressable, StyleSheet, View } from 'react-native'
 import TrackPlayer, { RepeatMode, State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
-import Icon from '../icon/defaultIcon/Icon'
-import UFastImage from '../image/fastimage'
 import Title from '../title/title'
 import { setupPlayer } from './usePlayer'
 
@@ -57,16 +56,24 @@ const SongPlayer = () => {
 	
 	return (
 		<Pressable onPress={() => navigate('Song')}
-		           style={{ backgroundColor: trackInfo.color }}
-		           className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-10/12'
+		           className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-10/12 bg-dark'
 		>
+			
+			<Image style={{ ...StyleSheet.absoluteFillObject, borderRadius: 12, opacity: 0.5 }} source={{
+				uri: trackInfo.artwork as string,
+				width: '100%' as any as number,
+				height: '100%' as any as number
+			}}
+			       blurRadius={50}
+			/>
 			<View className='flex flex-row justify-between items-center h-full'>
-				<View className=' flex-row items-center ml-3 mr-3'>
-					<UFastImage
-						source={trackInfo.artwork as string}
-						width={50}
-						height={50}
-						borderRadius={5}
+				<View className='flex-row items-center ml-3 mr-3'>
+					<Image
+						source={{
+							uri: trackInfo.artwork as string,
+							width: 50 as any as number,
+							height: 50 as any as number
+						}}
 					/>
 					<View className='flex flex-col ml-2'>
 						<Title
@@ -85,7 +92,7 @@ const SongPlayer = () => {
 				</View>
 				<View className='flex-row'>
 					<Heart id={trackInfo.id} type={'songs'} resizeMode={'cover'} />
-					<Icon
+					<UIcon
 						color={getHexCode('white')}
 						className='mr-3 items-center justify-center'
 						name={playBackState.state == State.Playing ? 'pause' : 'play'}

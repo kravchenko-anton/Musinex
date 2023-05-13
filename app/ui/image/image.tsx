@@ -1,20 +1,10 @@
 import { randomBeautifulColor } from '@/utils/getRandomColor'
+import { Image } from '@rneui/themed'
 import React, { FC, memo } from 'react'
-import { Image, View } from 'react-native'
+import { View } from 'react-native'
 import { IImage } from './types/IImage'
-import { useImageLoading } from './useImageLoading'
 
 const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
-	const imageLoad = useImageLoading(source)
-	if (!imageLoad)
-		return (
-			<View
-				style={[
-					{ width, height, backgroundColor: randomBeautifulColor(80, 25) },
-					rest.style
-				]}
-			/>
-		)
 	return (
 		<Image
 			source={{
@@ -22,6 +12,12 @@ const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
 				width,
 				height
 			}}
+			PlaceholderContent={<View
+				style={[
+					{ width, height, backgroundColor: randomBeautifulColor(80, 25) },
+					rest.style
+				]}
+			/>}
 			style={[
 				{
 					width,

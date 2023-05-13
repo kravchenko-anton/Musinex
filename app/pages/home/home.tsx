@@ -4,7 +4,7 @@ import { PlayerAction } from '@/redux/player/playerSlice'
 import MusicCart from '@/ui/flatList/flatlistItem/musicCart'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Header from '@/ui/header/header'
-import Icon from '@/ui/icon/defaultIcon/Icon'
+import UIcon from '@/ui/icon/defaultIcon/Icon'
 import ScrollLayout from '@/ui/layout/scrollLayout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import I18n from 'i18n-js'
@@ -19,7 +19,7 @@ const Home = () => {
 	return (
 		<ScrollLayout>
 			<Header className={'mb-5'} logoSize={30}>
-				<Icon name={'mail'} size={24} borderRadius={100} padding={10} />
+				<UIcon name={'mail'} size={24} borderRadius={100} padding={10} />
 			</Header>
 			<UFlatList
 				headerText={'Top Songs'}

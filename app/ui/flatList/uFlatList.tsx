@@ -1,6 +1,6 @@
+import UIcon from '@/ui/icon/defaultIcon/Icon'
 import React from 'react'
 import { FlatList, FlatListProps, ListRenderItem, Pressable, View } from 'react-native'
-import Icon from '../icon/defaultIcon/Icon'
 import Title from '../title/title'
 
 interface IFlatList<T>
@@ -45,7 +45,7 @@ const UFlatList = <T, >({
 									fontFamily={'Montserrat_500Medium'}
 									className='mr-1'
 								/>
-								<Icon
+								<UIcon
 									name='ios-arrow-forward'
 									className='mt-[5px]'
 									size={20}

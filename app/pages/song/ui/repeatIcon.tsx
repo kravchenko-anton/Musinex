@@ -1,4 +1,4 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import UIcon from '@/ui/icon/defaultIcon/Icon'
 import React, { useState } from 'react'
 import TrackPlayer, { RepeatMode } from 'react-native-track-player'
 
@@ -32,7 +32,8 @@ const RepeatIcon = () => {
 		}
 	}
 	
-	return <MaterialCommunityIcons
+	return <UIcon
+		type={'material-community'}
 		name={`${repeatIcon() as 'repeat-off' | 'repeat-once' | 'repeat'}`}
 		style={{
 			justifyContent: 'center',

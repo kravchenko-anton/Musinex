@@ -2,7 +2,7 @@ import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
-import Icon from '@/ui/icon/defaultIcon/Icon'
+import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
 import { cutString } from '@/utils/cutString'
@@ -32,7 +32,8 @@ const Song = () => {
 		<View style={{
 			paddingTop: WindowHeight * 0.05,
 			justifyContent: 'space-between',
-			height: ScreenHeight * 0.96
+			height: ScreenHeight * 0.96,
+			backgroundColor: getHexCode('dark')
 		}}>
 			<StatusBar backgroundColor={'#ffffff00'} style={'light'} />
 			<View style={{
@@ -55,8 +56,8 @@ const Song = () => {
 			</View>
 			<View>
 				<View className='items-center flex-row justify-between mx-1'>
-					<Icon onPress={() => goBack()} name='arrow-down' size={24} color='white' />
-					<Icon name='ellipsis-vertical' size={24} color='white' />
+					<UIcon onPress={() => goBack()} name='arrow-down' size={24} color='white' />
+					<UIcon name='ellipsis-vertical' size={24} color='white' />
 				</View>
 				
 				<Image source={{
@@ -70,7 +71,7 @@ const Song = () => {
 					borderRadius: 10
 				}}
 				       resizeMode={'cover'}
-				       className=' relative self-center items-center justify-center' />
+				       className='relative self-center items-center justify-center' />
 			</View>
 			<View style={{
 				width: WindowWidth * 0.85,
@@ -92,19 +93,19 @@ const Song = () => {
 				</View>
 				<Sliders />
 				<View className='flex-row justify-between items-center'>
-					<Icon name='shuffle' onPress={() => handleShuffle()} size={24} color='white' />
+					<UIcon name='shuffle' onPress={() => handleShuffle()} size={24} color='white' />
 					<View className='flex-row items-center'>
-						<Icon name='play-skip-back' onPress={() => TrackPlayer.skipToPrevious()} size={24} color='white' />
-						<Icon name={playBackState.state === 'playing' ? 'md-pause-circle' : 'play-circle'} size={60} color='white'
-						      onPress={() => {
-							      if (playBackState.state === 'playing') {
-								      TrackPlayer.pause()
-							      } else {
-								      TrackPlayer.play()
-							      }
-						      }}
+						<UIcon name='play-skip-back' onPress={() => TrackPlayer.skipToPrevious()} size={24} color='white' />
+						<UIcon name={playBackState.state === 'playing' ? 'md-pause-circle' : 'play-circle'} size={60} color='white'
+						       onPress={() => {
+							       if (playBackState.state === 'playing') {
+								       TrackPlayer.pause()
+							       } else {
+								       TrackPlayer.play()
+							       }
+						       }}
 						/>
-						<Icon name='play-skip-forward' onPress={() => TrackPlayer.skipToNext()} size={24} color='white' />
+						<UIcon name='play-skip-forward' onPress={() => TrackPlayer.skipToNext()} size={24} color='white' />
 					</View>
 					<RepeatIcon />
 				</View>

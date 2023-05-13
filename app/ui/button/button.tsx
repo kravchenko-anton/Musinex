@@ -1,5 +1,5 @@
+import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
-import { Ionicons } from '@expo/vector-icons/'
 import React, { FC, PropsWithChildren } from 'react'
 import { Pressable, View, ViewStyle } from 'react-native'
 import Title from '../title/title'
@@ -66,7 +66,8 @@ const Button: FC<PropsWithChildren<IButton>> =
 							}
 						/>
 						{icon && (
-							<Ionicons
+							<UIcon
+								type={'ionicon'}
 								size={
 									iconSize
 										? iconSize

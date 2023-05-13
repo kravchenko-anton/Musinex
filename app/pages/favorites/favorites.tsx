@@ -1,6 +1,6 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import Header from '@/ui/header/header'
-import Icon from '@/ui/icon/defaultIcon/Icon'
+import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Layout from '@/ui/layout/layout'
 import Tabs from '@/ui/tabs/tabs'
 import React from 'react'
@@ -13,7 +13,7 @@ const Favorites = () => {
 	return (
 		<Layout>
 			<Header logoSize={30}>
-				<Icon
+				<UIcon
 					name={'settings'}
 					size={24}
 					onPress={() => navigate('Settings')}

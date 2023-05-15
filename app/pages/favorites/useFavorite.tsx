@@ -16,7 +16,7 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
-						data={selector.songs} className='h-[87%]'
+						data={selector.songs}
 						contentContainerStyle={{ paddingBottom: 50 }}
 						renderItem={({ item, index }) => {
 							return (
@@ -41,7 +41,6 @@ export const useFavorite = () => {
 					<UFlatList
 						contentContainerStyle={{ paddingBottom: 100 }}
 						numColumns={2}
-						className='h-[87%]'
 						data={selector.albums}
 						renderItem={({ item }) => {
 							return (
@@ -62,7 +61,6 @@ export const useFavorite = () => {
 				return (
 					<UFlatList
 						data={selector.artists}
-						className='h-[87%]'
 						contentContainerStyle={{ paddingBottom: 100 }}
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						renderItem={({ item }) => {
@@ -84,9 +82,7 @@ export const useFavorite = () => {
 			component: () => {
 				return (
 					<UFlatList
-						
 						numColumns={2}
-						className='h-[87%]'
 						contentContainerStyle={{ paddingBottom: 100 }}
 						ListEmptyComponent={() => <FlatList404 height={150} width={150} />}
 						data={selector.playlists}

@@ -1,13 +1,8 @@
-import {
-	Control,
-	FieldPath,
-	FieldValues,
-	RegisterOptions
-} from 'react-hook-form'
+import { Control, FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import { TextInputProps } from 'react-native'
 
-export interface IField<T extends FieldValues>
-	extends Omit<TextInputProps, 'onChange' | 'onChangeText' | 'value'> {
+
+export interface IField<T extends FieldValues> extends Omit<TextInputProps, 'onChange' | 'onChangeText' | 'value'> {
 	control: Control<T>
 	name: FieldPath<T>
 	rules?: Omit<
@@ -15,3 +10,5 @@ export interface IField<T extends FieldValues>
 		'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
 	>
 }
+
+

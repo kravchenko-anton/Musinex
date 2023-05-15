@@ -10,7 +10,7 @@ interface IFlatList404 {
 
 const FlatList404: FC<IFlatList404> = props => {
 	return (
-		<View className='flex-1 items-center justify-center'>
+		<View className='flex-1 items-center justify-center w-full h-full'>
 			<Lottie
 				source={require('../../assets/90988-no-results.json')}
 				style={{

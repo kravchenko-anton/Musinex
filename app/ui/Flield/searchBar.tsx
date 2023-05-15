@@ -17,10 +17,19 @@ const USearchBar = <T extends Record<string, any>>
 	return <Controller render={({ field: { onChange, onBlur, value } }) => (
 		<SearchBar
 			lightTheme={colorScheme === 'light'}
-			className='mt-4 rounded-full'
+			className='rounded-full'
 			onCancel={() => reset()}
+			round={true}
 			placeholder={I18n.t('Type anything')}
-			containerStyle={{ backgroundColor: 'transparent', borderBottomWidth: 0, borderTopWidth: 0 }}
+			containerStyle={{
+				backgroundColor: 'transparent',
+				borderBottomWidth: 0,
+				borderTopWidth: 0,
+				width: '100%',
+				padding: 0,
+				margin: 0,
+				paddingBottom: 5
+			}}
 			onChangeText={onChange}
 			onBlur={onBlur}
 			value={value}

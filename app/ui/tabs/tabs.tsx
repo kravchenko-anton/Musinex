@@ -1,6 +1,6 @@
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { FlatList, Pressable, View } from 'react-native'
 
 interface ITabs {
@@ -13,9 +13,9 @@ interface ITabs {
 }
 
 const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
-	const [activeTab, setActiveTab] = React.useState('songs')
-	const [index, setIndex] = React.useState(0)
-	let refList = React.useRef<FlatList>(null).current
+	const [activeTab, setActiveTab] = useState('songs')
+	const [index, setIndex] = useState(0)
+	let refList = useRef<FlatList>(null).current
 	useEffect(() => {
 		if (!refList) return
 		refList.scrollToIndex({ index, animated: true })
@@ -38,11 +38,7 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 									           setActiveTab(tab.name)
 								           }}
 								           className='p-2 rounded-xl mr-3 mb-4 items-center'
-								           style={{
-									           backgroundColor: renderIndex === index ? getHexCode('primary') : getHexCode(
-										           'veryLightBlack'
-									           )
-								           }}
+								           style={{ backgroundColor: renderIndex === index ? getHexCode('primary') : getHexCode('veryLightBlack') }}
 								>
 									<Title text={tab.title} color={getHexCode('white')} translate={translate} />
 								</Pressable>
@@ -50,11 +46,16 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 						}}
 					/>
 				</View>
-				{tabs.map(tab => {
-					if (tab.name === activeTab) {
-						return tab.component()
-					}
-				})}
+				{
+					tabs.map((tab) => {
+						if (tab.name === activeTab) {
+							return (
+								<View key={tab.name} className='mt-1 h-[87%]'>
+									{tab.component()}
+								</View>
+							)
+						}
+					})}
 			</View>
 		</View>
 	)

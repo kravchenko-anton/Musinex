@@ -10,7 +10,7 @@ const Favorites = () => {
 	const { navigate } = useTypedNavigation()
 	const { tabs } = useFavorite()
 	return (
-		<Layout>
+		<Layout className='h-screen'>
 			<Header logoSize={30}>
 				<UIcon
 					name={'settings'}

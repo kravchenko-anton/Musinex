@@ -4,6 +4,7 @@ import { ICatalogList, ICatalogRenderTypes } from '../catalogTypes'
 export type TypeRootStackParamList = {
 	Home: undefined
 	Search: undefined
+	Auth: undefined
 	Settings: undefined
 	catalog: {
 		headerImage: string

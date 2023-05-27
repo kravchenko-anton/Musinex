@@ -1,5 +1,6 @@
 import { LanguageProvider } from '@/providers/languageProvider'
 import { persistor, store } from '@/redux/store'
+import Toast from '@/ui/toast/Toast'
 import { getHexCode } from '@/utils/getColor'
 import { StatusBar } from 'expo-status-bar'
 import { useColorScheme } from 'nativewind'
@@ -10,7 +11,6 @@ import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from './app/navigation/navigation'
 import ThemeProvider from './app/providers/themeProvider'
 import FullScreenLoader from './app/ui/loader/fullScreenLoader'
-import Toast from './app/ui/Toast'
 
 export default function App() {
 	const { colorScheme } = useColorScheme()

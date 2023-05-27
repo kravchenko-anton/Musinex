@@ -1,3 +1,4 @@
+import { authReducer } from '@/redux/auth/authSlice'
 import { combineReducers } from '@reduxjs/toolkit'
 import { api } from './api/api'
 import { favoriteReducer } from './favorite/favoriteSlice'
@@ -10,5 +11,6 @@ export const reducers = combineReducers({
 	favorites: favoriteReducer,
 	theme: ThemeReducer,
 	language: LanguageReducer,
-	player: playerReducer
+	player: playerReducer,
+	auth: authReducer,
 })

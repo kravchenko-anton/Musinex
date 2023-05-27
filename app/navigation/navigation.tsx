@@ -1,3 +1,6 @@
+import { useAuth } from '@/hook/useAuth'
+import Auth from '@/pages/auth/auth'
+import { useCheckAuth } from '@/providers/auth/useCheckAuth'
 import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import { userRoutes } from '@/types/navigation/userRoutes'
 import SongPlayer from '@/ui/songPlayer/songPlayer'
@@ -16,6 +19,7 @@ const Navigation = () => {
 	const [currentRoute, setCurrentRoute] = useState<string | undefined>(
 		undefined
 	)
+	const {user} = useAuth()
 	useEffect(() => {
 		const listener = navRef.addListener('state', () =>
 			setCurrentRoute(navRef.getCurrentRoute()?.name)
@@ -25,6 +29,7 @@ const Navigation = () => {
 			navRef.removeListener('state', listener)
 		}
 	}, [])
+	useCheckAuth(currentRoute)
 	
 	return (
 		<NavigationContainer ref={navRef}>
@@ -39,15 +44,17 @@ const Navigation = () => {
 					}
 				}}
 			>
-				{userRoutes.map(route => (
+				{user ? userRoutes.map(route => (
 					<Stack.Screen
 						name={route.name}
 						key={route.name}
 						component={route.component}
 					/>
-				))}
+				)) : <Stack.Screen name={'Auth'} component={Auth} />
+				
+				}
 			</Stack.Navigator>
-			{currentRoute !== 'Song' && (
+			{currentRoute !== 'Song' || user && (
 				<View>
 					<BottomMenu currentRoute={currentRoute} />
 					<SongPlayer />

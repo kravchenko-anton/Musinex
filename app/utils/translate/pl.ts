@@ -17,5 +17,6 @@ export const pl = {
 	albums: ' albumy',
 	'and other': ' i inni',
 	'No results': 'Nie znaleziono wyników',
-	Error: 'Błąd'
+	Error: 'Błąd',
+	ServerError: 'Błąd serwera',
 }

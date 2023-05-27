@@ -17,5 +17,6 @@ export const ua = {
 	albums: ' альбомів',
 	'and other': ' і інші',
 	'No results': 'Нічого не знайдено',
-	Error: 'Помилка'
+	Error: 'Помилка',
+	ServerError: 'Помилка сервера',
 }

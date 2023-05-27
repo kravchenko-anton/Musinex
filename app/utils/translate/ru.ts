@@ -17,5 +17,6 @@ export const ru = {
 	albums: ' альбомов',
 	'and other': ' и другие',
 	'No results': 'Ничего не найдено',
-	Error: 'Ошибка'
+	Error: 'Ошибка',
+	ServerError: 'Ошибка сервера',
 }

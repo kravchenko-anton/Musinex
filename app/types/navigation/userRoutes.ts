@@ -1,3 +1,4 @@
+import Auth from '@/pages/auth/auth'
 import Catalog from '@/pages/catalog/catalog'
 import AlbumWrapperCatalog from '@/pages/catalog/wrappers/album/album'
 import ArtistWrapperCatalog from '@/pages/catalog/wrappers/artist/artist'
@@ -57,5 +58,9 @@ export const userRoutes: iRoutes[] = [
 	{
 		name: 'Error',
 		component: Error
+	},
+	{
+		name: 'Auth',
+		component: Auth
 	}
 ]

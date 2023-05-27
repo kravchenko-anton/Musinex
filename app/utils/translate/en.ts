@@ -17,5 +17,6 @@ export const en = {
 	albums: ' albums',
 	'and other': ' and other',
 	'No results': 'No results found',
-	Error: 'Error'
+	Error: 'Error',
+	ServerError: 'Server error',
 }

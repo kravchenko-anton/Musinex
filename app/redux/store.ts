@@ -9,7 +9,7 @@ const persistConfig = {
 	key: 'root',
 	storage: AsyncStorage,
 	// you can add player if you need to persist player state
-	whitelist: ['theme', 'language', 'favorites']
+	whitelist: ['theme', 'language', 'favorites', 'auth']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

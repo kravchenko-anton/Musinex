@@ -15,15 +15,10 @@ export enum EnumSecureStore {
 	REFRESH_TOKEN = 'refresh_token'
 }
 
-export enum EnumAsyncStorage {
-	USER = 'user'
-}
+
 
 export interface ITokens {
 	access_token: string
 	refresh_token: string
 }
 
-export interface IAuthResponse extends ITokens {
-	user: IUser
-}

@@ -1,4 +1,4 @@
-export const SERVER_URL = 'http://192.168.100.35:7777'
+export const SERVER_URL = 'http://10.0.2.2:7777'
 
 export const getAuthUrl = (string: string) => `/auth${string}`
 export const getUsersUrl = (string: string) => `/users${string}`

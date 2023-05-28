@@ -1,15 +1,20 @@
-import { authApi } from '@/redux/api/auth/auth'
 import { deleteTokensStorage, saveTokensStorage } from '@/redux/auth/authHelper'
 import { IAuthFields } from '@/types/auth/authTypes'
 import { errorToast } from '@/ui/toast/errorToast'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 export const register = createAsyncThunk<any, IAuthFields>('auth/register',
 		async ({ email, password }, thunkAPI) => {
 	try {
-		const { data } = await authApi.useRegisterQuery({email, password})
-			await saveTokensStorage(data)
-		return data
+		console.log('register', email, password)
+		const register = await axios.post("http://10.0.2.2:7777/auth/register", {email, password}).then(res => res.data)
+				console.log('register', register)
+			await saveTokensStorage({
+				access_token: register.access_token,
+				refresh_token: register.refresh_token
+			})
+		return register
 	} catch (e) {
 		errorToast(e)
 		return thunkAPI.rejectWithValue(e)
@@ -20,9 +25,16 @@ export const register = createAsyncThunk<any, IAuthFields>('auth/register',
 export const login = createAsyncThunk<any, IAuthFields>('auth/login',
 	async ({email, password}, thunkAPI) => {
 		try {
-			const { data } = await authApi.useLoginQuery({email, password})
-			await saveTokensStorage(data)
-		return data
+			console.log('login', email, password)
+			const login = await axios.post(
+				"http://10.0.2.2:7777/auth/login", {email, password}
+			).then(res => res.data)
+			console.log('login', login)
+			await saveTokensStorage({
+				access_token: login.access_token,
+				refresh_token: login.refresh_token
+			})
+		return login.data
 	} catch (e) {
 		errorToast(e)
 		return thunkAPI.rejectWithValue(e)
@@ -32,9 +44,12 @@ export const login = createAsyncThunk<any, IAuthFields>('auth/login',
 export const getNewToken = createAsyncThunk<any, string>('auth/getToken',
 	async (refresh_token, thunkAPI) => {
 		try {
-		const {data} = await authApi.useGetTokenQuery(refresh_token)
-			await saveTokensStorage(data)
-		return data
+		const tokens = await axios.post("http://10.0.2.2:7777/auth/access-token", {refresh_token}).then(res => res.data)
+			await saveTokensStorage({
+				access_token: tokens.access_token,
+				refresh_token: tokens.refresh_token
+			})
+		return tokens
 	} catch (e) {
 		errorToast(e)
 		return thunkAPI.rejectWithValue(e)

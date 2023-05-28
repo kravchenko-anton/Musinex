@@ -1,8 +1,8 @@
-import { IIconName } from '@/types/IconTypes'
+import { Ionicons } from '@expo/vector-icons'
 import { PressableProps, ViewProps } from 'react-native'
 
 export interface IblurButton extends ViewProps, Pick<PressableProps, 'onPress'> {
-	icon?: IIconName
+	icon?: keyof typeof Ionicons.glyphMap
 	iconSize?: number
 	color?: string
 	isSmall?: boolean

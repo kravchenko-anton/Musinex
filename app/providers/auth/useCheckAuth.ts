@@ -13,8 +13,6 @@ export const useCheckAuth = (routeName?: string) => {
 			const checkToken = async () => {
 				const accessToken = await getItemAsync(EnumSecureStore.ACCESS_TOKEN)
 				const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
-					console.log('accessToken', accessToken)
-					console.log('refreshToken', refreshToken)
 				if (!accessToken && refreshToken) {
 					try {
 			getNewToken(refreshToken)

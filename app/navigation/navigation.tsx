@@ -20,7 +20,6 @@ const Navigation = () => {
 		undefined
 	)
 	const {user} = useAuth()
-	console.log(user)
 	useEffect(() => {
 		const listener = navRef.addListener('state', () =>
 			setCurrentRoute(navRef.getCurrentRoute()?.name)

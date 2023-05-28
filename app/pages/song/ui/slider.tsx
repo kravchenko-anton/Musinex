@@ -1,7 +1,7 @@
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import { WindowWidth } from '@/utils/screen'
-import { Slider } from '@rneui/themed'
+import Slider from '@react-native-community/slider'
 import { View } from 'react-native'
 import TrackPlayer, { useProgress } from 'react-native-track-player'
 
@@ -19,15 +19,9 @@ const Sliders = () => {
 			value={position}
 			minimumValue={0}
 			maximumValue={30}
-			allowTouchTrack={true}
-			thumbStyle={{
-				backgroundColor: getHexCode('lightGray'),
-				width: 10,
-				height: 10
-			}}
-			trackStyle={{ backgroundColor: getHexCode('dark') }}
 			style={{ height: 10, marginTop: 20 }}
-			maximumTrackTintColor={'#ffffff10'}
+			maximumTrackTintColor={getHexCode('lightGray')}
+			thumbTintColor={getHexCode('lightGray')}
 			minimumTrackTintColor={getHexCode('lightGray')}
 			
 			step={1}

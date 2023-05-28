@@ -1,8 +1,8 @@
-import { IIconName } from '@/types/IconTypes'
 import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
+import { Ionicons } from '@expo/vector-icons'
 
 export interface IMenuItem {
-	iconName: IIconName
+	iconName: keyof typeof Ionicons.glyphMap
 	path: keyof TypeRootStackParamList
 }
 

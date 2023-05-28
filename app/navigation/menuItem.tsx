@@ -20,7 +20,6 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	return (
 		<View pointerEvents={'auto'} className='items-center pointer-events-auto justify-center p-1.5 rounded-lg'>
 			<UIcon
-				type={'ionicon'}
 				onPress={() => nav(item.path)}
 				name={item.iconName}
 				size={30}

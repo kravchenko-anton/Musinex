@@ -31,7 +31,6 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> =
 					children
 				) : (
 					<UIcon
-						type={'ionicon'}
 						onPress={rest.onPress}
 						name={icon}
 						size={iconSize}

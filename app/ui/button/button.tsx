@@ -67,7 +67,6 @@ const Button: FC<PropsWithChildren<IButton>> =
 						/>
 						{icon && (
 							<UIcon
-								type={'ionicon'}
 								size={
 									iconSize
 										? iconSize

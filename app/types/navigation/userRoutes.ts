@@ -1,8 +1,5 @@
 import Auth from '@/pages/auth/auth'
 import Catalog from '@/pages/catalog/catalog'
-import AlbumWrapperCatalog from '@/pages/catalog/wrappers/album/album'
-import ArtistWrapperCatalog from '@/pages/catalog/wrappers/artist/artist'
-import PlaylistWrapperCatalog from '@/pages/catalog/wrappers/playlist/playlist'
 import Error from '@/pages/error/error'
 import Favorites from '@/pages/favorites/favorites'
 import Home from '@/pages/home/home'
@@ -41,19 +38,6 @@ export const userRoutes: iRoutes[] = [
 	{
 		name: 'Search',
 		component: Search
-	},
-	
-	{
-		name: 'ArtistWrapperCatalog',
-		component: ArtistWrapperCatalog
-	},
-	{
-		name: 'AlbumWrapperCatalog',
-		component: AlbumWrapperCatalog
-	},
-	{
-		name: 'PlayListWrapperCatalog',
-		component: PlaylistWrapperCatalog
 	},
 	{
 		name: 'Error',

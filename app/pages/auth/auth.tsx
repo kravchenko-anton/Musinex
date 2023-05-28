@@ -20,6 +20,9 @@ const Auth = () => {
 const {user} = useAuth()
 	const {register, login} = useAction()
 	const {navigate} = useTypedNavigation()
+	if (user) {
+		navigate('Home')
+	}
 	const onSubmit: SubmitHandler<IAuthFields>  = ({password,email}) => type === "Login" ? login({password,email}) : register({password,email})
 	return <Layout>
 		<View className='items-center'>

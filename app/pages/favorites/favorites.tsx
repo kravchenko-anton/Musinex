@@ -2,13 +2,11 @@ import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import Header from '@/ui/header/header'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Layout from '@/ui/layout/layout'
-import Tabs from '@/ui/tabs/tabs'
 import React from 'react'
-import { useFavorite } from './useFavorite'
 
 const Favorites = () => {
 	const { navigate } = useTypedNavigation()
-	const { tabs } = useFavorite()
+	// const { tabs } = useFavorite()
 	return (
 		<Layout className='h-screen'>
 			<Header logoSize={30}>
@@ -18,7 +16,7 @@ const Favorites = () => {
 					onPress={() => navigate('Settings')}
 				/>
 			</Header>
-			<Tabs data={tabs} translate={true} />
+			{/*<Tabs data={tabs} translate={true} />*/}
 		</Layout>
 	)
 }

@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { configureStore } from '@reduxjs/toolkit'
 import { persistReducer, persistStore } from 'redux-persist'
-import { api } from './api/api'
 import { rtkQueryErrorLogger } from './middlewares/error.middleware'
 import { reducers } from './rootReducer'
 
@@ -19,7 +18,7 @@ export const store = configureStore({
 		getDefaultMiddleware({
 			serializableCheck: false,
 			immutableCheck: false
-		}).concat(rtkQueryErrorLogger).concat(api.middleware)
+		}).concat(rtkQueryErrorLogger)
 })
 export const persistor = persistStore(store)
 

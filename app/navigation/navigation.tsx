@@ -20,6 +20,7 @@ const Navigation = () => {
 		undefined
 	)
 	const {user} = useAuth()
+	console.log(user)
 	useEffect(() => {
 		const listener = navRef.addListener('state', () =>
 			setCurrentRoute(navRef.getCurrentRoute()?.name)
@@ -54,7 +55,7 @@ const Navigation = () => {
 				
 				}
 			</Stack.Navigator>
-			{currentRoute !== 'Song' || user && (
+			{currentRoute === 'Song' || user && (
 				<View>
 					<BottomMenu currentRoute={currentRoute} />
 					<SongPlayer />

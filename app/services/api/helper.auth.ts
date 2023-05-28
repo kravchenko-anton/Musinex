@@ -16,9 +16,12 @@ export const getNewTokens = async () => {
 						'Content-Type': 'application/json'
 					}
 				}
-			)
+			).then(res => res.data)
 	
-			if (response.data.access_token) await saveTokensStorage(response.data)
+			if (response.access_token) await saveTokensStorage({
+				access_token: response.access_token,
+				refresh_token: response.refresh_token
+			})
 	
 			return response
 		} catch (e) {}

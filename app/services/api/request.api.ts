@@ -1,8 +1,7 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
-import Toast from 'react-native-toast-message'
-
 import { errorCatch } from '@/services/api/error.api'
 import instance from '@/services/api/interceptors.api'
+import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
+import Toast from 'react-native-toast-message'
 
 export const request = async <T>(config: AxiosRequestConfig) => {
 	const onSuccess = (response: AxiosResponse<T>) => response.data

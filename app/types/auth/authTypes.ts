@@ -1,14 +1,8 @@
-	export interface IUser {
-		id: number
-		email: string
-		password: string
-		createdAt: string
-		updatedAt: string
-		name: string
-	}
+import { IUser } from '@/services/types/user.services.types'
 
-
-export interface IAuthFields extends Pick<IUser, 'email' | 'password'> {}
+export interface IAuthFields extends Pick<IUser, 'email'> {
+	password: string
+}
 
 export enum EnumSecureStore {
 	ACCESS_TOKEN = 'access_token',

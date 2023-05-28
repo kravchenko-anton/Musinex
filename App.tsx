@@ -2,6 +2,7 @@ import { LanguageProvider } from '@/providers/languageProvider'
 import { persistor, store } from '@/redux/store'
 import Toast from '@/ui/toast/Toast'
 import { getHexCode } from '@/utils/getColor'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { StatusBar } from 'expo-status-bar'
 import { useColorScheme } from 'nativewind'
 import { LogBox } from 'react-native'
@@ -15,8 +16,16 @@ import FullScreenLoader from './app/ui/loader/fullScreenLoader'
 export default function App() {
 	const { colorScheme } = useColorScheme()
 	LogBox.ignoreAllLogs()
+	const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				refetchOnWindowFocus: false
+			}
+		}
+	})
 	return (
 		<Provider store={store}>
+			<QueryClientProvider client={queryClient}>
 			<PersistGate persistor={persistor} loading={<FullScreenLoader />}>
 				<SafeAreaProvider style={{
 					backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack')
@@ -28,6 +37,7 @@ export default function App() {
 					<Toast />
 				</SafeAreaProvider>
 			</PersistGate>
+			</QueryClientProvider>
 		</Provider>
 	)
 }

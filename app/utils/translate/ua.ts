@@ -19,4 +19,5 @@ export const ua = {
 	'No results': 'Нічого не знайдено',
 	Error: 'Помилка',
 	ServerError: 'Помилка сервера',
+	More: 'Більше',
 }

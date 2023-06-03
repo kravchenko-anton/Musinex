@@ -19,4 +19,5 @@ export const pl = {
 	'No results': 'Nie znaleziono wyników',
 	Error: 'Błąd',
 	ServerError: 'Błąd serwera',
+	More: 'Więcej',
 }

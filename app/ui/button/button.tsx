@@ -1,5 +1,6 @@
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
+import I18n from 'i18n-js'
 import React, { FC, PropsWithChildren } from 'react'
 import { Pressable, View, ViewStyle } from 'react-native'
 import Title from '../title/title'
@@ -10,6 +11,7 @@ const Button: FC<PropsWithChildren<IButton>> =
 		 children,
 		 icon,
 		 text,
+		translate = false,
 		 size = 'small',
 		 variant = 'light',
 		 width,
@@ -23,16 +25,9 @@ const Button: FC<PropsWithChildren<IButton>> =
 			<Pressable
 				style={[
 					{
-						backgroundColor: variant === 'primary' ? getHexCode('primary') : getHexCode('white'),
+						backgroundColor: variant === 'primary' ? getHexCode('primary') : getHexCode('lightBlack'),
 						borderRadius: borderRadius,
-						width: width
-							? width
-							: size === 'small'
-								? 95
-								: size === 'medium'
-									? 130
-									: 165,
-						padding: size === 'small' ? 10 : size === 'medium' ? 15 : 20
+						padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
 					},
 					rest.style as ViewStyle
 				]}
@@ -53,7 +48,7 @@ const Button: FC<PropsWithChildren<IButton>> =
 					>
 						<Title
 							
-							color={variant === 'primary' ? getHexCode('white') : getHexCode('dark')}
+							color={variant === 'primary' ? getHexCode('white') : getHexCode('white')}
 							fontFamily={'Montserrat_700Bold'}
 							size={
 								textSize
@@ -62,9 +57,10 @@ const Button: FC<PropsWithChildren<IButton>> =
 										? 15
 										: size === 'medium'
 											? 18
-											: 25
+											: 20
 							}
-						>{text}</Title>
+						>{translate	? I18n.t(text) :text }
+						</Title>
 						{icon && (
 							<UIcon
 								size={

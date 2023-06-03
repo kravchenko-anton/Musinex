@@ -19,4 +19,5 @@ export const ru = {
 	'No results': 'Ничего не найдено',
 	Error: 'Ошибка',
 	ServerError: 'Ошибка сервера',
+	More: 'Больше',
 }

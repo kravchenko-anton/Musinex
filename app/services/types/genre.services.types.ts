@@ -3,6 +3,8 @@ import { defaultModelFields, ISong } from '@/services/types/global'
 import { IPlaylist } from '@/services/types/playlist.services.types'
 
 export interface IGenre extends defaultModelFields{
+	color: string
+	icon: string
 	name: string,
 	songs: ISong[],
 	albums: IAlbum[],

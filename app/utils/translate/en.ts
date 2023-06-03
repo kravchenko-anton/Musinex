@@ -19,4 +19,5 @@ export const en = {
 	'No results': 'No results found',
 	Error: 'Error',
 	ServerError: 'Server error',
+	More: 'More',
 }

@@ -11,4 +11,5 @@ export interface IButton extends PressableProps {
 	icon?: keyof typeof Ionicons.glyphMap
 	borderRadius?: number
 	variant?: 'primary' | 'light'
+	translate?: boolean
 }

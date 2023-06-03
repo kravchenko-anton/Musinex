@@ -14,17 +14,17 @@ import {
 } from '@expo-google-fonts/montserrat'
 import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
-import React, { FC, memo } from 'react'
+import React, { FC, memo, PropsWithChildren } from 'react'
 import { Text } from 'react-native'
 import FullScreenLoader from '../loader/fullScreenLoader'
 import { ITitle } from './types/Ititle'
 
-const Title: FC<ITitle> =
+const Title: FC<PropsWithChildren<ITitle>> =
 	({
+		children,
 		 numberOfLines = 1,
 		 color,
 		 fontFamily = 'Montserrat_300Light',
-		 text,
 		 size = 20,
 		 translate = false,
 		 center = false,
@@ -43,7 +43,7 @@ const Title: FC<ITitle> =
 			Montserrat_900Black_Italic
 		})
 		const { colorScheme } = useColorScheme()
-		if (!fontsLoaded) {
+		if (!fontsLoaded || !children) {
 			return <FullScreenLoader />
 		}
 		return (
@@ -60,7 +60,7 @@ const Title: FC<ITitle> =
 				numberOfLines={numberOfLines}
 				{...(!rest.style && rest)}
 			>
-				{translate ? I18n.t(text.toString()) : text}
+				{translate ? I18n.t(children.toString()) : children}
 			</Text>
 		)
 	}

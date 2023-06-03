@@ -18,10 +18,11 @@ const NavigateHeader: FC<PropsWithChildren<IHeader>> =
 				<Title
 					translate
 					onPress={() => navigate('Home')}
-					text={'Musinex'}
 					fontFamily={'Montserrat_900Black_Italic'}
 					size={logoSize}
-				/>
+				>
+					{'Musinex'}
+				</Title>
 				{children}
 			</View>
 		)

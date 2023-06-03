@@ -4,9 +4,9 @@ import { ISong } from '@/services/types/global'
 import { IPlaylist } from '@/services/types/playlist.services.types'
 
 export interface ISearchResult {
-	songs: ISong[]
-	artists: IArtist[]
-	albums: IAlbum[]
-	playlists: IPlaylist[]
+[0]: ISong[]
+[1]: IArtist[]
+[2]: IPlaylist[]
+[3]: IAlbum[]
 }
 

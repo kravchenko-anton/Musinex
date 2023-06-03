@@ -4,7 +4,8 @@ import { View } from 'react-native'
 import Title from '../title/title'
 import { IHeader } from './types/IHeader'
 
-const Header: FC<PropsWithChildren<IHeader>> = ({
+const Header: FC<PropsWithChildren<IHeader>> =
+	({
 	                                                children,
 	                                                logoSize = 30,
 	                                                ...rest
@@ -14,11 +15,12 @@ const Header: FC<PropsWithChildren<IHeader>> = ({
 		<View className='flex-row justify-between items-center' {...rest}>
 			<Title
 				translate
-				text={'Musinex'}
 				onPress={() => navigate('Home')}
 				fontFamily={'Montserrat_900Black_Italic'}
 				size={logoSize}
-			/>
+			>
+				{'Musinex'}
+			</Title>
 			{children}
 		</View>
 	)

@@ -61,7 +61,8 @@ const {user} = useAuth()
 		
 	<Title  size={16} onPress={
 		() => setType(type === 'Login' ? 'Register' : 'Login')
-	} text={type === 'Login' ? 'Don\'t have an account?' : 'Already have an account?'}/>
+	}
+	>{type === 'Login' ? 'Don\'t have an account?' : 'Already have an account?'}</Title>
 	</Layout>
 }
 

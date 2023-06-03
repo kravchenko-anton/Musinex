@@ -11,7 +11,7 @@ export const genreServices = {
 	},
 	async getAll() {
 		return request<IGenreList>({
-			url: getGenresUrl('/'),
+			url: getGenresUrl('/all'),
 			method: 'GET',
 		})
 	}

@@ -56,11 +56,10 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 				}}
 			>
 				<Title
-					text={props.title}
 					numberOfLines={1}
 					fontFamily={'Montserrat_500Medium'}
 					center
-				/>
+				>{props.title}</Title>
 			</Animated.View>
 			{props.rightIcon && (
 				<BlurIcon>

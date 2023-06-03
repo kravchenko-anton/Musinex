@@ -40,7 +40,9 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 								           className='p-2 rounded-xl mr-3 mb-4 items-center'
 								           style={{ backgroundColor: renderIndex === index ? getHexCode('primary') : getHexCode('veryLightBlack') }}
 								>
-									<Title text={tab.title} color={getHexCode('white')} translate={translate} />
+									<Title color={getHexCode('white')} translate={translate} >
+										{tab.title}
+									</Title>
 								</Pressable>
 							)
 						}}

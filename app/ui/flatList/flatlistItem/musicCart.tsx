@@ -12,13 +12,12 @@ const MusicCart: FC<IFlatListItem> =
 		 artists,
 		 WrapClassNames,
 		 ImageClassNames,
-		 textCenter = true,
+		 textCenter = false,
 		 ...rest
 	 }) => {
 		return (
 			<Pressable
 				className={WrapClassNames}
-				
 				style={{
 					width: image.width,
 					maxWidth: image.width
@@ -33,25 +32,27 @@ const MusicCart: FC<IFlatListItem> =
 				/>
 				<View
 					style={{
-						marginTop: 5,
+						margin: 5,
 						alignItems: textCenter ? 'center' : 'flex-start'
 					}}
 				>
 					<Title
-						text={name}
 						numberOfLines={1}
-						size={20}
+						size={20} className={'w-11/12'}
 						fontFamily={'Montserrat_600SemiBold'}
-					/>
+					>
+						{name}
+					</Title>
 					{artists && (
 						<Title
-							text={I18n.t('by') + artists}
 							className={'mt-1'}
 							numberOfLines={1}
 							color={'silver'}
 							size={14}
 							fontFamily={'Montserrat_500Medium'}
-						/>
+						>
+							{I18n.t('by') + artists}
+						</Title>
 					)}
 				</View>
 			</Pressable>

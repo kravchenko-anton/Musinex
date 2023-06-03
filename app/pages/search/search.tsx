@@ -1,210 +1,121 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import { useSearch } from '@/pages/search/useSearch'
+import { genreServices } from '@/services/genre.services'
+import Button from '@/ui/button/button'
+import CatalogArtistItem from '@/ui/flatList/catalogItem/catalogArtistItem'
+import MusicCart from '@/ui/flatList/flatlistItem/musicCart'
+import UFlatList from '@/ui/flatList/uFlatList'
+import Field from '@/ui/Flield/field'
 import Layout from '@/ui/layout/layout'
-import React from 'react'
+import FullScreenLoader from '@/ui/loader/fullScreenLoader'
+import Title from '@/ui/title/title'
+import { WindowWidth } from '@/utils/screen'
+import { useQuery } from '@tanstack/react-query'
+import React, { ReactNode } from 'react'
+import { SectionList, View } from 'react-native'
 
 const Search = () => {
-	// const { searchTerm, tracks, playlists, albums, artists, isLoading, control } =
-	// 	useSearch()
+	const { searchTerm, searchResult, isLoading, control } =
+		useSearch()
 	const { navigate } = useTypedNavigation()
-	// const { data: genre } = useGetAllGenreQuery(null)
-	// if (!genre || isLoading) return <FullScreenLoader />
+	console.log(isLoading)
+	const { data: genre } = useQuery(['genre'], genreServices.getAll)
+	if (!genre) return <FullScreenLoader />
 	return (
 		<Layout className='h-full'>
-			{/*<USearchBar control={control} name={'searchTerm'} />*/}
-			
-			{/*{searchTerm && tracks && playlists && albums && artists ? (*/}
-			{/*	<UScrollView className='mt-4'>*/}
-			{/*		<UFlatList*/}
-			{/*			headerText={'Songs'}*/}
-			{/*			headerNavigate={() =>*/}
-			{/*				navigate('catalog', {*/}
-			{/*					data: tracks.data.map(item => {*/}
-			{/*						return {*/}
-			{/*							id: item.id,*/}
-			{/*							title: item.title,*/}
-			{/*							image: item.album.cover_medium,*/}
-			{/*							artist: item.artist.name,*/}
-			{/*							playTime: item.duration*/}
-			{/*						}*/}
-			{/*					}),*/}
-			{/*					type: 'songs',*/}
-			{/*					id: tracks.data[0].id,*/}
-			{/*					headerText: I18n.t('Songs'),*/}
-			{/*					headerImage: tracks.data[0].album.cover_big*/}
-			{/*				})*/}
-			{/*			}*/}
-			{/*			showsHorizontalScrollIndicator={false}*/}
-			{/*			horizontal*/}
-			{/*			header*/}
-			{/*			data={tracks.data.slice(0, 10)}*/}
-			{/*			renderItem={({ item }) => {*/}
-			{/*				return (*/}
-			{/*					<MusicCart*/}
-			{/*						ImageClassNames={'rounded-lg'}*/}
-			{/*						WrapClassNames={'mr-3 '}*/}
-			{/*						name={item.title_short}*/}
-			{/*						artists={item.artist.name}*/}
-			{/*						image={{*/}
-			{/*							url: item.album.cover_big,*/}
-			{/*							width: 220,*/}
-			{/*							height: 220*/}
-			{/*						}}*/}
-			{/*					/>*/}
-			{/*				)*/}
-			{/*			}}*/}
-			{/*		/>*/}
-			{/*		<UFlatList*/}
-			{/*			headerNavigate={() =>*/}
-			{/*				navigate('catalog', {*/}
-			{/*					data: artists.data.map(item => {*/}
-			{/*						return {*/}
-			{/*							id: item.id,*/}
-			{/*							title: item.name,*/}
-			{/*							image: item.picture_medium,*/}
-			{/*							artist: item.name*/}
-			{/*						}*/}
-			{/*					}),*/}
-			{/*					type: 'artists',*/}
-			{/*					id: artists.data[0].id,*/}
-			{/*					headerText: I18n.t('Artists'),*/}
-			{/*					headerImage: artists.data[0].picture_big*/}
-			{/*				})*/}
-			{/*			}*/}
-			{/*			headerText={'Artists'}*/}
-			{/*			wrapClassNames={'mt-10 mb-5'}*/}
-			{/*			showsHorizontalScrollIndicator={false}*/}
-			{/*			horizontal*/}
-			{/*			header*/}
-			{/*			data={artists.data.slice(0, 10)}*/}
-			{/*			renderItem={({ item }) => {*/}
-			{/*				return (*/}
-			{/*					<MusicCart*/}
-			{/*						onPress={() =>*/}
-			{/*							navigate('ArtistWrapperCatalog', { artistId: item.id })*/}
-			{/*						}*/}
-			{/*						ImageClassNames={'rounded-full'}*/}
-			{/*						WrapClassNames={'mr-3'}*/}
-			{/*						image={{*/}
-			{/*							url: item.picture_big,*/}
-			{/*							width: 150,*/}
-			{/*							height: 150*/}
-			{/*						}}*/}
-			{/*						name={item.name}*/}
-			{/*					/>*/}
-			{/*				)*/}
-			{/*			}}*/}
-			{/*		/>*/}
-			{/*		*/}
-			{/*		<UFlatList*/}
-			{/*			headerNavigate={() =>*/}
-			{/*				navigate('catalog', {*/}
-			{/*					data: albums.data.map(item => {*/}
-			{/*						return {*/}
-			{/*							id: item.id,*/}
-			{/*							title: item.title,*/}
-			{/*							image: item.cover_medium,*/}
-			{/*							artist: item.artist.name*/}
-			{/*						}*/}
-			{/*					}),*/}
-			{/*					type: 'albums',*/}
-			{/*					id: albums.data[0].id,*/}
-			{/*					headerText: I18n.t('Albums'),*/}
-			{/*					headerImage: albums.data[0].cover_big*/}
-			{/*				})*/}
-			{/*			}*/}
-			{/*			headerText={'Albums'}*/}
-			{/*			wrapClassNames={'mt-10 mb-5'}*/}
-			{/*			showsHorizontalScrollIndicator={false}*/}
-			{/*			horizontal*/}
-			{/*			header*/}
-			{/*			data={albums.data.slice(0, 10)}*/}
-			{/*			renderItem={({ item }) => {*/}
-			{/*				return (*/}
-			{/*					<MusicCart*/}
-			{/*						onPress={() =>*/}
-			{/*							navigate('AlbumWrapperCatalog', { albumId: item.id })*/}
-			{/*						}*/}
-			{/*						WrapClassNames={'mr-3'}*/}
-			{/*						image={{*/}
-			{/*							url: item.cover_big,*/}
-			{/*							width: 200,*/}
-			{/*							height: 200*/}
-			{/*						}}*/}
-			{/*						artists={item.artist.name}*/}
-			{/*						name={item.title}*/}
-			{/*					/>*/}
-			{/*				)*/}
-			{/*			}}*/}
-			{/*		/>*/}
-			{/*		*/}
-			{/*		<UFlatList*/}
-			{/*			headerNavigate={() =>*/}
-			{/*				navigate('catalog', {*/}
-			{/*					data: playlists.data.map(item => {*/}
-			{/*						return {*/}
-			{/*							id: item.id,*/}
-			{/*							title: item.title,*/}
-			{/*							image: item.picture_medium,*/}
-			{/*							artist: item.user.name*/}
-			{/*						}*/}
-			{/*					}),*/}
-			{/*					type: 'playlists',*/}
-			{/*					id: playlists.data[0].id,*/}
-			{/*					headerText: I18n.t('Playlists'),*/}
-			{/*					headerImage: playlists.data[0].picture_big*/}
-			{/*				})*/}
-			{/*			}*/}
-			{/*			headerText={'Playlists'}*/}
-			{/*			wrapClassNames={'mt-10 mb-5'}*/}
-			{/*			showsHorizontalScrollIndicator={false}*/}
-			{/*			horizontal*/}
-			{/*			header*/}
-			{/*			data={playlists.data.slice(0, 10)}*/}
-			{/*			renderItem={({ item }) => {*/}
-			{/*				return (*/}
-			{/*					<MusicCart*/}
-			{/*						onPress={() =>*/}
-			{/*							navigate('PlayListWrapperCatalog', { playListId: item.id })*/}
-			{/*						}*/}
-			{/*						WrapClassNames={'mr-3'}*/}
-			{/*						image={{*/}
-			{/*							url: item.picture_medium,*/}
-			{/*							width: 250,*/}
-			{/*							height: 250*/}
-			{/*						}}*/}
-			{/*						artists={item.user.name}*/}
-			{/*						name={item.title}*/}
-			{/*					/>*/}
-			{/*				)*/}
-			{/*			}}*/}
-			{/*		/>*/}
-			{/*	</UScrollView>*/}
-			{/*) : (*/}
-			{/*	<FlatList*/}
-			{/*		showsVerticalScrollIndicator={false}*/}
-			{/*		numColumns={2}*/}
-			{/*		contentContainerStyle={{*/}
-			{/*			paddingBottom: 50*/}
-			{/*		}}*/}
-			{/*		columnWrapperStyle={{*/}
-			{/*			justifyContent: 'space-between',*/}
-			{/*			marginVertical: 10,*/}
-			{/*			gap: 5,*/}
-			{/*			width: '100%',*/}
-			{/*			zIndex: 100*/}
-			{/*		}}*/}
-			{/*		data={genre.data.slice(1, 20)}*/}
-			{/*		renderItem={({ item }) => {*/}
-			{/*			return (*/}
-			{/*				<GenreItem*/}
-			{/*					id={item.id}*/}
-			{/*					name={item.name}*/}
-			{/*					picture={item.picture_big}*/}
-			{/*				/>*/}
-			{/*			)*/}
-			{/*		}}*/}
-			{/*	/>*/}
-			{/*)}*/}
+			<Field control={control} name={'searchTerm'} placeholder={'Select'}/>
+			{
+				(!searchTerm || !searchResult) ? <View>
+					<UFlatList data={genre} renderItem={({item}) => {
+						return <View className='w-full h-20'>
+							<Title className='mb-3' size={24} fontFamily={'Montserrat_700Bold'}>{item.name}</Title>
+						</View>
+					}} />
+				</View> : <View>
+					
+					<SectionList<any>
+						initialNumToRender={4}
+						sections={
+							[
+								{
+									title: 'Songs',
+									data: searchResult[0].slice(0, 10),
+									renderItem: ({item}) => {
+											return <MusicCart image={{
+												url: item.coverMedium,
+												width: WindowWidth /2 - 13,
+													height: 200
+											}} name={item.title}  />
+									}
+								},
+								{
+									title: 'Artists',
+									data: searchResult[1].slice(0, 10),
+									renderItem: ({item}) =>  {
+											return <CatalogArtistItem  className='w-screen' id={item.id} name={item.name} image={item.pictureSmall} />
+									}
+								},
+								{
+									title: 'Albums',
+									data: searchResult[2].slice(0, 10),
+									renderItem: ({item}) => {
+											return <MusicCart image={{
+												url: item.coverMedium,
+													width: WindowWidth /2 - 13,
+													height: 200
+											}} name={item.title}  />
+ 									}
+								}, {
+									title: 'Playlists',
+									data: searchResult[3].slice(0, 10),
+									renderItem: ({item}) => {
+											return <MusicCart image={{
+												url: item.coverMedium,
+													width: WindowWidth	/2 - 13,
+													height: 200
+											}} name={item.title} />
+									}
+							}
+							]
+						}
+						contentContainerStyle={{
+							flexWrap: 'wrap',
+							flexDirection: 'row',
+							alignItems: 'center',
+							alignSelf: 'center',
+							gap: 20,
+							columnGap: 10,
+							justifyContent: 'space-between',
+							paddingBottom  : 150,
+						}}
+						renderToHardwareTextureAndroid={true}
+						maxToRenderPerBatch={4}
+						removeClippedSubviews={true}
+						showsHorizontalScrollIndicator={false}
+						decelerationRate={'fast'}
+						keyExtractor={(item, index) => item + index}
+					showsVerticalScrollIndicator={false}
+						renderItem={({ section: { renderItem, data } }) => {
+								if (!data.length) return null
+						 return	<View>{renderItem as ReactNode}</View>}
+						}
+						renderSectionHeader={({section: {title, data}}) => {
+							if (!data.length) return null
+							return <View className='justify-between flex-row items-center' style={{
+								width: WindowWidth - 20,
+							}}>
+								<Title
+									className={'text-2xl mt-5 mb-2'}
+									fontFamily={'Montserrat_600SemiBold'}
+								>
+									{title}
+								</Title>
+								<Button size={'small'} text={'More'}/>
+							</View>
+						}}
+					/>
+				</View>
+			}
 		</Layout>
 	)
 }

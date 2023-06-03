@@ -41,8 +41,9 @@ const GenreItem: FC<IGenreItem> = ({ picture, id, name }) => {
 				size={18}
 				className='absolute bottom-5 left-2 z-50 max-w-[80%]'
 				fontFamily={'Montserrat_500Medium'}
-				text={name}
-			/>
+			>
+				{name}
+			</Title>
 		</Pressable>
 	)
 }

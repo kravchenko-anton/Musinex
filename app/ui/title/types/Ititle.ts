@@ -1,8 +1,8 @@
 import { TextProps } from 'react-native'
 
 export interface ITitle extends TextProps {
-	text: string | number
 	center?: boolean
+	children: string | number
 	size?: number
 	fontFamily?:
 		| 'Montserrat_100Thin'

@@ -80,14 +80,17 @@ const SongPlayer = () => {
 							color={getHexCode('white')}
 							className='max-w-[200px]'
 							size={20}
-							text={cutString(trackInfo.title as string, 10)}
-						/>
+						>
+							{cutString(trackInfo.title as string, 10)}
+						</Title>
 						<Title
 							color={getHexCode('white')}
 							className='max-w-full'
 							size={16}
-							text={cutString(trackInfo.artist as string, 13)}
-						/>
+
+						>
+							{cutString(trackInfo.artist as string, 10)}
+						</Title>
 					</View>
 				</View>
 				<View className='flex-row'>

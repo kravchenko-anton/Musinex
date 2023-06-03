@@ -18,8 +18,10 @@ const GenreCatalog: FC = () => {
 				numberOfLines={2}
 				className={'mb-4'}
 				fontFamily={'Montserrat_900Black_Italic'}
-				text={params.genreName}
-			/>
+				
+			>
+				{params.genreName}
+			</Title>
 			{/*<UFlatList*/}
 			{/*	headerNavigate={() =>*/}
 			{/*		navigate('catalog', {*/}

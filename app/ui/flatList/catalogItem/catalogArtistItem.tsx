@@ -29,7 +29,7 @@ const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
 					height={90}
 				/>
 				<View className='ml-3 max-w-[200px]'>
-					<Title text={name} fontFamily={'Montserrat_700Bold'} size={24} />
+					<Title  fontFamily={'Montserrat_700Bold'} size={24}>{name}</Title>
 				</View>
 			</View>
 			<Heart type={'artists'} id={id} />

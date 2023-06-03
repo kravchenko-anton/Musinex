@@ -21,7 +21,9 @@ const FlatList404: FC<IFlatList404> = props => {
 				autoPlay={true}
 				loop={false}
 			/>
-			<Title translate text={'No results'} />
+			<Title translate>
+				{'No results'}
+			</Title>
 		</View>
 	)
 }

@@ -16,9 +16,9 @@ const Error = () => {
 			        justifyContent: 'center',
 			        alignItems: 'center'
 		        }} />
-		<Title className={'text-center'} size={50} text={'Error'} translate />
+		<Title className={'text-center'} size={50}  translate >{'Error'}</Title>
 		<Title className={'text-center mt-5'} color={getHexCode('primary')} numberOfLines={6} size={20}
-		       text={params.error} />
+		       >{params.error}</Title>
 	</Layout>
 }
 

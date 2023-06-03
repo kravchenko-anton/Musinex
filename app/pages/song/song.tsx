@@ -78,10 +78,14 @@ const Song = () => {
 				<View className='flex-row justify-between items-center w-full'>
 					<View className='mt-5'>
 						<Title fontFamily={'Montserrat_600SemiBold'} numberOfLines={1}
-						       text={cutString(trackInfo?.title ? trackInfo.title : 'title', 15)}
-						       size={30} />
-						<Title text={cutString(trackInfo?.artist ? trackInfo.artist : 'artist', 20)} color={getHexCode('lightGray')}
-						       size={18} />
+						       size={30} >
+							{cutString(trackInfo?.title ? trackInfo.title : 'title', 15)}
+						</Title>
+						<Title
+						color={getHexCode('lightGray')}
+						       size={18} >
+							{cutString(trackInfo?.artist ? trackInfo.artist : 'artist', 20)}
+						</Title>
 					</View>
 					<Heart id={trackInfo?.id as string} type={'songs'} resizeMode={'contain'}
 					       autoSize style={{

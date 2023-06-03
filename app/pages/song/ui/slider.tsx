@@ -27,9 +27,13 @@ const Sliders = () => {
 			step={1}
 		/>
 		<View className='flex-row justify-between'>
-			<Title text={position.toFixed(2)} color={getHexCode('lightGray')} className='text-center mt-1'
-			       size={20} />
-			<Title text={duration.toFixed(2)} color={getHexCode('lightGray')} className='text-center mt-1' size={20} />
+			<Title  color={getHexCode('lightGray')} className='text-center mt-1'
+			       size={20} >
+				{position.toFixed(2)}
+			</Title>
+			<Title color={getHexCode('lightGray')} className='text-center mt-1' size={20} >
+				{duration.toFixed(2)}
+			</Title>
 		</View>
 	</View>
 }

@@ -52,7 +52,7 @@ const Button: FC<PropsWithChildren<IButton>> =
 						}}
 					>
 						<Title
-							text={text}
+							
 							color={variant === 'primary' ? getHexCode('white') : getHexCode('dark')}
 							fontFamily={'Montserrat_700Bold'}
 							size={
@@ -64,7 +64,7 @@ const Button: FC<PropsWithChildren<IButton>> =
 											? 18
 											: 25
 							}
-						/>
+						>{text}</Title>
 						{icon && (
 							<UIcon
 								size={

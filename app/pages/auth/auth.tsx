@@ -11,12 +11,14 @@ import I18n from 'i18n-js'
 import Lottie from 'lottie-react-native'
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 
 const Auth = () => {
 const {user} = useAuth()
 	const {register, login} = useAction()
 	const {navigate} = useTypedNavigation()
+	const {t} = useTranslation()
 	const [type, setType] = useState<'Login' | 'Register'>('Login')
 	const {control, handleSubmit} = useForm<IAuthFields>({
 	mode: 'onSubmit'
@@ -49,7 +51,7 @@ const {user} = useAuth()
 					message: 'Entered value does not match email format'
 				},
 				
-			}} control={control} name={'email'} placeholder={I18n.t(
+			}} control={control} name={'email'} placeholder={t(
 				'Email'
 			)} />
 			
@@ -62,7 +64,7 @@ const {user} = useAuth()
 					value: 6,
 					message: 'Password must have at least 8 characters'
 				}
-			}} control={control} secureTextEntry={true} name={'password'} placeholder={I18n.t(
+			}} control={control} secureTextEntry={true} name={'password'} placeholder={t(
 				'Password'
 			)} />
 		<Button variant={'primary'}  onPress={handleSubmit(onSubmit)} size={'large'} className='mt-2' translate text={type} />

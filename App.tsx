@@ -26,6 +26,7 @@ export default function App() {
 	return (
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
+			
 			<PersistGate persistor={persistor} loading={<FullScreenLoader />}>
 				<SafeAreaProvider style={{
 					backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack')

@@ -1,3 +1,4 @@
+import { useAction } from '@/hook/useAction'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { userServices } from '@/services/user.services'
 import Header from '@/ui/header/header'
@@ -8,7 +9,9 @@ import React from 'react'
 
 const Favorites = () => {
 	const { navigate } = useTypedNavigation()
+	const {logout} = useAction()
 	const {data:favorites} = useQuery(['favorites'], userServices.getProfile)
+	
 	return (
 		<Layout className='h-screen'>
 			<Header logoSize={30}>

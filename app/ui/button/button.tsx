@@ -21,7 +21,8 @@ const Button: FC<PropsWithChildren<IButton>> =
 		 textSize,
 		 ...rest
 	 }) => {
-		return (
+	return (
+			
 			<Pressable
 				style={[
 					{

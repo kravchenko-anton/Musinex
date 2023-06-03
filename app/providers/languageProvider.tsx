@@ -1,14 +1,15 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { en } from '@/utils/translate/en'
 import { pl } from '@/utils/translate/pl'
 import { ru } from '@/utils/translate/ru'
 import { ua } from '@/utils/translate/ua'
 import I18n from 'i18n-js'
 
 export const LanguageProvider = () => {
-	const selector = useTypedSelector(state => state.language)
-	I18n.translations = { en, ru, pl, ua }
-	I18n.locale = selector // it like 'en' or 'ru' 😘
-	I18n.fallbacks = true
+	I18n.locale = useTypedSelector(state => state.language)
+	I18n.fallbacks	= true
+	I18n.defaultLocale	= 'ru'
+	I18n.missingTranslationPrefix	= 'missingTranslation:'
+	I18n.missingPlaceholder	= (placeholder) => `missingPlaceholder:${placeholder}`
+	I18n.translations	= {ru,	ua, pl}
 	return null
 }

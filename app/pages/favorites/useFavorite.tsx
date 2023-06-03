@@ -1,9 +1,7 @@
-import { useTypedSelector } from '@/hook/useTypedSelector'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
 export const useFavorite = () => {
-	const selector = useTypedSelector(state => state.favorites)
 	const dispatch = useDispatch()
 	// const tabs = [
 	// 	{

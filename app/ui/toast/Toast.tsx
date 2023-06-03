@@ -1,13 +1,14 @@
 import { getHexCode } from '@/utils/getColor'
 import { FC } from 'react'
 import RnToast, { BaseToast } from 'react-native-toast-message'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 const options = (primaryColor: string) => ({
 	style: {
-		backgroundColor: Colors.primary,
+		backgroundColor: getHexCode('lightBlack'),
 		borderLeftColor: primaryColor,
-		zIndex: 1000
+		borderLeftWidth: 8,
+		zIndex: 1000,
+		shadowColor: getHexCode('transparent'),
 	},
 	text1Style: {
 		color: getHexCode('white'),
@@ -24,9 +25,11 @@ const Toast: FC = () => {
 			autoHide={true}
 			position={'top'}
 			config={{
-				success: props => <BaseToast {...props} {...options('#67E769')} />,
+				success: props => <BaseToast {...props} {...options('#00c851')} />,
 				info: props => <BaseToast {...props} {...options('#65d4ff')} />,
-				error: props => <BaseToast {...props} {...options('#ff4949')} />
+				error: props => <BaseToast {...props} {...{
+					...options('#ff4444'),
+				}} />
 			}}
 		/>
 	)

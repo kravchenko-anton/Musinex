@@ -1,12 +1,14 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import { userServices } from '@/services/user.services'
 import Header from '@/ui/header/header'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Layout from '@/ui/layout/layout'
+import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
 const Favorites = () => {
 	const { navigate } = useTypedNavigation()
-	// const { tabs } = useFavorite()
+	const {data:favorites} = useQuery(['favorites'], userServices.getProfile)
 	return (
 		<Layout className='h-screen'>
 			<Header logoSize={30}>

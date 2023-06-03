@@ -20,7 +20,7 @@ const UIcon: FC<IconProps> =
 		 color,
 		 size = 24,
 		 backgroundColor = 'transparent',
-		 borderRadius = 10,
+		 borderRadius = 12,
 		 padding = 10,
 		 ...rest
 	 }) => {

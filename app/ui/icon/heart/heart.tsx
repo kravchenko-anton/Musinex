@@ -1,4 +1,3 @@
-import { FavoriteAction } from '@/redux/favorite/favoriteSlice'
 import { IHeartProps } from '@/types/catalogTypes'
 import Lottie, { AnimatedLottieViewProps } from 'lottie-react-native'
 import { FC, memo, useEffect, useRef } from 'react'
@@ -33,7 +32,7 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 	return (
 		<Pressable
 			onPress={() => {
-				dispatch(FavoriteAction.toggleFavorite({ id, type }))
+	console.log('heart')
 			}}
 			style={rest.style}
 		>

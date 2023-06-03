@@ -23,7 +23,7 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> =
 				style={{
 					width: isSmall ? 15 : 40,
 					height: isSmall ? 15 : 40,
-					borderRadius: isSmall ? 4 : 100
+					borderRadius: isSmall ? 4 : 8
 				}}
 				{...!rest.onPress && rest}
 			>

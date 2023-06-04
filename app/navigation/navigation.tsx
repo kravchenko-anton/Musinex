@@ -1,5 +1,4 @@
 import { useAuth } from '@/hook/useAuth'
-import { useTypedSelector } from '@/hook/useTypedSelector'
 import Auth from '@/pages/auth/auth'
 import { useCheckAuth } from '@/providers/auth/useCheckAuth'
 import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
@@ -17,7 +16,6 @@ const Navigation = () => {
 	const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 	const navRef = useNavigationContainerRef()
 	const { colorScheme } = useColorScheme()
-		const selector = useTypedSelector(state => state.language)
 	const [currentRoute, setCurrentRoute] = useState<string | undefined>(
 		undefined
 	)

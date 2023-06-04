@@ -1,13 +1,12 @@
-import { useTypedSelector } from '@/hook/useTypedSelector'
-import { LanguageAction } from '@/redux/settings/languageSlice'
 import { ThemeAction } from '@/redux/settings/themeSlice'
 import Header from '@/ui/header/header'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
+import i18n from 'i18next'
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
 import React, { useEffect, useState } from 'react'
-import { NativeModules, Pressable, View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker'
 import { useDispatch } from 'react-redux'
 
@@ -16,8 +15,7 @@ const Settings = () => {
 	const dispatch = useDispatch()
 	const lottieRef = React.useRef<any>()
 	const [DropDownOpen, setDropDownOpen] = useState(false)
-	const selector = useTypedSelector(state => state.language)
-	const [DropDownValue, setDropDownValue] = useState(selector)
+	const [DropDownValue, setDropDownValue] = useState(i18n.language)
 	useEffect(() => {
 		lottieRef.current.play(
 			colorScheme === 'light' ? 80 : 0,
@@ -52,8 +50,7 @@ const Settings = () => {
 				<DropDownPicker
 					disableBorderRadius={true}
 					onSelectItem={async item => {
-						dispatch(LanguageAction.setLanguage(item.value ? item.value : 'en'))
-						NativeModules.DevSettings.reload()
+					await i18n.changeLanguage(item.value)
 					}}
 					closeAfterSelecting={true}
 					theme={colorScheme === 'light' ? 'LIGHT' : 'DARK'}

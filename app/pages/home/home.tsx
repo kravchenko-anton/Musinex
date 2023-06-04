@@ -8,7 +8,7 @@ const Home = () => {
 			<Title translate>
 				Musinex
 			</Title>
-				<Button size={'small'} width={100} variant={'primary'} text={'translate'} />
+				<Button  width={'40%'} size={'small'} variant={'primary'} text={'translate'} />
 		</Layout>
 	)
 }

@@ -21,7 +21,7 @@ const NavigateHeader: FC<PropsWithChildren<IHeader>> =
 					fontFamily={'Montserrat_900Black_Italic'}
 					size={logoSize}
 				>
-					{'Musinex'}
+					Musinex
 				</Title>
 				{children}
 			</View>

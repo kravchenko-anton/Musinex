@@ -1,7 +1,7 @@
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
-import I18n from 'i18n-js'
 import React, { FC, PropsWithChildren } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Pressable, View, ViewStyle } from 'react-native'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
@@ -21,14 +21,16 @@ const Button: FC<PropsWithChildren<IButton>> =
 		 textSize,
 		 ...rest
 	 }) => {
+	const {t} = useTranslation()
 	return (
 			
-			<Pressable
+			<Pressable onPress={rest.onPress}
 				style={[
 					{
 						backgroundColor: variant === 'primary' ? getHexCode('primary') : getHexCode('lightBlack'),
 						borderRadius: borderRadius,
 						padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
+						width: width ? width : '100%',
 					},
 					rest.style as ViewStyle
 				]}
@@ -60,7 +62,7 @@ const Button: FC<PropsWithChildren<IButton>> =
 											? 18
 											: 20
 							}
-						>{translate	? I18n.t(text) :text }
+						>{translate	? t(text) :text }
 						</Title>
 						{icon && (
 							<UIcon

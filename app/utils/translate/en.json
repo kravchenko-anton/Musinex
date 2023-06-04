@@ -1,0 +1,64 @@
+{
+	"Musinex":"Musinex",
+	
+	"Top Songs":"Top Songs",
+	
+	"Top Artists":"Top Artists",
+	
+	"Top Albums":"Top Albums",
+	
+	"Top Playlists":"Top Playlists",
+	
+	"See More":"See more",
+	
+	"Type anything":"Type anything...",
+	
+	"by":"by ",
+	
+	"Songs":"Songs",
+	
+	"Artists":"Artists",
+	
+	"Albums":"Albums",
+	
+	"Playlists":"Playlists",
+	
+	"Language Settings":"Language Settings",
+	
+	"songs":" songs",
+	
+	"fans":" fans",
+	
+	"albums":" albums",
+	
+	"and other":" and other",
+	
+	"No results":"No results found",
+	
+	"Error":"Error",
+	
+	"ServerError":"Server error",
+	
+	"More":"More",
+	
+	"Email":"Email",
+	
+	"Password":"Password",
+	
+	"Login":"Login",
+	
+	"Register":"Register",
+	
+	"Password is required":"Password is required",
+	
+	"Password must have at least 8 characters":"Password must have at least 8 characters",
+	
+	"Entered value does not match email format":"Entered value does not match email format",
+	
+	"Email is required":"Email is required",
+	
+	"Dont have an account?":"Dont have an account?",
+	
+	"Already have an account?":"Already have an account?"
+	
+}

@@ -13,7 +13,6 @@ import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Title from '@/ui/title/title'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { useQuery } from '@tanstack/react-query'
-import I18n from 'i18n-js'
 import React from 'react'
 import { SectionList, View } from 'react-native'
 
@@ -25,7 +24,7 @@ const Search = () => {
 	if (!genre) return <FullScreenLoader />
 	return (
 		<Layout className='h-full'>
-			<Field control={control} name={'searchTerm'} placeholder={I18n.t('Type anything')}/>
+			<Field control={control} name={'searchTerm'} placeholder={'Type anything'}/>
 			{searchTerm && !isLoading && searchResult && !searchResult[0].length && !searchResult[1].length && !searchResult[2].length && !searchResult[3].length ? (
 				<FlatList404 width={WindowWidth} height={WindowHeight * 0.3} />
 			) : searchTerm && isLoading ? null : (

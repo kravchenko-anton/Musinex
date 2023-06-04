@@ -10,9 +10,9 @@ import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { useScrollToTop } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
-import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
 import React, { FC, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { HEADER_HEIGHT } from '../../catalogConstant'
@@ -32,6 +32,7 @@ const CatalogContent: FC<ICatalogContent> =
 		 DataList,
 		 headerTitle
 	 }) => {
+	const {t}	= useTranslation()
 		const ref = useRef<ScrollView>(null)
 		useScrollToTop(ref)
 		const dispatch = useDispatch()
@@ -60,10 +61,10 @@ const CatalogContent: FC<ICatalogContent> =
 					description={
 						description
 							? description
-							: I18n.t('by') +
+							: t('by') +
 							DataList[0].artist +
 							(DataList.some(item => item.artist !== DataList[0].artist)
-								? I18n.t('and other')
+								? t('and other')
 								: '')
 					}
 					title={headerTitle}

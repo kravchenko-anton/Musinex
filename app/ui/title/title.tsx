@@ -1,3 +1,4 @@
+import SmallLoader from '@/ui/loader/smallLoader'
 import { getHexCode } from '@/utils/getColor'
 import {
 	Montserrat_100Thin,
@@ -12,11 +13,10 @@ import {
 	Montserrat_900Black_Italic,
 	useFonts
 } from '@expo-google-fonts/montserrat'
-import I18n from 'i18n-js'
 import { useColorScheme } from 'nativewind'
 import React, { FC, memo, PropsWithChildren } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Text } from 'react-native'
-import FullScreenLoader from '../loader/fullScreenLoader'
 import { ITitle } from './types/Ititle'
 
 const Title: FC<PropsWithChildren<ITitle>> =
@@ -42,12 +42,13 @@ const Title: FC<PropsWithChildren<ITitle>> =
 			Montserrat_900Black,
 			Montserrat_900Black_Italic
 		})
+		const {t} = useTranslation()
 		const { colorScheme } = useColorScheme()
 		if (!fontsLoaded || !children) {
-			return <FullScreenLoader />
+			return <SmallLoader />
 		}
 		return (
-			<Text
+			<Text onPress={rest.onPress}
 				style={[
 					{
 						fontFamily: fontFamily,
@@ -60,7 +61,7 @@ const Title: FC<PropsWithChildren<ITitle>> =
 				numberOfLines={numberOfLines}
 				{...(!rest.style && rest)}
 			>
-				{translate ? I18n.t(children.toString()) : children}
+				{translate ? t(children.toString()) : children}
 			</Text>
 		)
 	}

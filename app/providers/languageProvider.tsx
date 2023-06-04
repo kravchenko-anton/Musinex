@@ -1,34 +1,32 @@
-import { en } from '@/utils/translate/en'
-import { pl } from '@/utils/translate/pl'
-import { ru } from '@/utils/translate/ru'
-import { ua } from '@/utils/translate/ua'
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-
-export const defaultNS = "ns1";
-export const LanguageProvider = () => {
-	const resources = {
+const resources = {
 		en: {
-			translation: en
+			translation: require('../utils/translate/en.json')
 		},
 		ru: {
-			translation: ru
+			translation: require('../utils/translate/ru.json')
 		},
 		ua: {
-			translation: ua
+			translation: require('../utils/translate/ua.json')
 		},
 		pl: {
-			translation: pl
+			translation: require('../utils/translate/pl.json')
 		}
-	} as const
-	i18n.use(initReactI18next).init({
-		resources,
-		defaultNS,
-		lng: 'en',
-		fallbackLng: 'en',
-		interpolation: {
-			escapeValue: false,
-		},
-	})
-	return null
-}
+	}
+	i18n.use(initReactI18next)
+	
+	if (!i18n.isInitialized) {
+		i18n.init({
+			resources,
+			compatibilityJSON: 'v2',
+			returnNull: false,
+			lng: 'ua',
+			fallbackLng: ['ua', 'en', 'ru', 'pl'],
+			interpolation: {
+				escapeValue: false,
+			},
+		});
+	}
+	export default i18n
+

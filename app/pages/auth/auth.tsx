@@ -7,7 +7,6 @@ import Button from '@/ui/button/button'
 import Field from '@/ui/Flield/field'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
-import I18n from 'i18n-js'
 import Lottie from 'lottie-react-native'
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -28,7 +27,7 @@ const {user} = useAuth()
 	}
 	
 	const onSubmit: SubmitHandler<IAuthFields>  = ({password,email}) => type === "Login" ? login({password,email}) : register({password,email})
-	return <Layout className='h-screen justify-center'>
+	return <Layout className='justify-center'>
 		<View className='items-center'>
 		
 	<Lottie source={require('@/assets/auth.json')} style={{
@@ -37,7 +36,7 @@ const {user} = useAuth()
 	}}  autoPlay loop />
 		<View className='w-full'>
 			<Title className='text-center mb-4' size={24} fontFamily={'Montserrat_900Black'}>{
-				type === 'Login' ? I18n.t('Login') : I18n.t('Register')
+				type === 'Login' ? "Login" : "Register"
 			}</Title>
 			<View className='w-5/6 mx-auto'>
 			
@@ -51,9 +50,9 @@ const {user} = useAuth()
 					message: 'Entered value does not match email format'
 				},
 				
-			}} control={control} name={'email'} placeholder={t(
-				'Email'
-			)} />
+			}} control={control} name={'email'} placeholder={
+			'Email'
+			} />
 			
 			<Field rules={{
 				required: {
@@ -64,19 +63,15 @@ const {user} = useAuth()
 					value: 6,
 					message: 'Password must have at least 8 characters'
 				}
-			}} control={control} secureTextEntry={true} name={'password'} placeholder={t(
-				'Password'
-			)} />
+			}} control={control} secureTextEntry={true} name={'password'} placeholder={'Password'} />
 		<Button variant={'primary'}  onPress={handleSubmit(onSubmit)} size={'large'} className='mt-2' translate text={type} />
 			<Title className='mt-4' size={16} onPress={
 				() => setType(type === 'Login' ? 'Register' : 'Login')
 			}
-			>{type === 'Login' ? I18n.t(
+			>{type === 'Login' ?
 				'Dont have an account?'
-			) :
-			I18n.t(
+			:
 				'Already have an account?'
-			)
 			}</Title>
 			</View>
 			

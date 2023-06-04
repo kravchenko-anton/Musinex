@@ -10,7 +10,7 @@ import React from 'react'
 const Favorites = () => {
 	const { navigate } = useTypedNavigation()
 	const {logout} = useAction()
-	const {data:favorites} = useQuery(['favorites'], userServices.getProfile)
+	// const {data:favorites} = useQuery(['favorites'], userServices.getProfile)
 	
 	return (
 		<Layout className='h-screen'>

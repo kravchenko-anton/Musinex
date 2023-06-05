@@ -54,7 +54,7 @@ const Title: FC<PropsWithChildren<ITitle>> =
 						fontFamily: fontFamily,
 						fontSize: size,
 						textAlign: center ? 'center' : 'left',
-						color: color ? color : colorScheme === 'light' ? getHexCode('dark') : getHexCode('white')
+						color: color ? getHexCode(color) : colorScheme === 'light' ? getHexCode('dark') : getHexCode('white')
 					},
 					rest.style
 				]}

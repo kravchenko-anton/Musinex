@@ -25,10 +25,10 @@ const Search = () => {
 	return (
 		<Layout className='h-full'>
 			<Field control={control} name={'searchTerm'} placeholder={'Type anything'}/>
-			{searchTerm && !isLoading && searchResult && !searchResult[0].length && !searchResult[1].length && !searchResult[2].length && !searchResult[3].length ? (
+			{searchTerm && !isLoading && searchResult && !searchResult.songs.length && !searchResult.artists.length && !searchResult.playlists.length && !searchResult.albums.length ? (
 				<FlatList404 width={WindowWidth} height={WindowHeight * 0.3} />
 			) : searchTerm && isLoading ? null : (
-				!searchTerm || !searchResult || !searchResult[0].length && !searchResult[1].length && !searchResult[2].length && !searchResult[3].length ? (
+				!searchTerm || !searchResult || !searchResult.songs.length && !searchResult.artists.length && !searchResult.playlists.length && !searchResult.albums.length ? (
 					<View className="justify-between w-full max-w-full items-center flex-row">
 						<UFlatList
 							contentContainerStyle={{
@@ -57,7 +57,7 @@ const Search = () => {
 						sections={[
 							{
 								title: 'Songs',
-								data: searchResult[0].slice(0, 10),
+								data: searchResult.songs.slice(0, 10),
 								renderItem: ({ item }) => (
 									<MusicCart
 										image={{
@@ -71,7 +71,7 @@ const Search = () => {
 							},
 							{
 								title: 'Artists',
-								data: searchResult[1].slice(0, 10),
+								data: searchResult.artists.slice(0, 10),
 								renderItem: ({ item }) => (
 									<CatalogArtistItem
 										className="w-screen"
@@ -83,7 +83,7 @@ const Search = () => {
 							},
 							{
 								title: 'Albums',
-								data: searchResult[2].slice(0, 10),
+								data: searchResult.albums.slice(0, 10),
 								renderItem: ({ item }) => (
 									<MusicCart
 										image={{
@@ -97,7 +97,7 @@ const Search = () => {
 							},
 							{
 								title: 'Playlists',
-								data: searchResult[3].slice(0, 10),
+								data: searchResult.playlists.slice(0, 10),
 								renderItem: ({ item }) => (
 									<MusicCart
 										image={{

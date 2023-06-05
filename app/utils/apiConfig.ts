@@ -7,3 +7,4 @@ export const getArtistUrl = (string: string) => `/artist${string}`
 export const getAlbumUrl = (string: string) => `/album${string}`
 export const getPlaylistUrl = (string: string) => `/playlist${string}`
 export const getSearchUrl = (string: string) => `/search${string}`
+export const getServerFileUrl = (string: string) => `${SERVER_URL}/${string}`

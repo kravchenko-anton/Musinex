@@ -1,6 +1,5 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedRoute } from '@/hook/useTypedRoute'
-import NavigateHeader from '@/ui/header/navigateHeader'
 import ScrollLayout from '@/ui/layout/scrollLayout'
 import Title from '@/ui/title/title'
 import React, { FC } from 'react'
@@ -12,7 +11,6 @@ const GenreCatalog: FC = () => {
 	// if (!chart) return <FullScreenLoader />
 	return (
 		<ScrollLayout>
-			<NavigateHeader className='mb-4' logoSize={30} />
 			<Title
 				size={40}
 				numberOfLines={2}

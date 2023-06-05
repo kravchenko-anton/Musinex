@@ -24,7 +24,7 @@ const Settings = () => {
 	}, [colorScheme, setColorScheme])
 	return (
 		<Layout>
-			<Header className='justify-between items-center' logoSize={30}>
+			<Header className='justify-between items-center'>
 				<Pressable
 					onPress={() => {
 						dispatch(

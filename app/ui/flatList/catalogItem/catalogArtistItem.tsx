@@ -8,12 +8,16 @@ export interface ICatalogArtistsItem extends Omit<PressableProps, 'id'> {
 	id: number | string
 	name: string
 	image: string
+	imageWidth?: number
+	textSize?: number
 }
 
 const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
 	                                                    id,
 	                                                    image,
 	                                                    name,
+	                                                    imageWidth= 80,
+																					textSize	= 20,
 	                                                    ...rest
                                                     }) => {
 	return (
@@ -25,11 +29,11 @@ const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
 				<UImage
 					source={image}
 					className={'rounded-full'}
-					width={90}
-					height={90}
+					width={imageWidth}
+					height={imageWidth}
 				/>
-				<View className='ml-3 max-w-[200px]'>
-					<Title  fontFamily={'Montserrat_700Bold'} size={24}>{name}</Title>
+				<View className='ml-3 w-7/12'>
+					<Title  fontFamily={'Montserrat_700Bold'} size={textSize}>{name}</Title>
 				</View>
 			</View>
 			<Heart type={'artists'} id={id} />

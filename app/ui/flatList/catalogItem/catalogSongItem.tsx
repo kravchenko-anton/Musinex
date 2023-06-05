@@ -28,7 +28,7 @@ const CatalogSongItem: FC<ISongItem> = props => {
 				<View className='ml-3 max-w-[200px]'>
 					<Title  fontFamily={'Montserrat_700Bold'} >{props.title}</Title>
 					<Title
-						color={'silver'}
+						color={'lightGray'}
 						fontFamily={'Montserrat_300Light'}
 					>{props.artist}</Title>
 				</View>

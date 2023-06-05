@@ -39,8 +39,8 @@ const MusicCart: FC<IFlatListItem> =
 				>
 					<Title
 						numberOfLines={1}
-						size={20} className={'w-11/12'}
-						fontFamily={'Montserrat_600SemiBold'}
+						size={16} className={'w-full'} color={'lightGray'}
+						fontFamily={'Montserrat_500Medium'}
 					>
 						{name}
 					</Title>
@@ -48,7 +48,7 @@ const MusicCart: FC<IFlatListItem> =
 						<Title
 							className={'mt-1'}
 							numberOfLines={1}
-							color={'silver'}
+							color={'primaryGray'}
 							size={14}
 							fontFamily={'Montserrat_500Medium'}
 						>

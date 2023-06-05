@@ -27,10 +27,9 @@ const UFlatList
 			{headerText && data.length !== 0 ? (
 						<Title
 							translate
-					
 							className={'mb-3'}
-							size={24}
-							fontFamily={'Montserrat_700Bold'}
+							size={20}
+							fontFamily={'Montserrat_600SemiBold'}
 						>{headerText}</Title>
 				) :
 				null}

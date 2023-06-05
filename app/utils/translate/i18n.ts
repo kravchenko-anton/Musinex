@@ -4,16 +4,16 @@ import { initReactI18next } from 'react-i18next'
 
 const resources = {
 	en: {
-		translation: require('../utils/translate/en.json'),
+		translation: require('@/utils/translate/en.json'),
 	},
 	ru: {
-		translation: require('../utils/translate/ru.json'),
+		translation: require('@/utils/translate/ru.json'),
 	},
 	ua: {
-		translation: require('../utils/translate/ua.json'),
+		translation: require('@/utils/translate/ua.json'),
 	},
 	pl: {
-		translation: require('../utils/translate/pl.json'),
+		translation: require('@/utils/translate/pl.json'),
 	},
 };
 

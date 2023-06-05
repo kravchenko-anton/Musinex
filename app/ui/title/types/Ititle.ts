@@ -1,5 +1,6 @@
 import { ITranslateTypes } from '@/types/global'
 import { TextProps } from 'react-native'
+import { theme } from '../../../../tailwind.config'
 
 export interface ITitle extends TextProps {
 	// if translate is true, then children must be a key of i18n.t
@@ -17,5 +18,5 @@ export interface ITitle extends TextProps {
 		| 'Montserrat_800ExtraBold'
 		| 'Montserrat_900Black'
 		| 'Montserrat_900Black_Italic'
-	color?: string
+	color?: keyof typeof theme.colors
 }

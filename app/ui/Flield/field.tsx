@@ -54,7 +54,7 @@ const Field = <T extends Record<string, any>>
 						/>
 					</View>
 					{error && (
-						<Title color={'#ff0000'} size={16}
+						<Title color={'red'} size={16}
 						>
 							{error.message ? error.message : 'error!'}
 						</Title>

@@ -1,3 +1,5 @@
+import { IArtist } from '@/services/types/artist.services.types'
+
 export interface defaultModelFields {
 	id: number
 	createdAt: string
@@ -21,4 +23,5 @@ export interface ISong extends defaultModelFields, CoverModel {
 	duration: number,
 	releaseDate: string,
 	mp3Path: string,
+	artists: IArtist[],
 }

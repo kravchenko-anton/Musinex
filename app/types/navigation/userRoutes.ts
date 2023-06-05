@@ -1,6 +1,5 @@
 import Auth from '@/pages/auth/auth'
 import Catalog from '@/pages/catalog/catalog'
-import Error from '@/pages/error/error'
 import Favorites from '@/pages/favorites/favorites'
 import Home from '@/pages/home/home'
 import GenreCatalog from '@/pages/search/genreCatalog/genreCatalog'
@@ -39,10 +38,7 @@ export const userRoutes: iRoutes[] = [
 		name: 'Search',
 		component: Search
 	},
-	{
-		name: 'Error',
-		component: Error
-	},
+
 	{
 		name: 'Auth',
 		component: Auth

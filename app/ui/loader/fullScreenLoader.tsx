@@ -5,11 +5,14 @@ import loader from '../../assets/loader.json'
 
 const FullScreenLoader = () => {
 	return (
-		<View style={{
-			position: 'absolute',
-			height: ScreenHeight,
-			width: ScreenWidth
-		}} className={'justify-center items-center'}>
+		<View
+			style={{
+				position: 'absolute',
+				height: ScreenHeight,
+				width: ScreenWidth
+			}}
+			className={'justify-center items-center'}
+		>
 			<Lottie
 				loop
 				source={loader}

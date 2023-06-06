@@ -8,7 +8,6 @@ export const rtkQueryErrorLogger: Middleware =
 		if (isRejectedWithValue(action)) {
 			errorToast(action.error)
 		}
-		
+
 		return next(action)
 	}
-

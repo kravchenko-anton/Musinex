@@ -20,24 +20,28 @@ export default function App() {
 			queries: {
 				refetchOnWindowFocus: false,
 				refetchOnMount: false,
-				refetchOnReconnect: false,
+				refetchOnReconnect: false
 			}
 		}
 	})
 	return (
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
-			
-			<PersistGate persistor={persistor} loading={<FullScreenLoader/>}>
-				<SafeAreaProvider style={{
-					backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack')
-				}}>
-					<Navigation />
-					<ThemeProvider />
-					<StatusBar style={colorScheme === 'light' ? 'dark' : 'light'} />
-					<Toast />
-				</SafeAreaProvider>
-			</PersistGate>
+				<PersistGate persistor={persistor} loading={<FullScreenLoader />}>
+					<SafeAreaProvider
+						style={{
+							backgroundColor:
+								colorScheme === 'light'
+									? getHexCode('primaryGray')
+									: getHexCode('primaryBlack')
+						}}
+					>
+						<Navigation />
+						<ThemeProvider />
+						<StatusBar style={colorScheme === 'light' ? 'dark' : 'light'} />
+						<Toast />
+					</SafeAreaProvider>
+				</PersistGate>
 			</QueryClientProvider>
 		</Provider>
 	)

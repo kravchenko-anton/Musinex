@@ -4,7 +4,7 @@ module.exports = {
 	content: ['./App.{js,jsx,ts,tsx}', './app/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		colors: {
-			lightGray: '#BFBFBF',
+			lightGray: '#E5E5E5',
 			primaryGray: '#4C4D51',
 			dark: '#000',
 			primary: '#32B47D',
@@ -12,7 +12,7 @@ module.exports = {
 			lightBlack: '#1B2021',
 			veryLightBlack: '#202020',
 			white: '#fff',
-			red: "#FF0000",
+			red: '#FF0000',
 			transparent: colors.transparent
 		}
 	},

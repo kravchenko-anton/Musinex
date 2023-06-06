@@ -6,5 +6,5 @@ import { ThemeReducer } from './settings/themeSlice'
 export const reducers = combineReducers({
 	theme: ThemeReducer,
 	player: playerReducer,
-	auth: authReducer,
+	auth: authReducer
 })

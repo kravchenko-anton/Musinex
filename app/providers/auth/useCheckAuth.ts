@@ -10,24 +10,21 @@ export const useCheckAuth = (routeName?: string) => {
 	const { user } = useAuth()
 	const { getNewToken, logout } = useAction()
 	useEffect(() => {
-			const checkToken = async () => {
-				const accessToken = await getItemAsync(EnumSecureStore.ACCESS_TOKEN)
-				const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
-				if (!accessToken && refreshToken) {
-					try {
-			getNewToken(refreshToken)
-					} catch (e) {
-						errorCatch(e)
-						await logout()
-					}
+		const checkToken = async () => {
+			const accessToken = await getItemAsync(EnumSecureStore.ACCESS_TOKEN)
+			const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
+			if (!accessToken && refreshToken) {
+				try {
+					getNewToken(refreshToken)
+				} catch (e) {
+					errorCatch(e)
+					await logout()
 				}
-		
 			}
-			let ignore = checkToken()
-		
+		}
+		let ignore = checkToken()
 	}, [user])
-	
-	
+
 	useEffect(() => {
 		const checkRefreshToken = async () => {
 			const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
@@ -35,7 +32,7 @@ export const useCheckAuth = (routeName?: string) => {
 				logout()
 			}
 		}
-		
+
 		let ignore = checkRefreshToken()
 	}, [routeName])
 }

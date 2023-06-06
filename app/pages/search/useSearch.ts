@@ -1,4 +1,4 @@
-import { searchServices } from '@/services/search.services'
+import { searchServices } from '@/services/searchServices'
 import { useQuery } from '@tanstack/react-query'
 import { useSearchForm } from './useSearchForm'
 

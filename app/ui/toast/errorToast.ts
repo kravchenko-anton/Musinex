@@ -6,7 +6,6 @@ export const errorToast = (e: any) => {
 		type: 'error',
 		text1: typeof e === 'string' ? e : e.message,
 		position: 'top',
-		autoHide: true,
-		
+		autoHide: true
 	})
 }

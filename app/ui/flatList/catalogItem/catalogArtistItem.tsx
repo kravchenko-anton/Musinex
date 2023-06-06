@@ -13,13 +13,13 @@ export interface ICatalogArtistsItem extends Omit<PressableProps, 'id'> {
 }
 
 const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
-	                                                    id,
-	                                                    image,
-	                                                    name,
-	                                                    imageWidth= 80,
-																					textSize	= 20,
-	                                                    ...rest
-                                                    }) => {
+	id,
+	image,
+	name,
+	imageWidth = 80,
+	textSize = 20,
+	...rest
+}) => {
 	return (
 		<Pressable
 			className='flex-row items-center mb-3 w-full justify-between'
@@ -33,7 +33,9 @@ const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
 					height={imageWidth}
 				/>
 				<View className='ml-3 w-7/12'>
-					<Title  fontFamily={'Montserrat_700Bold'} size={textSize}>{name}</Title>
+					<Title fontFamily={'Montserrat_700Bold'} size={textSize}>
+						{name}
+					</Title>
 				</View>
 			</View>
 			<Heart type={'artists'} id={id} />

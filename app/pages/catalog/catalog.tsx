@@ -1,10 +1,10 @@
 import { useTypedRoute } from '@/hook/useTypedRoute'
+import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBackground'
+import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
+import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import Layout from '@/ui/layout/layout'
 import React, { useRef } from 'react'
 import { Animated } from 'react-native'
-import CatalogBackground from './ui/catalogBackground/catalogBackground'
-import CatalogContent from './ui/catalogContent/catalogContent'
-import CatalogHeader from './ui/catalogHeader/catalogHeader'
 
 const Catalog = () => {
 	const { params } = useTypedRoute<'catalog'>()

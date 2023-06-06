@@ -28,11 +28,11 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 			lottieRef.play(80, 180)
 		}
 	}, [heart])
-	
+
 	return (
 		<Pressable
 			onPress={() => {
-	console.log('heart')
+				console.log('heart')
 			}}
 			style={rest.style}
 		>
@@ -47,7 +47,7 @@ const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 					height: size
 				}}
 				source={require('../../../assets/heart.json')}
-				{...!rest.style && rest}
+				{...(!rest.style && rest)}
 			/>
 		</Pressable>
 	)

@@ -19,7 +19,7 @@ const FlatList404: FC<IFlatList404> = props => {
 					justifyContent: 'center',
 					alignItems: 'center',
 					alignContent: 'center',
-					alignSelf: 'center',
+					alignSelf: 'center'
 				}}
 				autoSize={true}
 				autoPlay={true}

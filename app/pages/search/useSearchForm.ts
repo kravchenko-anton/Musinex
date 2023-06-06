@@ -8,9 +8,9 @@ export const useSearchForm = () => {
 			searchTerm: ''
 		}
 	})
-	
+
 	const searchTerm = watch('searchTerm')
 	const debouncedSearch = useDebounce(searchTerm, 500)
-	
-	return {debouncedSearch, searchTerm, control }
+
+	return { debouncedSearch, searchTerm, control }
 }

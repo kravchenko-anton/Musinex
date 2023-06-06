@@ -1,16 +1,16 @@
 import { useAuth } from '@/hook/useAuth'
+import BottomMenu from '@/navigation/bottom-menu/bottomMenu'
 import Auth from '@/pages/auth/auth'
 import { useCheckAuth } from '@/providers/auth/useCheckAuth'
 import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import { userRoutes } from '@/types/navigation/userRoutes'
-import SongPlayer from '@/ui/songPlayer/songPlayer'
+import SongPlayer from '@/ui/song-player/songPlayer'
 import { getHexCode } from '@/utils/getColor'
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
 import { View } from 'react-native'
-import BottomMenu from './bottomMenu/bottomMenu'
 
 const Navigation = () => {
 	const Stack = createNativeStackNavigator<TypeRootStackParamList>()
@@ -19,7 +19,7 @@ const Navigation = () => {
 	const [currentRoute, setCurrentRoute] = useState<string | undefined>(
 		undefined
 	)
-	const {user} = useAuth()
+	const { user } = useAuth()
 	useEffect(() => {
 		const listener = navRef.addListener('state', () =>
 			setCurrentRoute(navRef.getCurrentRoute()?.name)
@@ -29,7 +29,7 @@ const Navigation = () => {
 		}
 	}, [])
 	useCheckAuth(currentRoute)
-	
+
 	return (
 		<NavigationContainer ref={navRef}>
 			<Stack.Navigator
@@ -38,27 +38,33 @@ const Navigation = () => {
 					animation: 'fade',
 					headerShown: false,
 					contentStyle: {
-						backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('primaryBlack'),
+						backgroundColor:
+							colorScheme === 'light'
+								? getHexCode('primaryGray')
+								: getHexCode('primaryBlack'),
 						flex: 1
 					}
 				}}
 			>
-				{user ? userRoutes.map(route => (
-					<Stack.Screen
-						name={route.name}
-						key={route.name}
-						component={route.component}
-					/>
-				)) : <Stack.Screen name={'Auth'} component={Auth} />
-				
-				}
+				{user ? (
+					userRoutes.map(route => (
+						<Stack.Screen
+							name={route.name}
+							key={route.name}
+							component={route.component}
+						/>
+					))
+				) : (
+					<Stack.Screen name={'Auth'} component={Auth} />
+				)}
 			</Stack.Navigator>
-			{currentRoute === 'Song' || user && (
-				<View>
-					<BottomMenu currentRoute={currentRoute} />
-					<SongPlayer />
-				</View>
-			)}
+			{currentRoute === 'Song' ||
+				(user && (
+					<View>
+						<BottomMenu currentRoute={currentRoute} />
+						<SongPlayer />
+					</View>
+				))}
 		</NavigationContainer>
 	)
 }

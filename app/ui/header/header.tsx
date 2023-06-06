@@ -5,17 +5,21 @@ import { View } from 'react-native'
 import Title from '../title/title'
 import { IHeader } from './types/IHeader'
 
-const Header: FC<PropsWithChildren<IHeader>> =
-	({children,
-		                                            firstIcon,
-		                                              secondIcon,
-	                                                ...rest
-                                                }) => {
+const Header: FC<PropsWithChildren<IHeader>> = ({
+	children,
+	firstIcon,
+	secondIcon,
+	...rest
+}) => {
 	const { navigate, goBack } = useTypedNavigation()
 	return (
 		<View className='flex-row justify-between items-center' {...rest}>
-			{firstIcon && !children ? <Icon border name={firstIcon.name}  onPress={firstIcon.onPress}/> : <Icon name={'arrow-back'}  border onPress={() => goBack()}/>}
-			
+			{firstIcon && !children ? (
+				<Icon border name={firstIcon.name} onPress={firstIcon.onPress} />
+			) : (
+				<Icon name={'arrow-back'} border onPress={() => goBack()} />
+			)}
+
 			<Title
 				translate
 				onPress={() => navigate('Home')}
@@ -24,7 +28,11 @@ const Header: FC<PropsWithChildren<IHeader>> =
 			>
 				Musinex
 			</Title>
-			{!children && secondIcon ? <Icon border name={secondIcon.name} onPress={secondIcon.onPress} /> : children}
+			{!children && secondIcon ? (
+				<Icon border name={secondIcon.name} onPress={secondIcon.onPress} />
+			) : (
+				children
+			)}
 		</View>
 	)
 }

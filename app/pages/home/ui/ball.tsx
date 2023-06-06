@@ -4,47 +4,54 @@ import { View, ViewProps } from 'react-native'
 
 interface BallProps {
 	style?: ViewProps['style']
-	gradient?: [number, number,	number, number]
+	gradient?: [number, number, number, number]
 	colors?: string[]
 	width?: number
 	height?: number
 	wrapperStyle?: ViewProps['style']
 }
-const Ball:FC<BallProps> = ({
+const Ball: FC<BallProps> = ({
 	gradient = [0, 1, 1, 1],
-	colors = ['#2DA270','#5BC397', 'transparent'],
+	colors = ['#2DA270', '#5BC397', 'transparent'],
 	height = 200,
 	width = 200,
-	wrapperStyle = {
-
-	},
+	wrapperStyle = {},
 	...props
 }) => {
-	return 	<View
-		style={[{
-			position: 'absolute',
-		}, wrapperStyle]}
-	>
-		<View style={props.style	|| {
-			width: width || 200,
-			height: height || 200,
-			borderWidth: 12,
-			borderColor: 'transparent',
-			justifyContent: 'center',
-		}}>
-			<LinearGradient
-				colors={colors ? colors : ['#2DA270','#5BC397', 'transparent']}
-				start={[gradient[0], gradient[1]]}
-				end={[gradient[2], gradient[3]]}
-				style={{
-					flex: 1,
-					zIndex: 5,
-					borderRadius: 100,
-					justifyContent: 'center'
-				}}
-			/>
+	return (
+		<View
+			style={[
+				{
+					position: 'absolute'
+				},
+				wrapperStyle
+			]}
+		>
+			<View
+				style={
+					props.style || {
+						width: width || 200,
+						height: height || 200,
+						borderWidth: 12,
+						borderColor: 'transparent',
+						justifyContent: 'center'
+					}
+				}
+			>
+				<LinearGradient
+					colors={colors ? colors : ['#2DA270', '#5BC397', 'transparent']}
+					start={[gradient[0], gradient[1]]}
+					end={[gradient[2], gradient[3]]}
+					style={{
+						flex: 1,
+						zIndex: 5,
+						borderRadius: 100,
+						justifyContent: 'center'
+					}}
+				/>
+			</View>
 		</View>
-	</View>
+	)
 }
 
 export default Ball

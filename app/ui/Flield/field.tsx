@@ -6,18 +6,17 @@ import { TextInput, View } from 'react-native'
 import Title from '../title/title'
 import { IField } from './types/Ifiled'
 
-const Field = <T extends Record<string, any>>
-({
-	 control,
-	 rules,
-	 name,
+const Field = <T extends Record<string, any>>({
+	control,
+	rules,
+	name,
 	placeholder,
-	 ...rest
- }: IField<T>):JSX.Element | null => {
+	...rest
+}: IField<T>): JSX.Element | null => {
 	let [fontsLoaded] = useFonts({
-		Montserrat_700Bold,
+		Montserrat_700Bold
 	})
-	const {t} = useTranslation()
+	const { t } = useTranslation()
 	if (!fontsLoaded) return null
 	return (
 		<Controller
@@ -25,15 +24,15 @@ const Field = <T extends Record<string, any>>
 			name={name}
 			rules={rules}
 			render={({
-				         field: { value, onChange, onBlur },
-				         fieldState: { error }
-			         }) => (
+				field: { value, onChange, onBlur },
+				fieldState: { error }
+			}) => (
 				<>
 					<View
 						style={{
 							borderWidth: error ? 1 : 0,
-							borderColor: "# ff0000",
-							backgroundColor: getHexCode('lightBlack'),
+							borderColor: '# ff0000',
+							backgroundColor: getHexCode('lightBlack')
 						}}
 						className={'w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
 					>
@@ -46,16 +45,16 @@ const Field = <T extends Record<string, any>>
 							renderToHardwareTextureAndroid={true}
 							placeholderTextColor={getHexCode('white')}
 							value={(value || '').toString()}
-							className='text-base text-white' style={{
-							fontFamily: 'Montserrat_700Bold',
-						}}
+							className='text-base text-white'
+							style={{
+								fontFamily: 'Montserrat_700Bold'
+							}}
 							placeholder={t(placeholder).toString()}
 							{...rest}
 						/>
 					</View>
 					{error && (
-						<Title color={'red'} size={16}
-						>
+						<Title color={'red'} size={16}>
 							{error.message ? error.message : 'error!'}
 						</Title>
 					)}

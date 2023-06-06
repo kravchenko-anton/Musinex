@@ -2,7 +2,7 @@ import Auth from '@/pages/auth/auth'
 import Catalog from '@/pages/catalog/catalog'
 import Favorites from '@/pages/favorites/favorites'
 import Home from '@/pages/home/home'
-import GenreCatalog from '@/pages/search/genreCatalog/genreCatalog'
+import GenreCatalog from '@/pages/search/genre-catalog/genreCatalog'
 import Search from '@/pages/search/search'
 import Settings from '@/pages/settings/settings'
 import Song from '@/pages/song/song'
@@ -33,7 +33,7 @@ export const userRoutes: iRoutes[] = [
 		name: 'Song',
 		component: Song
 	},
-	
+
 	{
 		name: 'Search',
 		component: Search

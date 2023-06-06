@@ -18,12 +18,23 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
 	const { colorScheme } = useColorScheme()
 	return (
-		<View pointerEvents={'auto'} className='items-center pointer-events-auto justify-center p-1.5 rounded-lg'>
+		<View
+			pointerEvents={'auto'}
+			className='items-center pointer-events-auto justify-center p-1.5 rounded-lg'
+		>
 			<UIcon
 				onPress={() => nav(item.path)}
 				name={item.iconName}
 				size={30}
-				color={isActive ? colorScheme === 'dark' ? getHexCode('white') : getHexCode('primary') : colorScheme === 'dark' ? getHexCode('lightGray') : getHexCode('veryLightBlack')}
+				color={
+					isActive
+						? colorScheme === 'dark'
+							? getHexCode('white')
+							: getHexCode('primary')
+						: colorScheme === 'dark'
+						? getHexCode('lightGray')
+						: getHexCode('veryLightBlack')
+				}
 			/>
 		</View>
 	)

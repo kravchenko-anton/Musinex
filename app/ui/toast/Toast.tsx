@@ -8,7 +8,7 @@ const options = (primaryColor: string) => ({
 		borderLeftColor: primaryColor,
 		borderLeftWidth: 8,
 		zIndex: 1000,
-		shadowColor: getHexCode('transparent'),
+		shadowColor: getHexCode('transparent')
 	},
 	text1Style: {
 		color: getHexCode('white'),
@@ -27,9 +27,14 @@ const Toast: FC = () => {
 			config={{
 				success: props => <BaseToast {...props} {...options('#00c851')} />,
 				info: props => <BaseToast {...props} {...options('#65d4ff')} />,
-				error: props => <BaseToast {...props} {...{
-					...options('#ff4444'),
-				}} />
+				error: props => (
+					<BaseToast
+						{...props}
+						{...{
+							...options('#ff4444')
+						}}
+					/>
+				)
 			}}
 		/>
 	)

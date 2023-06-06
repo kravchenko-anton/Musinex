@@ -5,13 +5,15 @@ import React from 'react'
 
 const Favorites = () => {
 	const { navigate } = useTypedNavigation()
-	
+
 	return (
 		<Layout className='h-screen'>
-			<Header secondIcon={{
-				name: 'settings',
-				onPress: () => navigate('Settings')
-			}} />
+			<Header
+				secondIcon={{
+					name: 'settings',
+					onPress: () => navigate('Settings')
+				}}
+			/>
 		</Layout>
 	)
 }

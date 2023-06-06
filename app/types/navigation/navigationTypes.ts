@@ -28,7 +28,7 @@ export type TypeRootStackParamList = {
 	genreCatalog: {
 		genreId: number
 		genreName: string
-	},
+	}
 }
 
 export interface iRoutes {

@@ -50,7 +50,7 @@ const Settings = () => {
 				<DropDownPicker
 					disableBorderRadius={true}
 					onSelectItem={async item => {
-					await i18n.changeLanguage(item.value)
+						await i18n.changeLanguage(item.value)
 					}}
 					closeAfterSelecting={true}
 					theme={colorScheme === 'light' ? 'LIGHT' : 'DARK'}

@@ -4,25 +4,27 @@ import { initReactI18next } from 'react-i18next'
 
 const resources = {
 	en: {
-		translation: require('@/utils/translate/en.json'),
+		translation: require('@/utils/translate/en.json')
 	},
 	ru: {
-		translation: require('@/utils/translate/ru.json'),
+		translation: require('@/utils/translate/ru.json')
 	},
 	ua: {
-		translation: require('@/utils/translate/ua.json'),
+		translation: require('@/utils/translate/ua.json')
 	},
 	pl: {
-		translation: require('@/utils/translate/pl.json'),
-	},
-};
+		translation: require('@/utils/translate/pl.json')
+	}
+}
 
-i18n.use(initReactI18next);
-	i18n.on('languageChanged', (lng) => {
-			AsyncStorage.setItem('language', lng);
-	});
+i18n.use(initReactI18next)
+i18n.on('languageChanged', lng => {
+	AsyncStorage.setItem('language', lng)
+})
 const initializeLanguage = async () => {
-	const language = await AsyncStorage.getItem('language').then((res: any) => res.toString());
+	const language = await AsyncStorage.getItem('language').then((res: any) =>
+		res.toString()
+	)
 	if (!i18n.isInitialized) {
 		i18n.init({
 			resources,
@@ -32,12 +34,12 @@ const initializeLanguage = async () => {
 			lng: language,
 			fallbackLng: 'en',
 			interpolation: {
-				escapeValue: false,
-			},
-		});
+				escapeValue: false
+			}
+		})
 	}
-};
+}
 
-initializeLanguage();
+initializeLanguage()
 
-export default i18n;
+export default i18n

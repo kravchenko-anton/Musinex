@@ -26,11 +26,10 @@ const CatalogSongItem: FC<ISongItem> = props => {
 					height={80}
 				/>
 				<View className='ml-3 max-w-[200px]'>
-					<Title  fontFamily={'Montserrat_700Bold'} >{props.title}</Title>
-					<Title
-						color={'lightGray'}
-						fontFamily={'Montserrat_300Light'}
-					>{props.artist}</Title>
+					<Title fontFamily={'Montserrat_700Bold'}>{props.title}</Title>
+					<Title color={'lightGray'} fontFamily={'Montserrat_300Light'}>
+						{props.artist}
+					</Title>
 				</View>
 			</View>
 			<Heart id={props.id} type={'songs'} />

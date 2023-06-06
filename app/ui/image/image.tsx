@@ -3,7 +3,7 @@ import { Image } from 'react-native'
 import { IImage } from './types/IImage'
 
 const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
-		//TODO: Fix this add a default image
+	//TODO: Fix this add a default image
 	return (
 		<Image
 			source={{
@@ -11,7 +11,6 @@ const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
 				width,
 				height
 			}}
-			
 			style={[
 				{
 					width,

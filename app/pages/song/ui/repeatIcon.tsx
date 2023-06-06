@@ -14,7 +14,7 @@ const RepeatIcon = () => {
 				return 'repeat'
 		}
 	}
-	
+
 	const changeRepeatMode = () => {
 		switch (repeatMode) {
 			case 'off':
@@ -31,15 +31,19 @@ const RepeatIcon = () => {
 				break
 		}
 	}
-	
-	return <MaterialCommunityIcons
-		name={`${repeatIcon() as 'repeat-off' | 'repeat-once' | 'repeat'}`}
-		style={{
-			justifyContent: 'center',
-			alignSelf: 'center'
-		}}
-		onPress={changeRepeatMode} size={24} color='white' />
-	
+
+	return (
+		<MaterialCommunityIcons
+			name={`${repeatIcon() as 'repeat-off' | 'repeat-once' | 'repeat'}`}
+			style={{
+				justifyContent: 'center',
+				alignSelf: 'center'
+			}}
+			onPress={changeRepeatMode}
+			size={24}
+			color='white'
+		/>
+	)
 }
 
 export default RepeatIcon

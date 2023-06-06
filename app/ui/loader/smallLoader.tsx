@@ -4,9 +4,13 @@ import Lottie from 'lottie-react-native'
 import { View } from 'react-native'
 
 const SmallLoader = () => {
-	return 	<View style={{
-			width: ScreenWidth
-		}} className={'justify-center items-center'}>
+	return (
+		<View
+			style={{
+				width: ScreenWidth
+			}}
+			className={'justify-center items-center'}
+		>
 			<Lottie
 				loop
 				source={loader}
@@ -17,6 +21,7 @@ const SmallLoader = () => {
 				}}
 			/>
 		</View>
+	)
 }
 
 export default SmallLoader

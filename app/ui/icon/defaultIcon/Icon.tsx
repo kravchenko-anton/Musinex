@@ -1,11 +1,12 @@
+import { UPressableProps } from '@/types/global'
 import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons'
 import { useColorScheme } from 'nativewind'
 import React, { FC, memo } from 'react'
-import { Pressable, PressableProps } from 'react-native'
+import { Pressable } from 'react-native'
 import { theme } from '../../../../tailwind.config'
 
-interface IconProps extends PressableProps {
+interface IconProps extends UPressableProps {
 	name: keyof typeof Ionicons.glyphMap
 	color?: keyof typeof theme.colors
 	size?: number

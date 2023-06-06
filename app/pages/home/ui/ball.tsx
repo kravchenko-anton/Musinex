@@ -1,14 +1,15 @@
+import { UViewProps } from '@/types/global'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC } from 'react'
-import { View, ViewProps } from 'react-native'
+import { View } from 'react-native'
 
 interface BallProps {
-	style?: ViewProps['style']
+	style?: UViewProps['style']
 	gradient?: [number, number, number, number]
 	colors?: string[]
 	width?: number
 	height?: number
-	wrapperStyle?: ViewProps['style']
+	wrapperStyle?: UViewProps['style']
 }
 const Ball: FC<BallProps> = ({
 	gradient = [0, 1, 1, 1],

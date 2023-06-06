@@ -1,8 +1,7 @@
-import { ITranslateTypes } from '@/types/global'
+import { ITranslateTypes, UPressableProps } from '@/types/global'
 import { Ionicons } from '@expo/vector-icons'
-import { PressableProps } from 'react-native'
 
-export interface IButton extends PressableProps {
+export interface IButton extends UPressableProps {
 	size: 'small' | 'medium' | 'large'
 	width?: number | string
 	text: ITranslateTypes

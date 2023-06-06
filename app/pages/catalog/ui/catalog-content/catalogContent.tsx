@@ -1,5 +1,5 @@
+import { useAction } from '@/hook/useAction'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { PlayerAction } from '@/redux/player/playerSlice'
 import { ICatalogList, ICatalogTypes, IHeartProps } from '@/types/catalogTypes'
 import CatalogArtistItem from '@/ui/flatList/catalogItem/catalogArtistItem'
 import CatalogSongItem from '@/ui/flatList/catalogItem/catalogSongItem'
@@ -14,7 +14,6 @@ import { useColorScheme } from 'nativewind'
 import React, { FC, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
-import { useDispatch } from 'react-redux'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import CatalogContentHeader from './catalogContentHeader'
 
@@ -34,7 +33,7 @@ const CatalogContent: FC<ICatalogContent> = ({
 	const { t } = useTranslation()
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
-	const dispatch = useDispatch()
+	const {addToPlayer} = useAction()
 	const { navigate } = useTypedNavigation()
 	const { colorScheme } = useColorScheme()
 	if (!DataList) return <FullScreenLoader />
@@ -108,8 +107,7 @@ const CatalogContent: FC<ICatalogContent> = ({
 									image={item.image}
 									artist={item.artist}
 									playFunc={() => {
-										dispatch(
-											PlayerAction.addToPlayer({
+											addToPlayer({
 												data: DataList.map(track => {
 													return {
 														id: track.id,
@@ -121,7 +119,6 @@ const CatalogContent: FC<ICatalogContent> = ({
 												}),
 												songIndex: index
 											})
-										)
 									}}
 								/>
 							)

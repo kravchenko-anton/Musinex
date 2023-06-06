@@ -1,4 +1,4 @@
-import { ThemeAction } from '@/redux/settings/themeSlice'
+import { useAction } from '@/hook/useAction'
 import Header from '@/ui/header/header'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
@@ -8,11 +8,10 @@ import { useColorScheme } from 'nativewind'
 import React, { useEffect, useState } from 'react'
 import { Pressable, View } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker'
-import { useDispatch } from 'react-redux'
 
 const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()
-	const dispatch = useDispatch()
+	const {setTheme} = useAction()
 	const lottieRef = React.useRef<any>()
 	const [DropDownOpen, setDropDownOpen] = useState(false)
 	const [DropDownValue, setDropDownValue] = useState(i18n.language)
@@ -27,9 +26,7 @@ const Settings = () => {
 			<Header className='justify-between items-center'>
 				<Pressable
 					onPress={() => {
-						dispatch(
-							ThemeAction.setTheme(colorScheme === 'light' ? 'dark' : 'light')
-						)
+						setTheme(colorScheme === 'light' ? 'dark' : 'light')
 						setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
 					}}
 				>

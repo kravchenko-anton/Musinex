@@ -1,9 +1,8 @@
-import { ITranslateTypes } from '@/types/global'
-import { TextProps } from 'react-native'
+import { ITranslateTypes, UTextProps } from '@/types/global'
 import { theme } from '../../../../tailwind.config'
 
-export interface ITitle extends TextProps {
-	// if translate is true, then children must be a key of i18n.t
+
+export interface ITitle extends UTextProps {
 	center?: boolean
 	translate?: boolean
 	children: ITranslateTypes

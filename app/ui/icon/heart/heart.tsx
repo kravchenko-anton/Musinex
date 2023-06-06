@@ -2,7 +2,6 @@ import { IHeartProps } from '@/types/catalogTypes'
 import Lottie, { AnimatedLottieViewProps } from 'lottie-react-native'
 import { FC, memo, useEffect, useRef } from 'react'
 import { Pressable } from 'react-native'
-import { useDispatch } from 'react-redux'
 import { useHeart } from './useHeart'
 
 interface IHeart extends Omit<AnimatedLottieViewProps, 'source'>, IHeartProps {
@@ -11,7 +10,6 @@ interface IHeart extends Omit<AnimatedLottieViewProps, 'source'>, IHeartProps {
 
 const Heart: FC<IHeart> = ({ size = 70, type, id, ...rest }) => {
 	const heart = useHeart({ id, type })
-	const dispatch = useDispatch()
 	let lottieRef = useRef<any>(null).current
 	const isFirstRun = useRef(true)
 	useEffect(() => {

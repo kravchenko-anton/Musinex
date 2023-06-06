@@ -1,6 +1,6 @@
-import { PressableProps } from 'react-native'
+import { UPressableProps } from '@/types/global'
 
-export interface IFlatListItem extends PressableProps {
+export interface IFlatListItem extends UPressableProps {
 	name: string
 	image: {
 		url: string

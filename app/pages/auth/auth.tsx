@@ -10,14 +10,12 @@ import Title from '@/ui/title/title'
 import Lottie from 'lottie-react-native'
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 
 const Auth = () => {
 	const { user } = useAuth()
 	const { register, login } = useAction()
 	const { navigate } = useTypedNavigation()
-	const { t } = useTranslation()
 	const [type, setType] = useState<'Login' | 'Register'>('Login')
 	const { control, handleSubmit } = useForm<IAuthFields>({
 		mode: 'onSubmit'

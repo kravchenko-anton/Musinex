@@ -1,4 +1,4 @@
-import { PressableProps, TextProps, ViewProps } from 'react-native'
+import { ImageProps, PressableProps, TextProps, ViewProps } from 'react-native'
 import en from '../utils/translate/en.json'
 
 export type ITranslateTypes = keyof typeof en | string
@@ -10,3 +10,8 @@ export type UPressableProps = Pick<PressableProps, 'onLayout' | 'pointerEvents' 
 'disabled' | 'onBlur' | 'onFocus' | "onMagicTap" | 'style' | 'className' | 'onLongPress'>
 
 export type UTextProps  = Pick<TextProps, 'style' | 'onPress' | 'className' | 'onMagicTap' | 'onTextLayout' | 'onLayout' | 'disabled' | 'onLongPress' | 'numberOfLines'>
+
+export  type UImageProps = Pick<ImageProps, "blurRadius" | 'onLoad' | 'resizeMode' | 'resizeMethod' | 'progressiveRenderingEnabled' | "onProgress" | 'borderRadius' | 'fadeDuration'|
+			"defaultSource" | "style" | "className" | 'onError'
+>
+

@@ -1,6 +1,6 @@
-import { ImageProps } from 'react-native'
+import { UImageProps } from '@/types/global'
 
-export interface IImage extends Omit<ImageProps, 'source'> {
+export interface IImage extends Omit<UImageProps, 'source'> {
 	source: string
 	width: number
 	height: number

@@ -25,10 +25,6 @@ export type TypeRootStackParamList = {
 	}
 	favorites: undefined
 	Song: undefined
-	genreCatalog: {
-		genreId: number
-		genreName: string
-	}
 }
 
 export interface iRoutes {

@@ -1,29 +1,23 @@
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
 import React, { FC, PropsWithChildren } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Pressable, View, ViewStyle } from 'react-native'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
 
 const Button: FC<PropsWithChildren<IButton>> = ({
-	children,
-	icon,
-	text,
 	translate = false,
 	size = 'small',
 	variant = 'light',
-	width,
 	borderRadius = 10,
 	iconSize = 20,
 	center = false,
 	textSize,
-	...rest
+	...props
 }) => {
-	const { t } = useTranslation()
 	return (
 		<Pressable
-			onPress={rest.onPress}
+			onPress={props.onPress}
 			style={[
 				{
 					backgroundColor:
@@ -32,21 +26,21 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 							: getHexCode('lightBlack'),
 					borderRadius: borderRadius,
 					padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
-					width: width ? width : '100%'
+					width: props.width || '100%'
 				},
-				rest.style as ViewStyle
+				props.style as ViewStyle
 			]}
-			{...(!rest.style && rest)}
+			{...(!props.style && props)}
 		>
-			{!!(children && !(icon && text)) ? (
-				children
+			{!!(props.children && !(props.icon && props.text)) ? (
+				props.children
 			) : (
 				<View
 					style={{
 						flexDirection: 'row',
 						alignItems: 'center',
 						display: 'flex',
-						justifyContent: icon ? 'space-between' : 'center',
+						justifyContent: props.icon ? 'space-between' : 'center',
 						marginVertical: center ? 0 : 5,
 						gap: size === 'small' ? 10 : size === 'medium' ? 10 : 10
 					}}
@@ -55,6 +49,7 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 						color={
 							variant === 'primary' ? getHexCode('white') : getHexCode('white')
 						}
+						translate={ translate ? translate : false}
 						fontFamily={'Montserrat_700Bold'}
 						size={
 							textSize
@@ -66,9 +61,9 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 								: 20
 						}
 					>
-						{translate ? t(text) : text}
+						{props.text}
 					</Title>
-					{icon && (
+					{props.icon && (
 						<UIcon
 							size={
 								iconSize
@@ -86,7 +81,7 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 									? getHexCode('white')
 									: getHexCode('dark')
 							}
-							name={icon}
+							name={props.icon}
 						/>
 					)}
 				</View>

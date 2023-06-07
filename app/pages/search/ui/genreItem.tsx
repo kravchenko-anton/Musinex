@@ -1,4 +1,3 @@
-import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
@@ -13,14 +12,10 @@ export interface IGenreItem {
 }
 
 const GenreItem: FC<IGenreItem> = ({ picture, id, name }) => {
-	const { navigate } = useTypedNavigation()
 	return (
 		<Pressable
 			onPress={() =>
-				navigate('genreCatalog', {
-					genreId: id,
-					genreName: name
-				})
+		console.log('navigate to genre', id)
 			}
 			className='bg-veryLightBlack overflow-hidden z-50 h-[130px] rounded-lg max-w-[48%] w-full'
 		>

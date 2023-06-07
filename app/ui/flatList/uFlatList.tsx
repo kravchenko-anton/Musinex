@@ -4,9 +4,8 @@ import { FlatList, FlatListProps, ListRenderItem, View } from 'react-native'
 import Title from '../title/title'
 
 interface IFlatList<T>
-	extends Omit<
-		FlatListProps<T>,
-		'renderToHardwareTextureAndroid' | 'bounces' | 'removeClippedSubviews'
+	extends Pick<
+		FlatListProps<T>, "horizontal" | "ListEmptyComponent" | "keyExtractor" | "style" | "data" | "className" | "extraData" | "inverted" | "initialNumToRender" | "maxToRenderPerBatch" | 'scrollEnabled' | 'numColumns' | 'contentContainerStyle' |'columnWrapperStyle'
 	> {
 	data: T[]
 	renderItem: ListRenderItem<T>
@@ -41,7 +40,6 @@ const UFlatList = <T,>({
 			<FlatList
 				bounces={false}
 				renderToHardwareTextureAndroid={true}
-				maxToRenderPerBatch={4}
 				removeClippedSubviews={true}
 				showsHorizontalScrollIndicator={false}
 				showsVerticalScrollIndicator={false}

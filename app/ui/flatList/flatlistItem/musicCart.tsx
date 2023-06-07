@@ -6,29 +6,24 @@ import UImage from '../../image/image'
 import Title from '../../title/title'
 
 const MusicCart: FC<IFlatListItem> = ({
-	image,
-	name,
-	artists,
-	WrapClassNames,
-	ImageClassNames,
 	textCenter = false,
-	...rest
+	...props
 }) => {
 	const { t } = useTranslation()
 	return (
 		<Pressable
-			className={WrapClassNames}
+			className={props.WrapClassNames}
 			style={{
-				width: image.width,
-				maxWidth: image.width
+				width: props.image.width,
+				maxWidth: props.image.width
 			}}
-			{...rest}
+			{...props}
 		>
 			<UImage
-				className={ImageClassNames}
-				source={image.url}
-				height={image.height}
-				width={image.width}
+				className={props.ImageClassNames}
+				source={props.image.url}
+				height={props.image.height}
+				width={props.image.width}
 			/>
 			<View
 				style={{
@@ -43,9 +38,9 @@ const MusicCart: FC<IFlatListItem> = ({
 					color={'lightGray'}
 					fontFamily={'Montserrat_500Medium'}
 				>
-					{name}
+					{props.name}
 				</Title>
-				{artists && (
+				{props.artists && (
 					<Title
 						className={'mt-0.5'}
 						numberOfLines={1}
@@ -53,7 +48,7 @@ const MusicCart: FC<IFlatListItem> = ({
 						size={14}
 						fontFamily={'Montserrat_500Medium'}
 					>
-						{t('by') + artists}
+						{t('by') + props.artists}
 					</Title>
 				)}
 			</View>

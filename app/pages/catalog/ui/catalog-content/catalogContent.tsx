@@ -112,7 +112,7 @@ const CatalogContent: FC<ICatalogContent> = ({
 													return {
 														id: track.id,
 														title: track.title,
-														url: track.url as string,
+														url: track.url,
 														artist: track.artist,
 														artwork: track.image
 													}

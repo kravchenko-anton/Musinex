@@ -5,7 +5,7 @@ export interface ICatalogList {
 	title: string
 	image: string
 	artist: string
-	url?: string
+	url: string
 }
 
 export interface ICatalogTypes {

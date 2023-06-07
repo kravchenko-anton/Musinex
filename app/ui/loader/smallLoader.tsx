@@ -1,15 +1,11 @@
 import loader from '@/assets/loader.json'
-import { ScreenWidth } from '@/utils/screen'
 import Lottie from 'lottie-react-native'
 import { View } from 'react-native'
 
 const SmallLoader = () => {
 	return (
 		<View
-			style={{
-				width: ScreenWidth
-			}}
-			className={'justify-center items-center'}
+			className={'justify-center items-center h-full w-full'}
 		>
 			<Lottie
 				loop

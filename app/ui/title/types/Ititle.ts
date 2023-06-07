@@ -1,12 +1,12 @@
-import { ITranslateTypes, UTextProps } from '@/types/global'
+import { UTextProps } from '@/types/global'
+import en from '@/utils/translate/en.json'
 import { theme } from '../../../../tailwind.config'
 
-
-export interface ITitle extends UTextProps {
-	center?: boolean
-	translate?: boolean
-	children: ITranslateTypes
-	size?: number
+export interface ITitle<T extends boolean> extends UTextProps {
+	center?: boolean;
+	translate?: T;
+	children: T extends true ? keyof typeof en : string;
+	size?: number;
 	fontFamily?:
 		| 'Montserrat_100Thin'
 		| 'Montserrat_300Light'
@@ -16,6 +16,6 @@ export interface ITitle extends UTextProps {
 		| 'Montserrat_700Bold'
 		| 'Montserrat_800ExtraBold'
 		| 'Montserrat_900Black'
-		| 'Montserrat_900Black_Italic'
-	color?: keyof typeof theme.colors
+		| 'Montserrat_900Black_Italic';
+	color?: keyof typeof theme.colors;
 }

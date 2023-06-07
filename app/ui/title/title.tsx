@@ -14,21 +14,21 @@ import {
 	useFonts
 } from '@expo-google-fonts/montserrat'
 import { useColorScheme } from 'nativewind'
-import React, { FC, memo, PropsWithChildren } from 'react'
+import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'react-native'
 import { ITitle } from './types/Ititle'
 
-const Title: FC<PropsWithChildren<ITitle>> = ({
+const Title = <T extends boolean>({
 	children,
 	numberOfLines = 1,
 	color,
 	fontFamily = 'Montserrat_300Light',
 	size = 20,
-	translate = false,
+	translate,
 	center = false,
 	...rest
-}) => {
+}:ITitle<T>) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_100Thin,
 		Montserrat_200ExtraLight,

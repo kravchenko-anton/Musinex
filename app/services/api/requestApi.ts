@@ -1,17 +1,13 @@
 import { errorCatch } from '@/services/api/errorApi'
 import instance from '@/services/api/interceptorsApi'
+import { errorToast } from '@/ui/toast/errorToast'
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
-import Toast from 'react-native-toast-message'
 
 export const request = async <T>(config: AxiosRequestConfig) => {
 	const onSuccess = (response: AxiosResponse<T>) => response.data
 
 	const onError = (error: AxiosError<T>) => {
-		Toast.show({
-			type: 'error',
-			text1: 'Request error',
-			text2: errorCatch(error)
-		})
+			errorToast(errorCatch(error))
 
 		return Promise.reject(error)
 	}

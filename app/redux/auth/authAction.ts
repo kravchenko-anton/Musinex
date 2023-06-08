@@ -2,6 +2,7 @@ import { deleteTokensStorage, saveTokensStorage } from '@/redux/auth/authHelper'
 import { IAuthFields } from '@/types/auth/authTypes'
 import { errorToast } from '@/ui/toast/errorToast'
 import { getAuthUrl, SERVER_URL } from '@/utils/apiConfig'
+import { errorCatch } from '@/utils/errorCatch'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
@@ -19,7 +20,7 @@ export const register = createAsyncThunk<any, IAuthFields>(
 			})
 			return register
 		} catch (e) {
-			errorToast(e)
+			errorToast(errorCatch(e))
 			return thunkAPI.rejectWithValue(e)
 		}
 	}
@@ -38,7 +39,7 @@ export const login = createAsyncThunk<any, IAuthFields>(
 			})
 			return login
 		} catch (e) {
-			errorToast(e)
+			errorToast(errorCatch(e))
 			return thunkAPI.rejectWithValue(e)
 		}
 	}
@@ -57,7 +58,7 @@ export const getNewToken = createAsyncThunk<any, string>(
 			})
 			return tokens
 		} catch (e) {
-			errorToast(e)
+			errorToast(errorCatch(e))
 			return thunkAPI.rejectWithValue(e)
 		}
 	}
@@ -67,7 +68,7 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 	try {
 		await deleteTokensStorage()
 	} catch (e) {
-		errorToast(e)
+		errorToast(errorCatch(e))
 	}
 	return {}
 })

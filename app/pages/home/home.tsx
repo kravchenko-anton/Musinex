@@ -47,12 +47,11 @@ const Home = () => {
 				renderItem={({ item }) => {
 					return (
 						<MusicCart
-							ImageClassNames={'rounded-2xl'}
-							WrapClassNames={'mr-3'}
 							image={{
 								url: item.coverMedium,
 								width: 130,
-								height: 130
+								height: 130,
+								border: 16
 							}}
 							name={item.title}
 							artists={item.artists[0].name}
@@ -69,12 +68,11 @@ const Home = () => {
 					return (
 						<MusicCart
 							textCenter={true}
-							ImageClassNames={'rounded-full'}
-							WrapClassNames={'mr-3'}
 							image={{
 								url: item.pictureMedium,
 								width: 80,
-								height: 80
+								height: 80,
+								border: 100
 							}}
 							name={item.name}
 						/>
@@ -90,12 +88,11 @@ const Home = () => {
 				renderItem={({ item }) => {
 					return (
 						<MusicCart
-							ImageClassNames={'rounded-md'}
-							WrapClassNames={'mr-3'}
 							image={{
 								url: item.coverMedium,
 								width: 140,
-								height: 140
+								height: 140,
+								border: 6
 							}}
 							name={item.title}
 						/>
@@ -111,11 +108,9 @@ const Home = () => {
 				renderItem={({ item }) => {
 					return (
 						<MusicCart
-							WrapClassNames={'mr-3'}
 							image={{
 								url: item.coverMedium,
 								width: 150,
-								border: 10,
 								height: 150
 							}}
 							name={item.title}

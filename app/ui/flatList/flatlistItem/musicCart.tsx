@@ -7,12 +7,13 @@ import Title from '../../title/title'
 
 const MusicCart: FC<IFlatListItem> = ({
 	textCenter = false,
+	WrapClassNames	= 'mr-3',
 	...props
 }) => {
 	const { t } = useTranslation()
 	return (
 		<Pressable
-			className={props.WrapClassNames}
+			className={WrapClassNames}
 			style={{
 				width: props.image.width,
 				maxWidth: props.image.width,

@@ -2,6 +2,7 @@ import { useAction } from '@/hook/useAction'
 import { useAuth } from '@/hook/useAuth'
 import { getNewToken, logout } from '@/redux/auth/authAction'
 import { EnumSecureStore } from '@/types/auth/authTypes'
+import { errorToast } from '@/ui/toast/errorToast'
 import { errorCatch } from '@/utils/errorCatch'
 import { getItemAsync } from 'expo-secure-store'
 import { useEffect } from 'react'
@@ -17,7 +18,7 @@ export const useCheckAuth = (routeName?: string) => {
 				try {
 					getNewToken(refreshToken)
 				} catch (e) {
-					errorCatch(e)
+				errorToast(errorCatch(e))
 					await logout()
 				}
 			}

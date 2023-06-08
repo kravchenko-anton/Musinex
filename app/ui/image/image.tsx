@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { Image } from 'react-native'
 import { IImage } from './types/IImage'
 
-const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
+const UImage: FC<IImage> = ({ source, width, height, style, ...rest }) => {
 	//TODO: Fix this add a default image
 	return (
 		<Image
@@ -16,7 +16,7 @@ const UImage: FC<IImage> = ({ source, width, height, ...rest }) => {
 					width,
 					height
 				},
-				rest.style
+		style
 			]}
 			{...rest}
 		/>

@@ -29,8 +29,6 @@ const Home = () => {
 			/>
 			
 			<Banner songs={chart.songs.slice(0, 3)} />
-
-
 			<UFlatList
 				data={genre}
 				horizontal

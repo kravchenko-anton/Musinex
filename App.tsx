@@ -25,6 +25,8 @@ export default function App() {
 				refetchOnMount: false,
 				refetchOnReconnect: false,
 				cacheTime: 1000 * 60 * 60 * 24,
+				networkMode: 'offlineFirst',
+				
 			}
 		}
 	})

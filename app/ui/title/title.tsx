@@ -27,6 +27,7 @@ const Title = <T extends boolean>({
 	size = 20,
 	translate,
 	center = false,
+	style,
 	...rest
 }:ITitle<T>) => {
 	let [fontsLoaded] = useFonts({
@@ -48,7 +49,6 @@ const Title = <T extends boolean>({
 	}
 	return (
 		<Text
-			onPress={rest.onPress}
 			style={[
 				{
 					fontFamily: fontFamily,
@@ -60,11 +60,11 @@ const Title = <T extends boolean>({
 						? getHexCode('dark')
 						: getHexCode('white')
 				},
-				rest.style
+			style
 			]}
 			numberOfLines={numberOfLines}
-			{...(!rest.style && rest)}
-		>
+			{...rest}
+			>
 			{translate ? t(children.toString()) : children}
 		</Text>
 	)

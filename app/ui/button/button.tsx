@@ -1,11 +1,11 @@
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
-import { FC, PropsWithChildren } from 'react'
-import { Pressable, View, ViewStyle } from 'react-native'
+import { FC } from 'react'
+import { Pressable, View, ViewProps } from 'react-native'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
 
-const Button: FC<PropsWithChildren<IButton>> = ({
+const Button: FC<IButton> = ({
 	translate = false,
 	size = 'small',
 	variant = 'light',
@@ -13,11 +13,11 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 	iconSize = 20,
 	center = false,
 	textSize,
+	style,
 	...props
 }) => {
 	return (
 		<Pressable
-			onPress={props.onPress}
 			style={[
 				{
 					backgroundColor:
@@ -28,13 +28,11 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 					padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
 					width: props.width || '100%'
 				},
-				props.style as ViewStyle
+				style as ViewProps['style']
 			]}
-			{...(!props.style && props)}
+			{...props}
 		>
-			{!!(props.children && !(props.icon && props.text)) ? (
-				props.children
-			) : (
+	
 				<View
 					style={{
 						flexDirection: 'row',
@@ -87,7 +85,6 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 						/>
 					)}
 				</View>
-			)}
 		</Pressable>
 	)
 }

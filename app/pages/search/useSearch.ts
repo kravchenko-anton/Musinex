@@ -8,7 +8,7 @@ export const useSearch = () => {
 		['search', debouncedSearch],
 		() => searchServices.getSearchResult(debouncedSearch),
 		{
-			enabled: !!debouncedSearch
+			enabled: !!debouncedSearch && debouncedSearch.length > 2
 		}
 	)
 	return { searchResult, isLoading, control, searchTerm }

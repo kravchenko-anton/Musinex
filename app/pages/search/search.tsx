@@ -29,11 +29,11 @@ const Search = () => {
 				name={'searchTerm'}
 				placeholder={'Type anything'}
 			/>
-			{searchTerm &&
+			{searchTerm && searchTerm.length > 2 &&
 			!isLoading &&
 			loading ? (
 				<FlatList404 width={WindowWidth} height={WindowHeight * 0.3} />
-			) : searchTerm && isLoading ? null : !searchTerm ||
+			) : searchTerm && searchTerm.length > 2 && isLoading ? null : !searchTerm ||
 			  !searchResult || loading ? (
 				<GenreList genre={genre} />
 			) : (

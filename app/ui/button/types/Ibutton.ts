@@ -10,6 +10,6 @@ export interface IButton extends UPressableProps {
 	center?: boolean
 	icon?: keyof typeof Ionicons.glyphMap
 	borderRadius?: number
-	variant?: 'primary' | 'light'
+	variant?: 'primary' | 'default'
 	translate?: boolean
 }

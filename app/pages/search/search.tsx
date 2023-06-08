@@ -82,7 +82,7 @@ const Search = () => {
 								<MusicCart
 									image={{
 										url: item.coverMedium,
-										width: WindowWidth / 2 - 13,
+										width: WindowWidth / 2 - 17,
 										height: 200
 									}}
 									name={item.title}
@@ -108,7 +108,7 @@ const Search = () => {
 								<MusicCart
 									image={{
 										url: item.coverMedium,
-										width: WindowWidth / 2 - 13,
+										width: WindowWidth / 2 - 17,
 										height: 200
 									}}
 									name={item.title}
@@ -122,7 +122,7 @@ const Search = () => {
 								<MusicCart
 									image={{
 										url: item.coverMedium,
-										width: WindowWidth / 2 - 13,
+										width: WindowWidth / 2 - 17,
 										height: 200
 									}}
 									name={item.title}
@@ -153,12 +153,12 @@ const Search = () => {
 						data.length ? (
 							<View
 								className='justify-between flex-row items-center my-4'
-								style={{ width: WindowWidth - 20 }}
+								style={{ width: WindowWidth - 25}}
 							>
 								<Title className='text-2xl' fontFamily='Montserrat_700Bold'>
 									{title}
 								</Title>
-								<Button size='small' translate text='More' />
+								<Button size='small' width={100} translate text='More' />
 							</View>
 						) : null
 					}

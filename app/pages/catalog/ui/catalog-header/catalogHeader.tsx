@@ -1,4 +1,5 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/useHeaderAnimation'
 import { ICatalogTypes, IHeartProps } from '@/types/catalogTypes'
 import BlurIcon from '@/ui/blur-button/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
@@ -9,7 +10,6 @@ import { useColorScheme } from 'nativewind'
 import React, { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { inputRange } from '../../catalogConstant'
 
 interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
 	title: string
@@ -17,12 +17,12 @@ interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
 	rightIconFunction?: () => void
 }
 
-const CatalogHeader: FC<ICatalogHeaderProps> = props => {
+const CatalogHeader: FC<ICatalogHeaderProps> = ({y, ...props}) => {
 	const { goBack } = useTypedNavigation()
 	const { top } = useSafeAreaInsets()
 	const { width } = useWindowDimensions()
 	const { colorScheme } = useColorScheme()
-	console.log(props.id, props.type)
+	const {opacity} = useHeaderAnimation(y)
 	return (
 		<View
 			className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4'
@@ -36,10 +36,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 				style={[
 					{
 						...StyleSheet.absoluteFillObject,
-						opacity: props.y.interpolate({
-							inputRange,
-							outputRange: [0, 0, 1.8]
-						}),
+						opacity,
 						backgroundColor:
 							colorScheme === 'light'
 								? getHexCode('white')
@@ -51,12 +48,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = props => {
 
 			<Animated.View
 				className='items-center w-2/3'
-				style={{
-					opacity: props.y.interpolate({
-						inputRange,
-						outputRange: [0, 0, 1.6]
-					})
-				}}
+				style={{ opacity }}
 			>
 				<Title numberOfLines={1} fontFamily={'Montserrat_500Medium'} center>
 					{props.title}

@@ -31,7 +31,7 @@ const Field = <T extends Record<string, any>>({
 					<View
 						style={{
 							borderWidth: error ? 1 : 0,
-							borderColor: '# ff0000',
+							borderColor: getHexCode('red'),
 							backgroundColor: getHexCode('lightBlack')
 						}}
 						className={'w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}

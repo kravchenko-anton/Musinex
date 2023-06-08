@@ -1,3 +1,4 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import Banner from '@/pages/home/ui/banner'
 import GenreItem from '@/pages/home/ui/genreItem'
 import { genreServices } from '@/services/genreServices'
@@ -12,6 +13,7 @@ import { useQuery } from '@tanstack/react-query'
 const Home = () => {
 	const { data: chart } = useQuery(['chart'], searchServices.getCatalogue)
 	const { data: genre } = useQuery(['genre'], genreServices.getAll)
+	const {navigate} = useTypedNavigation()
 	if (!chart || !genre) return <FullScreenLoader />
 	return (
 		<ScrollLayout>
@@ -22,7 +24,7 @@ const Home = () => {
 				}}
 				firstIcon={{
 					name: 'search',
-					onPress: () => console.log('search')
+					onPress: () => navigate('Search')
 				}}
 			/>
 			<Banner songs={chart.songs.slice(0, 3)} />
@@ -113,6 +115,7 @@ const Home = () => {
 							image={{
 								url: item.coverMedium,
 								width: 150,
+								border: 10,
 								height: 150
 							}}
 							name={item.title}

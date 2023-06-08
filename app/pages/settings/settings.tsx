@@ -1,4 +1,5 @@
 import { useAction } from '@/hook/useAction'
+import Button from '@/ui/button/button'
 import Header from '@/ui/header/header'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
@@ -11,7 +12,7 @@ import DropDownPicker from 'react-native-dropdown-picker'
 
 const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()
-	const {setTheme} = useAction()
+	const {setTheme,logout} = useAction()
 	const lottieRef = React.useRef<any>()
 	const [DropDownOpen, setDropDownOpen] = useState(false)
 	const [DropDownValue, setDropDownValue] = useState(i18n.language)
@@ -63,6 +64,7 @@ const Settings = () => {
 					setValue={setDropDownValue}
 				/>
 			</View>
+			<Button borderRadius={4} onPress={() => logout()} size={'medium'} text={'Logout'} width={200} className='mt-4 justify-center items-center self-center'  />
 		</Layout>
 	)
 }

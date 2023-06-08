@@ -15,13 +15,16 @@ const MusicCart: FC<IFlatListItem> = ({
 			className={props.WrapClassNames}
 			style={{
 				width: props.image.width,
-				maxWidth: props.image.width
+				maxWidth: props.image.width,
 			}}
 			{...props}
 		>
 			<UImage
 				className={props.ImageClassNames}
 				source={props.image.url}
+				style={{
+					borderRadius: props.image.border || 0
+				}}
 				height={props.image.height}
 				width={props.image.width}
 			/>

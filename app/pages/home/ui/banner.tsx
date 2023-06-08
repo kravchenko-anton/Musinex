@@ -2,6 +2,7 @@ import Ball from '@/pages/home/ui/ball'
 import { ISong } from '@/services/types/global'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
+import { getHexCode } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC } from 'react'
 import { View } from 'react-native'
@@ -35,7 +36,7 @@ const Banner: FC<IBanner> = ({ songs }) => {
 								height={100}
 								style={{
 									borderWidth: 2,
-									borderColor: 'white',
+									borderColor: getHexCode('white'),
 									zIndex: 5 + index
 								}}
 								className='rounded-xl rotate-12'

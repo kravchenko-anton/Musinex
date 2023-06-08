@@ -1,7 +1,7 @@
 import { deleteTokensStorage, saveTokensStorage } from '@/redux/auth/authHelper'
 import { IAuthFields } from '@/types/auth/authTypes'
 import { errorToast } from '@/ui/toast/errorToast'
-import { SERVER_URL } from '@/utils/apiConfig'
+import { getAuthUrl, SERVER_URL } from '@/utils/apiConfig'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
@@ -10,8 +10,9 @@ export const register = createAsyncThunk<any, IAuthFields>(
 	async ({ email, password }, thunkAPI) => {
 		try {
 			const register = await axios
-				.post(SERVER_URL + '/auth/register', { email, password })
+				.post(SERVER_URL + getAuthUrl('/register'), { email, password })
 				.then(res => res.data)
+			console.log(register.access_token, register.refresh_token)
 			await saveTokensStorage({
 				access_token: register.access_token,
 				refresh_token: register.refresh_token
@@ -29,7 +30,7 @@ export const login = createAsyncThunk<any, IAuthFields>(
 	async ({ email, password }, thunkAPI) => {
 		try {
 			const login = await axios
-				.post(SERVER_URL + '/auth/login', { email, password })
+				.post(SERVER_URL + getAuthUrl('/login'), { email, password })
 				.then(res => res.data)
 			await saveTokensStorage({
 				access_token: login.access_token,
@@ -48,7 +49,7 @@ export const getNewToken = createAsyncThunk<any, string>(
 	async (refresh_token, thunkAPI) => {
 		try {
 			const tokens = await axios
-				.post(SERVER_URL + '/auth/access-token', { refresh_token })
+				.post(SERVER_URL + getAuthUrl('/access-token'), { refresh_token })
 				.then(res => res.data)
 			await saveTokensStorage({
 				access_token: tokens.access_token,

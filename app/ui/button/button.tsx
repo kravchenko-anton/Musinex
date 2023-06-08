@@ -46,8 +46,7 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 					}}
 				>
 					<Title
-						color={
-							variant === 'primary' ? getHexCode('white') : getHexCode('white')
+						color={'white'
 						}
 						translate={ translate ? translate : false}
 						fontFamily={'Montserrat_700Bold'}

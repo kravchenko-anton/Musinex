@@ -1,6 +1,7 @@
 import { deleteTokensStorage, getAccessToken } from '@/redux/auth/authHelper'
 import { errorCatch } from '@/services/api/errorApi'
 import { getNewTokens } from '@/services/api/helperAuth'
+import { errorToast } from '@/ui/toast/errorToast'
 import { SERVER_URL } from '@/utils/apiConfig'
 import axios from 'axios'
 
@@ -37,7 +38,8 @@ instance.interceptors.response.use(
 				await getNewTokens()
 				return instance.request(originalRequest)
 			} catch (error) {
-				if (errorCatch(error) === 'jwt expired') await deleteTokensStorage()
+		await deleteTokensStorage()
+				errorToast(errorCatch(error))
 			}
 		}
 

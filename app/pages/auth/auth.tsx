@@ -42,6 +42,7 @@ const Auth = () => {
 				/>
 				<View className='w-full'>
 					<Title
+						translate
 						className='text-center mb-4'
 						size={24}
 						fontFamily={'Montserrat_900Black'}
@@ -92,6 +93,7 @@ const Auth = () => {
 						<Title
 							className='mt-4'
 							size={16}
+							translate
 							onPress={() => setType(type === 'Login' ? 'Register' : 'Login')}
 						>
 							{type === 'Login'

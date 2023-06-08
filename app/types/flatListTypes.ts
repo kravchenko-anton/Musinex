@@ -6,6 +6,7 @@ export interface IFlatListItem extends UPressableProps {
 		url: string
 		width: number
 		height: number
+		border?: number
 	}
 	ImageClassNames?: string
 	WrapClassNames?: string

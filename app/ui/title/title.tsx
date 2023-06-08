@@ -14,7 +14,7 @@ import {
 	useFonts
 } from '@expo-google-fonts/montserrat'
 import { useColorScheme } from 'nativewind'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'react-native'
 import { ITitle } from './types/Ititle'

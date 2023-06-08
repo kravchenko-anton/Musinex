@@ -4,17 +4,19 @@ import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'
-import { FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 
 interface IBanner {
 	songs: ISong[]
+	colors?: string[]
 }
-const Banner: FC<IBanner> = ({ songs }) => {
+const Banner: FC<PropsWithChildren<IBanner>>
+	= ({ songs,colors = ['#5BC397', '#46BB8A', '#2DA270'], children }) => {
 	return (
 		<View className='h-[200px] overflow-hidden w-full bg-primary rounded-3xl mt-8'>
 			<LinearGradient
-				colors={['#5BC397', '#46BB8A', '#2DA270']}
+				colors={colors}
 				className='flex-1 items-center'
 			>
 				<Title
@@ -46,6 +48,8 @@ const Banner: FC<IBanner> = ({ songs }) => {
 					})}
 				</View>
 			</LinearGradient>
+			{children ||
+				<View className='h-full w-full absolute'>
 			<Ball
 				wrapperStyle={{
 					left: -100,
@@ -61,6 +65,8 @@ const Banner: FC<IBanner> = ({ songs }) => {
 				height={150}
 				gradient={[1, 0.2, 0, 0.4]}
 			/>
+				</View>
+			}
 		</View>
 	)
 }

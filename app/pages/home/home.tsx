@@ -27,7 +27,9 @@ const Home = () => {
 					onPress: () => navigate('Search')
 				}}
 			/>
+			
 			<Banner songs={chart.songs.slice(0, 3)} />
+
 
 			<UFlatList
 				data={genre}

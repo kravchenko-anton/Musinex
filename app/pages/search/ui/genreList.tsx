@@ -1,0 +1,40 @@
+import { IGenre } from '@/services/types/IGenreServices'
+import UFlatList from '@/ui/flatList/uFlatList'
+import UImage from '@/ui/image/image'
+import Title from '@/ui/title/title'
+import { FC } from 'react'
+import { View } from 'react-native'
+
+const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
+	return <View className='justify-between w-full max-w-full items-center flex-row'>
+		<UFlatList
+			contentContainerStyle={{
+				paddingBottom: 130
+			}}
+			data={genre}
+			numColumns={2}
+			renderItem={({ item }) => (
+				<View
+					className='w-[49%] h-[100px] m-1 rounded-xl p-3 relative overflow-hidden'
+					style={{ backgroundColor: item.color }}
+				>
+					<Title
+						className='mb-3'
+						size={18}
+						fontFamily='Montserrat_700Bold'
+					>
+						{item.name}
+					</Title>
+					<UImage
+						source={item.songs[0].coverMedium}
+						width={70}
+						height={70}
+						className='absolute right-[-10] bottom-[-10] rounded-full'
+					/>
+				</View>
+			)}
+		/>
+	</View>
+}
+
+export default GenreList

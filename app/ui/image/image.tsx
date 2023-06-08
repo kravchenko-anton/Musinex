@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react'
+import { FC, memo } from 'react'
 import { Image } from 'react-native'
 import { IImage } from './types/IImage'
 

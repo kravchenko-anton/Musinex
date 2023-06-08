@@ -1,5 +1,4 @@
 import { ITranslateTypes } from '@/types/global'
-import React from 'react'
 import { FlatList, FlatListProps, ListRenderItem, View } from 'react-native'
 import Title from '../title/title'
 
@@ -39,6 +38,14 @@ const UFlatList = <T,>({
 			) : null}
 			<FlatList
 				bounces={false}
+				columnWrapperStyle={rest.numColumns === 2 ? [{
+					justifyContent: 'space-between',
+					width: '100%',
+					}, rest.columnWrapperStyle] : rest.columnWrapperStyle}
+				
+				contentContainerStyle={!rest.horizontal ? [{
+					paddingBottom: 130,
+				}, rest.contentContainerStyle] : rest.contentContainerStyle}
 				renderToHardwareTextureAndroid={true}
 				removeClippedSubviews={true}
 				showsHorizontalScrollIndicator={false}

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import Heart from '../../icon/heart/heart'
 import UImage from '../../image/image'

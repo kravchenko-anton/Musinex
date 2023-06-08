@@ -1,5 +1,5 @@
 import { IFlatListItem } from '@/types/flatListTypes'
-import React, { FC, memo } from 'react'
+import { FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Pressable, View } from 'react-native'
 import UImage from '../../image/image'
@@ -15,7 +15,7 @@ const MusicCart: FC<IFlatListItem> = ({
 		<Pressable
 			className={WrapClassNames}
 			style={{
-				width: props.image.width,
+				width: props.wrapperWidth || props.image.width,
 				maxWidth: props.image.width,
 			}}
 			{...props}

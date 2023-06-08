@@ -1,5 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import TrackPlayer, { RepeatMode } from 'react-native-track-player'
 
 const RepeatIcon = () => {

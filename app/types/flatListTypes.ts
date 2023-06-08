@@ -4,10 +4,11 @@ export interface IFlatListItem extends UPressableProps {
 	name: string
 	image: {
 		url: string
-		width: number
+		width: number 
 		height: number
 		border?: number
 	}
+	wrapperWidth?: number | string
 	ImageClassNames?: string
 	WrapClassNames?: string
 	textCenter?: boolean

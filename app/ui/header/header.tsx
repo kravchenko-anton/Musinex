@@ -1,6 +1,6 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import Icon from '@/ui/icon/defaultIcon/Icon'
-import React, { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import Title from '../title/title'
 import { IHeader } from './types/IHeader'

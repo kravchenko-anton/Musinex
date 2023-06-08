@@ -1,18 +1,19 @@
 import { useAction } from '@/hook/useAction'
+import Button from '@/ui/button/button'
 import Header from '@/ui/header/header'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
 import i18n from 'i18next'
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Pressable, View } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker'
 
 const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()
-	const {setTheme} = useAction()
-	const lottieRef = React.useRef<any>()
+	const {setTheme,logout} = useAction()
+	const lottieRef = useRef<any>()
 	const [DropDownOpen, setDropDownOpen] = useState(false)
 	const [DropDownValue, setDropDownValue] = useState(i18n.language)
 	useEffect(() => {
@@ -63,6 +64,7 @@ const Settings = () => {
 					setValue={setDropDownValue}
 				/>
 			</View>
+			<Button borderRadius={4} onPress={() => logout()} size={'medium'} text={'Logout'} width={200} className='mt-4 justify-center items-center self-center'  />
 		</Layout>
 	)
 }

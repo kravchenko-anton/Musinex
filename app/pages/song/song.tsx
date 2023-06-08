@@ -10,12 +10,8 @@ import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { StatusBar } from 'expo-status-bar'
-import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import TrackPlayer, {
-	useActiveTrack,
-	usePlaybackState
-} from 'react-native-track-player'
+import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
 	const selector = useTypedSelector(state => state.player)

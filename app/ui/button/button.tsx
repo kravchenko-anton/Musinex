@@ -1,6 +1,6 @@
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
-import React, { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import { Pressable, View, ViewStyle } from 'react-native'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
@@ -46,10 +46,9 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 					}}
 				>
 					<Title
-						color={'white'
-						}
+						color={'white'}
 						translate={ translate ? translate : false}
-						fontFamily={'Montserrat_700Bold'}
+						fontFamily={'Montserrat_600SemiBold'}
 						size={
 							textSize
 								? textSize
@@ -59,6 +58,10 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 								? 18
 								: 20
 						}
+					style={{
+						textTransform: props.uppercase ? 'uppercase' : 'none',
+						letterSpacing: props.uppercase ? 1.4 : 1
+					}}
 					>
 						{props.text}
 					</Title>

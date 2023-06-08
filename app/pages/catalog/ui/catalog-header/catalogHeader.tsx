@@ -7,7 +7,7 @@ import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons'
 import { useColorScheme } from 'nativewind'
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 

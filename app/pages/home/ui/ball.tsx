@@ -40,7 +40,7 @@ const Ball: FC<BallProps> = ({
 				}
 			>
 				<LinearGradient
-					colors={colors ? colors : ['#2DA270', '#5BC397', 'transparent']}
+					colors={colors}
 					start={[gradient[0], gradient[1]]}
 					end={[gradient[2], gradient[3]]}
 					style={{

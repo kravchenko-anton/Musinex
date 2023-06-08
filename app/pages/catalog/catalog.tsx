@@ -3,7 +3,7 @@ import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBack
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import Layout from '@/ui/layout/layout'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Animated } from 'react-native'
 
 const Catalog = () => {

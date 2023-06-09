@@ -1,7 +1,7 @@
 import { Animated } from 'react-native'
 
 export interface ICatalogList {
-	id: number | string
+	id: number
 	title: string
 	image: string
 	artist: string
@@ -15,6 +15,6 @@ export interface ICatalogTypes {
 export type ICatalogRenderTypes = 'songs' | 'albums' | 'playlists' | 'artists'
 
 export interface IHeartProps {
-	id: number | string
+	id: number
 	type: ICatalogRenderTypes
 }

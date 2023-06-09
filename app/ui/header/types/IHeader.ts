@@ -1,8 +1,7 @@
-import { UViewProps } from '@/types/global'
-import { Ionicons } from '@expo/vector-icons'
+import { IconType, UViewProps } from '@/types/global'
 
 export type IHeaderIcon = {
-	name: keyof typeof Ionicons.glyphMap
+	name: IconType
 	onPress: () => void
 }
 

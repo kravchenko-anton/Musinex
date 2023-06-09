@@ -19,7 +19,7 @@ const SearchList:FC<{searchResult:ISearchResult}> = ({searchResult}) => {
 						height: 180,
 						border: 10
 					}}
-					WrapClassNames={'mb-4'}
+					wrapClassNames={'mb-4'}
 					name={item.title}
 				/>
 			} numColumns={2}  className='mx-2' />
@@ -36,7 +36,7 @@ const SearchList:FC<{searchResult:ISearchResult}> = ({searchResult}) => {
 							           width:  190,
 							           height: 190
 						           }}
-						           WrapClassNames={'mb-4'}
+						           wrapClassNames={'mb-4'}
 						           name={item.title}
 					           />
 				           } numColumns={2}  />
@@ -65,7 +65,7 @@ const SearchList:FC<{searchResult:ISearchResult}> = ({searchResult}) => {
 						                               width:  190,
 						                               height: 190
 					                               }}
-					                               WrapClassNames={'mb-4'}
+					                               wrapClassNames={'mb-4'}
 					                               name={item.title}
 				                               />
 			                               } numColumns={2}  />

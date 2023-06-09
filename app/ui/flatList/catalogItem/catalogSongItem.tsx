@@ -5,7 +5,7 @@ import UImage from '../../image/image'
 import Title from '../../title/title'
 
 export interface ISongItem {
-	id: number | string
+	id: number
 	title: string
 	image: string
 	artist: string

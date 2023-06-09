@@ -1,4 +1,4 @@
-import { UPressableProps } from '@/types/global'
+import { IconType, UPressableProps } from '@/types/global'
 import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons'
 import { useColorScheme } from 'nativewind'
@@ -7,7 +7,7 @@ import { Pressable } from 'react-native'
 import { theme } from '../../../../tailwind.config'
 
 interface IconProps extends UPressableProps {
-	name: keyof typeof Ionicons.glyphMap
+	name: IconType
 	color?: keyof typeof theme.colors
 	size?: number
 	border?: boolean
@@ -24,7 +24,7 @@ const UIcon: FC<IconProps> = ({
 	backgroundColor = 'transparent',
 	borderRadius = 16,
 	padding = 8,
-	...rest
+	...props
 }) => {
 	const { colorScheme } = useColorScheme()
 	return (
@@ -42,7 +42,7 @@ const UIcon: FC<IconProps> = ({
 				backgroundColor: backgroundColor,
 				borderRadius: borderRadius
 			}}
-			{...rest}
+			{...props}
 		>
 			<Ionicons
 				name={name}

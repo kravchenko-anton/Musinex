@@ -1,3 +1,4 @@
+import ThemeProvider from '@/providers/themeProvider'
 import { persistor, store } from '@/redux/store'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Toast from '@/ui/toast/Toast'
@@ -13,11 +14,9 @@ import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-c
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from './app/navigation/navigation'
-import ThemeProvider from './app/providers/themeProvider'
 
 export default function App() {
 	const { colorScheme } = useColorScheme()
-	
 	LogBox.ignoreAllLogs()
 	const queryClient = new QueryClient({
 		defaultOptions: {

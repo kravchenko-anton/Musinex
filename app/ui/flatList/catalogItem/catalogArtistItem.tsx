@@ -5,7 +5,7 @@ import UImage from '../../image/image'
 import Title from '../../title/title'
 
 export interface ICatalogArtistsItem extends Omit<PressableProps, 'id'> {
-	id: number | string
+	id: number
 	name: string
 	image: string
 	imageWidth?: number
@@ -18,12 +18,12 @@ const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
 	name,
 	imageWidth = 80,
 	textSize = 20,
-	...rest
+	...props
 }) => {
 	return (
 		<Pressable
 			className='flex-row items-center mb-3 w-full justify-between'
-			{...rest}
+			{...props}
 		>
 			<View className={'flex-row items-center'}>
 				<UImage

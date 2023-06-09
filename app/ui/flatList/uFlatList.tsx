@@ -17,15 +17,14 @@ interface IFlatList<T>
 
 const UFlatList = <T,>({
 	data,
-	renderItem,
 	headerNavigate,
 	wrapClassNames,
 	headerText,
 	mt = 0,
 	style,
-	...rest
+	...props
 }: IFlatList<T>) => {
-	if (data.length && data.length === 0 && !rest.ListEmptyComponent) return null
+	if (data.length && data.length === 0 && !props.ListEmptyComponent) return null
 	return (
 		<View className={wrapClassNames} style={{ marginTop: mt }}>
 			{headerText && data.length !== 0 ? (
@@ -40,26 +39,24 @@ const UFlatList = <T,>({
 			) : null}
 			<FlatList
 				bounces={false}
-				columnWrapperStyle={rest.numColumns === 2 ? [{
+				columnWrapperStyle={props.numColumns === 2 ? [{
 					justifyContent: 'space-between',
 					width: '100%',
-					}, rest.columnWrapperStyle] : rest.columnWrapperStyle}
+					}, props.columnWrapperStyle] : props.columnWrapperStyle}
 					style={[{
-						height: rest.fixBottom ? '93%' : 'auto',
+						height: props.fixBottom ? '93%' : 'auto',
 					},
 						style]}
-				contentContainerStyle={!rest.horizontal ? [{
+				contentContainerStyle={!props.horizontal ? [{
 					paddingBottom: 130,
-				}, rest.contentContainerStyle] : rest.contentContainerStyle}
+				}, props.contentContainerStyle] : props.contentContainerStyle}
 				renderToHardwareTextureAndroid={true}
 				removeClippedSubviews={true}
 				showsHorizontalScrollIndicator={false}
 				showsVerticalScrollIndicator={false}
 				decelerationRate={'fast'}
-				horizontal={rest.horizontal}
 				data={data}
-				renderItem={renderItem}
-				{...rest}
+				{...props}
 			/>
 		</View>
 	)

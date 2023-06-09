@@ -101,7 +101,7 @@ const Song = () => {
 						</Title>
 					</View>
 					<Heart
-						id={trackInfo?.id as string}
+						id={trackInfo?.id}
 						type={'songs'}
 						resizeMode={'contain'}
 						autoSize

@@ -1,10 +1,9 @@
-import { UPressableProps, UViewProps } from '@/types/global'
-import { Ionicons } from '@expo/vector-icons'
+import { IconType, UPressableProps, UViewProps } from '@/types/global'
 
 export interface IblurButton
 	extends UViewProps,
 		Pick<UPressableProps, 'onPress'> {
-	icon?: keyof typeof Ionicons.glyphMap
+	icon?: IconType
 	iconSize?: number
 	color?: string
 	isSmall?: boolean

@@ -8,7 +8,7 @@ interface IHeart extends Omit<AnimatedLottieViewProps, 'source'>, IHeartProps {
 	size?: number
 }
 
-const Heart: FC<IHeart> = ({ size = 70, type, id,style, ...rest }) => {
+const Heart: FC<IHeart> = ({ size = 70, type, id,style, ...props }) => {
 	const heart = useHeart({ id, type })
 	let lottieRef = useRef<any>(null).current
 	const isFirstRun = useRef(true)
@@ -45,7 +45,7 @@ const Heart: FC<IHeart> = ({ size = 70, type, id,style, ...rest }) => {
 					height: size
 				}}
 				source={require('../../../assets/heart.json')}
-				{...rest}
+				{...props}
 			/>
 		</Pressable>
 	)

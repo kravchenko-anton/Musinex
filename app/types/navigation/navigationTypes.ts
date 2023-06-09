@@ -11,17 +11,17 @@ export type TypeRootStackParamList = {
 		headerText: string
 		data: ICatalogList[]
 		headerDescription?: string
-		id: number | string
+		id: number
 		type: ICatalogRenderTypes
 	}
 	ArtistWrapperCatalog: {
-		artistId: number | string
+		artistId: number
 	}
 	AlbumWrapperCatalog: {
-		albumId: number | string
+		albumId: number
 	}
 	PlayListWrapperCatalog: {
-		playListId: number | string
+		playListId: number
 	}
 	favorites: undefined
 	Song: undefined

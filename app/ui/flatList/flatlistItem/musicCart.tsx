@@ -6,12 +6,12 @@ import Title from '../../title/title'
 
 const MusicCart: FC<IFlatListItem> = ({
 	textCenter = false,
-	WrapClassNames	= 'mr-3',
+	wrapClassNames	= 'mr-3',
 	...props
 }) => {
 	return (
 		<Pressable
-			className={WrapClassNames}
+			className={wrapClassNames}
 			style={{
 				width: props.wrapperWidth || props.image.width,
 				maxWidth: props.image.width,
@@ -19,7 +19,7 @@ const MusicCart: FC<IFlatListItem> = ({
 			{...props}
 		>
 			<UImage
-				className={props.ImageClassNames}
+				className={props.imageClassNames}
 				source={props.image.url}
 				borderRadius={props.image.border || 0}
 				height={props.image.height}

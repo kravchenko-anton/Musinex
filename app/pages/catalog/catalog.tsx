@@ -25,7 +25,7 @@ const Catalog = () => {
 				type={params.type}
 				description={params.headerDescription}
 				headerTitle={params.headerText}
-				DataList={params.data}
+				dataList={params.data}
 				y={y}
 			/>
 		</Layout>

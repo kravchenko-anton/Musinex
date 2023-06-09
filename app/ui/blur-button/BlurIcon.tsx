@@ -11,7 +11,8 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> = ({
 	iconSize = 21,
 	isSmall = false,
 	icon,
-	...rest
+	onPress,
+	...props
 }) => {
 	const { colorScheme } = useColorScheme()
 	return (
@@ -24,13 +25,13 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> = ({
 				height: isSmall ? 15 : 40,
 				borderRadius: isSmall ? 4 : 8
 			}}
-			{...(!rest.onPress && rest)}
+			{...props}
 		>
 			{children || !icon ? (
 				children
 			) : (
 				<UIcon
-					onPress={rest.onPress}
+					onPress={onPress}
 					name={icon}
 					size={iconSize}
 					color={

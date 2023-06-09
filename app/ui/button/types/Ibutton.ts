@@ -1,5 +1,4 @@
-import { ITranslateTypes, UPressableProps } from '@/types/global'
-import { Ionicons } from '@expo/vector-icons'
+import { IconType, ITranslateTypes, UPressableProps } from '@/types/global'
 
 export interface IButton extends UPressableProps {
 	size: 'small' | 'medium' | 'large'
@@ -8,7 +7,7 @@ export interface IButton extends UPressableProps {
 	textSize?: number
 	iconSize?: number
 	center?: boolean
-	icon?: keyof typeof Ionicons.glyphMap
+	icon?: IconType
 	borderRadius?: number
 	variant?: 'primary' | 'default'
 	translate?: boolean

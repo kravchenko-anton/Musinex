@@ -12,7 +12,6 @@ const Button: FC<IButton> = ({
 	borderRadius = 10,
 	iconSize = 20,
 	center = false,
-	textSize,
 	style,
 	...props
 }) => {
@@ -48,8 +47,8 @@ const Button: FC<IButton> = ({
 						translate={ translate ? translate : false}
 						fontFamily={'Montserrat_600SemiBold'}
 						size={
-							textSize
-								? textSize
+							props.textSize
+								? props.textSize
 								: size === 'small'
 								? 15
 								: size === 'medium'

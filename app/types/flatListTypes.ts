@@ -9,8 +9,8 @@ export interface IFlatListItem extends UPressableProps {
 		border?: number
 	}
 	wrapperWidth?: number | string
-	ImageClassNames?: string
-	WrapClassNames?: string
+	imageClassNames?: string
+	wrapClassNames?: string
 	textCenter?: boolean
 	artists?: string
 }

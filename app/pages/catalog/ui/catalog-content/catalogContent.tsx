@@ -18,7 +18,7 @@ import { HEADER_HEIGHT } from '../../catalogConstant'
 import CatalogContentHeader from './catalogContentHeader'
 
 interface ICatalogContent extends ICatalogTypes, IHeartProps {
-	DataList: ICatalogList[]
+	dataList: ICatalogList[]
 	headerTitle: string
 	description?: string
 }
@@ -27,7 +27,7 @@ const CatalogContent: FC<ICatalogContent> = ({
 	y,
 	description,
 	type,
-	DataList,
+	dataList,
 	headerTitle
 }) => {
 	const { t } = useTranslation()
@@ -36,7 +36,7 @@ const CatalogContent: FC<ICatalogContent> = ({
 	const {addToPlayer} = useAction()
 	const { navigate } = useTypedNavigation()
 	const { colorScheme } = useColorScheme()
-	if (!DataList) return <FullScreenLoader />
+	if (!dataList) return <FullScreenLoader />
 	return (
 		<Animated.ScrollView
 			ref={ref}
@@ -60,8 +60,8 @@ const CatalogContent: FC<ICatalogContent> = ({
 					description
 						? description
 						: t('by') +
-						  DataList[0].artist +
-						  (DataList.some(item => item.artist !== DataList[0].artist)
+						  dataList[0].artist +
+						  (dataList.some(item => item.artist !== dataList[0].artist)
 								? t('and other')
 								: '')
 				}
@@ -92,12 +92,12 @@ const CatalogContent: FC<ICatalogContent> = ({
 				className='pt-1 px-3 pb-5 w-full flex-1'
 			>
 				<UFlatList
-					extraData={DataList}
+					extraData={dataList}
 					maxToRenderPerBatch={10}
 					initialNumToRender={10}
 					scrollEnabled={false}
 					numColumns={type === 'playlists' || type === 'albums' ? 2 : 1}
-					data={DataList}
+					data={dataList}
 					renderItem={({ item, index }) => {
 						if (type === 'songs') {
 							return (
@@ -108,7 +108,7 @@ const CatalogContent: FC<ICatalogContent> = ({
 									artist={item.artist}
 									playFunc={() => {
 											addToPlayer({
-												data: DataList.map(track => {
+												data: dataList.map(track => {
 													return {
 														id: track.id,
 														title: track.title,

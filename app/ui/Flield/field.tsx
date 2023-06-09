@@ -7,11 +7,8 @@ import Title from '../title/title'
 import { IField } from './types/Ifiled'
 
 const Field = <T extends Record<string, any>>({
-	control,
-	rules,
-	name,
 	placeholder,
-	...rest
+	...props
 }: IField<T>): JSX.Element | null => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_700Bold
@@ -20,9 +17,9 @@ const Field = <T extends Record<string, any>>({
 	if (!fontsLoaded) return null
 	return (
 		<Controller
-			control={control}
-			name={name}
-			rules={rules}
+			control={props.control}
+			name={props.name}
+			rules={props.rules}
 			render={({
 				field: { value, onChange, onBlur },
 				fieldState: { error }
@@ -50,7 +47,7 @@ const Field = <T extends Record<string, any>>({
 								fontFamily: 'Montserrat_700Bold'
 							}}
 							placeholder={t(placeholder).toString()}
-							{...rest}
+							{...props}
 						/>
 					</View>
 					{error && (

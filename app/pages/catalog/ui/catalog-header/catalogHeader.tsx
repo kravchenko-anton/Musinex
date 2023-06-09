@@ -1,11 +1,11 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/useHeaderAnimation'
 import { ICatalogTypes, IHeartProps } from '@/types/catalogTypes'
+import { IconType } from '@/types/global'
 import BlurIcon from '@/ui/blur-button/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
-import { Ionicons } from '@expo/vector-icons'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
@@ -13,7 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
 	title: string
-	rightIcon?: keyof typeof Ionicons.glyphMap
+	rightIcon?: IconType
 	rightIconFunction?: () => void
 }
 

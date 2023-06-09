@@ -17,13 +17,11 @@ import { ITitle } from './types/Ititle'
 const Title = <T extends boolean>({
 	children,
 	numberOfLines = 1,
-	color,
 	fontFamily = 'Montserrat_300Light',
 	size = 20,
-	translate,
 	center = false,
 	style,
-	...rest
+	...props
 }:ITitle<T>) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_300Light,
@@ -35,7 +33,7 @@ const Title = <T extends boolean>({
 	const { t } = useTranslation()
 	const { colorScheme } = useColorScheme()
 	if (!fontsLoaded || !children) return <Skeleton
-		width={children.length	* 10}
+		width={children.length	* 10 }
 	 height={size * numberOfLines} style={style} />
 	return (
 		<Text
@@ -44,8 +42,8 @@ const Title = <T extends boolean>({
 					fontFamily: fontFamily,
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
-					color: color
-						? getHexCode(color)
+					color: props.color
+						? getHexCode(props.color)
 						: colorScheme === 'light'
 						? getHexCode('dark')
 						: getHexCode('white')
@@ -53,9 +51,9 @@ const Title = <T extends boolean>({
 			style
 			]}
 			numberOfLines={numberOfLines}
-			{...rest}
+			{...props}
 			>
-			{translate ? t(children.toString()) : children}
+			{props.translate ? t(children.toString()) : children}
 		</Text>
 	)
 }

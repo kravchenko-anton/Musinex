@@ -9,11 +9,11 @@ const Header: FC<PropsWithChildren<IHeader>> = ({
 	children,
 	firstIcon,
 	secondIcon,
-	...rest
+	...props
 }) => {
 	const { navigate, goBack } = useTypedNavigation()
 	return (
-		<View className='flex-row justify-between items-center' {...rest}>
+		<View className='flex-row justify-between items-center' {...props}>
 			{firstIcon && !children ? (
 				<Icon border name={firstIcon.name} onPress={firstIcon.onPress} />
 			) : (

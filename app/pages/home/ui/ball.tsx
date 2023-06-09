@@ -18,7 +18,7 @@ const Ball: FC<BallProps> = ({
 	width = 200,
 	wrapperStyle = {},
 	style,
-	...rest
+	...props
 }) => {
 	return (
 		<View
@@ -28,7 +28,7 @@ const Ball: FC<BallProps> = ({
 				},
 				wrapperStyle
 			]}
-			{...rest}
+			{...props}
 		>
 			<View
 				style={

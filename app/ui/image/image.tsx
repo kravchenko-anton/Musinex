@@ -3,10 +3,10 @@ import { FC, memo, useState } from 'react'
 import { Image, View } from 'react-native'
 import { IImage } from './types/IImage'
 
-const UImage: FC<IImage> = ({ source, width, height, style, ...rest }) => {
+const UImage: FC<IImage> = ({ source, width = 200, height = 200, style, wrapperClassName, ...props }) => {
 	const [imageLoading, setIsImageLoading] = useState(true);
 	return (
-	<View className={rest.wrapperClassName}>
+	<View className={wrapperClassName}>
 		<Image
 			onLoadEnd={() => {setIsImageLoading(false)}}
 			source={{
@@ -22,9 +22,11 @@ const UImage: FC<IImage> = ({ source, width, height, style, ...rest }) => {
 				},
 				style
 			]}
-			{...rest}
+			{...props}
 		/>
-		{imageLoading && <Skeleton width={width} height={height} style={style}/>}
+		{imageLoading && <Skeleton width={width} height={height} style={[{
+			borderRadius: props.borderRadius,
+		}, style]}/>}
 	</View>
 	)
 }

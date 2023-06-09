@@ -5,12 +5,12 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 const ScrollLayout: FC<PropsWithChildren<IUScrollView>> = ({
 	children,
 	paddingBottom = 80,
-	...rest
+	...props
 }) => {
 	return (
 		<SafeAreaView>
 			<UScrollView
-				className={'p-3'} paddingBottom={paddingBottom} {...rest}>
+				className={'p-3'} paddingBottom={paddingBottom} {...props}>
 				{children}
 			</UScrollView>
 		</SafeAreaView>

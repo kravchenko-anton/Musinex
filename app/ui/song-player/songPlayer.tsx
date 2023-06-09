@@ -5,7 +5,6 @@ import UImage from '@/ui/image/image'
 import { usePlayer } from '@/ui/song-player/usePlayer'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
-import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { Image, Pressable, StyleSheet, View } from 'react-native'
 import TrackPlayer, { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Title from '../title/title'
@@ -30,8 +29,8 @@ const SongPlayer = () => {
 				}}
 				source={{
 					uri: trackInfo.artwork as string,
-					height: WindowHeight * 0.2,
-					width: WindowWidth	* 0.9
+					height: "100%" as any as number,
+					width: "100%" as any as number
 				}}
 				blurRadius={50}
 			/>
@@ -40,13 +39,13 @@ const SongPlayer = () => {
 					<UImage source={trackInfo.artwork as string} width={50} height={50} />
 					<View className='flex flex-col ml-2'>
 						<Title
-							color={getHexCode('white')}
+							color={'white'}
 							className='max-w-[200px]'
 							size={20}
 						>
 							{cutString(trackInfo.title as string, 10)}
 						</Title>
-						<Title color={getHexCode('white')} className='max-w-full' size={16}>
+						<Title color={'white'} className='max-w-full' size={16}>
 							{cutString(trackInfo.artist as string, 10)}
 						</Title>
 					</View>

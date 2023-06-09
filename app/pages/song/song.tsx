@@ -96,7 +96,7 @@ const Song = () => {
 						>
 							{cutString(trackInfo?.title ? trackInfo.title : 'title', 15)}
 						</Title>
-						<Title color={getHexCode('lightGray')} size={18}>
+						<Title color={'lightGray'} size={18}>
 							{cutString(trackInfo?.artist ? trackInfo.artist : 'artist', 20)}
 						</Title>
 					</View>

@@ -5,7 +5,7 @@ import { getGenresUrl } from '@/utils/apiConfig'
 export const genreServices = {
 	async getById(id: number) {
 		return request<IGenre>({
-			url: getGenresUrl(`/${id}`),
+			url: getGenresUrl(`/by-id/${id}`),
 			method: 'GET'
 		})
 	},

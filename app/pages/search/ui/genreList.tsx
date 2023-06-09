@@ -1,17 +1,19 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { IGenre } from '@/services/types/IGenreServices'
 import UFlatList from '@/ui/flatList/uFlatList'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { FC } from 'react'
-import { View } from 'react-native'
+import { Pressable } from 'react-native'
 
 const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
+	const {navigate} = useTypedNavigation()
 	return <UFlatList
 			data={genre}
 			fixBottom
 			numColumns={2}
 			renderItem={({ item }) => (
-				<View
+				<Pressable
 					className='w-[49%] h-[100px] m-1 rounded-xl p-3 relative overflow-hidden'
 					style={{ backgroundColor: item.color }}
 				>
@@ -29,7 +31,7 @@ const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
 						borderRadius={100}
 						wrapperClassName='absolute right-[-10] bottom-[-10]'
 					/>
-				</View>
+				</Pressable>
 			)}
 		/>
 }

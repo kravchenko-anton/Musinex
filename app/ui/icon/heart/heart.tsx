@@ -8,7 +8,7 @@ interface IHeart extends Omit<AnimatedLottieViewProps, 'source'>, IHeartProps {
 	size?: number
 }
 
-const Heart: FC<IHeart> = ({ size = 70, type, id,style, ...props }) => {
+const Heart: FC<IHeart> = ({ size = 70, type, id, style, ...props }) => {
 	const heart = useHeart({ id, type })
 	let lottieRef = useRef<any>(null).current
 	const isFirstRun = useRef(true)

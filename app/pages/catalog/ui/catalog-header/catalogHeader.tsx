@@ -13,8 +13,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
 	title: string
-	rightIcon?: IconType
-	rightIconFunction?: () => void
+	rightIcon: IconType
+	rightIconFunction: () => void
 }
 
 const CatalogHeader: FC<ICatalogHeaderProps> = ({y, ...props}) => {
@@ -50,14 +50,16 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({y, ...props}) => {
 				className='items-center w-2/3'
 				style={{ opacity }}
 			>
-				<Title numberOfLines={1} fontFamily={'Montserrat_500Medium'} center>
+				<Title numberOfLines={1} fontFamily={'Montserrat_500Medium'}>
 					{props.title}
 				</Title>
 			</Animated.View>
-			{props.rightIcon && (
+			{props.rightIcon && props.rightIcon === 'heart' ? (
 				<BlurIcon>
 					<Heart id={props.id} type={props.type} />
 				</BlurIcon>
+			) : (
+				<BlurIcon icon={props.rightIcon} onPress={props.rightIconFunction} />
 			)}
 		</View>
 	)

@@ -45,8 +45,9 @@ const UFlatList = <T,>({
 					width: '100%',
 					}, rest.columnWrapperStyle] : rest.columnWrapperStyle}
 					style={[{
-							height: rest.fixBottom	? '93%' : 'auto',
-					},style ]}
+						height: rest.fixBottom ? '93%' : 'auto',
+					},
+						style]}
 				contentContainerStyle={!rest.horizontal ? [{
 					paddingBottom: 130,
 				}, rest.contentContainerStyle] : rest.contentContainerStyle}

@@ -21,7 +21,7 @@ const CatalogSongItem: FC<ISongItem> = props => {
 			<View className={'flex-row items-center'}>
 				<UImage
 					source={props.image}
-					className={'rounded-md'}
+				borderRadius={6}
 					width={80}
 					height={80}
 				/>

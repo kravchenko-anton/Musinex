@@ -36,12 +36,13 @@ const Banner: FC<PropsWithChildren<IBanner>>
 								key={id}
 								width={100}
 								height={100}
+								borderRadius={12}
 								style={{
 									borderWidth: 2,
 									borderColor: getHexCode('white'),
 									zIndex: 5 + index
 								}}
-								className='rounded-xl rotate-12'
+								className='rotate-12'
 								source={coverMedium}
 							/>
 						)

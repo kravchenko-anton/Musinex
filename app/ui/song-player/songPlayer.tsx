@@ -1,63 +1,20 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { useTypedSelector } from '@/hook/useTypedSelector'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
 import UImage from '@/ui/image/image'
+import { usePlayer } from '@/ui/song-player/usePlayer'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
-import { randomBeautifulColor } from '@/utils/getRandomColor'
-import { useEffect, useState } from 'react'
+import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { Image, Pressable, StyleSheet, View } from 'react-native'
-import TrackPlayer, {
-	RepeatMode,
-	State,
-	useActiveTrack,
-	usePlaybackState
-} from 'react-native-track-player'
+import TrackPlayer, { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Title from '../title/title'
-import { setupPlayer } from './usePlayer'
 
 const SongPlayer = () => {
-	const selector = useTypedSelector(state => state.player)
-	const playBackState = usePlaybackState()
-	const [isPlayerReady, setIsPlayerReady] = useState(false)
-	const trackInfo = useActiveTrack()
 	const { navigate } = useTypedNavigation()
-	useEffect(() => {
-		async function setup() {
-			let isSetup = await setupPlayer()
-			setIsPlayerReady(isSetup)
-			await TrackPlayer.setRepeatMode(RepeatMode.Queue)
-		}
-
-		setup()
-	}, [])
-
-	useEffect(() => {
-		if (selector.length <= 0 || !isPlayerReady) return
-		const addTracks = async () => {
-			await TrackPlayer.reset().then(() => {
-				TrackPlayer.add(
-					selector[0].data.map(item => {
-						return {
-							id: item.id,
-							url: item.url,
-							title: item.title,
-							artist: item.artist,
-							artwork: item.artwork,
-							color: randomBeautifulColor(80, 21)
-						}
-					})
-				).then(() => {
-					TrackPlayer.skip(selector[0].songIndex)
-					TrackPlayer.play()
-					setIsPlayerReady(true)
-				})
-			})
-		}
-		addTracks()
-	}, [selector])
-
+	const trackInfo = useActiveTrack()
+	const playBackState = usePlaybackState()
+	const {isPlayerReady,selector} = usePlayer()
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
 
 	return (
@@ -73,8 +30,8 @@ const SongPlayer = () => {
 				}}
 				source={{
 					uri: trackInfo.artwork as string,
-					height: '100%' as any as number,
-					width: '100%' as any as number
+					height: WindowHeight * 0.2,
+					width: WindowWidth	* 0.9
 				}}
 				blurRadius={50}
 			/>

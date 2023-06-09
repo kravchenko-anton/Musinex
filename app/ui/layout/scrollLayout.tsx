@@ -9,7 +9,8 @@ const ScrollLayout: FC<PropsWithChildren<IUScrollView>> = ({
 }) => {
 	return (
 		<SafeAreaView>
-			<UScrollView className={'p-2'} paddingBottom={paddingBottom} {...rest}>
+			<UScrollView
+				className={'p-3'} paddingBottom={paddingBottom} {...rest}>
 				{children}
 			</UScrollView>
 		</SafeAreaView>

@@ -1,11 +1,14 @@
-import { FC, memo } from 'react'
-import { Image } from 'react-native'
+import Skeleton from '@/ui/skeleton/skeleton'
+import { FC, memo, useState } from 'react'
+import { Image, View } from 'react-native'
 import { IImage } from './types/IImage'
 
 const UImage: FC<IImage> = ({ source, width, height, style, ...rest }) => {
-	//TODO: Fix this add a default image
+	const [imageLoading, setIsImageLoading] = useState(true);
 	return (
+	<View className={rest.wrapperClassName}>
 		<Image
+			onLoadEnd={() => {setIsImageLoading(false)}}
 			source={{
 				uri: source,
 				width,
@@ -14,12 +17,15 @@ const UImage: FC<IImage> = ({ source, width, height, style, ...rest }) => {
 			style={[
 				{
 					width,
-					height
+					height,
+					display: imageLoading ? 'none' : 'flex'
 				},
-		style
+				style
 			]}
 			{...rest}
 		/>
+		{imageLoading && <Skeleton width={width} height={height} style={style}/>}
+	</View>
 	)
 }
 

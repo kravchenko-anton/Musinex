@@ -23,9 +23,7 @@ const MusicCart: FC<IFlatListItem> = ({
 			<UImage
 				className={props.ImageClassNames}
 				source={props.image.url}
-				style={{
-					borderRadius: props.image.border || 0
-				}}
+				borderRadius={props.image.border || 0}
 				height={props.image.height}
 				width={props.image.width}
 			/>

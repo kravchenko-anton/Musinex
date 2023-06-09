@@ -28,7 +28,7 @@ const CatalogArtistItem: FC<ICatalogArtistsItem> = ({
 			<View className={'flex-row items-center'}>
 				<UImage
 					source={image}
-					className={'rounded-full'}
+	borderRadius={100}
 					width={imageWidth}
 					height={imageWidth}
 				/>

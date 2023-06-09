@@ -39,7 +39,6 @@ const Home = () => {
 					return <GenreItem item={item} />
 				}}
 			/>
-
 			<UFlatList
 				data={chart.songs}
 				horizontal

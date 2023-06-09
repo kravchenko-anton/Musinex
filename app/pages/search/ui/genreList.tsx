@@ -26,7 +26,8 @@ const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
 						source={item.songs[0].coverMedium}
 						width={70}
 						height={70}
-						className='absolute right-[-10] bottom-[-10] rounded-full'
+						borderRadius={100}
+						wrapperClassName='absolute right-[-10] bottom-[-10]'
 					/>
 				</View>
 			)}

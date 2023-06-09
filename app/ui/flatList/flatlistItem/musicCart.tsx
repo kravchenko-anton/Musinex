@@ -1,6 +1,5 @@
 import { IFlatListItem } from '@/types/flatListTypes'
 import { FC, memo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Pressable, View } from 'react-native'
 import UImage from '../../image/image'
 import Title from '../../title/title'
@@ -10,7 +9,6 @@ const MusicCart: FC<IFlatListItem> = ({
 	WrapClassNames	= 'mr-3',
 	...props
 }) => {
-	const { t } = useTranslation()
 	return (
 		<Pressable
 			className={WrapClassNames}
@@ -44,13 +42,13 @@ const MusicCart: FC<IFlatListItem> = ({
 				</Title>
 				{props.artists && (
 					<Title
-						className={'mt-0.5'}
+						className={'mt-0.5 w-10/12'}
 						numberOfLines={1}
 						color={'primaryGray'}
-						size={14}
+						size={16}
 						fontFamily={'Montserrat_500Medium'}
 					>
-						{t('by') + props.artists}
+						{props.artists}
 					</Title>
 				)}
 			</View>

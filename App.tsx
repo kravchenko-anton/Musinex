@@ -9,7 +9,7 @@ import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client
 import { StatusBar } from 'expo-status-bar'
 import { useColorScheme } from 'nativewind'
 import { LogBox } from 'react-native'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from './app/navigation/navigation'
@@ -17,6 +17,7 @@ import ThemeProvider from './app/providers/themeProvider'
 
 export default function App() {
 	const { colorScheme } = useColorScheme()
+	
 	LogBox.ignoreAllLogs()
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -38,25 +39,23 @@ export default function App() {
 	
 	return (
 		<Provider store={store}>
+				<PersistGate persistor={persistor} loading={<FullScreenLoader />}>
 			<PersistQueryClientProvider
 				client={queryClient}
 				persistOptions={{ persister: asyncStoragePersister }}>
-				<PersistGate persistor={persistor} loading={<FullScreenLoader />}>
-					<SafeAreaProvider
+					<SafeAreaProvider  initialMetrics={initialWindowMetrics}
 						style={{
 							backgroundColor:
-								colorScheme === 'light'
-									? getHexCode('primaryGray')
-									: getHexCode('primaryBlack')
+								colorScheme === 'light' ? getHexCode('lightGray') : getHexCode('primaryBlack')
 						}}
 					>
 						<Navigation />
+						<Toast />
 						<ThemeProvider />
 						<StatusBar style={colorScheme === 'light' ? 'dark' : 'light'} />
-						<Toast />
 					</SafeAreaProvider>
-				</PersistGate>
 			</PersistQueryClientProvider>
+				</PersistGate>
 		</Provider>
 	)
 }

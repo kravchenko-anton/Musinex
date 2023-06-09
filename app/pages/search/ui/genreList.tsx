@@ -6,12 +6,9 @@ import { FC } from 'react'
 import { View } from 'react-native'
 
 const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
-	return <View className='justify-between w-full max-w-full items-center flex-row'>
-		<UFlatList
-			contentContainerStyle={{
-				paddingBottom: 130
-			}}
+	return <UFlatList
 			data={genre}
+			fixBottom
 			numColumns={2}
 			renderItem={({ item }) => (
 				<View
@@ -34,7 +31,6 @@ const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
 				</View>
 			)}
 		/>
-	</View>
 }
 
 export default GenreList

@@ -20,7 +20,6 @@ const Search = () => {
 		!searchResult.artists.length &&
 		!searchResult.playlists.length &&
 		!searchResult.albums.length
-	
 	if (!genre) return <FullScreenLoader />
 	return (
 		<Layout>

@@ -1,16 +1,11 @@
-import SmallLoader from '@/ui/loader/smallLoader'
+import Skeleton from '@/ui/skeleton/skeleton'
 import { getHexCode } from '@/utils/getColor'
 import {
-	Montserrat_100Thin,
-	Montserrat_200ExtraLight,
 	Montserrat_300Light,
-	Montserrat_400Regular,
 	Montserrat_500Medium,
 	Montserrat_600SemiBold,
 	Montserrat_700Bold,
-	Montserrat_800ExtraBold,
 	Montserrat_900Black,
-	Montserrat_900Black_Italic,
 	useFonts
 } from '@expo-google-fonts/montserrat'
 import { useColorScheme } from 'nativewind'
@@ -31,22 +26,17 @@ const Title = <T extends boolean>({
 	...rest
 }:ITitle<T>) => {
 	let [fontsLoaded] = useFonts({
-		Montserrat_100Thin,
-		Montserrat_200ExtraLight,
 		Montserrat_300Light,
-		Montserrat_400Regular,
 		Montserrat_500Medium,
 		Montserrat_600SemiBold,
 		Montserrat_700Bold,
-		Montserrat_800ExtraBold,
 		Montserrat_900Black,
-		Montserrat_900Black_Italic
 	})
 	const { t } = useTranslation()
 	const { colorScheme } = useColorScheme()
-	if (!fontsLoaded || !children) {
-		return <SmallLoader />
-	}
+	if (!fontsLoaded || !children) return <Skeleton
+		width={children.length	* 10}
+	 height={size * numberOfLines} style={style} />
 	return (
 		<Text
 			style={[

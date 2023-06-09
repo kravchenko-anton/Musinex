@@ -11,6 +11,7 @@ interface IFlatList<T>
 	headerText?: ITranslateTypes
 	wrapClassNames?: string
 	headerNavigate?: () => void
+	fixBottom?: boolean
 	mt?: number
 }
 
@@ -20,7 +21,8 @@ const UFlatList = <T,>({
 	headerNavigate,
 	wrapClassNames,
 	headerText,
-	mt,
+	mt = 0,
+	style,
 	...rest
 }: IFlatList<T>) => {
 	if (data.length && data.length === 0 && !rest.ListEmptyComponent) return null
@@ -42,7 +44,9 @@ const UFlatList = <T,>({
 					justifyContent: 'space-between',
 					width: '100%',
 					}, rest.columnWrapperStyle] : rest.columnWrapperStyle}
-				
+					style={[{
+							height: rest.fixBottom	? '93%' : 'auto',
+					},style ]}
 				contentContainerStyle={!rest.horizontal ? [{
 					paddingBottom: 130,
 				}, rest.contentContainerStyle] : rest.contentContainerStyle}

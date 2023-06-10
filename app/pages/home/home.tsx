@@ -67,6 +67,7 @@ const Home = () => {
 				renderItem={({ item }) => {
 					return (
 						<MusicCart
+							onPress={() => navigate('ArtistCatalog', { id: item.id })}
 							textCenter={true}
 							image={{
 								url: item.pictureMedium,
@@ -87,7 +88,7 @@ const Home = () => {
 				headerText='Wonderful Albums'
 				renderItem={({ item }) => {
 					return (
-						<MusicCart
+						<MusicCart onPress={() => navigate('AlbumCatalog', { id: item.id })}
 							image={{
 								url: item.coverMedium,
 								width: 140,
@@ -107,7 +108,7 @@ const Home = () => {
 				headerText='Best Playlist'
 				renderItem={({ item }) => {
 					return (
-						<MusicCart
+						<MusicCart onPress={() => navigate('PlaylistCatalog', { id: item.id })}
 							image={{
 								url: item.coverMedium,
 								width: 150,

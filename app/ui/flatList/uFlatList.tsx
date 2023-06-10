@@ -26,7 +26,7 @@ const UFlatList = <T,>({
 }: IFlatList<T>) => {
 	if (data.length && data.length === 0 && !props.ListEmptyComponent) return null
 	return (
-		<View className={wrapClassNames} style={{ marginTop: mt }}>
+		<View className={wrapClassNames} style={{ marginTop: mt}}>
 			{headerText && data.length !== 0 ? (
 				<Title
 					translate
@@ -52,6 +52,8 @@ const UFlatList = <T,>({
 				}, props.contentContainerStyle] : props.contentContainerStyle}
 				renderToHardwareTextureAndroid={true}
 				removeClippedSubviews={true}
+				alwaysBounceHorizontal={false}
+				alwaysBounceVertical={false}
 				showsHorizontalScrollIndicator={false}
 				showsVerticalScrollIndicator={false}
 				decelerationRate={'fast'}

@@ -10,31 +10,36 @@ import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Animated } from 'react-native'
 
 const PlaylistCatalog = () => {
 	const { params } = useTypedRoute<'PlaylistCatalog'>()
 	const {addToPlayer} = useAction()
-	const {data:playlist} = useQuery(['song', params.id], () => playlistServices.getById(params.id))
+	const {data:playlist} = useQuery(['playlists', params.id], () => playlistServices.getById(params.id))
 	const y = useRef(new Animated.Value(0)).current
+	const {t} = useTranslation()
+	console.log(playlist?.id)
 	if (!playlist) return <FullScreenLoader/>
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
 				type={"songs"}
 				id={params.id}
-				title={params.headerText}
+				title={playlist.title}
 				rightIcon={'heart'}
 				rightIconFunction={() => console.log(1)}
 				y={y}
 			/>
-			<CatalogBackground poster={params.headerImage} y={y} />
+			<CatalogBackground poster={playlist.coverBig} y={y} />
 			<CatalogContent
-				description={params.headerDescription}
-				headerTitle={params.headerText}
+				description={
+					`${playlist.title} - ${playlist.songs.length} ${t('songs')}`
+				}
+				headerTitle={playlist.title}
 				y={y}
 			>
-			<UFlatList data={playlist?.songs} renderItem={({item,index}) => {
+			<UFlatList data={playlist.songs} scrollEnabled={false}  renderItem={({item,index}) => {
 				return <CatalogSongItem
 					id={item.id}
 					title={item.title}
@@ -42,7 +47,7 @@ const PlaylistCatalog = () => {
 					artist={item.artists[0].name}
 					playFunc={() => {
 						addToPlayer({
-							data: playlist?.songs.map(track => {
+							data: playlist.songs.map(track => {
 								return {
 									id: track.id,
 									title: track.title,

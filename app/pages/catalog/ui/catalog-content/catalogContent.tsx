@@ -11,12 +11,13 @@ import CatalogContentHeader from './catalogContentHeader'
 interface ICatalogContent extends ICatalogTypes {
 	headerTitle: string
 	description: string
+	paddingTop?: number
 }
 const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 	y,
 	children,
 	description,
-
+	paddingTop = HEADER_HEIGHT * 0.52,
 	headerTitle
 }) => {
 	const ref = useRef<ScrollView>(null)
@@ -36,7 +37,7 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 				{ useNativeDriver: true }
 			)}
 			contentContainerStyle={{
-				paddingTop: HEADER_HEIGHT * 0.45,
+				paddingTop: paddingTop,
 				paddingBottom: 50
 			}}
 		>
@@ -48,7 +49,7 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 			<LinearGradient
 				style={{
 					...StyleSheet.absoluteFillObject,
-					height: HEADER_HEIGHT / 0.8
+					height: HEADER_HEIGHT / 0.9
 				}}
 				start={[0, 0.1]}
 				end={[0, 0.8]}

@@ -5,7 +5,7 @@ import { WindowWidth } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
-import { Animated, StyleSheet, View } from 'react-native'
+import { Animated, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { HEADER_HEIGHT } from '../../catalogConstant'
 import { useBackgroundAnimation } from './useBackgroundAnimation'
@@ -24,7 +24,7 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({ poster,color = "#32B47
 			style={[
 				{
 					...StyleSheet.absoluteFillObject,
-					height: HEADER_HEIGHT * 1.76,
+					height: HEADER_HEIGHT * 1.77,
 					marginTop: -top,
 					opacity,
 					transform: [{ scale }, { translateY }]
@@ -32,29 +32,30 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({ poster,color = "#32B47
 			]}
 		>
 			{
-				poster ? <View>
-					<UImage
-						style={StyleSheet.absoluteFill}
-						resizeMode='cover'
-						height={HEADER_HEIGHT}
-						width={WindowWidth}
-						source={poster}
-					/>
+				poster ? <>
+						<UImage
+							style={StyleSheet.absoluteFill}
+							resizeMode='cover'
+							height={HEADER_HEIGHT}
+							width={WindowWidth}
+							source={poster}
+						/>
+						<LinearGradient
+							style={{ ...StyleSheet.absoluteFillObject, top: -HEADER_HEIGHT * 1.8 }}
+							start={[0, 0.1]}
+							end={[0, 0.8]}
+							colors={[
+								'transparent',
+								'rgba(0, 0, 0, 0.2)',
+								colorScheme === 'light'
+									? getHexCode('lightGray')
+									: getHexCode('primaryBlack')
+							]}
+						/>
+				</> :
 					<LinearGradient
-						style={{ ...StyleSheet.absoluteFillObject, top: -HEADER_HEIGHT * 1.6 }}
-						start={[0, 0.1]}
-						end={[0, 0.8]}
-						colors={[
-							'transparent',
-							'rgba(0, 0, 0, 0.2)',
-							colorScheme === 'light'
-								? getHexCode('lightGray')
-								: getHexCode('primaryBlack')
-						]}
-					/>
-				</View> : 	<LinearGradient
 					style={{ ...StyleSheet.absoluteFillObject, top: -HEADER_HEIGHT * 1.6 }}
-					start={[0, 0.4]}
+					start={[0, 0.1]}
 					end={[0, 0.8]}
 					colors={[
 					color, 'transparent'

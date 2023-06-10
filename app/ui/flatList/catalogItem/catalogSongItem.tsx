@@ -22,8 +22,8 @@ const CatalogSongItem: FC<ISongItem> = props => {
 				<UImage
 					source={props.image}
 				borderRadius={6}
-					width={80}
-					height={80}
+					width={60}
+					height={60}
 				/>
 				<View className='ml-3 max-w-[200px]'>
 					<Title fontFamily={'Montserrat_700Bold'}>{props.title}</Title>

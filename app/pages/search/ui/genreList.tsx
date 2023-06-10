@@ -13,7 +13,9 @@ const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
 			fixBottom
 			numColumns={2}
 			renderItem={({ item }) => (
-				<Pressable
+				<Pressable onPress={() => navigate('GenreCatalog', {
+					id:  item.id,
+				})}
 					className='w-[49%] h-[100px] m-1 rounded-xl p-3 relative overflow-hidden'
 					style={{ backgroundColor: item.color }}
 				>

@@ -48,7 +48,7 @@ const UIcon: FC<IconProps> = ({
 				name={name}
 				color={
 					color
-						? color
+						? getHexCode(color)
 						: colorScheme === 'light'
 						? getHexCode('dark')
 						: getHexCode('white')

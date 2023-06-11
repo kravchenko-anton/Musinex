@@ -8,7 +8,7 @@ export interface IUser extends defaultModelFields {
 	name: string
 	userPlaylists: IPlaylist[]
 	favoritePlayLists: IPlaylist[]
-	favoritesAlbums: IAlbum[]
+	favoritesAlbum: IAlbum[]
 	favoritesArtist: IArtist[]
-	favoritesSongs: ISong[]
+	favoritesSong: ISong[]
 }

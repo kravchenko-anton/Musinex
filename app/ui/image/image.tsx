@@ -3,7 +3,7 @@ import { FC, memo, useState } from 'react'
 import { Image, View } from 'react-native'
 import { IImage } from './types/IImage'
 
-const UImage: FC<IImage> = ({ source, width = 200, height = 200, style, wrapperClassName, ...props }) => {
+const UImage: FC<IImage> = ({ height, width,borderRadius,source, style, wrapperClassName, ...props }) => {
 	const [imageLoading, setIsImageLoading] = useState(true);
 	return (
 	<View className={wrapperClassName}>
@@ -11,21 +11,22 @@ const UImage: FC<IImage> = ({ source, width = 200, height = 200, style, wrapperC
 			onLoadEnd={() => {setIsImageLoading(false)}}
 			source={{
 				uri: source,
-				width,
-				height
+				width: width,
+				height: height
 			}}
 			style={[
 				{
-					width,
-					height,
-					display: imageLoading ? 'none' : 'flex'
+					width: width,
+					height: height,
+					display: imageLoading ? 'none' : 'flex',
+					borderRadius: borderRadius
 				},
 				style
 			]}
 			{...props}
 		/>
 		{imageLoading && <Skeleton width={width} height={height} style={[{
-			borderRadius: props.borderRadius,
+			borderRadius,
 		}, style]}/>}
 	</View>
 	)

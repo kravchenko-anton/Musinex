@@ -4,7 +4,7 @@ import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBack
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { playlistServices } from '@/services/playlistServices'
-import CatalogSongItem from '@/ui/flatList/catalogItem/catalogSongItem'
+import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
@@ -40,12 +40,17 @@ const PlaylistCatalog = () => {
 				y={y}
 			>
 			<UFlatList data={playlist.songs} scrollEnabled={false}  renderItem={({item,index}) => {
-				return <CatalogSongItem
+				return <CatalogItem
 					id={item.id}
-					title={item.title}
-					image={item.coverMedium}
-					artist={item.artists[0].name}
-					playFunc={() => {
+					text1={item.title}
+					image={{
+						width: 70,
+						height: 70,
+						uri: item.coverSmall,
+						border: 5
+					}}
+					text2={item.artists[0].name}
+					onPress={() => {
 						addToPlayer({
 							data: playlist.songs.map(track => {
 								return {

@@ -1,4 +1,5 @@
 import Title from '@/ui/title/title'
+import { getHexCode } from '@/utils/getColor'
 import { WindowWidth } from '@/utils/screen'
 import Slider from '@react-native-community/slider'
 import { View } from 'react-native'
@@ -22,9 +23,9 @@ const Sliders = () => {
 				minimumValue={0}
 				maximumValue={30}
 				style={{ height: 10, marginTop: 20 }}
-				maximumTrackTintColor={'lightGray'}
-				thumbTintColor={'lightGray'}
-				minimumTrackTintColor={'lightGray'}
+				maximumTrackTintColor={'white'}
+				thumbTintColor={'white'}
+				minimumTrackTintColor={getHexCode('primary')}
 				step={1}
 			/>
 			<View className='flex-row justify-between'>

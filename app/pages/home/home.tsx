@@ -1,3 +1,4 @@
+import { useAction } from '@/hook/useAction'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import Banner from '@/pages/home/ui/banner'
 import GenreItem from '@/pages/home/ui/genreItem'
@@ -14,6 +15,7 @@ const Home = () => {
 	const { data: chart } = useQuery(['chart'], searchServices.getCatalogue)
 	const { data: genre } = useQuery(['genre'], genreServices.getAll)
 	const {navigate} = useTypedNavigation()
+	const {addToPlayer} = useAction()
 	if (!chart || !genre) return <FullScreenLoader />
 	return (
 		<ScrollLayout>
@@ -44,9 +46,18 @@ const Home = () => {
 				horizontal
 				mt={25}
 				headerText={'Trending Songs'}
-				renderItem={({ item }) => {
+				renderItem={({ item, index }) => {
 					return (
-						<MusicCart
+						<MusicCart onPress={() => addToPlayer({ data: chart.songs.map((item) => {
+							return {
+								artist: item.artists[0].name,
+								duration: item.duration,
+								id: item.id,
+								title: item.title,
+								url: item.mp3Path,
+								artwork: item.coverMedium,
+							}
+							}), 	songIndex:index })}
 							image={{
 								url: item.coverMedium,
 								width: 130,

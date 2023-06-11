@@ -24,7 +24,6 @@ export type UScrollViewProps = Pick<ScrollViewProps, 'scrollEnabled' | "onScroll
 >
 
 export type IconType = keyof typeof Ionicons.glyphMap
-
 export type CatalogProps = {
 	id: number
 }

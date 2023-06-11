@@ -13,7 +13,7 @@ const MusicCart: FC<IFlatListItem> = ({
 		<Pressable
 			className={wrapClassNames}
 			style={{
-				width: props.wrapperWidth || props.image.width,
+				width: props.wrapperWidth ? props.wrapperWidth : props.image.width,
 				maxWidth: props.image.width,
 			}}
 			{...props}
@@ -21,7 +21,7 @@ const MusicCart: FC<IFlatListItem> = ({
 			<UImage
 				className={props.imageClassNames}
 				source={props.image.url}
-				borderRadius={props.image.border || 0}
+				borderRadius={props.image.border ?	props.image.border : 0}
 				height={props.image.height}
 				width={props.image.width}
 			/>

@@ -33,7 +33,7 @@ const Song = () => {
 				justifyContent: 'space-between',
 				height: ScreenHeight,
 				paddingBottom: WindowHeight * 0.05,
-				backgroundColor: getHexCode('dark')
+				backgroundColor: getHexCode('veryLightBlack')
 			}}
 		>
 			<StatusBar backgroundColor={'#ffffff00'} style={'light'} />
@@ -46,13 +46,6 @@ const Song = () => {
 					opacity: 0.5
 				}}
 			>
-				<UImage
-					height={ScreenHeight}
-					width={WindowWidth}
-					resizeMode={'cover'}
-					source={trackInfo?.artwork as string}
-					blurRadius={50}
-				/>
 			</View>
 			<View>
 				<View className='items-center flex-row justify-between mx-1'>
@@ -74,7 +67,8 @@ const Song = () => {
 						width={WindowWidth * 0.85}
 						source={trackInfo?.artwork as string}
 						style={{
-							marginTop: WindowHeight * 0.05
+							marginTop: WindowHeight * 0.05,
+							borderRadius: 20
 						}}
 						resizeMode={'cover'}
 						className=' relative items-center  justify-center'

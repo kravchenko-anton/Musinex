@@ -5,7 +5,8 @@ import UImage from '@/ui/image/image'
 import { usePlayer } from '@/ui/song-player/usePlayer'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
-import { Image, Pressable, StyleSheet, View } from 'react-native'
+import { Pressable, View } from 'react-native'
+import Animated, { FadeIn, Layout } from 'react-native-reanimated'
 import TrackPlayer, { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Title from '../title/title'
 
@@ -15,28 +16,17 @@ const SongPlayer = () => {
 	const playBackState = usePlaybackState()
 	const {isPlayerReady,selector} = usePlayer()
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
-
 	return (
-		<Pressable
-			onPress={() => navigate('Song')}
-			className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-10/12 bg-dark'
+		<Animated.View entering={FadeIn.delay(100)} layout={
+			Layout.springify()
+		}  style={{
+			backgroundColor: trackInfo.color,
+		}}
+			className='rounded-xl absolute self-center bottom-[70px] h-[65px] w-11/12 bg-dark'
 		>
-			<Image
-				style={{
-					...StyleSheet.absoluteFillObject,
-					borderRadius: 12,
-					opacity: 0.5
-				}}
-				source={{
-					uri: trackInfo.artwork as string,
-					height: "100%" as any as number,
-					width: "100%" as any as number
-				}}
-				blurRadius={50}
-			/>
-			<View className='flex flex-row justify-between items-center'>
+			<Pressable onPress={() => navigate('Song')} className='flex flex-row justify-between items-center' >
 				<View className='flex-row items-center ml-3 mr-3'>
-					<UImage source={trackInfo.artwork as string} width={50} height={50} />
+					<UImage source={trackInfo.artwork as string} width={45} height={45} />
 					<View className='flex flex-col ml-2'>
 						<Title
 							color={'white'}
@@ -63,8 +53,8 @@ const SongPlayer = () => {
 						}
 					/>
 				</View>
-			</View>
-		</Pressable>
+			</Pressable>
+		</Animated.View>
 	)
 }
 

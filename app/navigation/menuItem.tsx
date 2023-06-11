@@ -1,6 +1,5 @@
 import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
-import { getHexCode } from '@/utils/getColor'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
@@ -29,11 +28,11 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 				color={
 					isActive
 						? colorScheme === 'dark'
-							? getHexCode('white')
-							: getHexCode('primary')
+							? "white"
+							: "primary"
 						: colorScheme === 'dark'
-						? getHexCode('lightGray')
-						: getHexCode('veryLightBlack')
+						? "lightGray"
+						: "veryLightBlack"
 				}
 			/>
 		</View>

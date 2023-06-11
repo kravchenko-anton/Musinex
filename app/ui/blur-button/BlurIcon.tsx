@@ -1,5 +1,4 @@
 import UIcon from '@/ui/icon/defaultIcon/Icon'
-import { getHexCode } from '@/utils/getColor'
 import { BlurView } from 'expo-blur'
 import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren } from 'react'
@@ -38,8 +37,8 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> = ({
 						color
 							? color
 							: colorScheme === 'light'
-							? getHexCode('dark')
-							: getHexCode('white')
+							? "dark"
+							: "white"
 					}
 				/>
 			)}

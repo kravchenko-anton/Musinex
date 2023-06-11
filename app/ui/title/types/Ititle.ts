@@ -13,5 +13,5 @@ export interface ITitle<T extends boolean> extends UTextProps {
 	"Montserrat_600SemiBold" |
 	"Montserrat_700Bold" |
 	"Montserrat_900Black"
-	color?: keyof typeof theme.colors;
+	color?: keyof typeof theme.colors
 }

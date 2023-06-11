@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { Control } from 'react-hook-form'
 import { View } from 'react-native'
 
-const AuthForm: FC<{ control: Control<IAuthFields, any> }> = ({control}) => {
+const AuthForm: FC<{ control: Control<IAuthFields, any> }> = ({ control }) => {
 	return (
 		<View>
 			<Field
@@ -22,7 +22,7 @@ const AuthForm: FC<{ control: Control<IAuthFields, any> }> = ({control}) => {
 				name={'email'}
 				placeholder={'Email'}
 			/>
-			
+
 			<Field
 				rules={{
 					required: {

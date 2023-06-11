@@ -31,59 +31,58 @@ const Button: FC<IButton> = ({
 			]}
 			{...props}
 		>
-	
-				<View
-					style={{
-						flexDirection: 'row',
-						alignItems: 'center',
-						display: 'flex',
-						justifyContent: props.icon ? 'space-between' : 'center',
-						marginVertical: center ? 0 : 5,
-						gap: size === 'small' ? 10 : size === 'medium' ? 10 : 10
-					}}
-				>
-					<Title
-						color={'white'}
-						translate={ translate ? translate : false}
-						fontFamily={'Montserrat_600SemiBold'}
-						size={
-							props.textSize
-								? props.textSize
-								: size === 'small'
-								? 15
-								: size === 'medium'
-								? 18
-								: 20
-						}
+			<View
+				style={{
+					flexDirection: 'row',
+					alignItems: 'center',
+					display: 'flex',
+					justifyContent: props.icon ? 'space-between' : 'center',
+					marginVertical: center ? 0 : 5,
+					gap: size === 'small' ? 10 : size === 'medium' ? 10 : 10
+				}}
+			>
+				<Title
+					color={'white'}
+					translate={translate ? translate : false}
+					fontFamily={'Montserrat_600SemiBold'}
+					size={
+						props.textSize
+							? props.textSize
+							: size === 'small'
+							? 15
+							: size === 'medium'
+							? 18
+							: 20
+					}
 					style={{
 						textTransform: props.uppercase ? 'uppercase' : 'none',
 						letterSpacing: props.uppercase ? 1.4 : 1
 					}}
-					>
-						{props.text}
-					</Title>
-					{props.icon && (
-						<UIcon
-							size={
-								iconSize
-									? iconSize
-									: size === 'small'
-									? 15
-									: size === 'medium'
-									? 18
-									: 30
-							}
-							color={
-								variant === 'light'
-									? getHexCode('dark')
-									: variant === 'primary'
-									? getHexCode('white')
-									: getHexCode('dark')
-							}
-							name={props.icon}
-						/>
-					)}
-				</View>
+				>
+					{props.text}
+				</Title>
+				{props.icon && (
+					<UIcon
+						size={
+							iconSize
+								? iconSize
+								: size === 'small'
+								? 15
+								: size === 'medium'
+								? 18
+								: 30
+						}
+						color={
+							variant === 'light'
+								? getHexCode('dark')
+								: variant === 'primary'
+								? getHexCode('white')
+								: getHexCode('dark')
+						}
+						name={props.icon}
+					/>
+				)}
+			</View>
 		</Pressable>
 	)
 }

@@ -6,24 +6,24 @@ import Title from '@/ui/title/title'
 import { FC } from 'react'
 import { Pressable } from 'react-native'
 
-const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
-	const {navigate} = useTypedNavigation()
-	return <UFlatList
+const GenreList: FC<{ genre: IGenre[] }> = ({ genre }) => {
+	const { navigate } = useTypedNavigation()
+	return (
+		<UFlatList
 			data={genre}
 			fixBottom
 			numColumns={2}
 			renderItem={({ item }) => (
-				<Pressable onPress={() => navigate('GenreCatalog', {
-					id:  item.id,
-				})}
+				<Pressable
+					onPress={() =>
+						navigate('GenreCatalog', {
+							id: item.id
+						})
+					}
 					className='w-[49%] h-[100px] m-1 rounded-xl p-3 relative overflow-hidden'
 					style={{ backgroundColor: item.color }}
 				>
-					<Title
-						className='mb-3'
-						size={18}
-						fontFamily='Montserrat_700Bold'
-					>
+					<Title className='mb-3' size={18} fontFamily='Montserrat_700Bold'>
 						{item.name}
 					</Title>
 					<UImage
@@ -36,6 +36,7 @@ const GenreList:FC<{genre: IGenre[]}> = ({genre}) => {
 				</Pressable>
 			)}
 		/>
+	)
 }
 
 export default GenreList

@@ -1,53 +1,21 @@
 import { IHeartProps } from '@/types/catalogTypes'
-import Lottie, { AnimatedLottieViewProps } from 'lottie-react-native'
-import { FC, memo, useEffect, useRef } from 'react'
-import { Pressable } from 'react-native'
+import { UPressableProps } from '@/types/global'
+import UIcon from '@/ui/icon/defaultIcon/Icon'
+import { FC, memo } from 'react'
 import { useHeart } from './useHeart'
 
-interface IHeart extends Omit<AnimatedLottieViewProps, 'source'>, IHeartProps {
+interface IHeart extends UPressableProps, IHeartProps {
 	size?: number
 }
 
-const Heart: FC<IHeart> = ({ size = 70, type, id, style, ...props }) => {
+const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 	const heart = useHeart({ id, type })
-	let lottieRef = useRef<any>(null).current
-	const isFirstRun = useRef(true)
-	useEffect(() => {
-		if (isFirstRun.current) {
-			if (heart) {
-				lottieRef.play(80, 80)
-			} else {
-				lottieRef.play(180, 180)
-			}
-			isFirstRun.current = false
-		} else if (heart) {
-			lottieRef.play(0, 80)
-		} else {
-			lottieRef.play(80, 180)
-		}
-	}, [heart])
-
 	return (
-		<Pressable
-			onPress={() => {
-				console.log('heart')
-			}}
-			style={style}
-		>
-			<Lottie
-				ref={ref => (lottieRef = ref)}
-				autoSize={true}
-				autoPlay={false}
-				duration={1000}
-				loop={false}
-				style={{
-					width: size,
-					height: size
-				}}
-				source={require('../../../assets/heart.json')}
-				{...props}
-			/>
-		</Pressable>
+		<UIcon
+			name={heart ? 'md-heart-sharp' : 'md-heart-sharp'}
+			size={size}
+			{...props}
+		/>
 	)
 }
 

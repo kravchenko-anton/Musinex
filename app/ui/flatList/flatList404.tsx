@@ -26,7 +26,7 @@ const FlatList404: FC<IFlatList404> = props => {
 				loop={false}
 			/>
 			<Title translate className='text-center'>
-			No results
+				No results
 			</Title>
 		</View>
 	)

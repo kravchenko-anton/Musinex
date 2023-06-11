@@ -17,12 +17,12 @@ interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
 	rightIconFunction: () => void
 }
 
-const CatalogHeader: FC<ICatalogHeaderProps> = ({y, ...props}) => {
+const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 	const { goBack } = useTypedNavigation()
 	const { top } = useSafeAreaInsets()
 	const { width } = useWindowDimensions()
 	const { colorScheme } = useColorScheme()
-	const {opacity} = useHeaderAnimation(y)
+	const { opacity } = useHeaderAnimation(y)
 	return (
 		<View
 			className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4'
@@ -46,10 +46,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({y, ...props}) => {
 			/>
 			<BlurIcon icon='arrow-back' onPress={() => goBack()} />
 
-			<Animated.View
-				className='items-center w-2/3'
-				style={{ opacity }}
-			>
+			<Animated.View className='items-center w-2/3' style={{ opacity }}>
 				<Title numberOfLines={1} fontFamily={'Montserrat_500Medium'}>
 					{props.title}
 				</Title>

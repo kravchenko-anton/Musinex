@@ -14,8 +14,8 @@ import { useQuery } from '@tanstack/react-query'
 const Home = () => {
 	const { data: chart } = useQuery(['chart'], searchServices.getCatalogue)
 	const { data: genre } = useQuery(['genre'], genreServices.getAll)
-	const {navigate} = useTypedNavigation()
-	const {addToPlayer} = useAction()
+	const { navigate } = useTypedNavigation()
+	const { addToPlayer } = useAction()
 	if (!chart || !genre) return <FullScreenLoader />
 	return (
 		<ScrollLayout>
@@ -29,9 +29,9 @@ const Home = () => {
 					onPress: () => navigate('Search')
 				}}
 			/>
-			
+
 			<Banner songs={chart.songs.slice(0, 3)} />
-			
+
 			<UFlatList
 				data={genre}
 				horizontal
@@ -48,16 +48,22 @@ const Home = () => {
 				headerText={'Trending Songs'}
 				renderItem={({ item, index }) => {
 					return (
-						<MusicCart onPress={() => addToPlayer({ data: chart.songs.map((item) => {
-							return {
-								artist: item.artists[0].name,
-								duration: item.duration,
-								id: item.id,
-								title: item.title,
-								url: item.mp3Path,
-								artwork: item.coverMedium,
+						<MusicCart
+							onPress={() =>
+								addToPlayer({
+									data: chart.songs.map(item => {
+										return {
+											artist: item.artists[0].name,
+											duration: item.duration,
+											id: item.id,
+											title: item.title,
+											url: item.mp3Path,
+											artwork: item.coverMedium
+										}
+									}),
+									songIndex: index
+								})
 							}
-							}), 	songIndex:index })}
 							image={{
 								url: item.coverMedium,
 								width: 130,
@@ -99,7 +105,8 @@ const Home = () => {
 				headerText='Wonderful Albums'
 				renderItem={({ item }) => {
 					return (
-						<MusicCart onPress={() => navigate('AlbumCatalog', { id: item.id })}
+						<MusicCart
+							onPress={() => navigate('AlbumCatalog', { id: item.id })}
 							image={{
 								url: item.coverMedium,
 								width: 140,
@@ -119,7 +126,8 @@ const Home = () => {
 				headerText='Best Playlist'
 				renderItem={({ item }) => {
 					return (
-						<MusicCart onPress={() => navigate('PlaylistCatalog', { id: item.id })}
+						<MusicCart
+							onPress={() => navigate('PlaylistCatalog', { id: item.id })}
 							image={{
 								url: item.coverMedium,
 								width: 150,

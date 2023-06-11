@@ -15,8 +15,10 @@ const Search = () => {
 	const { searchTerm, searchResult, isLoading, control } = useSearch()
 	const { navigate } = useTypedNavigation()
 	const { data: genre } = useQuery(['genre'], genreServices.getAll)
-	
-	const loading = 	searchResult && !searchResult.songs.length &&
+
+	const loading =
+		searchResult &&
+		!searchResult.songs.length &&
 		!searchResult.artists.length &&
 		!searchResult.playlists.length &&
 		!searchResult.albums.length
@@ -28,17 +30,16 @@ const Search = () => {
 				name={'searchTerm'}
 				placeholder={'Type anything'}
 			/>
-			{searchTerm && searchTerm.length > 2 &&
-			!isLoading &&
-			loading ? (
+			{searchTerm && searchTerm.length > 2 && !isLoading && loading ? (
 				<FlatList404 width={WindowWidth} height={WindowHeight * 0.3} />
-			) : searchTerm && searchTerm.length > 2 && isLoading ? null : !searchTerm ||
-			  !searchResult || loading ? (
+			) : searchTerm &&
+			  searchTerm.length > 2 &&
+			  isLoading ? null : !searchTerm || !searchResult || loading ? (
 				<GenreList genre={genre} />
 			) : (
-		<View>
-	<SearchList searchResult={searchResult}/>
-		</View>
+				<View>
+					<SearchList searchResult={searchResult} />
+				</View>
 			)}
 		</Layout>
 	)

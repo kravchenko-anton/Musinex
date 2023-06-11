@@ -15,7 +15,11 @@ interface ICatalogBackgroundProps extends ICatalogTypes {
 	poster?: string
 }
 
-const CatalogBackground: FC<ICatalogBackgroundProps> = ({ poster,color = "#32B47D", y }) => {
+const CatalogBackground: FC<ICatalogBackgroundProps> = ({
+	poster,
+	color = '#32B47D',
+	y
+}) => {
 	const { top } = useSafeAreaInsets()
 	const { colorScheme } = useColorScheme()
 	const { translateY, opacity, scale } = useBackgroundAnimation(y)
@@ -31,38 +35,42 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({ poster,color = "#32B47
 				}
 			]}
 		>
-			{
-				poster ? <>
-						<UImage
-							style={StyleSheet.absoluteFill}
-							resizeMode='cover'
-							height={HEADER_HEIGHT}
-							width={WindowWidth}
-							source={poster}
-						/>
-						<LinearGradient
-							style={{ ...StyleSheet.absoluteFillObject, top: -HEADER_HEIGHT * 1.8 }}
-							start={[0, 0.1]}
-							end={[0, 0.8]}
-							colors={[
-								'transparent',
-								'rgba(0, 0, 0, 0.2)',
-								colorScheme === 'light'
-									? getHexCode('lightGray')
-									: getHexCode('primaryBlack')
-							]}
-						/>
-				</> :
+			{poster ? (
+				<>
+					<UImage
+						style={StyleSheet.absoluteFill}
+						resizeMode='cover'
+						height={HEADER_HEIGHT}
+						width={WindowWidth}
+						source={poster}
+					/>
 					<LinearGradient
-					style={{ ...StyleSheet.absoluteFillObject, top: -HEADER_HEIGHT * 1.6 }}
+						style={{
+							...StyleSheet.absoluteFillObject,
+							top: -HEADER_HEIGHT * 1.8
+						}}
+						start={[0, 0.1]}
+						end={[0, 0.8]}
+						colors={[
+							'transparent',
+							'rgba(0, 0, 0, 0.2)',
+							colorScheme === 'light'
+								? getHexCode('lightGray')
+								: getHexCode('primaryBlack')
+						]}
+					/>
+				</>
+			) : (
+				<LinearGradient
+					style={{
+						...StyleSheet.absoluteFillObject,
+						top: -HEADER_HEIGHT * 1.6
+					}}
 					start={[0, 0.1]}
 					end={[0, 0.8]}
-					colors={[
-					color, 'transparent'
-					]}
+					colors={[color, 'transparent']}
 				/>
-				
-			}
+			)}
 		</Animated.View>
 	)
 }

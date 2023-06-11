@@ -29,18 +29,10 @@ const Sliders = () => {
 				step={1}
 			/>
 			<View className='flex-row justify-between'>
-				<Title
-					color={'lightGray'}
-					className='text-center mt-1'
-					size={20}
-				>
+				<Title color={'lightGray'} className='text-center mt-1' size={20}>
 					{position.toFixed(2)}
 				</Title>
-				<Title
-					color={'lightGray'}
-					className='text-center mt-1'
-					size={20}
-				>
+				<Title color={'lightGray'} className='text-center mt-1' size={20}>
 					{duration.toFixed(2)}
 				</Title>
 			</View>

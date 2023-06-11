@@ -13,7 +13,7 @@ export const getNewTokens = async () => {
 		const response = await axios
 			.post<string, { data: IAuthResponse }>(
 				SERVER_URL + getAuthUrl('/access-token'),
-				{ refresh_token: refreshToken },
+				{ refresh_token: refreshToken }
 			)
 			.then(res => res.data)
 		if (response.access_token)

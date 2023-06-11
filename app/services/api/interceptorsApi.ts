@@ -38,7 +38,7 @@ instance.interceptors.response.use(
 				await getNewTokens()
 				return instance.request(originalRequest)
 			} catch (error) {
-		await deleteTokensStorage()
+				await deleteTokensStorage()
 				errorToast(errorCatch(error))
 			}
 		}

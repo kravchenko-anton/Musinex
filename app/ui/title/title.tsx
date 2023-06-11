@@ -22,19 +22,24 @@ const Title = <T extends boolean>({
 	center = false,
 	style,
 	...props
-}:ITitle<T>) => {
+}: ITitle<T>) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_300Light,
 		Montserrat_500Medium,
 		Montserrat_600SemiBold,
 		Montserrat_700Bold,
-		Montserrat_900Black,
+		Montserrat_900Black
 	})
 	const { t } = useTranslation()
 	const { colorScheme } = useColorScheme()
-	if (!fontsLoaded || !children) return <Skeleton
-		width={children.length	* 10 }
-	 height={size * numberOfLines} style={style} />
+	if (!fontsLoaded || !children)
+		return (
+			<Skeleton
+				width={children.length * 10}
+				height={size * numberOfLines}
+				style={style}
+			/>
+		)
 	return (
 		<Text
 			style={[
@@ -48,11 +53,11 @@ const Title = <T extends boolean>({
 						? getHexCode('dark')
 						: getHexCode('white')
 				},
-			style
+				style
 			]}
 			numberOfLines={numberOfLines}
 			{...props}
-			>
+		>
 			{props.translate ? t(children.toString()) : children}
 		</Text>
 	)

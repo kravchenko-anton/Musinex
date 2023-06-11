@@ -6,7 +6,7 @@ import Title from '../../title/title'
 
 const MusicCart: FC<IFlatListItem> = ({
 	textCenter = false,
-	wrapClassNames	= 'mr-3',
+	wrapClassNames = 'mr-3',
 	...props
 }) => {
 	return (
@@ -14,14 +14,14 @@ const MusicCart: FC<IFlatListItem> = ({
 			className={wrapClassNames}
 			style={{
 				width: props.wrapperWidth ? props.wrapperWidth : props.image.width,
-				maxWidth: props.image.width,
+				maxWidth: props.image.width
 			}}
 			{...props}
 		>
 			<UImage
 				className={props.imageClassNames}
 				source={props.image.url}
-				borderRadius={props.image.border ?	props.image.border : 0}
+				borderRadius={props.image.border ? props.image.border : 0}
 				height={props.image.height}
 				width={props.image.width}
 			/>

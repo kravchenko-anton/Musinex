@@ -7,7 +7,7 @@ export const request = async <T>(config: AxiosRequestConfig) => {
 	const onSuccess = (response: AxiosResponse<T>) => response.data
 
 	const onError = (error: AxiosError<T>) => {
-			errorToast(errorCatch(error))
+		errorToast(errorCatch(error))
 
 		return Promise.reject(error)
 	}

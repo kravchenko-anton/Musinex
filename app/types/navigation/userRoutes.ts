@@ -20,7 +20,7 @@ export const userRoutes: iRoutes[] = [
 		component: Settings
 	},
 	{
-		name:'PlaylistCatalog',
+		name: 'PlaylistCatalog',
 		component: PlaylistCatalog
 	},
 	{

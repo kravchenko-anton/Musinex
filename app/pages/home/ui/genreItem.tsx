@@ -10,11 +10,16 @@ interface IGenreItem {
 	item: IGenre
 }
 const GenreItem: FC<IGenreItem> = ({ item }) => {
-	const {navigate} = useTypedNavigation()
+	const { navigate } = useTypedNavigation()
 	return (
-		<Pressable onPress={() => navigate('GenreCatalog', {
-			id: item.id,
-		})} className='mr-3 w-[100px]'>
+		<Pressable
+			onPress={() =>
+				navigate('GenreCatalog', {
+					id: item.id
+				})
+			}
+			className='mr-3 w-[100px]'
+		>
 			<View className='bg-lightBlack p-4 rounded-3xl'>
 				<UImage width={70} height={70} source={getServerFileUrl(item.icon)} />
 			</View>

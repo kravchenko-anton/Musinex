@@ -16,30 +16,32 @@ import { Animated } from 'react-native'
 
 const GenreCatalog = () => {
 	const { params } = useTypedRoute<'GenreCatalog'>()
-	const {addToPlayer} = useAction()
-	const {data:genre} = useQuery(['genre', params.id], () => genreServices.getById(params.id))
+	const { addToPlayer } = useAction()
+	const { data: genre } = useQuery(['genre', params.id], () =>
+		genreServices.getById(params.id)
+	)
 	const y = useRef(new Animated.Value(0)).current
-	const {t} = useTranslation()
-	if (!genre) return <FullScreenLoader/>
+	const { t } = useTranslation()
+	if (!genre) return <FullScreenLoader />
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
-				type={"songs"}
+				type={'songs'}
 				id={params.id}
 				title={genre.name}
 				rightIcon={'share-social'}
 				rightIconFunction={() => console.log(1)}
 				y={y}
 			/>
-			<CatalogBackground color={genre.color}  y={y} />
-			<CatalogContent paddingTop={HEADER_HEIGHT * 0.32}
-				description={
-					`${t('In you heart')} - ${genre.name}`
-				}
+			<CatalogBackground color={genre.color} y={y} />
+			<CatalogContent
+				paddingTop={HEADER_HEIGHT * 0.32}
+				description={`${t('In you heart')} - ${genre.name}`}
 				headerTitle={genre.name}
 				y={y}
 			>
-				<UFlatList wrapClassNames={'w-full justify-center items-center'}
+				<UFlatList
+					wrapClassNames={'w-full justify-center items-center'}
 					data={genre.songs.slice(0, 10)}
 					horizontal
 					mt={25}
@@ -73,8 +75,7 @@ const GenreCatalog = () => {
 						)
 					}}
 				/>
-				
-				
+
 				<UFlatList
 					data={genre.albums.slice(0, 10)}
 					horizontal
@@ -94,7 +95,7 @@ const GenreCatalog = () => {
 						)
 					}}
 				/>
-				
+
 				<UFlatList
 					data={genre.playlists.slice(0, 10)}
 					horizontal

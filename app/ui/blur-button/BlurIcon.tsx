@@ -33,13 +33,7 @@ const BlurIcon: FC<PropsWithChildren<IblurButton>> = ({
 					onPress={onPress}
 					name={icon}
 					size={iconSize}
-					color={
-						color
-							? color
-							: colorScheme === 'light'
-							? "dark"
-							: "white"
-					}
+					color={color ? color : colorScheme === 'light' ? 'dark' : 'white'}
 				/>
 			)}
 		</BlurView>

@@ -11,7 +11,10 @@ import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View } from 'react-native'
-import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
+import TrackPlayer, {
+	useActiveTrack,
+	usePlaybackState
+} from 'react-native-track-player'
 
 const Song = () => {
 	const selector = useTypedSelector(state => state.player)
@@ -45,8 +48,7 @@ const Song = () => {
 					height: ScreenHeight,
 					opacity: 0.5
 				}}
-			>
-			</View>
+			></View>
 			<View>
 				<View className='items-center flex-row justify-between mx-1'>
 					<UIcon
@@ -97,8 +99,6 @@ const Song = () => {
 					<Heart
 						id={trackInfo?.id}
 						type={'songs'}
-						resizeMode={'contain'}
-						autoSize
 						style={{
 							marginRight: -20
 						}}

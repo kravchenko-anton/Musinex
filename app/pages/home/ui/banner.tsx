@@ -11,14 +11,14 @@ interface IBanner {
 	songs: ISong[]
 	colors?: string[]
 }
-const Banner: FC<PropsWithChildren<IBanner>>
-	= ({ songs,colors = ['#5BC397', '#46BB8A', '#2DA270'], children }) => {
+const Banner: FC<PropsWithChildren<IBanner>> = ({
+	songs,
+	colors = ['#5BC397', '#46BB8A', '#2DA270'],
+	children
+}) => {
 	return (
 		<View className='h-[200px] overflow-hidden w-full bg-primary rounded-3xl mt-8'>
-			<LinearGradient
-				colors={colors}
-				className='flex-1 items-center'
-			>
+			<LinearGradient colors={colors} className='flex-1 items-center'>
 				<Title
 					fontFamily={'Montserrat_700Bold'}
 					color={'white'}
@@ -49,25 +49,25 @@ const Banner: FC<PropsWithChildren<IBanner>>
 					})}
 				</View>
 			</LinearGradient>
-			{children ||
+			{children || (
 				<View className='h-full w-full absolute'>
-			<Ball
-				wrapperStyle={{
-					left: -100,
-					top: -40
-				}}
-			/>
-			<Ball
-				wrapperStyle={{
-					right: -60,
-					bottom: -30
-				}}
-				width={150}
-				height={150}
-				gradient={[1, 0.2, 0, 0.4]}
-			/>
+					<Ball
+						wrapperStyle={{
+							left: -100,
+							top: -40
+						}}
+					/>
+					<Ball
+						wrapperStyle={{
+							right: -60,
+							bottom: -30
+						}}
+						width={150}
+						height={150}
+						gradient={[1, 0.2, 0, 0.4]}
+					/>
 				</View>
-			}
+			)}
 		</View>
 	)
 }

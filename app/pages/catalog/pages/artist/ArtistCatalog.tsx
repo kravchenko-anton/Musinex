@@ -15,15 +15,17 @@ import { Animated } from 'react-native'
 
 const ArtistCatalog = () => {
 	const { params } = useTypedRoute<'ArtistCatalog'>()
-	const {addToPlayer} = useAction()
-	const {data:artist} = useQuery(['artists', params.id], () => artistServices.getById(params.id))
+	const { addToPlayer } = useAction()
+	const { data: artist } = useQuery(['artists', params.id], () =>
+		artistServices.getById(params.id)
+	)
 	const y = useRef(new Animated.Value(0)).current
-	const {t} = useTranslation()
-	if (!artist) return <FullScreenLoader/>
+	const { t } = useTranslation()
+	if (!artist) return <FullScreenLoader />
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
-				type={"songs"}
+				type={'songs'}
 				id={params.id}
 				title={artist.name}
 				rightIcon={'heart'}
@@ -32,39 +34,42 @@ const ArtistCatalog = () => {
 			/>
 			<CatalogBackground poster={artist.pictureBig} y={y} />
 			<CatalogContent
-				description={
-					`${artist.name} - ${artist.songs.length} ${t('songs')}`
-				}
+				description={`${artist.name} - ${artist.songs.length} ${t('songs')}`}
 				headerTitle={artist.name}
 				y={y}
 			>
-				<UFlatList data={artist.songs} scrollEnabled={false} renderItem={({item,index}) => {
-					return <CatalogItem
-						id={item.id}
-						text1={item.title}
-						image={{
-							uri: item.coverSmall,
-							height: 70,
-							width: 70,
-							border: 5
-						}}
-						text2={artist.name}
-						onPress={() => {
-							addToPlayer({
-								data: artist.songs.map(track => {
-									return {
-										id: track.id,
-										title: track.title,
-										url: track.mp3Path,
-										artist: artist.name,
-										artwork: track.coverMedium
-									}
-								}),
-								songIndex: index
-							})
-						}}
-					/>
-				}}
+				<UFlatList
+					data={artist.songs}
+					scrollEnabled={false}
+					renderItem={({ item, index }) => {
+						return (
+							<CatalogItem
+								id={item.id}
+								text1={item.title}
+								image={{
+									uri: item.coverSmall,
+									height: 70,
+									width: 70,
+									border: 5
+								}}
+								text2={artist.name}
+								onPress={() => {
+									addToPlayer({
+										data: artist.songs.map(track => {
+											return {
+												id: track.id,
+												title: track.title,
+												url: track.mp3Path,
+												artist: artist.name,
+												artwork: track.coverMedium
+											}
+										}),
+										songIndex: index
+									})
+								}}
+							/>
+						)
+					}}
 				/>
 			</CatalogContent>
 		</Layout>

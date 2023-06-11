@@ -1,7 +1,11 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { randomBeautifulColor } from '@/utils/getRandomColor'
 import { useEffect, useState } from 'react'
-import TrackPlayer, { Capability, RepeatMode, usePlaybackState } from 'react-native-track-player'
+import TrackPlayer, {
+	Capability,
+	RepeatMode,
+	usePlaybackState
+} from 'react-native-track-player'
 
 export async function setupPlayer() {
 	let isSetup = false
@@ -51,37 +55,36 @@ export const usePlayer = () => {
 			setIsPlayerReady(isSetup)
 			await TrackPlayer.setRepeatMode(RepeatMode.Off)
 		}
-		
+
 		setup()
 	}, [])
-	
+
 	useEffect(() => {
-		if (selector.length <= 0 || !isPlayerReady) return;
+		if (selector.length <= 0 || !isPlayerReady) return
 		const addTracks = async () => {
-			await TrackPlayer.stop();
-			await TrackPlayer.reset();
+			await TrackPlayer.stop()
+			await TrackPlayer.reset()
 			await TrackPlayer.add(
-				selector[0].data.map((item) => {
+				selector[0].data.map(item => {
 					return {
 						id: item.id,
 						url: item.url,
 						title: item.title,
 						artist: item.artist,
 						artwork: item.artwork,
-						color: randomBeautifulColor(100, 15),
-					};
+						color: randomBeautifulColor(100, 15)
+					}
 				})
-			);
-			await TrackPlayer.skip(selector[0].songIndex);
-				await TrackPlayer.play();
-				setIsPlayerReady(true);
+			)
+			await TrackPlayer.skip(selector[0].songIndex)
+			await TrackPlayer.play()
+			setIsPlayerReady(true)
 		}
-		addTracks();
-	}, [selector]);
-	
+		addTracks()
+	}, [selector])
+
 	return {
 		isPlayerReady,
-		selector,
+		selector
 	}
-	
 }

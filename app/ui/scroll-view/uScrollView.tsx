@@ -3,7 +3,13 @@ import { FC, PropsWithChildren } from 'react'
 import { ScrollView } from 'react-native'
 
 export interface IUScrollView
-	extends Omit<UScrollViewProps, "renderToHardwareTextureAndroid" | 'showsHorizontalScrollIndicator' | "showsVerticalScrollIndicator" | 'decelerationRate'> {
+	extends Omit<
+		UScrollViewProps,
+		| 'renderToHardwareTextureAndroid'
+		| 'showsHorizontalScrollIndicator'
+		| 'showsVerticalScrollIndicator'
+		| 'decelerationRate'
+	> {
 	paddingBottom?: number
 }
 

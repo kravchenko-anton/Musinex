@@ -28,11 +28,11 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 				color={
 					isActive
 						? colorScheme === 'dark'
-							? "white"
-							: "primary"
+							? 'white'
+							: 'primary'
 						: colorScheme === 'dark'
-						? "lightGray"
-						: "veryLightBlack"
+						? 'lightGray'
+						: 'veryLightBlack'
 				}
 			/>
 		</View>

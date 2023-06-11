@@ -22,12 +22,21 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 						data={tabs}
 						renderItem={({ item: tab }) => {
 							return (
-						<Button uppercase translate={translate} size={'small'} onPress={() => setActiveTab(tab.name)} variant={tab.name === activeTab ? 'primary' : 'default'} className='mr-3' width={110} text={tab.title}/>
+								<Button
+									uppercase
+									translate={translate}
+									size={'small'}
+									onPress={() => setActiveTab(tab.name)}
+									variant={tab.name === activeTab ? 'primary' : 'default'}
+									className='mr-3'
+									width={110}
+									text={tab.title}
+								/>
 							)
 						}}
 					/>
 				</View>
-					{tabs.find((tab) => tab.name === activeTab)?.component()}
+				{tabs.find(tab => tab.name === activeTab)?.component()}
 			</View>
 		</View>
 	)

@@ -50,9 +50,8 @@ const Auth = () => {
 						{type === 'Login' ? 'Login' : 'Register'}
 					</Title>
 					<View className='w-5/6 mx-auto'>
-					
-					<AuthForm control={control}/>
-						
+						<AuthForm control={control} />
+
 						<Button
 							variant={'primary'}
 							onPress={handleSubmit(onSubmit)}
@@ -61,8 +60,7 @@ const Auth = () => {
 							translate
 							text={type}
 						/>
-						
-						
+
 						<Title
 							className='mt-4'
 							size={16}

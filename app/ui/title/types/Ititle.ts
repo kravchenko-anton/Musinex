@@ -3,15 +3,15 @@ import en from '@/utils/translate/en.json'
 import { theme } from '../../../../tailwind.config'
 
 export interface ITitle<T extends boolean> extends UTextProps {
-	center?: boolean;
-	translate?: T;
-	children: T extends true ? keyof typeof en : string;
-	size?: number;
+	center?: boolean
+	translate?: T
+	children: T extends true ? keyof typeof en : string
+	size?: number
 	fontFamily?:
-		"Montserrat_300Light" |
-	"Montserrat_500Medium" |
-	"Montserrat_600SemiBold" |
-	"Montserrat_700Bold" |
-	"Montserrat_900Black"
+		| 'Montserrat_300Light'
+		| 'Montserrat_500Medium'
+		| 'Montserrat_600SemiBold'
+		| 'Montserrat_700Bold'
+		| 'Montserrat_900Black'
 	color?: keyof typeof theme.colors
 }

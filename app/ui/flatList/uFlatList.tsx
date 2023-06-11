@@ -4,7 +4,21 @@ import Title from '../title/title'
 
 interface IFlatList<T>
 	extends Pick<
-		FlatListProps<T>, "horizontal" | "ListEmptyComponent" | "keyExtractor" | "style" | "data" | "className" | "extraData" | "inverted" | "initialNumToRender" | "maxToRenderPerBatch" | 'scrollEnabled' | 'numColumns' | 'contentContainerStyle' |'columnWrapperStyle'
+		FlatListProps<T>,
+		| 'horizontal'
+		| 'ListEmptyComponent'
+		| 'keyExtractor'
+		| 'style'
+		| 'data'
+		| 'className'
+		| 'extraData'
+		| 'inverted'
+		| 'initialNumToRender'
+		| 'maxToRenderPerBatch'
+		| 'scrollEnabled'
+		| 'numColumns'
+		| 'contentContainerStyle'
+		| 'columnWrapperStyle'
 	> {
 	data: T[]
 	renderItem: ListRenderItem<T>
@@ -26,7 +40,7 @@ const UFlatList = <T,>({
 }: IFlatList<T>) => {
 	if (data.length && data.length === 0 && !props.ListEmptyComponent) return null
 	return (
-		<View className={wrapClassNames} style={{ marginTop: mt}}>
+		<View className={wrapClassNames} style={{ marginTop: mt }}>
 			{headerText && data.length !== 0 ? (
 				<Title
 					translate
@@ -39,17 +53,33 @@ const UFlatList = <T,>({
 			) : null}
 			<FlatList
 				bounces={false}
-				columnWrapperStyle={props.numColumns === 2 ? [{
-					justifyContent: 'space-between',
-					width: '100%',
-					}, props.columnWrapperStyle] : props.columnWrapperStyle}
-					style={[{
-						height: props.fixBottom ? '93%' : 'auto',
+				columnWrapperStyle={
+					props.numColumns === 2
+						? [
+								{
+									justifyContent: 'space-between',
+									width: '100%'
+								},
+								props.columnWrapperStyle
+						  ]
+						: props.columnWrapperStyle
+				}
+				style={[
+					{
+						height: props.fixBottom ? '93%' : 'auto'
 					},
-						style]}
-				contentContainerStyle={!props.horizontal ? [{
-					paddingBottom: 130,
-				}, props.contentContainerStyle] : props.contentContainerStyle}
+					style
+				]}
+				contentContainerStyle={
+					!props.horizontal
+						? [
+								{
+									paddingBottom: 130
+								},
+								props.contentContainerStyle
+						  ]
+						: props.contentContainerStyle
+				}
 				renderToHardwareTextureAndroid={true}
 				removeClippedSubviews={true}
 				alwaysBounceHorizontal={false}

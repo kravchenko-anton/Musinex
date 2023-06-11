@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 type PlayerState = {
 	songIndex: number
 	data: {
-		id: number 
+		id: number
 		url: string
 		title: string
 		artist: string

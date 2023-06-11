@@ -15,7 +15,9 @@ const FullScreenLoader = () => {
 				height: ScreenHeight,
 				width: ScreenWidth,
 				backgroundColor:
-					selector === 'light' ? getHexCode('lightGray') : getHexCode('primaryBlack')
+					selector === 'light'
+						? getHexCode('lightGray')
+						: getHexCode('primaryBlack')
 			}}
 			className={'justify-center items-center'}
 		>

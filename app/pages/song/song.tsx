@@ -11,10 +11,7 @@ import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View } from 'react-native'
-import TrackPlayer, {
-	useActiveTrack,
-	usePlaybackState
-} from 'react-native-track-player'
+import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
 	const selector = useTypedSelector(state => state.player)
@@ -98,7 +95,7 @@ const Song = () => {
 					</View>
 					<Heart
 						id={trackInfo?.id}
-						type={'songs'}
+						type={'song'}
 						style={{
 							marginRight: -20
 						}}

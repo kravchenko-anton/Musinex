@@ -12,9 +12,9 @@ export interface ICatalogTypes {
 	y: Animated.Value
 }
 
-export type ICatalogRenderTypes = 'songs' | 'albums' | 'playlists' | 'artists'
+export type ICatalogRenderType = 'song' | 'album' | 'playlist' | 'artist'
 
 export interface IHeartProps {
 	id: number
-	type: ICatalogRenderTypes
+	type: ICatalogRenderType
 }

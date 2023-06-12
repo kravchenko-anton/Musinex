@@ -25,7 +25,7 @@ const AlbumCatalog = () => {
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
-				type={'songs'}
+				type={'song'}
 				id={params.id}
 				title={album.title}
 				rightIcon={'heart'}

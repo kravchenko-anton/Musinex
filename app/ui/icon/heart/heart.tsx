@@ -1,21 +1,48 @@
 import { IHeartProps } from '@/types/catalogTypes'
 import { UPressableProps } from '@/types/global'
-import UIcon from '@/ui/icon/defaultIcon/Icon'
+import { useHeart } from '@/ui/icon/heart/useHeart'
+import { useHeartAnimation } from '@/ui/icon/heart/useHeartAnimation'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { FC, memo } from 'react'
-import { useHeart } from './useHeart'
+import { Pressable, StyleSheet, ViewProps } from 'react-native'
+import Animated, { withSpring } from 'react-native-reanimated'
 
 interface IHeart extends UPressableProps, IHeartProps {
 	size?: number
 }
 
 const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
-	const heart = useHeart({ id, type })
+	const { toggleFavorite, isSmashed } = useHeart({ id, type })
+	const { outlineStyle, fillStyle, liked } = useHeartAnimation(isSmashed)
+
 	return (
-		<UIcon
-			name={heart ? 'md-heart-sharp' : 'md-heart-sharp'}
-			size={size}
+		<Pressable
+			onPress={() => {
+				liked.value = withSpring(liked.value === 1 ? 0 : 1)
+				toggleFavorite()
+			}}
+			style={[{ height: size, width: size }, style as ViewProps['style']]}
 			{...props}
-		/>
+		>
+			<Animated.View
+				style={[StyleSheet.absoluteFill, outlineStyle]}
+				className='items-center justify-center'
+			>
+				<MaterialCommunityIcons
+					name={'heart-outline'}
+					size={30}
+					color={'white'}
+				/>
+			</Animated.View>
+			
+			<Animated.View style={fillStyle}>
+				<MaterialCommunityIcons
+					name={'heart'}
+					size={30}
+					color={'#DC3F41'}
+				/>
+			</Animated.View>
+		</Pressable>
 	)
 }
 

@@ -26,7 +26,7 @@ const GenreCatalog = () => {
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
-				type={'songs'}
+				type={'song'}
 				id={params.id}
 				title={genre.name}
 				rightIcon={'share-social'}

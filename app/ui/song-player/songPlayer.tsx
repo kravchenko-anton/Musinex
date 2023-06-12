@@ -7,11 +7,7 @@ import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { Pressable, View } from 'react-native'
 import Animated, { FadeIn, Layout } from 'react-native-reanimated'
-import TrackPlayer, {
-	State,
-	useActiveTrack,
-	usePlaybackState
-} from 'react-native-track-player'
+import TrackPlayer, { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Title from '../title/title'
 
 const SongPlayer = () => {
@@ -45,7 +41,7 @@ const SongPlayer = () => {
 					</View>
 				</View>
 				<View className='flex-row'>
-					<Heart id={trackInfo.id} type={'songs'} />
+					<Heart id={trackInfo.id} type={'song'} />
 					<UIcon
 						color={getHexCode('white')}
 						className='mr-3 items-center justify-center'

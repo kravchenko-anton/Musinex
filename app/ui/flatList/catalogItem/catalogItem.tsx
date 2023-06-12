@@ -47,7 +47,7 @@ const CatalogItem: FC<ISongItem> = ({ id, textSize = 22, image, ...props }) => {
 					)}
 				</View>
 			</View>
-			<Heart id={id} type={'songs'} />
+			<Heart id={id} type={'song'} />
 		</Pressable>
 	)
 }

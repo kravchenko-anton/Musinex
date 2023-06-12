@@ -17,12 +17,14 @@ export const userServices = {
 		})
 	},
 	async toggleFavorite(
-		type: 'song' | 'album' | 'playlist' | 'artist',
-		id: number
+		data: {
+			type: 'song' | 'album' | 'playlist' | 'artist',
+			id: number
+	}
 	) {
 		return request<IUser>({
-			url: getUsersUrl(`/toggle-favorite/${type}/${id}`),
-			method: 'POST'
+			url: getUsersUrl(`/toggle-favorite/${data.type}/${data.id}`),
+			method: 'PATCH'
 		})
 	}
 }

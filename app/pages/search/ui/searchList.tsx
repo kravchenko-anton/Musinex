@@ -28,6 +28,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 							)}
 							renderItem={({ item, index }) => (
 								<CatalogItem
+									type={'song'}
 									onPress={() =>
 										addToPlayer({
 											data: searchResult.songs.map(item => {
@@ -98,6 +99,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 							)}
 							renderItem={({ item }) => (
 								<CatalogItem
+									type={'artist'}
 									onPress={() => navigate('ArtistCatalog', { id: item.id })}
 									text1={item.name}
 									id={item.id}

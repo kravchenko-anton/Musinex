@@ -26,7 +26,7 @@ const PlaylistCatalog = () => {
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
-				type={'song'}
+				type={'playlist'}
 				id={params.id}
 				title={playlist.title}
 				rightIcon={'heart'}
@@ -47,6 +47,7 @@ const PlaylistCatalog = () => {
 					renderItem={({ item, index }) => {
 						return (
 							<CatalogItem
+								type={'song'}
 								id={item.id}
 								text1={item.title}
 								image={{

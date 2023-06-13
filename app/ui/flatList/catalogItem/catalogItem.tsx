@@ -1,3 +1,4 @@
+import { ICatalogRenderType } from '@/types/catalogTypes'
 import { UPressableProps } from '@/types/global'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
@@ -16,6 +17,7 @@ export interface ISongItem extends UPressableProps {
 	text2?: string
 	id: number
 	textSize?: number
+	type: ICatalogRenderType
 }
 
 const CatalogItem: FC<ISongItem> = ({ id, textSize = 22, image, ...props }) => {
@@ -47,7 +49,7 @@ const CatalogItem: FC<ISongItem> = ({ id, textSize = 22, image, ...props }) => {
 					)}
 				</View>
 			</View>
-			<Heart id={id} type={'song'} />
+			<Heart id={id} type={props.type} />
 		</Pressable>
 	)
 }

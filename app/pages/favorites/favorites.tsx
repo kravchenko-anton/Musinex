@@ -17,23 +17,22 @@ const Favorites = () => {
 	const { data: user } = useQuery(['favorite'], () => userServices.getProfile())
 	const { t } = useTranslation()
 	if (!user) return <FullScreenLoader />
-	const favoriteArray = [
-		{
-			id: 'Songs' + 0,
-			type: 'favoriteSongs',
-			name: 'Favorite songs'
-		},
-		...(user.favoritesAlbum
-			? user.favoritesAlbum.map(obj => ({ ...obj, type: 'album' }))
-			: []),
-		...(user.favoritesArtist
-			? user.favoritesArtist.map(obj => ({ ...obj, type: 'artist' }))
-			: []),
-		...(user.favoritePlayLists
-			? user.favoritePlayLists.map(obj => ({ ...obj, type: 'playlist' }))
-			: [])
-	]
-
+const FavoriteArray = [
+	{
+		id: 'Songs' + 0,
+		type: 'favoriteSongs',
+		name: 'Favorite songs'
+	},
+	...(user.favoritesAlbum
+		? user.favoritesAlbum.map(obj => ({ ...obj, type: 'album' }))
+		: []),
+	...(user.favoritesArtist
+		? user.favoritesArtist.map(obj => ({ ...obj, type: 'artist' }))
+		: []),
+	...(user.favoritePlayLists
+		? user.favoritePlayLists.map(obj => ({ ...obj, type: 'playlist' }))
+		: [])
+]
 	return (
 		<Layout>
 			<View className='justify-between items-center flex-row border-b-2 border-b-lightBlack pb-2'>
@@ -73,7 +72,7 @@ const Favorites = () => {
 					</View>
 				)}
 				keyExtractor={(item, index) => index.toString()}
-				data={favoriteArray}
+				data={FavoriteArray}
 				renderItem={({ item }: any) => {
 					const title = item.title ? item.title : item.name
 					const picture = item.coverMedium
@@ -107,6 +106,7 @@ const Favorites = () => {
 					return (
 						<CatalogItem
 							id={item.id}
+							type={item.type}
 							text2={item.type}
 							key={item}
 							image={{
@@ -116,6 +116,7 @@ const Favorites = () => {
 								border: item.type === 'artist' ? 100 : 2
 							}}
 							text1={title}
+							
 							onPress={() => console.log(1)}
 						/>
 					)

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 export const useHeart = ({ id, type }: IHeartProps) => {
 	const [isSmashed, setIsSmashed] = useState(false)
-	
+	const queryClient = useQueryClient()
 	const { user } = useFavorites()
 	const favoriteType =
 		type === "song"
@@ -19,11 +19,9 @@ export const useHeart = ({ id, type }: IHeartProps) => {
 	useEffect(() => {
 		if (!user) return
 		
-		const isFavorite = user[favoriteType].some(f => f.id === id)
-		
-		if (isSmashed !== isFavorite) setIsSmashed(isFavorite)
-	}, [user, isSmashed, id])
-	const queryClient = useQueryClient()
+		const isFavorite = user[favoriteType].some((obj) => obj.id === id)
+			if (isSmashed	!== isFavorite) setIsSmashed(isFavorite)
+	}, [user, isSmashed, id, type])
 	const { mutate: toggleFavorite } = useMutation(
 		['update favorites'],
 		() => userServices.toggleFavorite({
@@ -32,7 +30,7 @@ export const useHeart = ({ id, type }: IHeartProps) => {
 		}),
 		{
 			async onSuccess() {
-				await queryClient.invalidateQueries(['toggle favorites'])
+				await queryClient.invalidateQueries(['favorite'])
 			}
 		}
 	)

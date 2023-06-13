@@ -9,10 +9,7 @@ import { QueryClient } from '@tanstack/react-query'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import { StatusBar } from 'expo-status-bar'
 import { useColorScheme } from 'nativewind'
-import {
-	initialWindowMetrics,
-	SafeAreaProvider
-} from 'react-native-safe-area-context'
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from './app/navigation/navigation'
@@ -23,11 +20,10 @@ export default function App() {
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {
-				refetchOnWindowFocus: false,
-				refetchOnMount: false,
-				refetchOnReconnect: false,
 				cacheTime: 1000 * 60 * 60 * 24,
-				networkMode: 'offlineFirst'
+				networkMode: 'offlineFirst',
+
+			
 			}
 		}
 	})

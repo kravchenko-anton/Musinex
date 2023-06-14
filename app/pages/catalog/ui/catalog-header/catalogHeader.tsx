@@ -1,6 +1,6 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/useHeaderAnimation'
-import { ICatalogTypes, IHeartProps } from '@/types/catalogTypes'
+import { ICatalogRenderType, ICatalogTypes, IHeartProps } from '@/types/catalogTypes'
 import { IconType } from '@/types/global'
 import BlurIcon from '@/ui/blur-button/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
@@ -11,10 +11,11 @@ import { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-interface ICatalogHeaderProps extends ICatalogTypes, IHeartProps {
+interface ICatalogHeaderProps extends ICatalogTypes, Pick<IHeartProps, 'id'>  {
 	title: string
 	rightIcon: IconType
 	rightIconFunction: () => void
+	type?: ICatalogRenderType
 }
 
 const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
@@ -51,7 +52,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 					{props.title}
 				</Title>
 			</Animated.View>
-			{props.rightIcon && props.rightIcon === 'heart' ? (
+			{props.rightIcon && props.rightIcon === 'heart' && props.type ? (
 				<BlurIcon>
 					<Heart id={props.id} type={props.type} />
 				</BlurIcon>

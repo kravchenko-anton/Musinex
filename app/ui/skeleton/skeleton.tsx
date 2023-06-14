@@ -1,4 +1,4 @@
-import { UViewProps } from '@/types/global'
+import { Style } from '@/types/global'
 import { getHexCode } from '@/utils/getColor'
 import { FC } from 'react'
 import { View } from 'react-native'
@@ -7,7 +7,7 @@ interface ISkeleton {
 	width: number
 	height: number
 	borderRadius?: number
-	style: UViewProps['style']
+	style: Style
 }
 const Skeleton: FC<ISkeleton> = ({
 	style,

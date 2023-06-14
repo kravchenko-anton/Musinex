@@ -1,10 +1,10 @@
 import { IHeartProps } from '@/types/catalogTypes'
-import { UPressableProps } from '@/types/global'
+import { Style, UPressableProps } from '@/types/global'
 import { useHeart } from '@/ui/icon/heart/useHeart'
 import { useHeartAnimation } from '@/ui/icon/heart/useHeartAnimation'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { FC, memo } from 'react'
-import { Pressable, StyleSheet, ViewProps } from 'react-native'
+import { Pressable, StyleSheet } from 'react-native'
 import Animated, { withSpring } from 'react-native-reanimated'
 
 interface IHeart extends UPressableProps, IHeartProps {
@@ -21,7 +21,7 @@ const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 				liked.value = withSpring(liked.value === 1 ? 0 : 1)
 				toggleFavorite()
 			}}
-			style={[{ height: size, width: size }, style as ViewProps['style']]}
+			style={[{ height: size, width: size }, style as Style]}
 			{...props}
 		>
 			<Animated.View

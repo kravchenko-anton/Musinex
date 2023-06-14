@@ -1,7 +1,8 @@
+import { Style } from '@/types/global'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
 import { FC } from 'react'
-import { Pressable, View, ViewProps } from 'react-native'
+import { Pressable, View } from 'react-native'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
 
@@ -27,7 +28,7 @@ const Button: FC<IButton> = ({
 					padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
 					width: props.width || '100%'
 				},
-				style as ViewProps['style']
+				style as Style
 			]}
 			{...props}
 		>

@@ -5,6 +5,8 @@ import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBack
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { genreServices } from '@/services/genreServices'
+import { IAlbum } from '@/services/types/IAlbumServices'
+import { IPlaylist } from '@/services/types/IPlaylistServices'
 import MusicCart from '@/ui/flatList/flatlistItem/musicCart'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
@@ -26,7 +28,6 @@ const GenreCatalog = () => {
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
-				type={'song'}
 				id={params.id}
 				title={genre.name}
 				rightIcon={'share-social'}
@@ -35,7 +36,7 @@ const GenreCatalog = () => {
 			/>
 			<CatalogBackground color={genre.color} y={y} />
 			<CatalogContent
-				paddingTop={HEADER_HEIGHT * 0.32}
+				paddingTop={HEADER_HEIGHT * 0.40}
 				description={`${t('In you heart')} - ${genre.name}`}
 				headerTitle={genre.name}
 				y={y}
@@ -57,7 +58,7 @@ const GenreCatalog = () => {
 								}}
 								onPress={() => {
 									addToPlayer({
-										data: genre?.songs.map(track => {
+										data: genre.songs.map(track => {
 											return {
 												id: track.id,
 												title: track.title,
@@ -81,7 +82,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={0}
 					headerText='Albums'
-					renderItem={({ item }) => {
+					renderItem={({ item }: {item: IAlbum}) => {
 						return (
 							<MusicCart
 								image={{
@@ -101,7 +102,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={25}
 					headerText='Playlist'
-					renderItem={({ item }) => {
+					renderItem={({ item }: { item: IPlaylist }) => {
 						return (
 							<MusicCart
 								image={{

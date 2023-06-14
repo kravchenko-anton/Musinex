@@ -1,13 +1,12 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import FavoriteHeader from '@/pages/favorites/ui/header/favoriteHeader'
 import { userServices } from '@/services/userServices'
 import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Icon from '@/ui/icon/defaultIcon/Icon'
-import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Title from '@/ui/title/title'
-import { capitalizeFirstLetter } from '@/utils/capitalizeLatter'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { Pressable, View } from 'react-native'
@@ -35,26 +34,7 @@ const FavoriteArray = [
 ]
 	return (
 		<Layout>
-			<View className='justify-between items-center flex-row border-b-2 border-b-lightBlack pb-2'>
-				<View className='flex-row items-center gap-2'>
-					<View className='bg-primary rounded-full w-[50px] h-[50px] items-center justify-center'>
-						<Title
-							fontFamily={'Montserrat_700Bold'}
-							size={24}
-							color={'primaryBlack'}
-						>
-							{capitalizeFirstLetter(user.email.charAt(0))}
-						</Title>
-					</View>
-					<Title translate fontFamily={'Montserrat_700Bold'}>
-						Your library
-					</Title>
-				</View>
-				<View className='flex-row items-center gap-5 justify-between'>
-					<UIcon name={'md-add-circle-sharp'} size={34} />
-					<UIcon name={'settings'} size={30} />
-				</View>
-			</View>
+			<FavoriteHeader email={user.email}/>
 			<UFlatList
 				ListEmptyComponent={() => (
 					<View className='h-[85vh] justify-center items-center'>

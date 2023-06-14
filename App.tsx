@@ -22,8 +22,6 @@ export default function App() {
 			queries: {
 				cacheTime: 1000 * 60 * 60 * 24,
 				networkMode: 'offlineFirst',
-
-			
 			}
 		}
 	})

@@ -1,4 +1,3 @@
-import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import GenreList from '@/pages/search/ui/genreList'
 import SearchList from '@/pages/search/ui/searchList'
 import { useSearch } from '@/pages/search/useSearch'
@@ -13,7 +12,6 @@ import { View } from 'react-native'
 
 const Search = () => {
 	const { searchTerm, searchResult, isLoading, control } = useSearch()
-	const { navigate } = useTypedNavigation()
 	const { data: genre } = useQuery(['genre'], genreServices.getAll)
 
 	const loading =

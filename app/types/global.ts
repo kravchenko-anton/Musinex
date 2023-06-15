@@ -85,5 +85,4 @@ export type IconType = keyof typeof Ionicons.glyphMap
 export type CatalogProps = {
 	id: number
 }
-
 export type Style = UViewProps['style']

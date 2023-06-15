@@ -4,6 +4,8 @@ export interface IAuthFields extends Pick<IUser, 'email'> {
 	password: string
 }
 
+export interface IAuthState extends Pick<IUser, 'email' | "id">{}
+
 export enum EnumSecureStore {
 	ACCESS_TOKEN = 'access_token',
 	REFRESH_TOKEN = 'refresh_token'
@@ -15,5 +17,5 @@ export interface ITokens {
 }
 
 export interface IAuthResponse extends ITokens {
-	user: IUser
+	user: Pick<IUser, 'id' | 'email'>
 }

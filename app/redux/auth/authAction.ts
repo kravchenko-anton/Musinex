@@ -1,12 +1,12 @@
 import { deleteTokensStorage, saveTokensStorage } from '@/redux/auth/authHelper'
-import { IAuthFields } from '@/types/auth/authTypes'
+import { IAuthFields, IAuthResponse } from '@/types/auth/authTypes'
 import { errorToast } from '@/ui/toast/errorToast'
 import { getAuthUrl, SERVER_URL } from '@/utils/apiConfig'
 import { errorCatch } from '@/utils/errorCatch'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-export const register = createAsyncThunk<any, IAuthFields>(
+export const register = createAsyncThunk<IAuthResponse, IAuthFields>(
 	'auth/register',
 	async ({ email, password }, thunkAPI) => {
 		try {
@@ -26,7 +26,7 @@ export const register = createAsyncThunk<any, IAuthFields>(
 	}
 )
 
-export const login = createAsyncThunk<any, IAuthFields>(
+export const login = createAsyncThunk<IAuthResponse, IAuthFields>(
 	'auth/login',
 	async ({ email, password }, thunkAPI) => {
 		try {
@@ -45,7 +45,7 @@ export const login = createAsyncThunk<any, IAuthFields>(
 	}
 )
 
-export const getNewToken = createAsyncThunk<any, string>(
+export const getNewToken = createAsyncThunk<IAuthResponse, string>(
 	'auth/getToken',
 	async (refresh_token, thunkAPI) => {
 		try {

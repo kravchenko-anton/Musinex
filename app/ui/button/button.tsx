@@ -26,7 +26,7 @@ const Button: FC<IButton> = ({
 							: getHexCode('lightBlack'),
 					borderRadius: borderRadius,
 					padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
-					width: props.width || '100%'
+					width: props.width ? props.width :  '100%'
 				},
 				style as Style
 			]}

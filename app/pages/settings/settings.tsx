@@ -6,18 +6,18 @@ import Title from '@/ui/title/title'
 import i18n from 'i18next'
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
-import { useEffect, useRef, useState } from 'react'
+import { Ref, useEffect, useRef, useState } from 'react'
 import { Pressable, View } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker'
 
 const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()
 	const { setTheme, logout } = useAction()
-	const lottieRef = useRef<any>()
+	const lottieRef = useRef<Lottie>()
 	const [DropDownOpen, setDropDownOpen] = useState(false)
 	const [DropDownValue, setDropDownValue] = useState(i18n.language)
 	useEffect(() => {
-		lottieRef.current.play(
+		lottieRef.current?.play(
 			colorScheme === 'light' ? 80 : 0,
 			colorScheme === 'light' ? 180 : 80
 		)
@@ -36,7 +36,7 @@ const Settings = () => {
 						autoPlay={false}
 						duration={1000}
 						loop={false}
-						ref={lottieRef}
+						ref={lottieRef as Ref<Lottie>}
 						source={require('../../assets/switcher.json')}
 					/>
 				</Pressable>

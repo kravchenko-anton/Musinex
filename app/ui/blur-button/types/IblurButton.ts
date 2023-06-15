@@ -1,7 +1,7 @@
 import { IconType, UPressableProps, UViewProps } from '@/types/global'
 import { theme } from '../../../../tailwind.config'
 
-export interface IblurButton
+export interface IBlurButton
 	extends UViewProps,
 		Pick<UPressableProps, 'onPress'> {
 	icon?: IconType

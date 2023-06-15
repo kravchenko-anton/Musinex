@@ -32,9 +32,9 @@ const Ball: FC<BallProps> = ({
 		>
 			<View
 				style={
-					style || {
-						width: width || 200,
-						height: height || 200,
+					style ? style : {
+						width: width ? width : 200,
+						height: height ? height : 200,
 						borderWidth: 12,
 						borderColor: 'transparent',
 						justifyContent: 'center'

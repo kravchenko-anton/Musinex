@@ -1,9 +1,10 @@
 import { login, logout, register } from '@/redux/auth/authAction'
+import { IAuthState } from '@/types/auth/authTypes'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	isLoading: false,
-	user: null
+	user: null as IAuthState	| null
 }
 
 export const authSlice = createSlice({

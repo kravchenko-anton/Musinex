@@ -41,7 +41,7 @@ const Field = <T extends Record<string, any>>({
 							keyboardType={'default'}
 							renderToHardwareTextureAndroid={true}
 							placeholderTextColor={getHexCode('white')}
-							value={(value || '').toString()}
+							value={(value ? value : '').toString()}
 							className='text-base text-white'
 							style={{
 								fontFamily: 'Montserrat_700Bold'

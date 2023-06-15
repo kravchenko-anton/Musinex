@@ -1,6 +1,6 @@
-import { errorCatch } from '@/services/api/errorApi'
 import instance from '@/services/api/interceptorsApi'
 import { errorToast } from '@/ui/toast/errorToast'
+import { errorCatch } from '@/utils/errorCatch'
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 export const request = async <T>(config: AxiosRequestConfig) => {

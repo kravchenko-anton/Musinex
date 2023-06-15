@@ -1,10 +1,10 @@
+import { IBlurButton } from '@/ui/blur-button/types/IblurButton'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { BlurView } from 'expo-blur'
 import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren } from 'react'
-import { IblurButton } from './types/IblurButton'
 
-const BlurIcon: FC<PropsWithChildren<IblurButton>> = ({
+const BlurIcon: FC<PropsWithChildren<IBlurButton>> = ({
 	children,
 	color,
 	iconSize = 21,

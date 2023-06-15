@@ -1,6 +1,6 @@
 import Button from '@/ui/button/button'
 import UFlatList from '@/ui/flatList/uFlatList'
-import React, { FC, memo, useState } from 'react'
+import React, { FC, memo, useMemo, useState } from 'react'
 import { View } from 'react-native'
 
 interface ITabs {
@@ -13,8 +13,12 @@ interface ITabs {
 }
 const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 	const [activeTab, setActiveTab] = useState(tabs[0].name)
+	
+	const activeComponent = useMemo(() => {
+		const activeTabData = tabs.find((tab) => tab.name === activeTab);
+		return activeTabData ? activeTabData.component() : null;
+	}, [tabs, activeTab]);
 	return (
-		<View>
 			<View>
 				<View className='mt-2 mb-4'>
 					<UFlatList
@@ -36,9 +40,10 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 						}}
 					/>
 				</View>
-				{tabs.find(tab => tab.name === activeTab)?.component()}
+		{
+			activeComponent
+		}
 			</View>
-		</View>
 	)
 }
 export default memo(Tabs)

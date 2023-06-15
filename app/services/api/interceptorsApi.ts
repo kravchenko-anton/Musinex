@@ -1,8 +1,8 @@
 import { deleteTokensStorage, getAccessToken } from '@/redux/auth/authHelper'
-import { errorCatch } from '@/services/api/errorApi'
 import { getNewTokens } from '@/services/api/helperAuth'
 import { errorToast } from '@/ui/toast/errorToast'
 import { SERVER_URL } from '@/utils/apiConfig'
+import { errorCatch } from '@/utils/errorCatch'
 import axios from 'axios'
 
 const instance = axios.create({
@@ -25,7 +25,6 @@ instance.interceptors.response.use(
 	config => config,
 	async error => {
 		const originalRequest = error.config
-
 		if (
 			(error.response.status === 401 ||
 				errorCatch(error) === 'jwt expired' ||

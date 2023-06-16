@@ -10,6 +10,7 @@ export type TypeRootStackParamList = {
 	AlbumCatalog: CatalogProps
 	ArtistCatalog: CatalogProps
 	GenreCatalog: CatalogProps
+	FavoriteCatalog: undefined
 	Favorites: undefined
 	Song: undefined
 }

@@ -6,7 +6,6 @@ import { usePlayer } from '@/ui/song-player/usePlayer'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { Pressable, View } from 'react-native'
-import Animated, { FadeIn, Layout } from 'react-native-reanimated'
 import TrackPlayer, { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Title from '../title/title'
 
@@ -17,9 +16,7 @@ const SongPlayer = () => {
 	const { isPlayerReady, selector } = usePlayer()
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo) return null
 	return (
-		<Animated.View
-			entering={FadeIn.delay(100)}
-			layout={Layout.springify()}
+		<View
 			style={{
 				backgroundColor: trackInfo.color
 			}}
@@ -54,7 +51,7 @@ const SongPlayer = () => {
 					/>
 				</View>
 			</Pressable>
-		</Animated.View>
+		</View>
 	)
 }
 

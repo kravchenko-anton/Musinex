@@ -47,11 +47,11 @@ const GenreCatalog = () => {
 					horizontal
 					mt={25}
 					headerText={'Songs'}
-					renderItem={({ item, index }) => {
+					renderItem={({ item: song, index }) => {
 						return (
 							<MusicCart
 								image={{
-									url: item.coverMedium,
+									url: song.coverMedium,
 									width: 130,
 									height: 130,
 									border: 16
@@ -70,8 +70,8 @@ const GenreCatalog = () => {
 										songIndex: index
 									})
 								}}
-								name={item.title}
-								artists={item.artists[0].name}
+								name={song.title}
+								artists={song.artists[0].name}
 							/>
 						)
 					}}
@@ -82,16 +82,16 @@ const GenreCatalog = () => {
 					horizontal
 					mt={0}
 					headerText='Albums'
-					renderItem={({ item }: {item: IAlbum}) => {
+					renderItem={({ item: album }: {item: IAlbum}) => {
 						return (
 							<MusicCart
 								image={{
-									url: item.coverMedium,
+									url: album.coverMedium,
 									width: 140,
 									height: 140,
 									border: 6
 								}}
-								name={item.title}
+								name={album.title}
 							/>
 						)
 					}}
@@ -102,15 +102,15 @@ const GenreCatalog = () => {
 					horizontal
 					mt={25}
 					headerText='Playlist'
-					renderItem={({ item }: { item: IPlaylist }) => {
+					renderItem={({ item: playlist }: { item: IPlaylist }) => {
 						return (
 							<MusicCart
 								image={{
-									url: item.coverMedium,
+									url: playlist.coverMedium,
 									width: 150,
 									height: 150
 								}}
-								name={item.title}
+								name={playlist.title}
 							/>
 						)
 					}}

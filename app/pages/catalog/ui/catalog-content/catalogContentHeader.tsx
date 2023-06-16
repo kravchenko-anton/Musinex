@@ -24,7 +24,7 @@ const CatalogContentHeader: FC<ICatalogContentHeader> = ({
 			<Title
 				fontFamily={'Montserrat_600SemiBold'}
 				size={45}
-				className='font-semibold  mb-2 pr-2'
+				className='font-semibold mb-2 pr-8'
 				numberOfLines={2}
 			>
 				{title}

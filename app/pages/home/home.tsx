@@ -37,8 +37,8 @@ const Home = () => {
 				horizontal
 				mt={20}
 				headerText='Categories'
-				renderItem={({ item }) => {
-					return <GenreItem item={item} />
+				renderItem={({ item: genre }) => {
+					return <GenreItem item={genre} />
 				}}
 			/>
 			<UFlatList
@@ -46,32 +46,32 @@ const Home = () => {
 				horizontal
 				mt={25} 
 				headerText={'Trending Songs'}
-				renderItem={({ item, index }) => {
+				renderItem={({ item: song, index }) => {
 					return (
 						<MusicCart
 							onPress={() =>
 								addToPlayer({
-									data: chart.songs.map(item => {
+									data: chart.songs.map(track => {
 										return {
-											artist: item.artists[0].name,
-											duration: item.duration,
-											id: item.id,
-											title: item.title,
-											url: item.mp3Path,
-											artwork: item.coverMedium
+											artist: track.artists[0].name,
+											duration: track.duration,
+											id: track.id,
+											title: track.title,
+											url: track.mp3Path,
+											artwork: track.coverMedium
 										}
 									}),
 									songIndex: index
 								})
 							}
 							image={{
-								url: item.coverMedium,
+								url: song.coverMedium,
 								width: 130,
 								height: 130,
 								border: 16
 							}}
-							name={item.title}
-							artists={item.artists[0].name}
+							name={song.title}
+							artists={song.artists[0].name}
 						/>
 					)
 				}}
@@ -81,18 +81,18 @@ const Home = () => {
 				horizontal
 				mt={25}
 				headerText='Rated Artists'
-				renderItem={({ item }) => {
+				renderItem={({ item: artist }) => {
 					return (
 						<MusicCart
-							onPress={() => navigate('ArtistCatalog', { id: item.id })}
+							onPress={() => navigate('ArtistCatalog', { id: artist.id })}
 							textCenter={true}
 							image={{
-								url: item.pictureMedium,
+								url: artist.pictureMedium,
 								width: 80,
 								height: 80,
 								border: 100
 							}}
-							name={item.name}
+							name={artist.name}
 						/>
 					)
 				}}
@@ -103,17 +103,17 @@ const Home = () => {
 				horizontal
 				mt={25}
 				headerText='Wonderful Albums'
-				renderItem={({ item }) => {
+				renderItem={({ item: album }) => {
 					return (
 						<MusicCart
-							onPress={() => navigate('AlbumCatalog', { id: item.id })}
+							onPress={() => navigate('AlbumCatalog', { id: album.id })}
 							image={{
-								url: item.coverMedium,
+								url: album.coverMedium,
 								width: 140,
 								height: 140,
 								border: 6
 							}}
-							name={item.title}
+							name={album.title}
 						/>
 					)
 				}}
@@ -124,16 +124,16 @@ const Home = () => {
 				horizontal
 				mt={25}
 				headerText='Best Playlist'
-				renderItem={({ item }) => {
+				renderItem={({ item: playlist }) => {
 					return (
 						<MusicCart
-							onPress={() => navigate('PlaylistCatalog', { id: item.id })}
+							onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}
 							image={{
-								url: item.coverMedium,
+								url: playlist.coverMedium,
 								width: 150,
 								height: 150
 							}}
-							name={item.title}
+							name={playlist.title}
 						/>
 					)
 				}}

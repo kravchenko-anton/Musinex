@@ -1,6 +1,7 @@
 import Auth from '@/pages/auth/auth'
 import AlbumCatalog from '@/pages/catalog/pages/album/AlbumCatalog'
 import ArtistCatalog from '@/pages/catalog/pages/artist/ArtistCatalog'
+import FavoriteCatalog from '@/pages/catalog/pages/FavoriteCatalog/FavoriteCatalog'
 import GenreCatalog from '@/pages/catalog/pages/genre/GenreCatalog'
 import PlaylistCatalog from '@/pages/catalog/pages/playlist/PlaylistCatalog'
 import Favorites from '@/pages/favorites/favorites'
@@ -30,6 +31,10 @@ export const userRoutes: iRoutes[] = [
 	{
 		name: 'ArtistCatalog',
 		component: ArtistCatalog
+	},
+	{
+		name: 'FavoriteCatalog',
+		component: FavoriteCatalog
 	},
 	{
 		name: 'GenreCatalog',

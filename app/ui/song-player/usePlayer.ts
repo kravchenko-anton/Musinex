@@ -1,11 +1,7 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { randomBeautifulColor } from '@/utils/getRandomColor'
 import { useEffect, useState } from 'react'
-import TrackPlayer, {
-	Capability,
-	RepeatMode,
-	usePlaybackState
-} from 'react-native-track-player'
+import TrackPlayer, { Capability, Event, RepeatMode, usePlaybackState } from 'react-native-track-player'
 
 export async function setupPlayer() {
 	let isSetup = false
@@ -17,11 +13,11 @@ export async function setupPlayer() {
 			autoHandleInterruptions: true,
 			maxCacheSize: 10
 		})
+		
 		await TrackPlayer.updateOptions({
-			// android: {
-			// 	appKilledPlaybackBehavior:
-			// 	AppKilledPlaybackBehavior.StopPlaybackAndRemoveNotification
-			// },
+			android: {
+				alwaysPauseOnInterruption: true,
+			},
 			capabilities: [
 				Capability.Play,
 				Capability.Pause,
@@ -53,6 +49,44 @@ export const usePlayer = () => {
 		async function setup() {
 			let isSetup = await setupPlayer()
 			setIsPlayerReady(isSetup)
+			console.log(selector[0].songIndex + 1)
+			TrackPlayer.addEventListener(Event.RemoteNext, async () => {
+					const selectedSong = selector[0].data.find((value, index) => index ===
+					selector[0].songIndex + 1
+					);
+					const color = randomBeautifulColor(100, 15)
+					if (!selectedSong) return
+					await TrackPlayer.load(
+						{
+							id: selectedSong.id,
+							url: selectedSong.url,
+							title: selectedSong.title,
+							artist: selectedSong.artist,
+							artwork: selectedSong.artwork,
+							color: color
+						}
+					)
+				}
+			)
+			TrackPlayer.addEventListener(Event.RemotePrevious, () =>
+				async () => {
+					console.log(selector[0].songIndex - 1)
+				
+					const selectedSong = selector[0].data.find((value, index) => index === selector[0].songIndex - 1)
+					const color = randomBeautifulColor(100, 15)
+					if (!selectedSong) return
+					await TrackPlayer.load(
+						{
+							id: selectedSong.id,
+							url: selectedSong.url,
+							title: selectedSong.title,
+							artist: selectedSong.artist,
+							artwork: selectedSong.artwork,
+							color: color
+						}
+					)
+				}
+			)
 			await TrackPlayer.setRepeatMode(RepeatMode.Off)
 		}
 
@@ -62,21 +96,19 @@ export const usePlayer = () => {
 	useEffect(() => {
 		if (selector.length <= 0 || !isPlayerReady) return
 		const addTracks = async () => {
-			await TrackPlayer.stop()
-			await TrackPlayer.reset()
-			await TrackPlayer.add(
-				selector[0].data.map(item => {
-					return {
-						id: item.id,
-						url: item.url,
-						title: item.title,
-						artist: item.artist,
-						artwork: item.artwork,
-						color: randomBeautifulColor(100, 15)
-					}
-				})
+			const selectedSong = selector[0].data.find((value, index) => index === selector[0].songIndex);
+			const color = randomBeautifulColor(100, 15)
+			if (!selectedSong) return
+			await TrackPlayer.load(
+				{
+					id: selectedSong.id,
+					url: selectedSong.url,
+					title: selectedSong.title,
+					artist: selectedSong.artist,
+					artwork: selectedSong.artwork,
+					color: color
+				}
 			)
-			await TrackPlayer.skip(selector[0].songIndex)
 			await TrackPlayer.play()
 			setIsPlayerReady(true)
 		}

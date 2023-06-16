@@ -1,3 +1,4 @@
+import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { userServices } from '@/services/userServices'
 import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
@@ -11,6 +12,7 @@ import { Pressable, View } from 'react-native'
 const FavoriteList = () => {
 	const { t } = useTranslation()
 	const { data: user } = useQuery(['favorite'], () => userServices.getProfile())
+	const {	navigate } = useTypedNavigation()
 	if (!user) return <FullScreenLoader />
 	
 	const FavoriteArray = [
@@ -55,7 +57,7 @@ const FavoriteList = () => {
 				: item.pictureMedium
 			if (item.type === 'favoriteSongs')
 				return (
-					<Pressable className='mb-2 mt-4' key={item}>
+					<Pressable onPress={() => navigate('FavoriteCatalog')} className='mb-2 mt-4' key={item}>
 						<View className='items-center flex-row gap-2'>
 							<View className='h-[80px] w-[80px] bg-lightBlack items-center justify-center rounded-[2px]'>
 								<Icon name={'heart'} size={40} color={'white'} />

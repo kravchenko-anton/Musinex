@@ -13,21 +13,21 @@ const GenreList: FC<{ genre: IGenre[] }> = ({ genre }) => {
 			data={genre}
 			fixBottom
 			numColumns={2}
-			renderItem={({ item }) => (
+			renderItem={({ item: genre }) => (
 				<Pressable
 					onPress={() =>
 						navigate('GenreCatalog', {
-							id: item.id
+							id: genre.id
 						})
 					}
 					className='w-[49%] h-[100px] m-1 rounded-xl p-3 relative overflow-hidden'
-					style={{ backgroundColor: item.color }}
+					style={{ backgroundColor: genre.color }}
 				>
 					<Title className='mb-3' size={18} fontFamily='Montserrat_700Bold'>
-						{item.name}
+						{genre.name}
 					</Title>
 					<UImage
-						source={item.songs[0].coverMedium}
+						source={genre.songs[0].coverMedium}
 						width={70}
 						height={70}
 						borderRadius={100}

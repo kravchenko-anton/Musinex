@@ -26,28 +26,28 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 							ListEmptyComponent={() => (
 								<FlatList404 width={150} height={150} />
 							)}
-							renderItem={({ item, index }) => (
+							renderItem={({ item: song, index }) => (
 								<CatalogItem
 									type={'song'}
 									onPress={() =>
 										addToPlayer({
-											data: searchResult.songs.map(item => {
+											data: searchResult.songs.map(track => {
 												return {
-													artist: item.artists[0].name,
-													duration: item.duration,
-													id: item.id,
-													title: item.title,
-													url: item.mp3Path,
-													artwork: item.coverMedium
+													artist: track.artists[0].name,
+													duration: track.duration,
+													id: track.id,
+													title: track.title,
+													url: track.mp3Path,
+													artwork: track.coverMedium
 												}
 											}),
 											songIndex: index
 										})
 									}
-									text1={item.title}
-									id={item.id}
+									text1={song.title}
+									id={song.id}
 									image={{
-										uri: item.coverSmall,
+										uri: song.coverSmall,
 										width: 80,
 										height: 80,
 										border: 8
@@ -69,16 +69,16 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 							ListEmptyComponent={() => (
 								<FlatList404 width={150} height={150} />
 							)}
-							renderItem={({ item }) => (
+							renderItem={({ item: album }) => (
 								<MusicCart
-									onPress={() => navigate('AlbumCatalog', { id: item.id })}
+									onPress={() => navigate('AlbumCatalog', { id: album.id })}
 									image={{
-										url: item.coverMedium,
+										url: album.coverMedium,
 										width: 190,
 										height: 190
 									}}
 									wrapClassNames={'mb-4'}
-									name={item.title}
+									name={album.title}
 								/>
 							)}
 							numColumns={2}
@@ -97,14 +97,14 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 							ListEmptyComponent={() => (
 								<FlatList404 width={150} height={150} />
 							)}
-							renderItem={({ item }) => (
+							renderItem={({ item: artist }) => (
 								<CatalogItem
 									type={'artist'}
-									onPress={() => navigate('ArtistCatalog', { id: item.id })}
-									text1={item.name}
-									id={item.id}
+									onPress={() => navigate('ArtistCatalog', { id: artist.id })}
+									text1={artist.name}
+									id={artist.id}
 									image={{
-										uri: item.pictureMedium,
+										uri: artist.pictureMedium,
 										width: 80,
 										height: 80,
 										border: 100
@@ -126,16 +126,16 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 							ListEmptyComponent={() => (
 								<FlatList404 width={150} height={150} />
 							)}
-							renderItem={({ item }) => (
+							renderItem={({ item: playlist }) => (
 								<MusicCart
-									onPress={() => navigate('PlaylistCatalog', { id: item.id })}
+									onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}
 									image={{
-										url: item.coverMedium,
+										url: playlist.coverMedium,
 										width: 190,
 										height: 190
 									}}
 									wrapClassNames={'mb-4'}
-									name={item.title}
+									name={playlist.title}
 								/>
 							)}
 							numColumns={2}

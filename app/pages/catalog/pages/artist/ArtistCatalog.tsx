@@ -41,14 +41,14 @@ const ArtistCatalog = () => {
 				<UFlatList
 					data={artist.songs}
 					scrollEnabled={false}
-					renderItem={({ item, index }) => {
+					renderItem={({ item: song, index }) => {
 						return (
 							<CatalogItem
 								type={'song'}
-								id={item.id}
-								text1={item.title}
+								id={song.id}
+								text1={song.title}
 								image={{
-									uri: item.coverSmall,
+									uri: song.coverSmall,
 									height: 70,
 									width: 70,
 									border: 5

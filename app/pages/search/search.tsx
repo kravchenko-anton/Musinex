@@ -1,8 +1,9 @@
-import GenreList from '@/pages/search/ui/genreList'
+import GenreItem from '@/pages/search/ui/genreItem'
 import SearchList from '@/pages/search/ui/searchList'
 import { useSearch } from '@/pages/search/useSearch'
 import { genreServices } from '@/services/genreServices'
 import FlatList404 from '@/ui/flatList/flatList404'
+import UFlatList from '@/ui/flatList/uFlatList'
 import Field from '@/ui/Flield/field'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
@@ -12,7 +13,7 @@ import { View } from 'react-native'
 
 const Search = () => {
 	const { searchTerm, searchResult, isLoading, control } = useSearch()
-	const { data: genre } = useQuery(['genre'], genreServices.getAll)
+	const { data: genres } = useQuery(['genre'], genreServices.getAll)
 
 	const loading =
 		searchResult &&
@@ -20,7 +21,7 @@ const Search = () => {
 		!searchResult.artists.length &&
 		!searchResult.playlists.length &&
 		!searchResult.albums.length
-	if (!genre) return <FullScreenLoader />
+	if (!genres) return <FullScreenLoader />
 	return (
 		<Layout>
 			<Field
@@ -33,7 +34,14 @@ const Search = () => {
 			) : searchTerm &&
 			  searchTerm.length > 2 &&
 			  isLoading ? null : !searchTerm || !searchResult || loading ? (
-				<GenreList genre={genre} />
+				<UFlatList
+					data={genres}
+					fixBottom
+					numColumns={2}
+					renderItem={({ item: genre }) => (
+						<GenreItem genre={genre}/>
+					)}
+				/>
 			) : (
 				<View>
 					<SearchList searchResult={searchResult} />

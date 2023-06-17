@@ -1,3 +1,4 @@
+import { usePressAnimation } from '@/animation/usePressAnimation'
 import Ball from '@/pages/home/ui/ball'
 import { ISong } from '@/services/types/global'
 import UImage from '@/ui/image/image'
@@ -5,8 +6,10 @@ import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
+import Animated from 'react-native-reanimated'
 
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable)
 interface IBanner {
 	songs: ISong[]
 	colors?: string[]
@@ -16,8 +19,9 @@ const Banner: FC<PropsWithChildren<IBanner>> = ({
 	colors = ['#5BC397', '#46BB8A', '#2DA270'],
 	children
 }) => {
+	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<View className='h-[200px] overflow-hidden w-full bg-primary rounded-3xl mt-8'>
+		<AnimatedPressable {...pressFunctions} style={animatedStyle} className='h-[200px] overflow-hidden w-full bg-primary rounded-3xl mt-8'>
 			<LinearGradient colors={colors} className='flex-1 items-center'>
 				<Title
 					fontFamily={'Montserrat_700Bold'}
@@ -68,7 +72,7 @@ const Banner: FC<PropsWithChildren<IBanner>> = ({
 					/>
 				</View>
 			)}
-		</View>
+		</AnimatedPressable>
 	)
 }
 

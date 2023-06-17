@@ -25,8 +25,7 @@ const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 			{...props}
 		>
 			<Animated.View
-				style={[StyleSheet.absoluteFill, outlineStyle]}
-				className='items-center justify-center'
+				style={[StyleSheet.absoluteFill, outlineStyle, style	as Style]}
 			>
 				<MaterialCommunityIcons
 					name={'heart-outline'}

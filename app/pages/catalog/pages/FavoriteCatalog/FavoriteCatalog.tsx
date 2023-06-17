@@ -1,4 +1,5 @@
 import { useAction } from '@/hook/useAction'
+import { HEADER_HEIGHT } from '@/pages/catalog/catalogConstant'
 import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBackground'
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
@@ -27,7 +28,7 @@ const FavoriteCatalog = () => {
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader
-				title={'Songs'}
+				title={t('Favorite songs')}
 				rightIcon={'heart'}
 				rightIconFunction={() => console.log(1)}
 				y={y}
@@ -35,6 +36,8 @@ const FavoriteCatalog = () => {
 			<CatalogBackground color={getHexCode('primary')}  y={y} />
 			<CatalogContent
 				description={`${t('songs')}`}
+				paddingTop={HEADER_HEIGHT * 0.2}
+				gradientEnd={0.27}
 				headerTitle={t('Favorite songs')}
 				y={y}
 			>

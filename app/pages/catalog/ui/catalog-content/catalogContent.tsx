@@ -12,10 +12,12 @@ interface ICatalogContent extends ICatalogTypes {
 	headerTitle: string
 	description: string
 	paddingTop?: number
+	gradientEnd?: number
 }
 const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 	y,
 	children,
+	gradientEnd	= 0.8,
 	description,
 	paddingTop = HEADER_HEIGHT * 0.52,
 	headerTitle
@@ -52,7 +54,9 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 					height: HEADER_HEIGHT / (headerTitle.length > 14 ? 0.45 : 0.9)
 				}}
 				start={[0, 0.1]}
-				end={[0, 0.8]}
+				end={[0,
+					gradientEnd
+				]}
 				colors={[
 					'transparent',
 					colorScheme === 'light'

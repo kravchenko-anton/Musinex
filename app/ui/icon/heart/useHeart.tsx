@@ -30,6 +30,7 @@ export const useHeart = ({ id, type }: IHeartProps) => {
 		}),
 		{
 			async onSuccess() {
+				await queryClient.invalidateQueries(['favoriteSongs'])
 				await queryClient.invalidateQueries(['favorite'])
 			}
 		}

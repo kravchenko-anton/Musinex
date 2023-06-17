@@ -21,15 +21,9 @@ const FavoriteList = () => {
 			type: 'favoriteSongs',
 			name: 'Favorite songs'
 		},
-		...(user.favoritesAlbum
-			? user.favoritesAlbum.map(obj => ({ ...obj, type: 'album' }))
-			: []),
-		...(user.favoritesArtist
-			? user.favoritesArtist.map(obj => ({ ...obj, type: 'artist' }))
-			: []),
-		...(user.favoritePlayLists
-			? user.favoritePlayLists.map(obj => ({ ...obj, type: 'playlist' }))
-			: [])
+		...(user?.favoritesAlbum?.map(obj => ({ ...obj, type: 'album' })) ?? []),
+		...(user?.favoritesArtist?.map(obj => ({ ...obj, type: 'artist' })) ?? []),
+		...(user?.favoritePlayLists?.map(obj => ({ ...obj, type: 'playlist' })) ?? [])
 	]
 	
 	return <UFlatList
@@ -57,9 +51,8 @@ const FavoriteList = () => {
 				: item.pictureMedium
 			if (item.type === 'favoriteSongs')
 				return (
-					<Pressable onPress={() => navigate('FavoriteCatalog')} className='mb-2 mt-4' key={item}>
-						<View className='items-center flex-row gap-2'>
-							<View className='h-[80px] w-[80px] bg-lightBlack items-center justify-center rounded-[2px]'>
+						<Pressable onPress={() => navigate('FavoriteCatalog')}  className='items-center flex-row gap-2 mb-2 mt-4'>
+							<View pointerEvents={'none'} className='h-[80px] w-[80px] bg-lightBlack items-center justify-center rounded-[2px]'>
 								<Icon name={'heart'} size={40} color={'white'} />
 							</View>
 							<View>
@@ -77,12 +70,12 @@ const FavoriteList = () => {
 									)} `}
 								</Title>
 							</View>
-						</View>
-					</Pressable>
+						</Pressable>
 				)
 			return (
 				<CatalogItem
 					id={item.id}
+					noHeart
 					type={item.type}
 					text2={item.type}
 					key={item}
@@ -93,8 +86,13 @@ const FavoriteList = () => {
 						border: item.type === 'artist' ? 100 : 2
 					}}
 					text1={title}
-					
-					onPress={() => console.log(1)}
+					onPress={() =>
+					{
+						if (item.type === 'artist') navigate('ArtistCatalog', { id: item.id })
+						if (item.type === 'album') navigate('AlbumCatalog', { id: item.id })
+						if (item.type === 'playlist') navigate('PlaylistCatalog', { id: item.id })
+					}
+				}
 				/>
 			)
 		}}

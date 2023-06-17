@@ -11,7 +11,7 @@ export const useHeartAnimation = (isSmashed: boolean) => {
 	const outlineStyle = useAnimatedStyle(() => ({
 		transform: [
 			{
-				scale: interpolate(liked.value, [0, 1], [1, 0], Extrapolate.CLAMP)
+				scale: interpolate(liked.value, [0, 1], [1, 0.8], Extrapolate.CLAMP)
 			}
 		]
 	}))

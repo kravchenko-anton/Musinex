@@ -36,7 +36,8 @@ const GenreCatalog = () => {
 			/>
 			<CatalogBackground color={genre.color} y={y} />
 			<CatalogContent
-				paddingTop={HEADER_HEIGHT * 0.40}
+				paddingTop={HEADER_HEIGHT * 0.25}
+				gradientEnd={0.5}
 				description={`${t('In you heart')} - ${genre.name}`}
 				headerTitle={genre.name}
 				y={y}

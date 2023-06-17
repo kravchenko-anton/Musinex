@@ -84,14 +84,14 @@ const Home = () => {
 					return (
 						<MusicCart
 							onPress={() => navigate('ArtistCatalog', { id: artist.id })}
-							textCenter={true}
 							image={{
 								url: artist.pictureMedium,
-								width:90,
-								height: 90,
+								width: 80,
+								height: 80,
 								border: 100
 							}}
 							name={artist.name}
+							textCenter
 						/>
 					)
 				}}

@@ -86,3 +86,6 @@ export type CatalogProps = {
 	id: number
 }
 export type Style = UViewProps['style']
+export interface SharedElementTag {
+	sharedElementTag?: string
+}

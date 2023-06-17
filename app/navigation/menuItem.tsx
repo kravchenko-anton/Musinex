@@ -6,7 +6,6 @@ import { View } from 'react-native'
 import { menuItems } from './menuList'
 
 export type TypeNavigate = (screenName: keyof TypeRootStackParamList) => void
-
 interface IMenuItemProps {
 	item: (typeof menuItems)[0]
 	nav: TypeNavigate
@@ -23,7 +22,7 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 		>
 			<UIcon
 				onPress={() => nav(item.path)}
-				name={item.iconName}
+				name={isActive ? item.iconName : item.iconName + '-outline' as typeof menuItems[0]['iconName']}
 				size={30}
 				color={
 					isActive

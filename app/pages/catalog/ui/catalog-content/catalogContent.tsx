@@ -40,7 +40,8 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 			)}
 			contentContainerStyle={{
 				paddingTop: paddingTop,
-				paddingBottom: 50
+				paddingBottom: 50,
+				zIndex: 100
 			}}
 		>
 			<CatalogContentHeader
@@ -51,7 +52,7 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 			<LinearGradient
 				style={{
 					...StyleSheet.absoluteFillObject,
-					height: HEADER_HEIGHT / 0.9
+					height: HEADER_HEIGHT / 0.9,
 				}}
 				start={[0, 0.1]}
 				end={[0,

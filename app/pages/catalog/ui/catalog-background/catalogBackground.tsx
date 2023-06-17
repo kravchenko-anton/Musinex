@@ -39,15 +39,14 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({
 				<>
 					<UImage
 						style={StyleSheet.absoluteFill}
-						resizeMode='cover'
-						height={HEADER_HEIGHT}
-						width={WindowWidth}
 						source={poster}
+						width={WindowWidth}
+						height={HEADER_HEIGHT}
 					/>
 					<LinearGradient
 						style={{
 							...StyleSheet.absoluteFillObject,
-							top: -HEADER_HEIGHT * 1.8
+							top: -HEADER_HEIGHT * 1.8,
 						}}
 						start={[0, 0.1]}
 						end={[0, 0.8]}

@@ -29,15 +29,15 @@ const GenreCatalog = () => {
 		<Layout className={'p-0'}>
 			<CatalogHeader
 				id={params.id}
-				title={genre.name}
+				title={t(genre.name)}
 				y={y}
 			/>
 			<CatalogBackground color={genre.color} y={y} />
 			<CatalogContent
 				paddingTop={HEADER_HEIGHT * 0.3}
 				gradientEnd={0.52}
-				description={`${t('In you heart')} - ${genre.name}`}
-				headerTitle={genre.name}
+				description={`${t('In you heart')} - ${t(genre.name)}`}
+				headerTitle={t(genre.name)}
 				y={y}
 			>
 				<UFlatList

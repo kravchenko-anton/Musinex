@@ -1,6 +1,6 @@
-import { UPressableProps } from '@/types/global'
+import { SharedElementTag, UPressableProps } from '@/types/global'
 
-export interface IFlatListItem extends UPressableProps {
+export interface IFlatListItem extends UPressableProps, SharedElementTag {
 	name: string
 	image: {
 		url: string

@@ -1,7 +1,7 @@
 import { IFlatListItem } from '@/types/flatListTypes'
-import { FC, memo } from 'react'
+import { FC } from 'react'
 import { Pressable, View } from 'react-native'
-import UImage from '../../image/image'
+import Animated from 'react-native-reanimated'
 import Title from '../../title/title'
 
 const MusicCart: FC<IFlatListItem> = ({
@@ -18,12 +18,16 @@ const MusicCart: FC<IFlatListItem> = ({
 			}}
 			{...props}
 		>
-			<UImage
+			<Animated.Image
 				className={props.imageClassNames}
-				source={props.image.url}
-				borderRadius={props.image.border ? props.image.border : 0}
-				height={props.image.height}
-				width={props.image.width}
+				sharedTransitionTag={props.sharedElementTag}
+				source={{
+					uri: props.image.url,
+					height: props.image.height,
+					width: props.image.width
+				}} style={{
+					borderRadius: props.image.border ? props.image.border : 0,
+			}}
 			/>
 			<View
 				style={{
@@ -57,4 +61,4 @@ const MusicCart: FC<IFlatListItem> = ({
 	)
 }
 
-export default memo(MusicCart)
+export default MusicCart

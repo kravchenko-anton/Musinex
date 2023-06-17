@@ -30,14 +30,12 @@ const GenreCatalog = () => {
 			<CatalogHeader
 				id={params.id}
 				title={genre.name}
-				rightIcon={'share-social'}
-				rightIconFunction={() => console.log(1)}
 				y={y}
 			/>
 			<CatalogBackground color={genre.color} y={y} />
 			<CatalogContent
-				paddingTop={HEADER_HEIGHT * 0.25}
-				gradientEnd={0.5}
+				paddingTop={HEADER_HEIGHT * 0.3}
+				gradientEnd={0.52}
 				description={`${t('In you heart')} - ${genre.name}`}
 				headerTitle={genre.name}
 				y={y}

@@ -29,15 +29,13 @@ const FavoriteCatalog = () => {
 		<Layout className={'p-0'}>
 			<CatalogHeader
 				title={t('Favorite songs')}
-				rightIcon={'heart'}
-				rightIconFunction={() => console.log(1)}
 				y={y}
 			/>
 			<CatalogBackground color={getHexCode('primary')}  y={y} />
 			<CatalogContent
 				description={`${t('songs')}`}
-				paddingTop={HEADER_HEIGHT * 0.2}
-				gradientEnd={0.27}
+				paddingTop={HEADER_HEIGHT * 0.3}
+				gradientEnd={0.75}
 				headerTitle={t('Favorite songs')}
 				y={y}
 			>

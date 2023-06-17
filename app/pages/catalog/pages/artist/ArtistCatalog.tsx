@@ -29,7 +29,6 @@ const ArtistCatalog = () => {
 				id={params.id}
 				title={artist.name}
 				rightIcon={'heart'}
-				rightIconFunction={() => console.log(1)}
 				y={y}
 			/>
 			<CatalogBackground poster={artist.pictureBig} y={y} />

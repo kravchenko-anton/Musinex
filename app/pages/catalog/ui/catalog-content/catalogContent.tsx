@@ -51,7 +51,7 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 			<LinearGradient
 				style={{
 					...StyleSheet.absoluteFillObject,
-					height: HEADER_HEIGHT / (headerTitle.length > 14 ? 0.45 : 0.9)
+					height: HEADER_HEIGHT / 0.9
 				}}
 				start={[0, 0.1]}
 				end={[0,

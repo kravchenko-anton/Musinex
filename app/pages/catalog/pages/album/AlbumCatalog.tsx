@@ -29,7 +29,6 @@ const AlbumCatalog = () => {
 				id={params.id}
 				title={album.title}
 				rightIcon={'heart'}
-				rightIconFunction={() => console.log(1)}
 				y={y}
 			/>
 			<CatalogBackground poster={album.coverBig} y={y} />

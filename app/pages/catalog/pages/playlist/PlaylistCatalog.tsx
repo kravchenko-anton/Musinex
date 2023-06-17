@@ -30,7 +30,6 @@ const PlaylistCatalog = () => {
 				id={params.id}
 				title={playlist.title}
 				rightIcon={'heart'}
-				rightIconFunction={() => console.log(1)}
 				y={y}
 			/>
 			<CatalogBackground poster={playlist.coverBig} y={y} />

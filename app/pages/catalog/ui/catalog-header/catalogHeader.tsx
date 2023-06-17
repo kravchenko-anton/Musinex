@@ -13,8 +13,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 interface ICatalogHeaderProps extends ICatalogTypes  {
 	title: string
-	rightIcon: IconType
-	rightIconFunction: () => void
+	rightIcon?: IconType
+	rightIconFunction?: () => void
 	type?: ICatalogRenderType
 	id?: number
 }
@@ -27,11 +27,12 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 	const { opacity } = useHeaderAnimation(y)
 	return (
 		<View
-			className='absolute rounded-b-lg z-10 flex-row justify-between items-center px-2 pb-4'
+			className='absolute rounded-b-lg z-10 flex-row  items-center px-2 pb-4'
 			style={{
 				marginTop: -top,
 				paddingTop: top + 6,
-				width
+				width,
+				justifyContent: props.rightIcon	? 'space-between' : 'flex-start'
 			}}
 		>
 			<Animated.View
@@ -48,7 +49,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 			/>
 			<BlurIcon icon='arrow-back' onPress={() => goBack()} />
 
-			<Animated.View className='items-center w-2/3' style={{ opacity }}>
+			<Animated.View className='items-center' style={{ opacity, marginLeft: props.rightIcon ? 0 : 15 }}>
 				<Title numberOfLines={1} fontFamily={'Montserrat_500Medium'}>
 					{props.title}
 				</Title>
@@ -57,9 +58,9 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 				<BlurIcon>
 					<Heart id={props.id} type={props.type} />
 				</BlurIcon>
-			) : (
+			) :  props.rightIcon && props.rightIconFunction ? (
 				<BlurIcon icon={props.rightIcon} onPress={props.rightIconFunction} />
-			)}
+			) : null}
 		</View>
 	)
 }

@@ -14,15 +14,16 @@ import { useTranslation } from 'react-i18next'
 import { Text } from 'react-native'
 import { ITitle } from './types/Ititle'
 
-const Title = <T extends boolean>({
-	children,
-	numberOfLines = 1,
-	fontFamily = 'Montserrat_300Light',
-	size = 20,
-	center = false,
-	style,
-	...props
-}: ITitle<T>) => {
+const Title =
+({
+	                                  children,
+	                                  numberOfLines = 1,
+	                                  fontFamily = 'Montserrat_300Light',
+	                                  size = 20,
+	                                  center = false,
+	                                  style,
+	                                  ...props
+                                  }: ITitle) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_300Light,
 		Montserrat_500Medium,
@@ -50,8 +51,8 @@ const Title = <T extends boolean>({
 					color: props.color
 						? getHexCode(props.color)
 						: colorScheme === 'light'
-						? getHexCode('dark')
-						: getHexCode('white')
+							? getHexCode('dark')
+							: getHexCode('white')
 				},
 				style
 			]}

@@ -28,12 +28,12 @@ const MusicCart: FC<IFlatListItem> = ({
 			<View
 				style={{
 					margin: 5,
-					alignItems: textCenter ? 'center' : 'flex-start'
 				}}
 			>
 				<Title
 					numberOfLines={1}
 					size={16}
+					center={textCenter}
 					className={'w-full'}
 					color={'lightGray'}
 					fontFamily={'Montserrat_500Medium'}
@@ -45,6 +45,7 @@ const MusicCart: FC<IFlatListItem> = ({
 						className={'mt-0.5 w-10/12'}
 						numberOfLines={1}
 						color={'primaryGray'}
+						center={textCenter}
 						size={16}
 						fontFamily={'Montserrat_500Medium'}
 					>

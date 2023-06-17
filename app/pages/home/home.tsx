@@ -29,7 +29,6 @@ const Home = () => {
 					onPress: () => navigate('Search')
 				}}
 			/>
-
 			<Banner songs={chart.songs.slice(0, 3)} />
 
 			<UFlatList
@@ -88,8 +87,8 @@ const Home = () => {
 							textCenter={true}
 							image={{
 								url: artist.pictureMedium,
-								width: 80,
-								height: 80,
+								width:90,
+								height: 90,
 								border: 100
 							}}
 							name={artist.name}

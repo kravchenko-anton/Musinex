@@ -1,8 +1,9 @@
-import { Style } from '@/types/global'
+import { useButtonAnimation } from '@/ui/button/useButtonAnimation'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
+import Animated, { withSpring } from 'react-native-reanimated'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
 
@@ -16,8 +17,10 @@ const Button: FC<IButton> = ({
 	style,
 	...props
 }) => {
+	const {scale, PressConfig,animatedStyle} = useButtonAnimation()
 	return (
-		<Pressable
+	<Pressable onPressIn={() => scale.value = withSpring(.95, PressConfig)} onPressOut={() =>  {scale.value = withSpring(1, PressConfig)}} style={style} {...props}>
+		<Animated.View
 			style={[
 				{
 					backgroundColor:
@@ -28,9 +31,8 @@ const Button: FC<IButton> = ({
 					padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
 					width: props.width ? props.width :  '100%'
 				},
-				style as Style
+				animatedStyle,
 			]}
-			{...props}
 		>
 			<View
 				style={{
@@ -84,7 +86,8 @@ const Button: FC<IButton> = ({
 					/>
 				)}
 			</View>
-		</Pressable>
+		</Animated.View>
+	</Pressable>
 	)
 }
 

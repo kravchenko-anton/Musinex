@@ -1,5 +1,6 @@
 import { getHexCode } from '@/utils/getColor'
 import { Montserrat_700Bold, useFonts } from '@expo-google-fonts/montserrat'
+import { useColorScheme } from 'nativewind'
 import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { TextInput, View } from 'react-native'
@@ -14,6 +15,7 @@ const Field = <T extends Record<string, any>>({
 		Montserrat_700Bold
 	})
 	const { t } = useTranslation()
+	const { colorScheme } = useColorScheme()
 	if (!fontsLoaded) return null
 	return (
 		<Controller
@@ -29,7 +31,7 @@ const Field = <T extends Record<string, any>>({
 						style={{
 							borderWidth: error ? 1 : 0,
 							borderColor: getHexCode('red'),
-							backgroundColor: getHexCode('lightBlack')
+							backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('lightBlack'),
 						}}
 						className={'w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
 					>

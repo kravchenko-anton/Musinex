@@ -1,5 +1,6 @@
 import { Style } from '@/types/global'
 import { getHexCode } from '@/utils/getColor'
+import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 
@@ -15,6 +16,7 @@ const Skeleton: FC<ISkeleton> = ({
 	width,
 	borderRadius = 6
 }) => {
+	const { colorScheme } = useColorScheme()
 	return (
 		<View
 			style={[
@@ -22,7 +24,7 @@ const Skeleton: FC<ISkeleton> = ({
 					height,
 					width,
 					borderRadius,
-					backgroundColor: getHexCode('lightBlack')
+					backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('lightBlack')
 				},
 				style
 			]}

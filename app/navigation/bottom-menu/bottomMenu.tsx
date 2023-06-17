@@ -25,7 +25,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 				colors={[
 					'transparent',
 					colorScheme === 'light'
-						? getHexCode('lightGray')
+						? getHexCode('primaryGray')
 						: getHexCode('primaryBlack')
 				]}
 				style={{

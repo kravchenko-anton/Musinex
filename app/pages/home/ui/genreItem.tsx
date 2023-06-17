@@ -4,6 +4,7 @@ import { IGenre } from '@/services/types/IGenreServices'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getServerFileUrl } from '@/utils/apiConfig'
+import { shadeColor } from '@/utils/shadeColor'
 import { FC } from 'react'
 import { Pressable } from 'react-native'
 import Animated from 'react-native-reanimated'
@@ -24,7 +25,9 @@ const GenreItem: FC<IGenreItem> = ({ item: genre }) => {
 			className='mr-3 w-[100px]'
 			{...pressFunctions}
 		>
-			<Animated.View className='bg-lightBlack p-4 rounded-3xl' style={animatedStyle}>
+			<Animated.View className='p-4 rounded-3xl' style={[{
+				backgroundColor: shadeColor(genre.color, -25)
+			},animatedStyle]}>
 				<UImage width={70} height={70} source={getServerFileUrl(genre.icon)} />
 			</Animated.View>
 			<Title className='text-center mt-2' numberOfLines={1} translate>

@@ -6,14 +6,10 @@ import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import { userRoutes } from '@/types/navigation/userRoutes'
 import SongPlayer from '@/ui/song-player/songPlayer'
 import { getHexCode } from '@/utils/getColor'
-import {
-	NavigationContainer,
-	useNavigationContainerRef
-} from '@react-navigation/native'
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
-import { View } from 'react-native'
 
 const Navigation = () => {
 	const Stack = createNativeStackNavigator<TypeRootStackParamList>()
@@ -43,7 +39,7 @@ const Navigation = () => {
 					contentStyle: {
 						backgroundColor:
 							colorScheme === 'light'
-								? getHexCode('primaryGray')
+								? getHexCode('lightGray')
 								: getHexCode('primaryBlack'),
 						flex: 1
 					}
@@ -63,10 +59,10 @@ const Navigation = () => {
 			</Stack.Navigator>
 			{currentRoute === 'Song' ||
 				(user && (
-					<View>
+					<>
 						<BottomMenu currentRoute={currentRoute} />
 						<SongPlayer />
-					</View>
+					</>
 				))}
 		</NavigationContainer>
 	)

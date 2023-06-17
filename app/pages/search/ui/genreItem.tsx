@@ -20,7 +20,7 @@ const GenreItem:FC<{genre: IGenre}> = ({genre}) => {
 		{...pressFunctions}
 	>
 		<Animated.View 	className='w-[100%] h-[100px] m-1 rounded-xl p-3  overflow-hidden' style={[{ backgroundColor: genre.color }, animatedStyle]}>
-			<Title className='mb-3' size={18} fontFamily='Montserrat_700Bold'>
+			<Title className='mb-3' size={18} color={'veryLightBlack'} fontFamily='Montserrat_700Bold'>
 				{genre.name}
 			</Title>
 			<UImage

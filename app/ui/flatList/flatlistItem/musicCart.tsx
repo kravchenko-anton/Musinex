@@ -41,7 +41,6 @@ const MusicCart: FC<IFlatListItem> = ({
 					size={16}
 					center={textCenter}
 					className={'w-full'}
-					color={'lightGray'}
 					fontFamily={'Montserrat_500Medium'}
 				>
 					{props.name}

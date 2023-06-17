@@ -1,6 +1,5 @@
 import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
-import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { menuItems } from './menuList'
@@ -14,7 +13,6 @@ interface IMenuItemProps {
 
 const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
-	const { colorScheme } = useColorScheme()
 	return (
 		<View
 			pointerEvents={'auto'}
@@ -25,13 +23,7 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 				name={isActive ? item.iconName : item.iconName + '-outline' as typeof menuItems[0]['iconName']}
 				size={30}
 				color={
-					isActive
-						? colorScheme === 'dark'
-							? 'white'
-							: 'primary'
-						: colorScheme === 'dark'
-						? 'lightGray'
-						: 'veryLightBlack'
+					isActive ? 'white' : 'lightGray'
 				}
 			/>
 		</View>

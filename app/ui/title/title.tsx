@@ -52,7 +52,7 @@ const Title =
 						? getHexCode(props.color)
 						: colorScheme === 'light'
 							? getHexCode('dark')
-							: getHexCode('white')
+							: getHexCode('lightGray')
 				},
 				style
 			]}

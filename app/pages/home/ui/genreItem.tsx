@@ -1,16 +1,19 @@
+import { usePressAnimation } from '@/animation/usePressAnimation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { IGenre } from '@/services/types/IGenreServices'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getServerFileUrl } from '@/utils/apiConfig'
 import { FC } from 'react'
-import { Pressable, View } from 'react-native'
+import { Pressable } from 'react-native'
+import Animated from 'react-native-reanimated'
 
 interface IGenreItem {
 	item: IGenre
 }
 const GenreItem: FC<IGenreItem> = ({ item: genre }) => {
 	const { navigate } = useTypedNavigation()
+	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
 		<Pressable
 			onPress={() =>
@@ -19,10 +22,11 @@ const GenreItem: FC<IGenreItem> = ({ item: genre }) => {
 				})
 			}
 			className='mr-3 w-[100px]'
+			{...pressFunctions}
 		>
-			<View className='bg-lightBlack p-4 rounded-3xl'>
+			<Animated.View className='bg-lightBlack p-4 rounded-3xl' style={animatedStyle}>
 				<UImage width={70} height={70} source={getServerFileUrl(genre.icon)} />
-			</View>
+			</Animated.View>
 			<Title className='text-center mt-2' numberOfLines={1} translate>
 				{genre.name}
 			</Title>

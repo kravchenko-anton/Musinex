@@ -1,9 +1,9 @@
-import { useButtonAnimation } from '@/ui/button/useButtonAnimation'
+import { usePressAnimation } from '@/animation/usePressAnimation'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
-import Animated, { withSpring } from 'react-native-reanimated'
+import Animated from 'react-native-reanimated'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
 
@@ -17,9 +17,9 @@ const Button: FC<IButton> = ({
 	style,
 	...props
 }) => {
-	const {scale, PressConfig,animatedStyle} = useButtonAnimation()
+	const {pressFunctions,animatedStyle} = usePressAnimation()
 	return (
-	<Pressable onPressIn={() => scale.value = withSpring(.95, PressConfig)} onPressOut={() =>  {scale.value = withSpring(1, PressConfig)}} style={style} {...props}>
+	<Pressable {...pressFunctions} style={style} {...props}>
 		<Animated.View
 			style={[
 				{

@@ -50,7 +50,7 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 			<BlurIcon icon='arrow-back' onPress={() => goBack()} />
 
 			<Animated.View className='items-center' style={{ opacity, marginLeft: props.rightIcon ? 0 : 15 }}>
-				<Title numberOfLines={1} fontFamily={'Montserrat_500Medium'}>
+				<Title numberOfLines={1} className='max-w-[300px]' fontFamily={'Montserrat_500Medium'}>
 					{props.title}
 				</Title>
 			</Animated.View>

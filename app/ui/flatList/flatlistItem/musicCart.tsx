@@ -1,3 +1,4 @@
+import { usePressAnimation } from '@/animation/usePressAnimation'
 import { IFlatListItem } from '@/types/flatListTypes'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
@@ -9,14 +10,15 @@ const MusicCart: FC<IFlatListItem> = ({
 	wrapClassNames = 'mr-3',
 	...props
 }) => {
+	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<Pressable
+		<Pressable {...pressFunctions}  {...props}>
+		<Animated.View
 			className={wrapClassNames}
-			style={{
+			style={[{
 				width: props.wrapperWidth ? props.wrapperWidth : props.image.width,
 				maxWidth: props.image.width
-			}}
-			{...props}
+			}, animatedStyle]}
 		>
 			<Animated.Image
 				className={props.imageClassNames}
@@ -57,6 +59,7 @@ const MusicCart: FC<IFlatListItem> = ({
 					</Title>
 				)}
 			</View>
+		</Animated.View>
 		</Pressable>
 	)
 }

@@ -9,7 +9,6 @@ import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { useQuery } from '@tanstack/react-query'
-import { View } from 'react-native'
 
 const Search = () => {
 	const { searchTerm, searchResult, isLoading, control } = useSearch()
@@ -43,9 +42,9 @@ const Search = () => {
 					)}
 				/>
 			) : (
-				<View>
+				<>
 					<SearchList searchResult={searchResult} />
-				</View>
+				</>
 			)}
 		</Layout>
 	)

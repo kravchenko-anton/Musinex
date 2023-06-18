@@ -14,9 +14,8 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 	const { navigate } = useTypedNavigation()
 	const { bottom } = useSafeAreaInsets()
 	const { colorScheme } = useColorScheme()
-
 	return (
-		<View>
+		<>
 			<LinearGradient
 				pointerEvents={'none'}
 				start={[0, 0.01]}
@@ -42,7 +41,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 					/>
 				))}
 			</View>
-		</View>
+		</>
 	)
 }
 

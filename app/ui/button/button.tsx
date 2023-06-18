@@ -1,6 +1,7 @@
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
+import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import Animated from 'react-native-reanimated'
@@ -17,6 +18,7 @@ const Button: FC<IButton> = ({
 	style,
 	...props
 }) => {
+	const {colorScheme} = useColorScheme()
 	const {pressFunctions,animatedStyle} = usePressAnimation()
 	return (
 	<Pressable {...pressFunctions} style={style} {...props}>
@@ -26,7 +28,7 @@ const Button: FC<IButton> = ({
 					backgroundColor:
 						variant === 'primary'
 							? getHexCode('primary')
-							: getHexCode('lightBlack'),
+							: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('lightBlack'),
 					borderRadius: borderRadius,
 					padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
 					width: props.width ? props.width :  '100%'

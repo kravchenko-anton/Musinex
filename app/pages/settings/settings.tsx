@@ -1,5 +1,6 @@
 import { useAction } from '@/hook/useAction'
 import Button from '@/ui/button/button'
+import Dropdown from '@/ui/dropdown/dropdown'
 import Header from '@/ui/header/header'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
@@ -7,8 +8,7 @@ import i18n from 'i18next'
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
 import { Ref, useEffect, useRef, useState } from 'react'
-import { Pressable, View } from 'react-native'
-import DropDownPicker from 'react-native-dropdown-picker'
+import { Pressable } from 'react-native'
 
 const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()
@@ -41,37 +41,34 @@ const Settings = () => {
 					/>
 				</Pressable>
 			</Header>
-			<View>
+			<>
 	
 				<Title translate className='mt-2 mb-4'>
 					Language Settings
 				</Title>
-				<DropDownPicker
-					disableBorderRadius={true}
-					onSelectItem={async item => {
-						await i18n.changeLanguage(item.value)
-					}}
-					closeAfterSelecting={true}
-					theme={colorScheme === 'light' ? 'LIGHT' : 'DARK'}
-					open={DropDownOpen}
+				<Dropdown options={[
+					{ label: 'English', value: 'en' },
+					{ label: 'Russian', value: 'ru' },
+					{ label: 'Polish', value: 'pl' },
+					{ label: 'Ukrainian', value: 'ua' }
+				]}
 					value={DropDownValue}
-					items={[
-						{ label: 'English', value: 'en' },
-						{ label: 'Russian', value: 'ru' },
-						{ label: 'Polish', value: 'pl' },
-						{ label: 'Ukrainian', value: 'ua' }
-					]}
-					setOpen={setDropDownOpen}
-					setValue={setDropDownValue}
+				 setValue={setDropDownValue}
+				 setIsOpen={setDropDownOpen}
+				 isOpen={DropDownOpen}
+					onSelect={async (value) => {
+						await i18n.changeLanguage(value)
+					}}
 				/>
-			</View>
+			
+			</>
 			<Button
 				borderRadius={4}
 				onPress={() => logout()}
 				size={'medium'}
 				text={'Logout'}
 				width={200}
-				className='mt-4 justify-center items-center self-center'
+				className='mt-4 z-0 justify-center items-center self-center'
 			/>
 		</Layout>
 	)

@@ -33,7 +33,7 @@ const FavoriteCatalog = () => {
 			/>
 			<CatalogBackground color={getHexCode('primary')}  y={y} />
 			<CatalogContent
-				description={`${t('songs')}`}
+				description={`${songs.length} ${t('songs')}`}
 				paddingTop={HEADER_HEIGHT * 0.3}
 				gradientEnd={0.75}
 				headerTitle={t('Favorite songs')}

@@ -8,11 +8,13 @@ interface ISkeleton {
 	width: number
 	height: number
 	borderRadius?: number
+	transparent?: boolean
 	style: Style
 }
 const Skeleton: FC<ISkeleton> = ({
 	style,
 	height,
+	transparent,
 	width,
 	borderRadius = 6
 }) => {
@@ -24,7 +26,11 @@ const Skeleton: FC<ISkeleton> = ({
 					height,
 					width,
 					borderRadius,
-					backgroundColor: colorScheme === 'light' ? getHexCode('primaryGray') : getHexCode('lightBlack')
+					backgroundColor: transparent
+						? 'transparent'
+						: colorScheme === 'light'
+						? getHexCode('primaryGray')
+						: getHexCode('lightBlack')
 				},
 				style
 			]}

@@ -16,12 +16,10 @@ export const userServices = {
 			data
 		})
 	},
-	async toggleFavorite(
-		data: {
-			type: 'song' | 'album' | 'playlist' | 'artist',
-			id: number
-	}
-	) {
+	async toggleFavorite(data: {
+		type: 'song' | 'album' | 'playlist' | 'artist'
+		id: number
+	}) {
 		return request<IUser>({
 			url: getUsersUrl(`/toggle-favorite/${data.type}/${data.id}`),
 			method: 'PATCH'

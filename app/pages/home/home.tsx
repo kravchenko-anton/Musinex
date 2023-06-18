@@ -42,7 +42,7 @@ const Home = () => {
 			<UFlatList
 				data={chart.songs}
 				horizontal
-				mt={25} 
+				mt={25}
 				headerText={'Trending Songs'}
 				renderItem={({ item: song, index }) => {
 					return (

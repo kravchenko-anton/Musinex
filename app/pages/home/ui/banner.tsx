@@ -4,6 +4,7 @@ import { ISong } from '@/services/types/global'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
+import { shadeColor } from '@/utils/shadeColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
 import { Pressable, View } from 'react-native'
@@ -16,12 +17,20 @@ interface IBanner {
 }
 const Banner: FC<PropsWithChildren<IBanner>> = ({
 	songs,
-	colors = ['#5BC397', '#46BB8A', '#2DA270'],
+	colors = [
+		`${shadeColor(getHexCode('primary'), -15)}`,
+		`${shadeColor(getHexCode('primary'), 0)}`,
+		`${shadeColor(getHexCode('primary'), 30)}`
+	],
 	children
 }) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<AnimatedPressable {...pressFunctions} style={animatedStyle} className='h-[200px] overflow-hidden w-full bg-primary rounded-3xl mt-8'>
+		<AnimatedPressable
+			{...pressFunctions}
+			style={animatedStyle}
+			className='h-[200px] overflow-hidden w-full bg-primary rounded-3xl mt-8'
+		>
 			<LinearGradient colors={colors} className='flex-1 items-center'>
 				<Title
 					fontFamily={'Montserrat_700Bold'}

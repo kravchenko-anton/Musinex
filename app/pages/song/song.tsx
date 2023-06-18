@@ -11,7 +11,10 @@ import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View } from 'react-native'
-import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
+import TrackPlayer, {
+	useActiveTrack,
+	usePlaybackState
+} from 'react-native-track-player'
 
 const Song = () => {
 	const selector = useTypedSelector(state => state.player)
@@ -36,7 +39,7 @@ const Song = () => {
 				backgroundColor: getHexCode('veryLightBlack')
 			}}
 		>
-			<StatusBar backgroundColor={'#ffffff00'} style={'light'} />
+			<StatusBar backgroundColor={getHexCode('transparent')} style={'light'} />
 			<View
 				style={{
 					...StyleSheet.absoluteFillObject,

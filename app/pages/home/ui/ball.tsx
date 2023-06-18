@@ -1,4 +1,6 @@
 import { Style } from '@/types/global'
+import { getHexCode } from '@/utils/getColor'
+import { shadeColor } from '@/utils/shadeColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC } from 'react'
 import { View } from 'react-native'
@@ -13,7 +15,11 @@ interface BallProps {
 }
 const Ball: FC<BallProps> = ({
 	gradient = [0, 1, 1, 1],
-	colors = ['#2DA270', '#5BC397', 'transparent'],
+	colors = [
+		shadeColor(getHexCode('primary'), -10),
+		shadeColor(getHexCode('primary'), 20),
+		'transparent'
+	],
 	height = 200,
 	width = 200,
 	wrapperStyle = {},
@@ -32,13 +38,15 @@ const Ball: FC<BallProps> = ({
 		>
 			<View
 				style={
-					style ? style : {
-						width: width ? width : 200,
-						height: height ? height : 200,
-						borderWidth: 12,
-						borderColor: 'transparent',
-						justifyContent: 'center'
-					}
+					style
+						? style
+						: {
+								width: width ? width : 200,
+								height: height ? height : 200,
+								borderWidth: 12,
+								borderColor: 'transparent',
+								justifyContent: 'center'
+						  }
 				}
 			>
 				<LinearGradient

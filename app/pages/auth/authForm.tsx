@@ -4,7 +4,9 @@ import { FC } from 'react'
 import { Control } from 'react-hook-form'
 import { View } from 'react-native'
 
-const AuthForm: FC<{ control: Control<IAuthFields, unknown> }> = ({ control }) => {
+const AuthForm: FC<{ control: Control<IAuthFields, unknown> }> = ({
+	control
+}) => {
 	return (
 		<View>
 			<Field

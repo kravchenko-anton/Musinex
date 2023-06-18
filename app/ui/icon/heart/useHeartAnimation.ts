@@ -1,5 +1,11 @@
 import { useEffect } from 'react'
-import { Extrapolate, interpolate, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated'
+import {
+	Extrapolate,
+	interpolate,
+	useAnimatedStyle,
+	useSharedValue,
+	withSpring
+} from 'react-native-reanimated'
 
 export const useHeartAnimation = (isSmashed: boolean) => {
 	const liked = useSharedValue(0)

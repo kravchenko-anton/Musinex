@@ -6,7 +6,10 @@ import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
 import { userRoutes } from '@/types/navigation/userRoutes'
 import SongPlayer from '@/ui/song-player/songPlayer'
 import { getHexCode } from '@/utils/getColor'
-import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
+import {
+	NavigationContainer,
+	useNavigationContainerRef
+} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useColorScheme } from 'nativewind'
 import { useEffect, useState } from 'react'
@@ -15,9 +18,7 @@ const Navigation = () => {
 	const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 	const navRef = useNavigationContainerRef()
 	const { colorScheme } = useColorScheme()
-	const [currentRoute, setCurrentRoute] = useState<string | undefined>(
-		undefined
-	)
+	const [currentRoute, setCurrentRoute] = useState<string | undefined>('Home')
 	const { user } = useAuth()
 	useEffect(() => {
 		const listener = navRef.addListener('state', () =>

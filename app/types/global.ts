@@ -1,5 +1,11 @@
 import { Ionicons } from '@expo/vector-icons'
-import { ImageProps, PressableProps, ScrollViewProps, TextProps, ViewProps } from 'react-native'
+import {
+	ImageProps,
+	PressableProps,
+	ScrollViewProps,
+	TextProps,
+	ViewProps
+} from 'react-native'
 import en from '../utils/translate/en.json'
 
 export type ITranslateTypes = keyof typeof en | string
@@ -56,7 +62,7 @@ export type UScrollViewProps = Pick<
 	ScrollViewProps,
 	| 'scrollEnabled'
 	| 'keyboardDismissMode'
-	| "refreshControl"
+	| 'refreshControl'
 	| 'onScrollAnimationEnd'
 	| 'onScroll'
 	| 'scrollToOverflowEnabled'

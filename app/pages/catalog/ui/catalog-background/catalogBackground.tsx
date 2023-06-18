@@ -17,7 +17,7 @@ interface ICatalogBackgroundProps extends ICatalogTypes {
 
 const CatalogBackground: FC<ICatalogBackgroundProps> = ({
 	poster,
-	color = '#32B47D',
+	color = getHexCode('primary'),
 	y
 }) => {
 	const { top } = useSafeAreaInsets()
@@ -46,7 +46,7 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({
 					<LinearGradient
 						style={{
 							...StyleSheet.absoluteFillObject,
-							top: -HEADER_HEIGHT * 1.8,
+							top: -HEADER_HEIGHT * 1.8
 						}}
 						start={[0, 0.1]}
 						end={[0, 0.8]}

@@ -1,6 +1,5 @@
 import { Animated } from 'react-native'
 
-
 export interface ICatalogTypes {
 	y: Animated.Value
 }

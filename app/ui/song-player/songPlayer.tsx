@@ -6,7 +6,11 @@ import { usePlayer } from '@/ui/song-player/usePlayer'
 import { cutString } from '@/utils/cutString'
 import { getHexCode } from '@/utils/getColor'
 import { Pressable, View } from 'react-native'
-import TrackPlayer, { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
+import TrackPlayer, {
+	State,
+	useActiveTrack,
+	usePlaybackState
+} from 'react-native-track-player'
 import Title from '../title/title'
 
 const SongPlayer = () => {

@@ -31,35 +31,35 @@ const UIcon: FC<IconProps> = ({
 	const { colorScheme } = useColorScheme()
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<Pressable
-			pointerEvents={'auto'}
-			{...pressFunctions}
-			{...props}
-		>
+		<Pressable pointerEvents={'auto'} {...pressFunctions} {...props}>
 			<Animated.View
-				style={[{
-				justifyContent: 'center',
-				alignItems: 'center',
-				padding: padding,
-				borderWidth: border ? 2 : 0,
-				borderColor:
-					colorScheme === 'light'
-						? getHexCode('dark')
-						: getHexCode('lightBlack'),
-				backgroundColor: backgroundColor,
-				borderRadius: borderRadius,
-			}, animatedStyle]}>
-			<Ionicons
-				name={name}
-				color={
-					color
-						? getHexCode(color)
-						: colorScheme === 'light'
-						? getHexCode('dark')
-						: getHexCode('white')
-				}
-				size={size}
-			/>
+				style={[
+					{
+						justifyContent: 'center',
+						alignItems: 'center',
+						padding: padding,
+						borderWidth: border ? 2 : 0,
+						borderColor:
+							colorScheme === 'light'
+								? getHexCode('dark')
+								: getHexCode('lightBlack'),
+						backgroundColor: backgroundColor,
+						borderRadius: borderRadius
+					},
+					animatedStyle
+				]}
+			>
+				<Ionicons
+					name={name}
+					color={
+						color
+							? getHexCode(color)
+							: colorScheme === 'light'
+							? getHexCode('dark')
+							: getHexCode('white')
+					}
+					size={size}
+				/>
 			</Animated.View>
 		</Pressable>
 	)

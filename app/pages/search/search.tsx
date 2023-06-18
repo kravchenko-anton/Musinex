@@ -37,9 +37,7 @@ const Search = () => {
 					data={genres}
 					fixBottom
 					numColumns={2}
-					renderItem={({ item: genre }) => (
-						<GenreItem genre={genre}/>
-					)}
+					renderItem={({ item: genre }) => <GenreItem genre={genre} />}
 				/>
 			) : (
 				<>

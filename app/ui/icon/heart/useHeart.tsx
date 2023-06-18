@@ -9,25 +9,26 @@ export const useHeart = ({ id, type }: IHeartProps) => {
 	const queryClient = useQueryClient()
 	const { user } = useFavorites()
 	const favoriteType =
-		type === "song"
-			? "favoritesSong"
-			: type === "album"
-				? "favoritesAlbum"
-				: type === "artist"
-					? "favoritesArtist"
-					: "favoritePlayLists";
+		type === 'song'
+			? 'favoritesSong'
+			: type === 'album'
+			? 'favoritesAlbum'
+			: type === 'artist'
+			? 'favoritesArtist'
+			: 'favoritePlayLists'
 	useEffect(() => {
 		if (!user) return
-		
-		const isFavorite = user[favoriteType].some((obj) => obj.id === id)
-			if (isSmashed	!== isFavorite) setIsSmashed(isFavorite)
+
+		const isFavorite = user[favoriteType].some(obj => obj.id === id)
+		if (isSmashed !== isFavorite) setIsSmashed(isFavorite)
 	}, [user, isSmashed, id, type])
 	const { mutate: toggleFavorite } = useMutation(
 		['update favorites'],
-		() => userServices.toggleFavorite({
-			type,
-			id
-		}),
+		() =>
+			userServices.toggleFavorite({
+				type,
+				id
+			}),
 		{
 			async onSuccess() {
 				await queryClient.invalidateQueries(['favoriteSongs'])
@@ -35,7 +36,7 @@ export const useHeart = ({ id, type }: IHeartProps) => {
 			}
 		}
 	)
-	
+
 	return {
 		toggleFavorite,
 		isSmashed

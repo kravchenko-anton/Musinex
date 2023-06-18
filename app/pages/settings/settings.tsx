@@ -42,25 +42,24 @@ const Settings = () => {
 				</Pressable>
 			</Header>
 			<>
-	
-				<Title translate className='mt-2 mb-4'>
+				<Title translate className='mt-8 mb-4'>
 					Language Settings
 				</Title>
-				<Dropdown options={[
-					{ label: 'English', value: 'en' },
-					{ label: 'Russian', value: 'ru' },
-					{ label: 'Polish', value: 'pl' },
-					{ label: 'Ukrainian', value: 'ua' }
-				]}
+				<Dropdown
+					options={[
+						{ label: 'English', value: 'en' },
+						{ label: 'Russian', value: 'ru' },
+						{ label: 'Polish', value: 'pl' },
+						{ label: 'Ukrainian', value: 'ua' }
+					]}
 					value={DropDownValue}
-				 setValue={setDropDownValue}
-				 setIsOpen={setDropDownOpen}
-				 isOpen={DropDownOpen}
-					onSelect={async (value) => {
+					setValue={setDropDownValue}
+					setIsOpen={setDropDownOpen}
+					isOpen={DropDownOpen}
+					onSelect={async value => {
 						await i18n.changeLanguage(value)
 					}}
 				/>
-			
 			</>
 			<Button
 				borderRadius={4}

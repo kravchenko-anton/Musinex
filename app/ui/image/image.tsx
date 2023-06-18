@@ -7,6 +7,7 @@ const UImage: FC<IImage> = ({
 	height,
 	width,
 	borderRadius,
+	transparentSkeleton = false,
 	source,
 	style,
 	wrapperClassName,
@@ -38,6 +39,7 @@ const UImage: FC<IImage> = ({
 			{imageLoading && (
 				<Skeleton
 					width={width}
+					transparent={transparentSkeleton}
 					height={height}
 					style={[
 						{

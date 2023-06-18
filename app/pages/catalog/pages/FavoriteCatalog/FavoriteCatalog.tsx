@@ -18,20 +18,18 @@ const FavoriteCatalog = () => {
 	const y = useRef(new Animated.Value(0)).current
 	const { addToPlayer } = useAction()
 	const { t } = useTranslation()
-	const { data: songs } = useQuery(['favoriteSongs'], () =>
-			userServices.getProfile(),
+	const { data: songs } = useQuery(
+		['favoriteSongs'],
+		() => userServices.getProfile(),
 		{
-		select: user => user.favoritesSong
+			select: user => user.favoritesSong
 		}
 	)
 	if (!songs) return <FullScreenLoader />
 	return (
 		<Layout className={'p-0'}>
-			<CatalogHeader
-				title={t('Favorite songs')}
-				y={y}
-			/>
-			<CatalogBackground color={getHexCode('primary')}  y={y} />
+			<CatalogHeader title={t('Favorite songs')} y={y} />
+			<CatalogBackground color={getHexCode('primary')} y={y} />
 			<CatalogContent
 				description={`${songs.length} ${t('songs')}`}
 				paddingTop={HEADER_HEIGHT * 0.3}

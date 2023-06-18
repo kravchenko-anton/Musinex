@@ -2,6 +2,7 @@ import { IHeartProps } from '@/types/catalogTypes'
 import { Style, UPressableProps } from '@/types/global'
 import { useHeart } from '@/ui/icon/heart/useHeart'
 import { useHeartAnimation } from '@/ui/icon/heart/useHeartAnimation'
+import { getHexCode } from '@/utils/getColor'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { FC, memo } from 'react'
 import { Pressable, StyleSheet } from 'react-native'
@@ -25,20 +26,20 @@ const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 			{...props}
 		>
 			<Animated.View
-				style={[StyleSheet.absoluteFill, outlineStyle, style	as Style]}
+				style={[StyleSheet.absoluteFill, outlineStyle, style as Style]}
 			>
 				<MaterialCommunityIcons
 					name={'heart-outline'}
 					size={30}
-					color={'white'}
+					color={getHexCode('white')}
 				/>
 			</Animated.View>
-			
+
 			<Animated.View style={fillStyle}>
 				<MaterialCommunityIcons
 					name={'heart'}
 					size={30}
-					color={'#DC3F41'}
+					color={getHexCode('primaryRed')}
 				/>
 			</Animated.View>
 		</Pressable>

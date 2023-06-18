@@ -1,4 +1,5 @@
 import { getHexCode } from '@/utils/getColor'
+import { shadeColor } from '@/utils/shadeColor'
 import { FC } from 'react'
 import RnToast, { BaseToast } from 'react-native-toast-message'
 
@@ -25,13 +26,20 @@ const Toast: FC = () => {
 			autoHide={true}
 			position={'top'}
 			config={{
-				success: props => <BaseToast {...props} {...options('#00c851')} />,
-				info: props => <BaseToast {...props} {...options('#65d4ff')} />,
+				success: props => (
+					<BaseToast
+						{...props}
+						{...options(shadeColor(getHexCode('primary'), 50))}
+					/>
+				),
+				info: props => (
+					<BaseToast {...props} {...options(getHexCode('yellow'))} />
+				),
 				error: props => (
 					<BaseToast
 						{...props}
 						{...{
-							...options('#ff4444')
+							...options(getHexCode('primaryRed'))
 						}}
 					/>
 				)

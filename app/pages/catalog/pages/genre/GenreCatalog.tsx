@@ -27,11 +27,7 @@ const GenreCatalog = () => {
 	if (!genre) return <FullScreenLoader />
 	return (
 		<Layout className={'p-0'}>
-			<CatalogHeader
-				id={params.id}
-				title={t(genre.name)}
-				y={y}
-			/>
+			<CatalogHeader id={params.id} title={t(genre.name)} y={y} />
 			<CatalogBackground color={genre.color} y={y} />
 			<CatalogContent
 				paddingTop={HEADER_HEIGHT * 0.3}
@@ -81,7 +77,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={0}
 					headerText='Albums'
-					renderItem={({ item: album }: {item: IAlbum}) => {
+					renderItem={({ item: album }: { item: IAlbum }) => {
 						return (
 							<MusicCart
 								image={{

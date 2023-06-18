@@ -23,7 +23,13 @@ export interface ISongItem extends UPressableProps {
 	type: ICatalogRenderType
 }
 
-const CatalogItem: FC<ISongItem> = ({ id, textSize = 22, image, noHeart, ...props }) => {
+const CatalogItem: FC<ISongItem> = ({
+	id,
+	textSize = 22,
+	image,
+	noHeart,
+	...props
+}) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
 		<Pressable
@@ -38,17 +44,24 @@ const CatalogItem: FC<ISongItem> = ({ id, textSize = 22, image, noHeart, ...prop
 					width={image.width}
 					height={image.height}
 				/>
-				<View className='ml-3' style={{
-					width: !noHeart	? '70%' : '74%'
-				}}>
-					<Title fontFamily={'Montserrat_600SemiBold'} numberOfLines={1} size={textSize}>
+				<View
+					className='ml-3'
+					style={{
+						width: !noHeart ? '70%' : '74%'
+					}}
+				>
+					<Title
+						fontFamily={'Montserrat_600SemiBold'}
+						numberOfLines={1}
+						size={textSize}
+					>
 						{props.text1}
 					</Title>
 					{props.text2 && (
 						<Title
 							color={'lightGray'}
 							fontFamily={'Montserrat_300Light'}
-							size={textSize * .75}
+							size={textSize * 0.75}
 						>
 							{props.text2}
 						</Title>

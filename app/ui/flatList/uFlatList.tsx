@@ -74,7 +74,7 @@ const UFlatList = <T,>({
 					!props.horizontal
 						? [
 								{
-									paddingBottom: 130,
+									paddingBottom: 130
 								},
 								props.contentContainerStyle
 						  ]

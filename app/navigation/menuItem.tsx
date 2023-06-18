@@ -20,11 +20,14 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 		>
 			<UIcon
 				onPress={() => nav(item.path)}
-				name={isActive ? item.iconName : item.iconName + '-outline' as typeof menuItems[0]['iconName']}
-				size={30}
-				color={
-					isActive ? 'white' : 'lightGray'
+				name={
+					isActive
+						? item.iconName
+						: ((item.iconName +
+								'-outline') as (typeof menuItems)[0]['iconName'])
 				}
+				size={30}
+				color={isActive ? 'white' : 'lightGray'}
 			/>
 		</View>
 	)

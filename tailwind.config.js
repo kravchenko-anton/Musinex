@@ -13,6 +13,8 @@ module.exports = {
 			veryLightBlack: '#202020',
 			white: '#fff',
 			red: '#FF0000',
+			primaryRed: '#DC3F41',
+			yellow: '#FFBE0B',
 			transparent: colors.transparent
 		}
 	},

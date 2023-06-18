@@ -4,7 +4,7 @@ export interface IAuthFields extends Pick<IUser, 'email'> {
 	password: string
 }
 
-export interface IAuthState extends Pick<IUser, 'email' | "id">{}
+export interface IAuthState extends Pick<IUser, 'email' | 'id'> {}
 
 export enum EnumSecureStore {
 	ACCESS_TOKEN = 'access_token',

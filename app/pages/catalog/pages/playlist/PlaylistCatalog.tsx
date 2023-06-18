@@ -43,7 +43,7 @@ const PlaylistCatalog = () => {
 				<UFlatList
 					data={playlist.songs}
 					scrollEnabled={false}
-					renderItem={({ item:song, index }) => {
+					renderItem={({ item: song, index }) => {
 						return (
 							<CatalogItem
 								type={'song'}

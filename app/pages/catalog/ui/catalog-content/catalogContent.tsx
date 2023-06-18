@@ -17,7 +17,7 @@ interface ICatalogContent extends ICatalogTypes {
 const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 	y,
 	children,
-	gradientEnd	= 0.8,
+	gradientEnd = 0.8,
 	description,
 	paddingTop = HEADER_HEIGHT * 0.52,
 	headerTitle
@@ -52,12 +52,10 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 			<LinearGradient
 				style={{
 					...StyleSheet.absoluteFillObject,
-					height: HEADER_HEIGHT / 0.9,
+					height: HEADER_HEIGHT / 0.9
 				}}
 				start={[0, 0.1]}
-				end={[0,
-					gradientEnd
-				]}
+				end={[0, gradientEnd]}
 				colors={[
 					'transparent',
 					colorScheme === 'light'

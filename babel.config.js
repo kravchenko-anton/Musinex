@@ -22,9 +22,12 @@ module.exports = function (api) {
 					verbose: false
 				}
 			],
-			['react-native-reanimated/plugin', {
-				relativeSourceLocation: true,
-			}]
+			[
+				'react-native-reanimated/plugin',
+				{
+					relativeSourceLocation: true
+				}
+			]
 		]
 	}
 }

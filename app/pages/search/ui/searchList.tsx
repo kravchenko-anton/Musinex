@@ -20,7 +20,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 					component: () => (
 						<UFlatList
 							key={'_'}
-							keyExtractor={item => "_" + item.id}
+							keyExtractor={item => '_' + item.id}
 							data={searchResult.songs}
 							fixBottom
 							ListEmptyComponent={() => (
@@ -64,7 +64,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 						<UFlatList
 							fixBottom
 							key={'#'}
-							keyExtractor={item => "#" + item.id}
+							keyExtractor={item => '#' + item.id}
 							data={searchResult.albums}
 							ListEmptyComponent={() => (
 								<FlatList404 width={150} height={150} />
@@ -92,7 +92,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 						<UFlatList
 							fixBottom
 							key={'%'}
-							keyExtractor={item => "%" + item.id}
+							keyExtractor={item => '%' + item.id}
 							data={searchResult.artists}
 							ListEmptyComponent={() => (
 								<FlatList404 width={150} height={150} />
@@ -121,14 +121,16 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 						<UFlatList
 							fixBottom
 							key={'@'}
-							keyExtractor={item => "@" + item.id}
+							keyExtractor={item => '@' + item.id}
 							data={searchResult.playlists}
 							ListEmptyComponent={() => (
 								<FlatList404 width={150} height={150} />
 							)}
 							renderItem={({ item: playlist }) => (
 								<MusicCart
-									onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}
+									onPress={() =>
+										navigate('PlaylistCatalog', { id: playlist.id })
+									}
 									image={{
 										url: playlist.coverMedium,
 										width: 190,

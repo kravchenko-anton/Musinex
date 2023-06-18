@@ -1,10 +1,10 @@
+import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import { ICatalogRenderType } from '@/types/catalogTypes'
 import { UPressableProps } from '@/types/global'
 import Heart from '@/ui/icon/heart/heart'
 import { FC } from 'react'
-import { Pressable, View } from 'react-native'
-import Animated from 'react-native-reanimated'
+import { View } from 'react-native'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
@@ -32,12 +32,13 @@ const CatalogItem: FC<ISongItem> = ({
 }) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<Pressable
+		<AnimatedPressable
 			className='flex-row items-center mb-3 justify-between'
+			style={animatedStyle}
 			{...pressFunctions}
 			{...props}
 		>
-			<Animated.View className={'flex-row items-center'} style={animatedStyle}>
+			<View className={'flex-row items-center'}>
 				<UImage
 					source={image.uri}
 					borderRadius={image.border}
@@ -47,7 +48,7 @@ const CatalogItem: FC<ISongItem> = ({
 				<View
 					className='ml-3'
 					style={{
-						width: !noHeart ? '70%' : '74%'
+						width: !noHeart ? '69%' : '73%'
 					}}
 				>
 					<Title
@@ -67,9 +68,9 @@ const CatalogItem: FC<ISongItem> = ({
 						</Title>
 					)}
 				</View>
-			</Animated.View>
+			</View>
 			{!noHeart && <Heart id={id} type={props.type} />}
-		</Pressable>
+		</AnimatedPressable>
 	)
 }
 

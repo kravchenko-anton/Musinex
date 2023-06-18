@@ -1,10 +1,10 @@
+import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import { getHexCode } from '@/utils/getColor'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
-import { Pressable, View } from 'react-native'
-import Animated from 'react-native-reanimated'
+import { View } from 'react-native'
 import Title from '../title/title'
 import { IButton } from './types/Ibutton'
 
@@ -21,23 +21,20 @@ const Button: FC<IButton> = ({
 	const { colorScheme } = useColorScheme()
 	const { pressFunctions, animatedStyle } = usePressAnimation()
 	return (
-		<Pressable {...pressFunctions} style={style} {...props}>
-			<Animated.View
-				style={[
-					{
-						backgroundColor:
-							variant === 'primary'
-								? getHexCode('primary')
-								: colorScheme === 'light'
-								? getHexCode('primaryGray')
-								: getHexCode('lightBlack'),
-						borderRadius: borderRadius,
-						padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
-						width: props.width ? props.width : '100%'
-					},
-					animatedStyle
-				]}
-			>
+		<AnimatedPressable {...pressFunctions}
+		                   style={[{
+				backgroundColor:
+					variant === 'primary'
+						? getHexCode('primary')
+						: colorScheme === 'light'
+							? getHexCode('primaryGray')
+							: getHexCode('lightBlack'),
+				borderRadius: borderRadius,
+				padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
+				width: props.width ? props.width : '100%' },
+			style,
+			animatedStyle]}
+		 {...props}>
 				<View
 					style={{
 						flexDirection: 'row',
@@ -90,8 +87,7 @@ const Button: FC<IButton> = ({
 						/>
 					)}
 				</View>
-			</Animated.View>
-		</Pressable>
+		</AnimatedPressable>
 	)
 }
 

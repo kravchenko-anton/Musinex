@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
 
 export const useDropdownAnimation = (isOpen: boolean) => {
@@ -22,5 +23,7 @@ export const useDropdownAnimation = (isOpen: boolean) => {
 			]
 		}
 	})
-	 return { dropdownAnimation, dropdownIconAnimation }
+	 return useMemo(() => ({ dropdownAnimation, dropdownIconAnimation }), [
+		dropdownAnimation,
+		dropdownIconAnimation])
 }

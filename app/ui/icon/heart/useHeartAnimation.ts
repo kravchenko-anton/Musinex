@@ -1,11 +1,5 @@
-import { useEffect } from 'react'
-import {
-	Extrapolate,
-	interpolate,
-	useAnimatedStyle,
-	useSharedValue,
-	withSpring
-} from 'react-native-reanimated'
+import { useEffect, useMemo } from 'react'
+import { Extrapolate, interpolate, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated'
 
 export const useHeartAnimation = (isSmashed: boolean) => {
 	const liked = useSharedValue(0)
@@ -31,5 +25,5 @@ export const useHeartAnimation = (isSmashed: boolean) => {
 		opacity: liked.value
 	}))
 
-	return { liked, fillStyle, outlineStyle }
+	return useMemo(() => ({ liked, outlineStyle, fillStyle }), [liked, outlineStyle, fillStyle])
 }

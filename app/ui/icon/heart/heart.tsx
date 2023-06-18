@@ -1,3 +1,4 @@
+import { AnimatedView } from '@/animation/global'
 import { IHeartProps } from '@/types/catalogTypes'
 import { Style, UPressableProps } from '@/types/global'
 import { useHeart } from '@/ui/icon/heart/useHeart'
@@ -6,7 +7,7 @@ import { getHexCode } from '@/utils/getColor'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { FC, memo } from 'react'
 import { Pressable, StyleSheet } from 'react-native'
-import Animated, { withSpring } from 'react-native-reanimated'
+import { withSpring } from 'react-native-reanimated'
 
 interface IHeart extends UPressableProps, IHeartProps {
 	size?: number
@@ -18,14 +19,14 @@ const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 
 	return (
 		<Pressable
-			onPress={() => {
+				onPress={() => {
 				liked.value = withSpring(liked.value === 1 ? 0 : 1)
 				toggleFavorite()
 			}}
 			style={[{ height: size, width: size }, style as Style]}
 			{...props}
 		>
-			<Animated.View
+			<AnimatedView
 				style={[StyleSheet.absoluteFill, outlineStyle, style as Style]}
 			>
 				<MaterialCommunityIcons
@@ -33,15 +34,15 @@ const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 					size={30}
 					color={getHexCode('white')}
 				/>
-			</Animated.View>
+			</AnimatedView>
 
-			<Animated.View style={fillStyle}>
+			<AnimatedView style={fillStyle}>
 				<MaterialCommunityIcons
 					name={'heart'}
 					size={30}
 					color={getHexCode('primaryRed')}
 				/>
-			</Animated.View>
+			</AnimatedView>
 		</Pressable>
 	)
 }

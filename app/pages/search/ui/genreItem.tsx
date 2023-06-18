@@ -1,3 +1,4 @@
+import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { IGenre } from '@/services/types/IGenreServices'
@@ -5,26 +6,22 @@ import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
-import { Pressable } from 'react-native'
-import Animated from 'react-native-reanimated'
+import { View } from 'react-native'
 
 const GenreItem: FC<{ genre: IGenre }> = ({ genre }) => {
 	const { navigate } = useTypedNavigation()
 	const { colorScheme } = useColorScheme()
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<Pressable
-			onPress={() =>
-				navigate('GenreCatalog', {
-					id: genre.id
-				})
-			}
+		<AnimatedPressable
+			onPress={() => navigate('GenreCatalog', { id: genre.id })}
 			className='w-[49%]'
+			style={animatedStyle}
 			{...pressFunctions}
 		>
-			<Animated.View
+			<View
 				className='w-[100%] h-[100px] m-1 rounded-xl p-3  overflow-hidden'
-				style={[{ backgroundColor: genre.color }, animatedStyle]}
+				style={{backgroundColor: genre.color }}
 			>
 				<Title
 					className='mb-3'
@@ -41,8 +38,8 @@ const GenreItem: FC<{ genre: IGenre }> = ({ genre }) => {
 					borderRadius={100}
 					wrapperClassName='absolute right-[-10] bottom-[-10]'
 				/>
-			</Animated.View>
-		</Pressable>
+			</View>
+		</AnimatedPressable>
 	)
 }
 

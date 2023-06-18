@@ -1,3 +1,4 @@
+import { AnimatedView } from '@/animation/global'
 import DropdownElement from '@/ui/dropdown/ui/dropdownElement'
 import { useDropdownAnimation } from '@/ui/dropdown/useDropdownAnimation'
 import Icon from '@/ui/icon/defaultIcon/Icon'
@@ -6,7 +7,6 @@ import { getHexCode } from '@/utils/getColor'
 import { useColorScheme } from 'nativewind'
 import React, { FC, useState } from 'react'
 import { Pressable, View } from 'react-native'
-import Animated from 'react-native-reanimated'
 
 interface CustomDropdownProps {
 	isOpen: boolean
@@ -52,13 +52,14 @@ const Dropdown: FC<CustomDropdownProps> = ({ isOpen, value, ...props }) => {
 					<Title translate color={'white'} fontFamily={'Montserrat_500Medium'}>
 						{dropdownValue.label}
 					</Title>
-					<Animated.View style={dropdownIconAnimation}>
+					
+					<AnimatedView style={dropdownIconAnimation}>
 						<Icon padding={0} name='chevron-down' />
-					</Animated.View>
+					</AnimatedView>
 				</View>
 			</Pressable>
 
-			<Animated.View
+			<AnimatedView
 				style={[
 					{
 						overflow: 'hidden',
@@ -91,7 +92,7 @@ const Dropdown: FC<CustomDropdownProps> = ({ isOpen, value, ...props }) => {
 						/>
 					)
 				})}
-			</Animated.View>
+			</AnimatedView>
 		</View>
 	)
 }

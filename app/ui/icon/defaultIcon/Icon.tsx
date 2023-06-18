@@ -1,11 +1,10 @@
+import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import { IconType, UPressableProps } from '@/types/global'
 import { getHexCode } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons'
 import { useColorScheme } from 'nativewind'
 import { FC, memo } from 'react'
-import { Pressable } from 'react-native'
-import Animated from 'react-native-reanimated'
 import { theme } from '../../../../tailwind.config'
 
 interface IconProps extends UPressableProps {
@@ -31,24 +30,23 @@ const UIcon: FC<IconProps> = ({
 	const { colorScheme } = useColorScheme()
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<Pressable pointerEvents={'auto'} {...pressFunctions} {...props}>
-			<Animated.View
-				style={[
-					{
-						justifyContent: 'center',
-						alignItems: 'center',
-						padding: padding,
-						borderWidth: border ? 2 : 0,
-						borderColor:
-							colorScheme === 'light'
-								? getHexCode('dark')
-								: getHexCode('lightBlack'),
-						backgroundColor: backgroundColor,
-						borderRadius: borderRadius
-					},
-					animatedStyle
-				]}
-			>
+		<AnimatedPressable
+			style={[{
+				justifyContent: 'center',
+				alignItems: 'center',
+				padding: padding,
+				borderWidth: border ? 2 : 0,
+				borderColor:
+					colorScheme === 'light'
+						? getHexCode('dark')
+						: getHexCode('lightBlack'),
+				backgroundColor: backgroundColor,
+				borderRadius: borderRadius
+			},
+			animatedStyle
+		]}
+			pointerEvents={'auto'}
+			{...pressFunctions} {...props}>
 				<Ionicons
 					name={name}
 					color={
@@ -60,8 +58,7 @@ const UIcon: FC<IconProps> = ({
 					}
 					size={size}
 				/>
-			</Animated.View>
-		</Pressable>
+		</AnimatedPressable>
 	)
 }
 

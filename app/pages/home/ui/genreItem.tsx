@@ -1,3 +1,4 @@
+import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { IGenre } from '@/services/types/IGenreServices'
@@ -7,8 +8,6 @@ import { getServerFileUrl } from '@/utils/apiConfig'
 import { shadeColor } from '@/utils/shadeColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC } from 'react'
-import { Pressable } from 'react-native'
-import Animated from 'react-native-reanimated'
 
 interface IGenreItem {
 	item: IGenre
@@ -17,16 +16,16 @@ const GenreItem: FC<IGenreItem> = ({ item: genre }) => {
 	const { navigate } = useTypedNavigation()
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<Pressable
+		<AnimatedPressable
 			onPress={() =>
 				navigate('GenreCatalog', {
 					id: genre.id
 				})
 			}
 			className='mr-3 w-[100px]'
+			style={animatedStyle}
 			{...pressFunctions}
 		>
-			<Animated.View style={animatedStyle}>
 				<LinearGradient
 					className='p-4 rounded-3xl'
 					colors={[
@@ -44,11 +43,10 @@ const GenreItem: FC<IGenreItem> = ({ item: genre }) => {
 						source={getServerFileUrl(genre.icon)}
 					/>
 				</LinearGradient>
-			</Animated.View>
 			<Title className='text-center mt-2' numberOfLines={1} translate>
 				{genre.name}
 			</Title>
-		</Pressable>
+		</AnimatedPressable>
 	)
 }
 

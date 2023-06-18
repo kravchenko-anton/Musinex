@@ -1,8 +1,8 @@
+import { AnimatedImage, AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import { IFlatListItem } from '@/types/flatListTypes'
 import { FC } from 'react'
-import { Pressable, View } from 'react-native'
-import Animated from 'react-native-reanimated'
+import { View } from 'react-native'
 import Title from '../../title/title'
 
 const MusicCart: FC<IFlatListItem> = ({
@@ -12,18 +12,17 @@ const MusicCart: FC<IFlatListItem> = ({
 }) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
-		<Pressable {...pressFunctions} {...props}>
-			<Animated.View
-				className={wrapClassNames}
-				style={[
-					{
-						width: props.wrapperWidth ? props.wrapperWidth : props.image.width,
-						maxWidth: props.image.width
-					},
-					animatedStyle
-				]}
-			>
-				<Animated.Image
+		<AnimatedPressable
+			className={wrapClassNames}
+			style={[{
+				width: props.wrapperWidth ? props.wrapperWidth : props.image.width,
+				maxWidth: props.image.width
+			},
+			animatedStyle]}
+			{...pressFunctions}
+			{...props}>
+		
+				<AnimatedImage
 					className={props.imageClassNames}
 					sharedTransitionTag={props.sharedElementTag}
 					source={{
@@ -62,8 +61,7 @@ const MusicCart: FC<IFlatListItem> = ({
 						</Title>
 					)}
 				</View>
-			</Animated.View>
-		</Pressable>
+		</AnimatedPressable>
 	)
 }
 

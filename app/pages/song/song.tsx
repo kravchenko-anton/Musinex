@@ -1,5 +1,6 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import { handleShuffle } from '@/pages/song/handleShaffle'
 import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
@@ -11,10 +12,7 @@ import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View } from 'react-native'
-import TrackPlayer, {
-	useActiveTrack,
-	usePlaybackState
-} from 'react-native-track-player'
+import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
 	const selector = useTypedSelector(state => state.player)
@@ -22,12 +20,7 @@ const Song = () => {
 	const trackInfo = useActiveTrack()
 	const { goBack } = useTypedNavigation()
 
-	async function handleShuffle() {
-		let queue = await TrackPlayer.getQueue()
-		await TrackPlayer.reset()
-		queue.sort(() => Math.random() - 0.5)
-		await TrackPlayer.add(queue)
-	}
+
 
 	return (
 		<View

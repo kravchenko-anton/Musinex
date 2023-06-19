@@ -102,6 +102,7 @@ export const usePlayer = () => {
 			await TrackPlayer.stop()
 			await TrackPlayer.load({
 				id: selectedSong.id,
+				index: selector[0].songIndex,
 				url: selectedSong.url,
 				title: selectedSong.title,
 				artist: selectedSong.artist,

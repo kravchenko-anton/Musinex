@@ -21,9 +21,9 @@ const Sliders = () => {
 				value={position}
 				minimumValue={0}
 				maximumValue={30}
-				style={{ height: 10, marginTop: 20, width: '100%' }}
+				style={{ height: 10, marginTop: 5, width: '100%' }}
 				maximumTrackTintColor={'white'}
-				thumbTintColor={'white'}
+				thumbTintColor={getHexCode('primary')}
 				minimumTrackTintColor={getHexCode('primary')}
 				step={1}
 			/>

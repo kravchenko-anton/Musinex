@@ -1,3 +1,4 @@
+import { getHexCode } from '@/utils/getColor'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useState } from 'react'
 import TrackPlayer, { RepeatMode } from 'react-native-track-player'
@@ -37,11 +38,12 @@ const RepeatIcon = () => {
 			name={`${repeatIcon() as 'repeat-off' | 'repeat-once' | 'repeat'}`}
 			style={{
 				justifyContent: 'center',
-				alignSelf: 'center'
+				alignSelf: 'center',
+				padding: 5,
 			}}
 			onPress={changeRepeatMode}
-			size={24}
-			color='white'
+			size={30}
+			color={getHexCode('lightGray')}
 		/>
 	)
 }

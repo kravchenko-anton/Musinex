@@ -31,7 +31,7 @@ const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 			>
 				<MaterialCommunityIcons
 					name={'heart-outline'}
-					size={30}
+					size={size}
 					color={getHexCode('white')}
 				/>
 			</AnimatedView>
@@ -39,7 +39,7 @@ const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
 			<AnimatedView style={fillStyle}>
 				<MaterialCommunityIcons
 					name={'heart'}
-					size={30}
+					size={size}
 					color={getHexCode('primaryRed')}
 				/>
 			</AnimatedView>

@@ -1,5 +1,6 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
 import { handleShuffle } from '@/pages/song/utils/handleShaffle'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
@@ -29,17 +30,25 @@ const Song = () => {
 				<View
 				style={{
 					paddingTop: WindowHeight * 0.05,
-				}} className='bg-lightBlack items-center rounded-b-3xl p-3  flex-row justify-between'>
+				}} className='bg-lightBlack  rounded-b-3xl p-3'>
+						<View className='flex-row justify-between mb-5 items-center'>
 					<UIcon
 							onPress={() => goBack()}
 						name='arrow-down'
 						size={24}
 						color='white'
 					/>
-					<Title translate fontFamily={'Montserrat_700Bold'}>
-						Now	Playing
-					</Title>
+			<View className='items-center'>
+				<Title translate fontFamily={'Montserrat_700Bold'}>
+					Now	Playing
+				</Title>
+				<Title	translate color={'lightGray'} size={16}>
+					{String(trackInfo?.title)}
+				</Title>
+			</View>
 					<UIcon name='ellipsis-vertical' size={24} color='white' />
+						</View>
+					<View className='bg-primaryGray h-1.5 w-10 self-center rounded-full'/>
 				</View>
 				<View
 					style={{
@@ -47,7 +56,7 @@ const Song = () => {
 						position: 'relative',
 						justifyContent: 'center',
 						alignItems: 'center',
-						marginTop: WindowHeight * 0.08,
+						marginTop: WindowHeight * 0.04,
 					}}
 				>
 					<UImage
@@ -70,7 +79,7 @@ const Song = () => {
 				<View className='w-full items-center justify-center self-center'>
 					<View className='bg-primaryGray h-1.5 w-10  rounded-full'/>
 				</View>
-				<View className='items-center mt-4'>
+				<View className='items-center mt-7 mb-2'>
 					<Title size={30} fontFamily={'Montserrat_600SemiBold'}>
 						{String(trackInfo?.title)}
 					</Title>
@@ -78,45 +87,61 @@ const Song = () => {
 						{String(trackInfo?.artist)}
 					</Title>
 				</View>
+				<View className=' w-full justify-center items-center flex-row'>
+					<UIcon border padding={10}
+						name='play-skip-back'
+						onPress={() => TrackPlayer.skipToPrevious()}
+						size={30}
+						color='white'
+					/>
+					<UIcon
+						name={
+							playBackState.state === 'playing'
+								? 'md-pause-circle'
+								: 'play-circle'
+						}
+						size={70}
+						color='white'
+						onPress={() => {
+							if (playBackState.state === 'playing') {
+								TrackPlayer.pause()
+							} else {
+								TrackPlayer.play()
+							}
+						}}
+					/>
+					<UIcon
+						name='play-skip-forward' padding={10}
+						onPress={() => TrackPlayer.skipToNext()}
+						size={30}
+						color='white'
+					/>
+				</View>
 				<Sliders />
-				<View className='flex-row self-center items-center'>
+				<View className='flex-row self-center items-center  justify-between w-full px-3 mt-4'>
+						<UIcon
+						name='play-back'
+						onPress={() => handleShuffle()}
+						size={30}
+						color='lightGray'
+					/>
 					<UIcon
 						name='shuffle'
 						onPress={() => handleShuffle()}
-						size={24}
-						color='white'
+						size={30}
+						color='lightGray'
 					/>
-						<UIcon
-							name='play-skip-back'
-							onPress={() => TrackPlayer.skipToPrevious()}
-							size={24}
-							color='white'
-						/>
-						<UIcon
-							name={
-								playBackState.state === 'playing'
-									? 'md-pause-circle'
-									: 'play-circle'
-							}
-							size={60}
-							color='white'
-							onPress={() => {
-								if (playBackState.state === 'playing') {
-									TrackPlayer.pause()
-								} else {
-									TrackPlayer.play()
-								}
-							}}
-						/>
-						<UIcon
-							name='play-skip-forward'
-							onPress={() => TrackPlayer.skipToNext()}
-							size={24}
-							color='white'
-						/>
-					<Heart
+					
+					<Heart size={35}
 						id={trackInfo?.id}
 						type={'song'}
+					/>
+					<RepeatIcon/>
+					<UIcon
+						name='ios-play-forward'
+						onPress={() => handleShuffle()}
+						size={30}
+						color='lightGray'
 					/>
 				</View>
 			</View>

@@ -1,36 +1,42 @@
+import { AnimatedImage, AnimatedView } from '@/animation/global'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
+import { useSongAnimation } from '@/pages/song/useSongAnimation'
 import { handleShuffle } from '@/pages/song/utils/handleShaffle'
+import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
+import UFlatList from '@/ui/flatList/uFlatList'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
-import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
-import { View } from 'react-native'
+import { useState } from 'react'
+import { Pressable, View } from 'react-native'
 import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
 	const selector = useTypedSelector(state => state.player)
 	const playBackState = usePlaybackState()
 	const trackInfo = useActiveTrack()
+	const [isOpen, setIsOpen] = useState(false)
+	const {topBarAnimation,ImageAnimation,BottomMenuAnimation, useDropDownContentAnimation, opacityAnimation, MinusOpacityAnimation} = useSongAnimation(isOpen)
 	const { goBack } = useTypedNavigation()
 	if (!trackInfo) return
 	return (
 		<View
 			style={{
 				justifyContent: 'space-between',
-				height: ScreenHeight,
 				backgroundColor: getHexCode('primaryBlack'),
+				height: ScreenHeight
 			}}
 		>
 			<View>
-				<View
-				style={{
+				<AnimatedView
+				style={[{
 					paddingTop: WindowHeight * 0.05,
-				}} className='bg-lightBlack  rounded-b-3xl p-3'>
+				}, topBarAnimation]} className='bg-lightBlack  rounded-b-3xl p-3'>
 						<View className='flex-row justify-between mb-5 items-center'>
 					<UIcon
 							onPress={() => goBack()}
@@ -38,7 +44,7 @@ const Song = () => {
 						size={24}
 						color='white'
 					/>
-			<View className='items-center'>
+						<View className='items-center w-2/3'>
 				<Title translate fontFamily={'Montserrat_700Bold'}>
 					Now	Playing
 				</Title>
@@ -48,103 +54,150 @@ const Song = () => {
 			</View>
 					<UIcon name='ellipsis-vertical' size={24} color='white' />
 						</View>
-					<View className='bg-primaryGray h-1.5 w-10 self-center rounded-full'/>
-				</View>
+				
+						<AnimatedView style={[ useDropDownContentAnimation]}>
+							<UFlatList  contentContainerStyle={{
+								paddingBottom: 0,
+							}} data={selector[0].data} renderItem={({item}) =>
+								<CatalogItem
+									text1={item.title}
+									text2={item.artist}
+									type={'song'}
+									id={item.id}
+									image={{
+										uri: String(item.artwork),
+										height: 50,
+										width: 50,
+										border: 5
+									}}
+								/>
+							}/>
+							<Pressable onPress={() => setIsOpen(!isOpen)} className='bg-primaryGray h-1.5 mt-4 w-10  self-center rounded-full'/>
+						</AnimatedView>
+				</AnimatedView>
 				<View
 					style={{
 						alignSelf: 'center',
 						position: 'relative',
 						justifyContent: 'center',
 						alignItems: 'center',
-						marginTop: WindowHeight * 0.04,
+						marginTop: WindowHeight * 0.06,
 					}}
 				>
-					<UImage
-						height={WindowWidth * 0.8}
-						width={WindowWidth * 0.8}
-						source={String(trackInfo?.artwork)}
-						style={{
-							borderRadius: 15,
+					<AnimatedImage
+						source={{
+							uri: String(trackInfo?.artwork),
+							height: WindowWidth * 0.8,
+							width: WindowWidth * 0.8,
 						}}
+						style={[{
+							borderRadius: 15,
+						}, ImageAnimation]}
 						resizeMode={'cover'}
 						className=' relative items-center  justify-center'
 					/>
 				</View>
-
 			</View>
-			<View className='bg-lightBlack pt-4 rounded-t-3xl' style={{
+			
+			<AnimatedView className='bg-lightBlack pt-4 rounded-t-3xl w-full' style={[{
 				paddingBottom: WindowHeight * 0.05,
-				paddingHorizontal:  10
-			}}>
-				<View className='w-full items-center justify-center self-center'>
-					<View className='bg-primaryGray h-1.5 w-10  rounded-full'/>
-				</View>
-				<View className='items-center mt-7 mb-2'>
-					<Title size={30} fontFamily={'Montserrat_600SemiBold'}>
-						{String(trackInfo?.title)}
-					</Title>
-					<Title color={'lightGray'}   size={20}>
-						{String(trackInfo?.artist)}
-					</Title>
-				</View>
-				<View className=' w-full justify-center items-center flex-row'>
-					<UIcon border padding={10}
-						name='play-skip-back'
-						onPress={() => TrackPlayer.skipToPrevious()}
-						size={30}
-						color='white'
-					/>
-					<UIcon
-						name={
-							playBackState.state === 'playing'
-								? 'md-pause-circle'
-								: 'play-circle'
-						}
-						size={70}
-						color='white'
-						onPress={() => {
-							if (playBackState.state === 'playing') {
-								TrackPlayer.pause()
-							} else {
-								TrackPlayer.play()
+			}, BottomMenuAnimation]}>
+				<Pressable onPress={() => setIsOpen(!isOpen)} className='w-full items-center justify-center self-center'>
+						<View className='bg-primaryGray h-[4px] w-10 rounded-full'/>
+				</Pressable>
+				<View className='items-center px-4  self-center flex-row justify-between' style={{
+					marginTop: 15,
+					width: '100%',
+					}}>
+						<View style={{
+							width: isOpen	? '55%' : '80%',
+						}}>
+						<Title size={isOpen ? 18 : 30} fontFamily={'Montserrat_600SemiBold'}>
+							{String(trackInfo?.title)}
+						</Title>
+						<Title color={'primaryGray'} fontFamily={'Montserrat_500Medium'} size={isOpen ? 14 : 20}>
+							{String(trackInfo?.artist)}
+						</Title>
+						</View>
+					<AnimatedView style={opacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
+						<UIcon
+							name='play-skip-back'
+							onPress={() => TrackPlayer.skipToPrevious()}
+							size={22}
+							color='white'
+						/>
+						<UIcon
+							name={
+								playBackState.state === 'playing'
+									? 'md-pause-circle'
+									: 'play-circle'
 							}
-						}}
-					/>
-					<UIcon
-						name='play-skip-forward' padding={10}
-						onPress={() => TrackPlayer.skipToNext()}
-						size={30}
-						color='white'
-					/>
+							size={52}
+							color='white'
+							onPress={() => {
+								if (playBackState.state === 'playing') {
+									TrackPlayer.pause();
+								} else {
+									TrackPlayer.play();
+								}
+							}}
+						/>
+						<UIcon
+							name='play-skip-forward'
+							onPress={() => TrackPlayer.skipToNext()}
+							size={22}
+							color='white'
+						/>
+					</AnimatedView>
+						{!isOpen && (
+							<Heart
+								size={35}
+								id={trackInfo?.id}
+								type={'song'}
+							/>
+						)}
 				</View>
 				<Sliders />
-				<View className='flex-row self-center items-center  justify-between w-full px-3 mt-4'>
+			
+				<AnimatedView style={MinusOpacityAnimation}  className='flex-row self-center items-center justify-evenly w-full px-3'>
 						<UIcon
-						name='play-back'
-						onPress={() => handleShuffle()}
-						size={30}
-						color='lightGray'
-					/>
-					<UIcon
-						name='shuffle'
-						onPress={() => handleShuffle()}
-						size={30}
-						color='lightGray'
-					/>
-					
-					<Heart size={35}
-						id={trackInfo?.id}
-						type={'song'}
-					/>
-					<RepeatIcon/>
-					<UIcon
-						name='ios-play-forward'
-						onPress={() => handleShuffle()}
-						size={30}
-						color='lightGray'
-					/>
-				</View>
-			</View>
+							name='shuffle'
+							onPress={() => handleShuffle()}
+							size={30}
+							color='lightGray'
+						/>
+						<UIcon
+							name='play-skip-back'
+							onPress={() => TrackPlayer.skipToPrevious()}
+							size={30}
+							color='white'
+						/>
+						<UIcon
+							name={
+								playBackState.state === 'playing'
+									? 'md-pause-circle'
+									: 'play-circle'
+							}
+							size={65}
+							color='white'
+							onPress={() => {
+								if (playBackState.state === 'playing') {
+									TrackPlayer.pause()
+								} else {
+									TrackPlayer.play()
+								}
+							}}
+						/>
+						<UIcon
+							name='play-skip-forward'
+							onPress={() => TrackPlayer.skipToNext()}
+							size={30}
+							color='white'
+						/>
+						
+						<RepeatIcon/>
+					</AnimatedView>
+			</AnimatedView>
 		</View>
 	)
 }

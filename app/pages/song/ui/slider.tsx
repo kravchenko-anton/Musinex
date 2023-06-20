@@ -11,7 +11,7 @@ const Sliders = () => {
 			style={{
 				width: '100%',
 				justifyContent: 'center',
-				alignSelf: 'center'
+				alignSelf: 'center',
 			}}
 		>
 			<Slider
@@ -21,13 +21,13 @@ const Sliders = () => {
 				value={position}
 				minimumValue={0}
 				maximumValue={30}
-				style={{ height: 10, marginTop: 5, width: '100%' }}
+				style={{ height: 10, marginTop: 5, width: '100%', margin: 0, padding: 0 }}
 				maximumTrackTintColor={'white'}
 				thumbTintColor={getHexCode('primary')}
 				minimumTrackTintColor={getHexCode('primary')}
 				step={1}
 			/>
-			<View className='flex-row justify-between p-0 m-0 mx-4'>
+			<View className='flex-row justify-between p-0 m-0 px-4'>
 				<Title color={'lightGray'} className='text-center mt-1' size={20}>
 					{position.toFixed(2)}
 				</Title>

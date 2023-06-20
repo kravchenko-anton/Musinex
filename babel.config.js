@@ -25,7 +25,8 @@ module.exports = function (api) {
 			[
 				'react-native-reanimated/plugin',
 				{
-					relativeSourceLocation: true
+					relativeSourceLocation: true,
+					
 				}
 			]
 		]

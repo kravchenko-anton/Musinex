@@ -10,10 +10,7 @@ import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client
 import { StatusBar } from 'expo-status-bar'
 import { useColorScheme } from 'nativewind'
 import { LogBox } from 'react-native'
-import {
-	initialWindowMetrics,
-	SafeAreaProvider
-} from 'react-native-safe-area-context'
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from './app/navigation/navigation'

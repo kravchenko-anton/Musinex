@@ -1,9 +1,8 @@
-import { AnimatedImage, AnimatedView } from '@/animation/global'
+import { AnimatedImage, AnimatedPressable, AnimatedView } from '@/animation/global'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
-import { useSongAnimation } from '@/pages/song/useSongAnimation'
 import { handleShuffle } from '@/pages/song/utils/handleShaffle'
 import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
@@ -12,19 +11,86 @@ import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
-import { useState } from 'react'
 import { Pressable, View } from 'react-native'
+import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler'
+import { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated'
 import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
 	const selector = useTypedSelector(state => state.player)
+	const { goBack } = useTypedNavigation()
 	const playBackState = usePlaybackState()
 	const trackInfo = useActiveTrack()
-	const [isOpen, setIsOpen] = useState(false)
-	const {topBarAnimation,ImageAnimation,BottomMenuAnimation, useDropDownContentAnimation, opacityAnimation, MinusOpacityAnimation} = useSongAnimation(isOpen)
-	const { goBack } = useTypedNavigation()
-	if (!trackInfo) return
+	const isOpen = useSharedValue(false)
+	const tap = Gesture.Pan().onEnd(() => {
+		isOpen.value = !isOpen.value
+	})
+	const topBarAnimation = useAnimatedStyle(() => {
+		return {
+			height: withTiming(isOpen.value	? WindowHeight * 0.7 : 130, {
+				duration: 600			}),
+			easing: Easing.bezier(0.25, 0.1, 0.25, 1)
+		}
+	})
+	const ImageAnimation = useAnimatedStyle(() => {
+		return {
+			height: withTiming(isOpen.value ? 0 : WindowWidth * 0.8, {
+				duration: 300			}),
+			width: withTiming(isOpen.value ? 0 : WindowWidth * 0.8, {
+				duration: 300,
+			}),
+		}
+	})
+	const useDropDownContentAnimation = useAnimatedStyle(() => {
+		return {
+			height: withTiming(isOpen.value ?
+				WindowHeight * 0.50
+				: 0, {
+				duration: 600}),
+			opacity: withTiming(isOpen.value ? 0 : 0, {
+				duration: 700
+			}),
+		}
+	})
+	const opacityAnimation = useAnimatedStyle(() => {
+		return {
+			opacity: withTiming(isOpen.value ? 1 : 0, {
+				duration: 700
+			}),
+			display: isOpen.value ? "flex" : "none",
+		}
+	})
+	const MinusOpacityAnimation = useAnimatedStyle(() => {
+		return {
+			opacity: withTiming(isOpen.value ? 0 : 1, {
+				duration: 700
+			}),
+			display: isOpen.value ? "none" : "flex",
+		}
+	})
+	const BottomMenuAnimation = useAnimatedStyle(() => {
+		return {
+			height: withTiming(isOpen.value ? 220 : 280, {
+				duration: 500,
+				easing: Easing.bezier(0.25, 0.1, 0.25, 1)
+			})
+		}
+	})
+	const IconAnimation = useAnimatedStyle(() => {
+		return {
+			transform: [
+				{
+					rotate: withSpring(isOpen.value ? '180deg' : '0deg', {
+						damping: 20,
+						stiffness: 90
+					})
+				}
+			]
+		}
+	})
+	if (!trackInfo) return null
 	return (
+		<GestureHandlerRootView>
 		<View
 			style={{
 				justifyContent: 'space-between',
@@ -33,10 +99,12 @@ const Song = () => {
 			}}
 		>
 			<View>
-				<AnimatedView
+				<GestureDetector gesture={tap}>
+				
+				<AnimatedPressable
 				style={[{
 					paddingTop: WindowHeight * 0.05,
-				}, topBarAnimation]} className='bg-lightBlack  rounded-b-3xl p-3'>
+				}, topBarAnimation]} className='bg-lightBlack   rounded-b-3xl p-3'>
 						<View className='flex-row justify-between mb-5 items-center'>
 					<UIcon
 							onPress={() => goBack()}
@@ -54,8 +122,8 @@ const Song = () => {
 			</View>
 					<UIcon name='ellipsis-vertical' size={24} color='white' />
 						</View>
-				
-						<AnimatedView style={[ useDropDownContentAnimation]}>
+			
+						<AnimatedView style={useDropDownContentAnimation}>
 							<UFlatList  contentContainerStyle={{
 								paddingBottom: 0,
 							}} data={selector[0].data} renderItem={({item}) =>
@@ -72,9 +140,11 @@ const Song = () => {
 									}}
 								/>
 							}/>
-							<Pressable onPress={() => setIsOpen(!isOpen)} className='bg-primaryGray h-1.5 mt-4 w-10  self-center rounded-full'/>
+
 						</AnimatedView>
-				</AnimatedView>
+					<UIcon style={IconAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
+				</AnimatedPressable>
+				</GestureDetector>
 				<View
 					style={{
 						alignSelf: 'center',
@@ -98,11 +168,12 @@ const Song = () => {
 					/>
 				</View>
 			</View>
+			<GestureDetector gesture={tap}>
 			
 			<AnimatedView className='bg-lightBlack pt-4 rounded-t-3xl w-full' style={[{
 				paddingBottom: WindowHeight * 0.05,
 			}, BottomMenuAnimation]}>
-				<Pressable onPress={() => setIsOpen(!isOpen)} className='w-full items-center justify-center self-center'>
+				<Pressable  className='w-full items-center justify-center self-center'>
 						<View className='bg-primaryGray h-[4px] w-10 rounded-full'/>
 				</Pressable>
 				<View className='items-center px-4  self-center flex-row justify-between' style={{
@@ -110,12 +181,12 @@ const Song = () => {
 					width: '100%',
 					}}>
 						<View style={{
-							width: isOpen	? '55%' : '80%',
+							width: isOpen.value	? '50%' : '80%',
 						}}>
-						<Title size={isOpen ? 18 : 30} fontFamily={'Montserrat_600SemiBold'}>
+						<Title size={isOpen.value ? 18 : 30} fontFamily={'Montserrat_600SemiBold'}>
 							{String(trackInfo?.title)}
 						</Title>
-						<Title color={'primaryGray'} fontFamily={'Montserrat_500Medium'} size={isOpen ? 14 : 20}>
+						<Title color={'primaryGray'} fontFamily={'Montserrat_500Medium'} size={isOpen.value ? 14 : 20}>
 							{String(trackInfo?.artist)}
 						</Title>
 						</View>
@@ -149,7 +220,7 @@ const Song = () => {
 							color='white'
 						/>
 					</AnimatedView>
-						{!isOpen && (
+						{!isOpen.value && (
 							<Heart
 								size={35}
 								id={trackInfo?.id}
@@ -159,7 +230,9 @@ const Song = () => {
 				</View>
 				<Sliders />
 			
-				<AnimatedView style={MinusOpacityAnimation}  className='flex-row self-center items-center justify-evenly w-full px-3'>
+				<AnimatedView style={[{
+					display: isOpen.value ? 'none' : 'flex',
+				}, MinusOpacityAnimation]}  className='flex-row self-center items-center justify-evenly w-full px-3'>
 						<UIcon
 							name='shuffle'
 							onPress={() => handleShuffle()}
@@ -198,7 +271,9 @@ const Song = () => {
 						<RepeatIcon/>
 					</AnimatedView>
 			</AnimatedView>
+			</GestureDetector>
 		</View>
+		</GestureHandlerRootView>
 	)
 }
 

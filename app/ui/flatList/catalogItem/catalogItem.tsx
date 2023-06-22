@@ -1,10 +1,13 @@
-import { AnimatedPressable } from '@/animation/global'
+import { AnimatedPressable, AnimatedView } from '@/animation/global'
+import { useOpacityAnimation } from '@/animation/useOpacityAnimation'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import { ICatalogRenderType } from '@/types/catalogTypes'
 import { UPressableProps } from '@/types/global'
 import Heart from '@/ui/icon/heart/heart'
+import Lottie from 'lottie-react-native'
 import { FC } from 'react'
 import { View } from 'react-native'
+import { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import UImage from '../../image/image'
 import Title from '../../title/title'
 
@@ -31,6 +34,9 @@ const CatalogItem: FC<ISongItem> = ({
 	...props
 }) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
+	const activeTrack = useActiveTrack()
+	const playBackState = usePlaybackState()
+	const {opacityAnimation} = useOpacityAnimation(activeTrack?.title === props.text1 && activeTrack?.artist === props.text2 && playBackState.state === 'playing')
 	return (
 		<AnimatedPressable
 			className='flex-row items-center mb-3 justify-between'
@@ -48,7 +54,7 @@ const CatalogItem: FC<ISongItem> = ({
 				<View
 					className='ml-3'
 					style={{
-						width: !noHeart ? '69%' : '73%'
+						width: !noHeart ? '55%' : '73%'
 					}}
 				>
 					<Title
@@ -69,7 +75,16 @@ const CatalogItem: FC<ISongItem> = ({
 					)}
 				</View>
 			</View>
-			{!noHeart && <Heart id={id} type={props.type} />}
+			<View className='flex-row items-center'>
+				<AnimatedView style={opacityAnimation}>
+						<Lottie source={require('@/assets/music-play.json')} style={{
+						width: 30,
+						height: 30,
+						marginRight: 10
+					}} autoPlay loop />
+				</AnimatedView>
+			{!noHeart && <Heart id={id}  type={props.type} />}
+			</View>
 		</AnimatedPressable>
 	)
 }

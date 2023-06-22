@@ -5,15 +5,15 @@ import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
 import { handleShuffle } from '@/pages/song/utils/handleShaffle'
 import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
-import UFlatList from '@/ui/flatList/uFlatList'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
+import { generateRandomBeautifulHexColor } from '@/utils/getRandomColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { Pressable, View } from 'react-native'
-import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler'
-import { useAnimatedStyle, useDerivedValue, useSharedValue, withSpring, withTiming } from 'react-native-reanimated'
+import { FlatList, Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler'
+import { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated'
 import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
@@ -22,7 +22,6 @@ const Song = () => {
 	const playBackState = usePlaybackState()
 	const trackInfo = useActiveTrack()
 	const isOpen = useSharedValue(false)
-	const isOpened = useDerivedValue(() => isOpen.value, [isOpen.value]);
 	const tap = Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
 	})
@@ -31,7 +30,7 @@ const Song = () => {
 			height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
 				damping: 20,
 				velocity: 0.5,
-				stiffness: 90,
+				stiffness:90,
 				mass: 0.5
 			}),
 		}
@@ -63,11 +62,11 @@ const Song = () => {
 			opacity: withSpring(isOpen.value ? 1 : 0, {
 				damping: 20,
 				velocity: 0.5,
-				stiffness: 90,
-				mass: 0.5
+				stiffness:200,
+				mass: 0.5,
 			}),
-			translateY: withTiming(isOpen.value ? 0 : -250, {
-				duration: 600,
+			translateY: withTiming(isOpen.value ? 0 : -400, {
+				duration: 400,
 			}),
 		}
 	})
@@ -146,14 +145,25 @@ const Song = () => {
 			
 						<AnimatedView style={[{
 							height: WindowHeight * 0.65,
-						},useDropDownContentAnimation]} >
-							<UFlatList  contentContainerStyle={{
-								paddingBottom: 0,
-							}} data={selector[0].data} className='h-[90%]' renderItem={({item}) =>
+						},useDropDownContentAnimation]}>
+							<FlatList data={selector[0].data} showsVerticalScrollIndicator={false} className='max-h-[90%]' renderItem={({item, index}) =>
 								<CatalogItem
 									text1={item.title}
 									text2={item.artist}
 									type={'song'}
+									onPress={() => {
+										TrackPlayer.stop()
+									const color	= generateRandomBeautifulHexColor()
+								TrackPlayer.load({
+									title: item.title,
+									artist: item.artist,
+									artwork: item.artwork,
+									id: item.id,
+									url: item.url,
+									color,
+								})
+TrackPlayer.play()
+									}}
 									id={item.id}
 									image={{
 										uri: String(item.artwork),
@@ -242,13 +252,11 @@ const Song = () => {
 						/>
 					</AnimatedView>
 					<AnimatedView style={MinusOpacityAnimation}>
-						{!isOpened.value && (
 							<Heart
 								size={35}
 								id={trackInfo?.id}
 								type={'song'}
 							/>
-						)}
 					</AnimatedView>
 				</View>
 				<Sliders />

@@ -11,7 +11,7 @@ import { WindowHeight } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
-import TrackPlayer, { usePlaybackState } from 'react-native-track-player'
+import TrackPlayer, { State, usePlaybackState } from 'react-native-track-player'
 
 interface IBottomDropDown extends songAnimationValue {
 		title: string
@@ -49,14 +49,14 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 					/>
 					<UIcon
 						name={
-							playBackState.state === 'playing'
+							playBackState.state === State.Playing
 								? 'md-pause-circle'
 								: 'play-circle'
 						}
 						size={52}
 						color='white'
 						onPress={() => {
-							if (playBackState.state === 'playing') {
+							if (playBackState.state === State.Playing) {
 								TrackPlayer.pause();
 							} else {
 								TrackPlayer.play();
@@ -95,14 +95,14 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 				/>
 				<UIcon
 					name={
-						playBackState.state === 'playing'
+						playBackState.state === State.Playing
 							? 'md-pause-circle'
 							: 'play-circle'
 					}
 					size={65}
 					color='white'
 					onPress={() => {
-						if (playBackState.state === 'playing') {
+						if (playBackState.state === State.Playing) {
 							TrackPlayer.pause()
 						} else {
 							TrackPlayer.play()

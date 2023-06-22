@@ -36,6 +36,7 @@ const {ImageAnimation} = useSongAnimation(isOpen)
 					}}
 				>
 					<AnimatedImage
+						sharedTransitionTag={String(trackInfo.artwork)}
 						source={{
 							uri: String(trackInfo.artwork),
 							height: WindowWidth * 0.8,

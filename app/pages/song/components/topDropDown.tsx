@@ -24,7 +24,6 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 		topBarAnimation,
 		useDropDownContentAnimation,
 		IconAnimation,
-		
 	} = useSongAnimation(isOpen)
 	return 	<GestureDetector gesture={panGesture}>
 		

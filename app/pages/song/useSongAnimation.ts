@@ -6,7 +6,7 @@ import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimate
 export const useSongAnimation = (isOpen: {value: boolean}) => {
 	const panGesture = Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
-	})
+	}).activeOffsetY([-20, 20])
 	const topBarAnimation = useAnimatedStyle(() => {
 		return {
 			height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
@@ -56,6 +56,7 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 			translateY: withTiming(isOpen.value ? 0 : -400, {
 				duration: 400,
 			}),
+			pointerEvents: isOpen.value ? 'auto' : 'none',
 		}
 	})
 	const opacityAnimation = useAnimatedStyle(() => {

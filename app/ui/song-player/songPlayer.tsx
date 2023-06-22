@@ -2,11 +2,12 @@ import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
 import UImage from '@/ui/image/image'
+import { trackPause, trackPlay } from '@/ui/song-player/songFade'
 import { usePlayer } from '@/ui/song-player/usePlayer'
 import { shadeColor } from '@/utils/shadeColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Pressable, View } from 'react-native'
-import TrackPlayer, { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
+import { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import Title from '../title/title'
 
 const SongPlayer = () => {
@@ -44,11 +45,11 @@ const SongPlayer = () => {
 						size={28}
 						className='ml-3'
 						name={playBackState.state == State.Playing ? 'pause' : 'play'}
-						onPress={() =>
-							playBackState.state === State.Playing
-								? TrackPlayer.pause()
-								: TrackPlayer.play()
-							
+						onPress={async () =>
+							{
+								if (playBackState.state === State.Playing) await trackPause()
+								else await trackPlay()
+							}
 					}
 					/>
 				</View>

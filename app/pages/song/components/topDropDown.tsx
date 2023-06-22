@@ -5,6 +5,7 @@ import { useSongAnimation } from '@/pages/song/useSongAnimation'
 import { songAnimationValue } from '@/pages/song/utils/songAnimationTypes'
 import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
+import { trackPause, trackPlay } from '@/ui/song-player/songFade'
 import Title from '@/ui/title/title'
 import { generateRandomBeautifulHexColor } from '@/utils/getRandomColor'
 import { WindowHeight } from '@/utils/screen'
@@ -57,10 +58,10 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 						text1={item.title}
 						text2={item.artist}
 						type={'song'}
-						onPress={() => {
-							TrackPlayer.stop()
+						onPress={async () => {
+					await trackPause()
 							const color	= generateRandomBeautifulHexColor()
-							TrackPlayer.load({
+						await 	TrackPlayer.load({
 								title: item.title,
 								artist: item.artist,
 								artwork: item.artwork,
@@ -68,7 +69,7 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 								url: item.url,
 								color,
 							})
-							TrackPlayer.play()
+							await trackPlay()
 						}}
 						id={item.id}
 						image={{

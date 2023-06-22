@@ -6,6 +6,7 @@ import { handleShuffle } from '@/pages/song/utils/handleShaffle'
 import { songAnimationValue } from '@/pages/song/utils/songAnimationTypes'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
+import { trackPause, trackPlay } from '@/ui/song-player/songFade'
 import Title from '@/ui/title/title'
 import { WindowHeight } from '@/utils/screen'
 import { FC } from 'react'
@@ -55,12 +56,9 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 						}
 						size={52}
 						color='white'
-						onPress={() => {
-							if (playBackState.state === State.Playing) {
-								TrackPlayer.pause();
-							} else {
-								TrackPlayer.play();
-							}
+						onPress={async () => {
+							if (playBackState.state === State.Playing) await trackPause()
+							else await trackPlay()
 						}}
 					/>
 					<UIcon
@@ -101,12 +99,9 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 					}
 					size={65}
 					color='white'
-					onPress={() => {
-						if (playBackState.state === State.Playing) {
-							TrackPlayer.pause()
-						} else {
-							TrackPlayer.play()
-						}
+					onPress={async () => {
+						if (playBackState.state === State.Playing) await trackPause()
+						else await trackPlay()
 					}}
 				/>
 				<UIcon

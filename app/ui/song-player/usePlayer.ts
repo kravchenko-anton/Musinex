@@ -1,4 +1,5 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import { trackPause, trackPlay } from '@/ui/song-player/songFade'
 import { generateRandomBeautifulHexColor } from '@/utils/getRandomColor'
 import { useEffect, useState } from 'react'
 import TrackPlayer, { Capability, Event, RepeatMode, useActiveTrack } from 'react-native-track-player'
@@ -13,7 +14,6 @@ export async function setupPlayer() {
 			autoHandleInterruptions: true,
 			maxCacheSize: 10
 		})
-
 		await TrackPlayer.updateOptions({
 			android: {
 				alwaysPauseOnInterruption: true
@@ -52,7 +52,7 @@ export const usePlayer = () => {
 		)
 		const color = generateRandomBeautifulHexColor()
 		if (!nextSong) return
-		await TrackPlayer.stop()
+		await trackPause()
 		await TrackPlayer.load({
 			id: nextSong.id,
 			url: nextSong.url,
@@ -61,14 +61,14 @@ export const usePlayer = () => {
 			artwork: nextSong.artwork,
 			color: color
 		})
-		await TrackPlayer.play()
+		await trackPlay()
 	})
 	TrackPlayer.addEventListener(Event.RemotePrevious, async () => {
 		const nextSong = selector[0].data.find(
 			(value, index) => index === selector[0].songIndex - 1)
 		const color = generateRandomBeautifulHexColor()
 		if (!nextSong) return
-		await TrackPlayer.stop()
+		await trackPause()
 		await TrackPlayer.load({
 			id: nextSong.id,
 			url: nextSong.url,
@@ -77,7 +77,7 @@ export const usePlayer = () => {
 			artwork: nextSong.artwork,
 			color: color
 		})
-		await TrackPlayer.play()
+		await trackPlay()
 	})
 	
 	
@@ -99,7 +99,7 @@ export const usePlayer = () => {
 			const color = generateRandomBeautifulHexColor()
 			if (!selectedSong) return
 			if (trackInfo && trackInfo.title	=== selectedSong.title) return
-			await TrackPlayer.stop()
+			await trackPause()
 			await TrackPlayer.load({
 				id: selectedSong.id,
 				index: selector[0].songIndex,
@@ -109,7 +109,7 @@ export const usePlayer = () => {
 				artwork: selectedSong.artwork,
 				color: color
 			})
-			await TrackPlayer.play()
+			await trackPlay()
 			setIsPlayerReady(true)
 		}
 		addTracks()

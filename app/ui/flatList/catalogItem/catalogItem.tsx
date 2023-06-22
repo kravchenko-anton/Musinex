@@ -54,7 +54,7 @@ const CatalogItem: FC<ISongItem> = ({
 				<View
 					className='ml-3'
 					style={{
-						width: !noHeart ? '55%' : '73%'
+						width: !noHeart ? '65%' : '73%'
 					}}
 				>
 					<Title

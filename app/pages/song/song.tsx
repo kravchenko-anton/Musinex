@@ -13,7 +13,7 @@ import { getHexCode } from '@/utils/getColor'
 import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
 import { Pressable, View } from 'react-native'
 import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler'
-import { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated'
+import { useAnimatedStyle, useDerivedValue, useSharedValue, withSpring, withTiming } from 'react-native-reanimated'
 import TrackPlayer, { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const Song = () => {
@@ -22,33 +22,52 @@ const Song = () => {
 	const playBackState = usePlaybackState()
 	const trackInfo = useActiveTrack()
 	const isOpen = useSharedValue(false)
+	const isOpened = useDerivedValue(() => isOpen.value, [isOpen.value]);
 	const tap = Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
 	})
 	const topBarAnimation = useAnimatedStyle(() => {
 		return {
-			height: withTiming(isOpen.value	? WindowHeight * 0.7 : 130, {
-				duration: 600			}),
-			easing: Easing.bezier(0.25, 0.1, 0.25, 1)
+			height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
+				damping: 20,
+				velocity: 0.5,
+				stiffness: 90,
+				mass: 0.5
+			}),
 		}
 	})
 	const ImageAnimation = useAnimatedStyle(() => {
 		return {
 			height: withTiming(isOpen.value ? 0 : WindowWidth * 0.8, {
-				duration: 300			}),
+				duration: 200
+			}),
 			width: withTiming(isOpen.value ? 0 : WindowWidth * 0.8, {
-				duration: 300,
+				duration: 200
+			}),
+			opacity: withTiming(isOpen.value ? 0 : 1, {
+				duration: 200
+			})
+		}
+	})
+	const TitleAnimation = useAnimatedStyle(() => {
+		return {
+			width: withSpring(isOpen.value	? '50%' : '80%', {
+				damping: 20,
+				velocity: 0.5,
+				stiffness: 90
 			}),
 		}
 	})
 	const useDropDownContentAnimation = useAnimatedStyle(() => {
 		return {
-			height: withTiming(isOpen.value ?
-				WindowHeight * 0.50
-				: 0, {
-				duration: 600}),
-			opacity: withTiming(isOpen.value ? 0 : 0, {
-				duration: 700
+			opacity: withSpring(isOpen.value ? 1 : 0, {
+				damping: 20,
+				velocity: 0.5,
+				stiffness: 90,
+				mass: 0.5
+			}),
+			translateY: withTiming(isOpen.value ? 0 : -250, {
+				duration: 600,
 			}),
 		}
 	})
@@ -70,9 +89,11 @@ const Song = () => {
 	})
 	const BottomMenuAnimation = useAnimatedStyle(() => {
 		return {
-			height: withTiming(isOpen.value ? 220 : 280, {
-				duration: 500,
-				easing: Easing.bezier(0.25, 0.1, 0.25, 1)
+			height: withSpring(isOpen.value ? 220 : 280, {
+				damping: 20,
+				velocity: 0.5,
+				stiffness: 90
+				
 			})
 		}
 	})
@@ -123,10 +144,12 @@ const Song = () => {
 					<UIcon name='ellipsis-vertical' size={24} color='white' />
 						</View>
 			
-						<AnimatedView style={useDropDownContentAnimation}>
+						<AnimatedView style={[{
+							height: WindowHeight * 0.65,
+						},useDropDownContentAnimation]} >
 							<UFlatList  contentContainerStyle={{
 								paddingBottom: 0,
-							}} data={selector[0].data} renderItem={({item}) =>
+							}} data={selector[0].data} className='h-[90%]' renderItem={({item}) =>
 								<CatalogItem
 									text1={item.title}
 									text2={item.artist}
@@ -180,16 +203,14 @@ const Song = () => {
 					marginTop: 15,
 					width: '100%',
 					}}>
-						<View style={{
-							width: isOpen.value	? '50%' : '80%',
-						}}>
-						<Title size={isOpen.value ? 18 : 30} fontFamily={'Montserrat_600SemiBold'}>
+						<AnimatedView style={TitleAnimation}>
+						<Title size={ 25} fontFamily={'Montserrat_600SemiBold'}>
 							{String(trackInfo?.title)}
 						</Title>
-						<Title color={'primaryGray'} fontFamily={'Montserrat_500Medium'} size={isOpen.value ? 14 : 20}>
+						<Title color={'primaryGray'} fontFamily={'Montserrat_500Medium'} size={18}>
 							{String(trackInfo?.artist)}
 						</Title>
-						</View>
+						</AnimatedView>
 					<AnimatedView style={opacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
 						<UIcon
 							name='play-skip-back'
@@ -220,19 +241,19 @@ const Song = () => {
 							color='white'
 						/>
 					</AnimatedView>
-						{!isOpen.value && (
+					<AnimatedView style={MinusOpacityAnimation}>
+						{!isOpened.value && (
 							<Heart
 								size={35}
 								id={trackInfo?.id}
 								type={'song'}
 							/>
 						)}
+					</AnimatedView>
 				</View>
 				<Sliders />
 			
-				<AnimatedView style={[{
-					display: isOpen.value ? 'none' : 'flex',
-				}, MinusOpacityAnimation]}  className='flex-row self-center items-center justify-evenly w-full px-3'>
+				<AnimatedView style={[MinusOpacityAnimation]}  className='flex-row self-center items-center justify-evenly w-full px-3'>
 						<UIcon
 							name='shuffle'
 							onPress={() => handleShuffle()}

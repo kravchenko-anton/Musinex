@@ -1,10 +1,10 @@
 import { AnimatedImage } from '@/animation/global'
+import { useSongAnimation } from '@/pages/song/animation/useSongAnimation'
 import BottomDropDown from '@/pages/song/components/bottomDropDown'
 import TopDropDown from '@/pages/song/components/topDropDown'
-import { useSongAnimation } from '@/pages/song/useSongAnimation'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import { getHexCode } from '@/utils/getColor'
-import { ScreenHeight, WindowHeight, WindowWidth } from '@/utils/screen'
+import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { useSharedValue } from 'react-native-reanimated'
@@ -21,7 +21,7 @@ const {ImageAnimation} = useSongAnimation(isOpen)
 			style={{
 				justifyContent: 'space-between',
 				backgroundColor: getHexCode('primaryBlack'),
-				height: ScreenHeight
+				height: '100%'
 			}}
 		>
 			<View>

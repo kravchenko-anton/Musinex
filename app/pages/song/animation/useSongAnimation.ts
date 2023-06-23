@@ -7,16 +7,16 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 	const panGesture = Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
 	}).activeOffsetY([-20, 20])
-	const topBarAnimation = useAnimatedStyle(() => {
-		return {
-			height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
-				damping: 20,
-				velocity: 0.5,
-				stiffness:90,
-				mass: 0.5
-			}),
-		}
-	})
+		const topBarAnimation = useAnimatedStyle(() => {
+			return {
+				height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
+					damping: 20,
+					velocity: 0.5,
+					stiffness:90,
+					mass: 0.5,
+				}),
+			}
+		}, [isOpen.value])
 	const ImageAnimation = useAnimatedStyle(() => {
 		return {
 			height: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
@@ -50,7 +50,7 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 			opacity: withSpring(isOpen.value ? 1 : 0, {
 				damping: 20,
 				velocity: 0.5,
-				stiffness:200,
+				stiffness:90,
 				mass: 0.5,
 			}),
 			translateY: withTiming(isOpen.value ? 0 : -400, {
@@ -58,7 +58,7 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 			}),
 			pointerEvents: isOpen.value ? 'auto' : 'none',
 		}
-	})
+	}, [isOpen.value])
 	const opacityAnimation = useAnimatedStyle(() => {
 		return {
 			opacity: withTiming(isOpen.value ? 1 : 0, {

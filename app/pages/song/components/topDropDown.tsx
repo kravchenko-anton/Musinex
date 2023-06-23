@@ -1,13 +1,13 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { useSongAnimation } from '@/pages/song/useSongAnimation'
-import { songAnimationValue } from '@/pages/song/utils/songAnimationTypes'
+import { songAnimationValue } from '@/pages/song/animation/songAnimationTypes'
+import { useSongAnimation } from '@/pages/song/animation/useSongAnimation'
 import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
-import { trackPause, trackPlay } from '@/ui/song-player/songFade'
 import Title from '@/ui/title/title'
 import { generateRandomBeautifulHexColor } from '@/utils/getRandomColor'
+import { trackPause, trackPlay } from '@/utils/player/usePlayer'
 import { WindowHeight } from '@/utils/screen'
 import { FC } from 'react'
 import { View } from 'react-native'
@@ -18,11 +18,11 @@ interface ITopDropDown extends  songAnimationValue{
 	title: string
 	}
 const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
-	const selector = useTypedSelector(state => state.player)
 	const { goBack } = useTypedNavigation()
+	const selector = useTypedSelector((state) => state.player)
 	const {
-		panGesture,
 		topBarAnimation,
+		panGesture,
 		useDropDownContentAnimation,
 		IconAnimation,
 	} = useSongAnimation(isOpen)
@@ -49,11 +49,10 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 				</View>
 				<UIcon name='ellipsis-vertical' size={24} color='white' />
 			</View>
-			
 			<AnimatedView style={[{
-				height: WindowHeight * 0.65,
+				height: WindowHeight * 0.58,
 			},useDropDownContentAnimation]}>
-				<FlatList data={selector[0].data} showsVerticalScrollIndicator={false} className='max-h-[90%]' renderItem={({item}) =>
+				<FlatList data={selector[0].data}  showsVerticalScrollIndicator={false}   renderItem={({item}) =>
 					<CatalogItem
 						text1={item.title}
 						text2={item.artist}
@@ -80,7 +79,6 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 						}}
 					/>
 				}/>
-			
 			</AnimatedView>
 			<UIcon style={IconAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
 		</AnimatedPressable>

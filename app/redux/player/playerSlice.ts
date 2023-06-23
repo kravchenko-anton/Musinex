@@ -19,6 +19,9 @@ export const playerSlice = createSlice({
 			state.push.apply(state, [
 				{ songIndex: payload.songIndex, data: payload.data }
 			])
+		},
+		changeSongIndex: (state, { payload }: PayloadAction<number>) => {
+			state[0].songIndex = payload
 		}
 	}
 })

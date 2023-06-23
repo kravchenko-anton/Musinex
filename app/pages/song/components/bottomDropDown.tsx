@@ -1,18 +1,18 @@
 import { AnimatedView } from '@/animation/global'
+import { songAnimationValue } from '@/pages/song/animation/songAnimationTypes'
+import { useSongAnimation } from '@/pages/song/animation/useSongAnimation'
 import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
-import { useSongAnimation } from '@/pages/song/useSongAnimation'
-import { handleShuffle } from '@/pages/song/utils/handleShaffle'
-import { songAnimationValue } from '@/pages/song/utils/songAnimationTypes'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
-import { trackPause, trackPlay } from '@/ui/song-player/songFade'
 import Title from '@/ui/title/title'
+import { handleShuffle } from '@/utils/player/handleShaffle'
+import { skipToNext, skipToPrevious, trackPause, trackPlay } from '@/utils/player/usePlayer'
 import { WindowHeight } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
-import TrackPlayer, { State, usePlaybackState } from 'react-native-track-player'
+import { State, usePlaybackState } from 'react-native-track-player'
 
 interface IBottomDropDown extends songAnimationValue {
 		title: string
@@ -44,7 +44,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 				<AnimatedView style={opacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
 					<UIcon
 						name='play-skip-back'
-						onPress={() => TrackPlayer.skipToPrevious()}
+						onPress={() => skipToPrevious()}
 						size={22}
 						color='white'
 					/>
@@ -63,7 +63,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 					/>
 					<UIcon
 						name='play-skip-forward'
-						onPress={() => TrackPlayer.skipToNext()}
+						onPress={() => skipToNext()}
 						size={22}
 						color='white'
 					/>
@@ -87,7 +87,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 				/>
 				<UIcon
 					name='play-skip-back'
-					onPress={() => TrackPlayer.skipToPrevious()}
+					onPress={() => skipToPrevious()}
 					size={30}
 					color='white'
 				/>
@@ -106,7 +106,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 				/>
 				<UIcon
 					name='play-skip-forward'
-					onPress={() => TrackPlayer.skipToNext()}
+					onPress={() =>	skipToNext()}
 					size={30}
 					color='white'
 				/>

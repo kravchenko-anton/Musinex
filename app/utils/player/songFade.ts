@@ -29,5 +29,3 @@ export const fadeOutVolume = async () => {
 	await TrackPlayer.setVolume(0);
 }
 
-export const trackPlay = async () => await fadeInVolume().then(() => TrackPlayer.play())
-	export const trackPause = async () => await fadeOutVolume().then(() => TrackPlayer.pause())

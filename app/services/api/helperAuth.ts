@@ -9,7 +9,6 @@ import { getItemAsync } from 'expo-secure-store'
 export const getNewTokens = async () => {
 	try {
 		const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
-		console.log('refreshToken', refreshToken)
 		const response = await axios
 			.post<string, { data: IAuthResponse }>(
 				SERVER_URL + getAuthUrl('/access-token'),

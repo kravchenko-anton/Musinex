@@ -1,18 +1,17 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import UIcon from '@/ui/icon/defaultIcon/Icon'
+import PlayButton from '@/pages/song/ui/playButton'
 import Heart from '@/ui/icon/heart/heart'
 import UImage from '@/ui/image/image'
-import { trackPause, trackPlay, usePlayer } from '@/utils/player/usePlayer'
+import { usePlayer } from '@/utils/player/usePlayer'
 import { shadeColor } from '@/utils/shadeColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Pressable, View } from 'react-native'
-import { State, useActiveTrack, usePlaybackState } from 'react-native-track-player'
+import { useActiveTrack } from 'react-native-track-player'
 import Title from '../title/title'
 
 const SongPlayer = () => {
 	const { navigate } = useTypedNavigation()
 	const trackInfo = useActiveTrack()
-	const playBackState = usePlaybackState()
 	const { isPlayerReady, selector } = usePlayer()
 	if (!isPlayerReady || selector.length <= 0 || !trackInfo || !trackInfo.title || !trackInfo.artist) return null
 	return (
@@ -37,20 +36,9 @@ const SongPlayer = () => {
 						</Title>
 					</View>
 				</View>
-				<View className='flex-row'>
+				<View className='flex-row '>
 					<Heart id={trackInfo.id} type={'song'} />
-					<UIcon
-						color={'white'}
-						size={28}
-						className='ml-3'
-						name={playBackState.state == State.Playing ? 'pause' : 'play'}
-						onPress={async () =>
-							{
-								if (playBackState.state === State.Playing) await trackPause()
-								else await trackPlay()
-							}
-					}
-					/>
+					<PlayButton size={28} circle={false} className='ml-3' />
 				</View>
 			</Pressable>
 		</LinearGradient>

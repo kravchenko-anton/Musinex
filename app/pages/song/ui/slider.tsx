@@ -1,15 +1,11 @@
 import Title from '@/ui/title/title'
 import { getHexCode } from '@/utils/getColor'
 import Slider from '@react-native-community/slider'
-import { useState } from 'react'
 import { View } from 'react-native'
 import TrackPlayer, { useProgress } from 'react-native-track-player'
 
 const Sliders = () => {
-	const { duration, position } = useProgress(500)
-	const [isSeeking, setIsSeeking] = useState(false);
-	const [seek, setSeek] = useState(0);
-	console.log(isSeeking)
+	const { duration, position } = useProgress(10)
 	return (
 		<View
 			style={{
@@ -27,26 +23,19 @@ const Sliders = () => {
 				minimumTrackTintColor={getHexCode('primary')}
 				step={1}
 				value={position}
-				onValueChange={(value) => {
-					TrackPlayer.pause()
-					setSeek(value);
-				}}
-				onSlidingStart={() => {
-					setIsSeeking(true)
-				}}
-				onSlidingComplete={(value) => {
-					setIsSeeking(false);
-					TrackPlayer.seekTo(value)
-				}}
+				onSlidingComplete={async (value) => TrackPlayer.seekTo(value)
+				}
 			/>
 			<View className='flex-row justify-between p-0 m-0 px-4'>
 				<Title color={'lightGray'} className='text-center mt-1' size={20}>
-					{
-						isSeeking ? seek.toFixed(2) : position.toFixed(2)
-					}
+					{new Date(position * 1000)
+						.toLocaleTimeString()
+						.substring(3).slice(0,5)}
 				</Title>
 				<Title color={'lightGray'} className='text-center mt-1' size={20}>
-					{duration.toFixed(2)}
+					{new Date((duration) * 1000)
+						.toLocaleTimeString()
+						.substring(3).slice(0,5)}
 				</Title>
 			</View>
 		</View>

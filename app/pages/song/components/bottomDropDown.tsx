@@ -1,18 +1,18 @@
 import { AnimatedView } from '@/animation/global'
 import { songAnimationValue } from '@/pages/song/animation/songAnimationTypes'
 import { useSongAnimation } from '@/pages/song/animation/useSongAnimation'
+import PlayButton from '@/pages/song/ui/playButton'
 import RepeatIcon from '@/pages/song/ui/repeatIcon'
 import Sliders from '@/pages/song/ui/slider'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
 import { handleShuffle } from '@/utils/player/handleShaffle'
-import { skipToNext, skipToPrevious, trackPause, trackPlay } from '@/utils/player/usePlayer'
+import { skipToNext, skipToPrevious } from '@/utils/player/usePlayer'
 import { WindowHeight } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
-import { State, usePlaybackState } from 'react-native-track-player'
 
 interface IBottomDropDown extends songAnimationValue {
 		title: string
@@ -20,7 +20,6 @@ interface IBottomDropDown extends songAnimationValue {
 		id: number
 	}
 const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
-	const playBackState = usePlaybackState()
 	const {opacityAnimation,BottomMenuAnimation,MinusOpacityAnimation,TitleAnimation,panGesture} = useSongAnimation(isOpen)
 	return <GestureDetector gesture={panGesture}>
 		<AnimatedView className='bg-lightBlack pt-4 rounded-t-3xl w-full' style={[{
@@ -48,19 +47,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 						size={22}
 						color='white'
 					/>
-					<UIcon
-						name={
-							playBackState.state === State.Playing
-								? 'md-pause-circle'
-								: 'play-circle'
-						}
-						size={52}
-						color='white'
-						onPress={async () => {
-							if (playBackState.state === State.Playing) await trackPause()
-							else await trackPlay()
-						}}
-					/>
+			<PlayButton size={52} circle={true}/>
 					<UIcon
 						name='play-skip-forward'
 						onPress={() => skipToNext()}
@@ -91,19 +78,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 					size={30}
 					color='white'
 				/>
-				<UIcon
-					name={
-						playBackState.state === State.Playing
-							? 'md-pause-circle'
-							: 'play-circle'
-					}
-					size={65}
-					color='white'
-					onPress={async () => {
-						if (playBackState.state === State.Playing) await trackPause()
-						else await trackPlay()
-					}}
-				/>
+				<PlayButton size={65}  circle={true}/>
 				<UIcon
 					name='play-skip-forward'
 					onPress={() =>	skipToNext()}

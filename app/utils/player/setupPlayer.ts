@@ -8,7 +8,9 @@ export async function setupPlayer() {
 	} catch {
 		await TrackPlayer.setupPlayer({
 			autoHandleInterruptions: true,
-			maxCacheSize: 10
+			maxCacheSize: 10,
+			maxBuffer:0,
+			waitForBuffer: true,
 		})
 		await TrackPlayer.updateOptions({
 			android: {

@@ -1,4 +1,4 @@
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { Montserrat_700Bold, useFonts } from '@expo-google-fonts/montserrat'
 import { useColorScheme } from 'nativewind'
 import { Controller } from 'react-hook-form'
@@ -30,11 +30,11 @@ const Field = <T extends Record<string, any>>({
 					<View
 						style={{
 							borderWidth: error ? 1 : 0,
-							borderColor: getHexCode('red'),
+							borderColor: color.crimson,
 							backgroundColor:
 								colorScheme === 'light'
-									? getHexCode('primaryGray')
-									: getHexCode('lightBlack')
+									? color.charcoal
+									: color.twilight
 						}}
 						className={'w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
 					>
@@ -45,7 +45,7 @@ const Field = <T extends Record<string, any>>({
 							keyboardAppearance='dark'
 							keyboardType={'default'}
 							renderToHardwareTextureAndroid={true}
-							placeholderTextColor={getHexCode('white')}
+							placeholderTextColor={color.white}
 							value={(value ? value : '').toString()}
 							className='text-base text-white'
 							style={{
@@ -56,7 +56,7 @@ const Field = <T extends Record<string, any>>({
 						/>
 					</View>
 					{error && (
-						<Title color={'red'} size={16}>
+						<Title color={'crimson'} size={16}>
 							{error.message ? error.message : 'error!'}
 						</Title>
 					)}

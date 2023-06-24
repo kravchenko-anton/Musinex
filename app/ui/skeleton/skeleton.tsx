@@ -1,5 +1,5 @@
 import { Style } from '@/types/global'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
@@ -29,8 +29,8 @@ const Skeleton: FC<ISkeleton> = ({
 					backgroundColor: transparent
 						? 'transparent'
 						: colorScheme === 'light'
-						? getHexCode('primaryGray')
-						: getHexCode('lightBlack')
+						? color.charcoal
+						: color.twilight
 				},
 				style
 			]}

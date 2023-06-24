@@ -1,5 +1,5 @@
 import { ICatalogTypes } from '@/types/catalogTypes'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { useScrollToTop } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
@@ -59,16 +59,16 @@ const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 				colors={[
 					'transparent',
 					colorScheme === 'light'
-						? getHexCode('lightGray')
-						: getHexCode('primaryBlack')
+						? color.silver
+						: color.midnight
 				]}
 			/>
 			<View
 				style={{
 					backgroundColor:
 						colorScheme === 'light'
-							? getHexCode('lightGray')
-							: getHexCode('primaryBlack')
+							? color.silver
+							: color.midnight
 				}}
 				className='pt-1 px-3 pb-5 w-full flex-1'
 			>

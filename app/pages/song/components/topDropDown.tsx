@@ -43,7 +43,7 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 					<Title translate fontFamily={'Montserrat_700Bold'}>
 						Now	Playing
 					</Title>
-					<Title	translate color={'lightGray'} size={16}>
+					<Title	translate color={'silver'} size={16}>
 						{title}
 					</Title>
 				</View>

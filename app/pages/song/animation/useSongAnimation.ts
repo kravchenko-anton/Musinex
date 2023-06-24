@@ -1,4 +1,4 @@
-import { WindowHeight, WindowWidth } from '@/utils/screen'
+import { WindowHeight } from '@/utils/screen'
 import { useMemo } from 'react'
 import { Gesture } from 'react-native-gesture-handler'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
@@ -17,25 +17,7 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 				}),
 			}
 		}, [isOpen.value])
-	const ImageAnimation = useAnimatedStyle(() => {
-		return {
-			height: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
-				damping: 20,
-				velocity: 0.5,
-				stiffness:90,
-				mass: 0.5
-			}),
-			width: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
-				damping: 20,
-				velocity: 0.5,
-				stiffness:90,
-				mass: 0.5
-			}),
-			opacity: withTiming(isOpen.value ? 0 : 1, {
-				duration: 300
-			}),
-		}
-	})
+
 	const TitleAnimation = useAnimatedStyle(() => {
 		return {
 			width: withSpring(isOpen.value	? '50%' : '80%', {
@@ -101,7 +83,6 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 		return {
 			panGesture,
 			topBarAnimation,
-			ImageAnimation,
 			TitleAnimation,
 			useDropDownContentAnimation,
 			opacityAnimation,

@@ -5,7 +5,7 @@ import UFlatList from '@/ui/flatList/uFlatList'
 import Icon from '@/ui/icon/defaultIcon/Icon'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Title from '@/ui/title/title'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { shadeColor } from '@/utils/shadeColor'
 import { useQuery } from '@tanstack/react-query'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -60,9 +60,9 @@ const FavoriteList = () => {
 						>
 							<LinearGradient
 								colors={[
-									shadeColor(getHexCode('primary'), -20),
-									shadeColor(getHexCode('primary'), 0),
-									shadeColor(getHexCode('primary'), +20)
+									shadeColor(color.primary, -20),
+									shadeColor(color.primary, 0),
+									shadeColor(color.primary, +20)
 								]}
 								start={[0.2, 0.8]}
 								end={[0.8, 0.4]}

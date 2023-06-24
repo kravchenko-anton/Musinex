@@ -52,7 +52,7 @@ const MusicCart: FC<IFlatListItem> = ({
 						<Title
 							className={'mt-0.5 w-10/12'}
 							numberOfLines={1}
-							color={'primaryGray'}
+							color={'charcoal'}
 							center={textCenter}
 							size={16}
 							fontFamily={'Montserrat_500Medium'}

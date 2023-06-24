@@ -1,7 +1,7 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import { IconType, UPressableProps } from '@/types/global'
-import { getHexCode } from '@/utils/getColor'
+import { color as Color } from '@/utils/getColor'
 import { Ionicons } from '@expo/vector-icons'
 import { useColorScheme } from 'nativewind'
 import { FC, memo } from 'react'
@@ -38,8 +38,8 @@ const UIcon: FC<IconProps> = ({
 				borderWidth: border ? 2 : 0,
 				borderColor:
 					colorScheme === 'light'
-						? getHexCode('dark')
-						: getHexCode('lightBlack'),
+						? Color.dark
+						: Color.twilight,
 				backgroundColor: backgroundColor,
 				borderRadius: borderRadius
 			},
@@ -51,10 +51,10 @@ const UIcon: FC<IconProps> = ({
 					name={name}
 					color={
 						color
-							? getHexCode(color)
+							? Color[color]
 							: colorScheme === 'light'
-							? getHexCode('dark')
-							: getHexCode('white')
+							? Color.dark
+							: Color.white
 					}
 					size={size}
 				/>

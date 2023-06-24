@@ -1,5 +1,5 @@
 import Skeleton from '@/ui/skeleton/skeleton'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import {
 	Montserrat_300Light,
 	Montserrat_500Medium,
@@ -48,10 +48,10 @@ const Title = ({
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
 					color: props.color
-						? getHexCode(props.color)
+						? color[props.color]
 						: colorScheme === 'light'
-						? getHexCode('dark')
-						: getHexCode('lightGray')
+						? color.dark
+						: color.silver
 				},
 				style
 			]}

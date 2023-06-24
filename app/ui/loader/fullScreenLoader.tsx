@@ -1,5 +1,5 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { ScreenHeight, ScreenWidth } from '@/utils/screen'
 import Lottie from 'lottie-react-native'
 import { View } from 'react-native'
@@ -16,8 +16,8 @@ const FullScreenLoader = () => {
 				width: ScreenWidth,
 				backgroundColor:
 					selector === 'light'
-						? getHexCode('lightGray')
-						: getHexCode('primaryBlack')
+						? color.silver
+						: color.midnight
 			}}
 			className={'justify-center items-center'}
 		>

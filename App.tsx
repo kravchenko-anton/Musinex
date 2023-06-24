@@ -2,7 +2,7 @@ import ThemeProvider from '@/providers/themeProvider'
 import { persistor, store } from '@/redux/store'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Toast from '@/ui/toast/Toast'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister'
 import { QueryClient } from '@tanstack/react-query'
@@ -43,8 +43,8 @@ export default function App() {
 						style={{
 							backgroundColor:
 								colorScheme === 'light'
-									? getHexCode('lightGray')
-									: getHexCode('primaryBlack')
+									? color.silver
+									: color.midnight
 						}}
 					>
 						<Navigation />

@@ -3,7 +3,7 @@ import Ball from '@/pages/home/ui/ball'
 import { ISong } from '@/services/types/global'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { shadeColor } from '@/utils/shadeColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
@@ -18,9 +18,9 @@ interface IBanner {
 const Banner: FC<PropsWithChildren<IBanner>> = ({
 	songs,
 	colors = [
-		`${shadeColor(getHexCode('primary'), -15)}`,
-		`${shadeColor(getHexCode('primary'), 0)}`,
-		`${shadeColor(getHexCode('primary'), 30)}`
+		`${shadeColor(color.primary, -15)}`,
+		`${shadeColor(color.primary, 0)}`,
+		`${shadeColor(color.primary, 30)}`
 	],
 	children
 }) => {
@@ -52,7 +52,7 @@ const Banner: FC<PropsWithChildren<IBanner>> = ({
 								borderRadius={12}
 								style={{
 									borderWidth: 2,
-									borderColor: getHexCode('white'),
+									borderColor: color.white,
 									zIndex: 5 + index
 								}}
 								className='rotate-12'

@@ -36,7 +36,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 					<Title size={ 25} fontFamily={'Montserrat_600SemiBold'}>
 						{props.title}
 					</Title>
-					<Title color={'primaryGray'} fontFamily={'Montserrat_500Medium'} size={18}>
+					<Title color={'charcoal'} fontFamily={'Montserrat_500Medium'} size={18}>
 						{props.artist}
 					</Title>
 				</AnimatedView>
@@ -70,7 +70,7 @@ const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 					name='shuffle'
 					onPress={() => handleShuffle()}
 					size={30}
-					color='lightGray'
+					color='silver'
 				/>
 				<UIcon
 					name='play-skip-back'

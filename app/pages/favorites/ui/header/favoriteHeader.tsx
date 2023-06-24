@@ -17,7 +17,7 @@ const FavoriteHeader = () => {
 					<Title
 						fontFamily={'Montserrat_700Bold'}
 						size={24}
-						color={'primaryBlack'}
+						color={'midnight'}
 					>
 						{capitalizeFirstLetter(user.email.charAt(0))}
 					</Title>

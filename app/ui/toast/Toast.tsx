@@ -1,18 +1,18 @@
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { shadeColor } from '@/utils/shadeColor'
 import { FC } from 'react'
 import RnToast, { BaseToast } from 'react-native-toast-message'
 
 const options = (primaryColor: string) => ({
 	style: {
-		backgroundColor: getHexCode('lightBlack'),
+		backgroundColor: color.twilight,
 		borderLeftColor: primaryColor,
 		borderLeftWidth: 8,
 		zIndex: 1000,
-		shadowColor: getHexCode('transparent')
+		shadowColor: color.transparent
 	},
 	text1Style: {
-		color: getHexCode('white'),
+		color: color.white,
 		fontSize: 16
 	},
 	text2Style: {
@@ -29,17 +29,17 @@ const Toast: FC = () => {
 				success: props => (
 					<BaseToast
 						{...props}
-						{...options(shadeColor(getHexCode('primary'), 50))}
+						{...options(shadeColor(color.primary, 50))}
 					/>
 				),
 				info: props => (
-					<BaseToast {...props} {...options(getHexCode('yellow'))} />
+					<BaseToast {...props} {...options(color.sunshine)} />
 				),
 				error: props => (
 					<BaseToast
 						{...props}
 						{...{
-							...options(getHexCode('primaryRed'))
+							...options(color.crimson)
 						}}
 					/>
 				)

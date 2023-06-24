@@ -1,5 +1,5 @@
 import { Style } from '@/types/global'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { shadeColor } from '@/utils/shadeColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC } from 'react'
@@ -16,8 +16,8 @@ interface BallProps {
 const Ball: FC<BallProps> = ({
 	gradient = [0, 1, 1, 1],
 	colors = [
-		shadeColor(getHexCode('primary'), -10),
-		shadeColor(getHexCode('primary'), 20),
+		shadeColor(color.primary, -10),
+		shadeColor(color.primary, 20),
 		'transparent'
 	],
 	height = 200,

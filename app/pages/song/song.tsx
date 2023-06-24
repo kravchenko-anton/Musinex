@@ -1,26 +1,43 @@
 import { AnimatedImage } from '@/animation/global'
-import { useSongAnimation } from '@/pages/song/animation/useSongAnimation'
 import BottomDropDown from '@/pages/song/components/bottomDropDown'
 import TopDropDown from '@/pages/song/components/topDropDown'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { useSharedValue } from 'react-native-reanimated'
+import { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated'
 import { useActiveTrack } from 'react-native-track-player'
 
 const Song = () => {
-	const isOpen = useSharedValue(false)
-const {ImageAnimation} = useSongAnimation(isOpen)
 	const trackInfo = useActiveTrack()
+	const isOpen = useSharedValue(false)
+	const ImageAnimation = useAnimatedStyle(() => {
+		return {
+			height: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
+				damping: 20,
+				velocity: 0.5,
+				stiffness:90,
+				mass: 0.5
+			}),
+			width: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
+				damping: 20,
+				velocity: 0.5,
+				stiffness:90,
+				mass: 0.5
+			}),
+			opacity: withTiming(isOpen.value ? 0 : 1, {
+				duration: 300
+			}),
+		}
+	})
 	if (!trackInfo || !trackInfo.title || !trackInfo.artist || !trackInfo.artwork) return <FullScreenLoader/>
 	return (
 		<GestureHandlerRootView>
 		<View
 			style={{
 				justifyContent: 'space-between',
-				backgroundColor: getHexCode('primaryBlack'),
+				backgroundColor: color.midnight,
 				height: '100%'
 			}}
 		>
@@ -36,7 +53,6 @@ const {ImageAnimation} = useSongAnimation(isOpen)
 					}}
 				>
 					<AnimatedImage
-						sharedTransitionTag={String(trackInfo.artwork)}
 						source={{
 							uri: String(trackInfo.artwork),
 							height: WindowWidth * 0.8,
@@ -45,6 +61,7 @@ const {ImageAnimation} = useSongAnimation(isOpen)
 						style={[{
 							borderRadius: 15,
 						}, ImageAnimation]}
+						
 						resizeMode={'cover'}
 						className=' relative items-center  justify-center'
 					/>

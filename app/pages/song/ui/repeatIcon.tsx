@@ -1,4 +1,4 @@
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useState } from 'react'
 import TrackPlayer, { RepeatMode } from 'react-native-track-player'
@@ -43,7 +43,7 @@ const RepeatIcon = () => {
 			}}
 			onPress={changeRepeatMode}
 			size={30}
-			color={getHexCode('lightGray')}
+			color={color.silver}
 		/>
 	)
 }

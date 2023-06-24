@@ -66,7 +66,7 @@ const CatalogItem: FC<ISongItem> = ({
 					</Title>
 					{props.text2 && (
 						<Title
-							color={'lightGray'}
+							color={'silver'}
 							fontFamily={'Montserrat_300Light'}
 							size={textSize * 0.75}
 						>

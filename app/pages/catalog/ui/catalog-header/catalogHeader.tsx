@@ -5,7 +5,7 @@ import { IconType } from '@/types/global'
 import BlurIcon from '@/ui/blur-button/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
@@ -42,8 +42,8 @@ const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 						opacity,
 						backgroundColor:
 							colorScheme === 'light'
-								? getHexCode('white')
-								: getHexCode('primaryBlack')
+								? color.white
+								: color.midnight
 					}
 				]}
 			/>

@@ -1,7 +1,7 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/usePressAnimation'
 import UIcon from '@/ui/icon/defaultIcon/Icon'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
@@ -25,10 +25,10 @@ const Button: FC<IButton> = ({
 		                   style={[{
 				backgroundColor:
 					variant === 'primary'
-						? getHexCode('primary')
+						? color.primary
 						: colorScheme === 'light'
-							? getHexCode('primaryGray')
-							: getHexCode('lightBlack'),
+							? color.charcoal
+							: color.twilight,
 				borderRadius: borderRadius,
 				padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
 				width: props.width ? props.width : '100%' },
@@ -78,10 +78,10 @@ const Button: FC<IButton> = ({
 							}
 							color={
 								variant === 'light'
-									? getHexCode('dark')
+									? 'dark'
 									: variant === 'primary'
-									? getHexCode('white')
-									: getHexCode('dark')
+									? 'white'
+									: 'dark'
 							}
 							name={props.icon}
 						/>

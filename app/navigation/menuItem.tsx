@@ -27,7 +27,7 @@ const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
 								'-outline') as (typeof menuItems)[0]['iconName'])
 				}
 				size={30}
-				color={isActive ? 'white' : 'lightGray'}
+				color={isActive ? 'white' : 'silver'}
 			/>
 		</View>
 	)

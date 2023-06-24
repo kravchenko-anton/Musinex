@@ -8,7 +8,7 @@ import CatalogItem from '@/ui/flatList/catalogItem/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -29,7 +29,7 @@ const FavoriteCatalog = () => {
 	return (
 		<Layout className={'p-0'}>
 			<CatalogHeader title={t('Favorite songs')} y={y} />
-			<CatalogBackground color={getHexCode('primary')} y={y} />
+			<CatalogBackground color={color.primary} y={y} />
 			<CatalogContent
 				description={`${songs.length} ${t('songs')}`}
 				paddingTop={HEADER_HEIGHT * 0.3}

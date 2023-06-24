@@ -1,5 +1,5 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
@@ -24,8 +24,8 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 				colors={[
 					'transparent',
 					colorScheme === 'light'
-						? getHexCode('primaryGray')
-						: getHexCode('primaryBlack')
+						? color.silver
+						: color.midnight
 				]}
 				style={{
 					paddingBottom: bottom

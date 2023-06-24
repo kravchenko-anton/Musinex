@@ -1,6 +1,6 @@
 import { ICatalogTypes } from '@/types/catalogTypes'
 import UImage from '@/ui/image/image'
-import { getHexCode } from '@/utils/getColor'
+import { color as Color } from '@/utils/getColor'
 import { WindowWidth } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
@@ -17,7 +17,7 @@ interface ICatalogBackgroundProps extends ICatalogTypes {
 
 const CatalogBackground: FC<ICatalogBackgroundProps> = ({
 	poster,
-	color = getHexCode('primary'),
+	color = Color.primary,
 	y
 }) => {
 	const { top } = useSafeAreaInsets()
@@ -54,8 +54,8 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({
 							'transparent',
 							'rgba(0, 0, 0, 0.2)',
 							colorScheme === 'light'
-								? getHexCode('lightGray')
-								: getHexCode('primaryBlack')
+								? Color.silver
+								: Color.midnight
 						]}
 					/>
 				</>

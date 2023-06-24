@@ -4,6 +4,6 @@ import { theme } from '../../tailwind.config'
 
 const flattenedColors = flattenColorPalette(theme.colors)
 
-export function getHexCode(colorName: keyof typeof theme.colors) {
-	return flattenedColors[colorName]
-}
+
+
+export const color = theme.colors

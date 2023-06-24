@@ -3,7 +3,7 @@ import DropdownElement from '@/ui/dropdown/ui/dropdownElement'
 import { useDropdownAnimation } from '@/ui/dropdown/useDropdownAnimation'
 import Icon from '@/ui/icon/defaultIcon/Icon'
 import Title from '@/ui/title/title'
-import { getHexCode } from '@/utils/getColor'
+import { color } from '@/utils/getColor'
 import { useColorScheme } from 'nativewind'
 import React, { FC, useState } from 'react'
 import { Pressable, View } from 'react-native'
@@ -42,8 +42,8 @@ const Dropdown: FC<CustomDropdownProps> = ({ isOpen, value, ...props }) => {
 					height: 60,
 					backgroundColor:
 						colorScheme === 'light'
-							? getHexCode('primaryGray')
-							: getHexCode('lightBlack'),
+							? color.charcoal
+							: color.twilight,
 					position: 'relative'
 				}}
 				onPress={() => props.setIsOpen(!isOpen)}
@@ -71,8 +71,8 @@ const Dropdown: FC<CustomDropdownProps> = ({ isOpen, value, ...props }) => {
 						borderBottomRightRadius: 10,
 						backgroundColor:
 							colorScheme === 'light'
-								? getHexCode('primaryGray')
-								: getHexCode('lightBlack')
+								? color.charcoal
+								: color.twilight
 					},
 					dropdownAnimation
 				]}

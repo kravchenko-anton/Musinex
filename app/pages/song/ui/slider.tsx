@@ -6,8 +6,10 @@ import { View } from 'react-native'
 import TrackPlayer, { useProgress } from 'react-native-track-player'
 
 const Sliders = () => {
-	const { duration, position } = useProgress(100)
-	const [CurrentPosition, setCurrentPosition] = useState(0)
+	const { duration, position } = useProgress(500)
+	const [isSeeking, setIsSeeking] = useState(false);
+	const [seek, setSeek] = useState(0);
+	console.log(isSeeking)
 	return (
 		<View
 			style={{
@@ -17,10 +19,6 @@ const Sliders = () => {
 			}}
 		>
 			<Slider
-				value={position}
-				onValueChange={value => {
-					setCurrentPosition(value)
-				}}
 				minimumValue={0}
 				maximumValue={duration}
 				style={{ height: 15, marginTop: 10, width: '100%', margin: 0, padding: 0 }}
@@ -28,16 +26,24 @@ const Sliders = () => {
 				thumbTintColor={getHexCode('white')}
 				minimumTrackTintColor={getHexCode('primary')}
 				step={1}
-				onSlidingStart={() => {
+				value={position}
+				onValueChange={(value) => {
 					TrackPlayer.pause()
+					setSeek(value);
 				}}
-				onSlidingComplete={value => {
+				onSlidingStart={() => {
+					setIsSeeking(true)
+				}}
+				onSlidingComplete={(value) => {
+					setIsSeeking(false);
 					TrackPlayer.seekTo(value)
 				}}
 			/>
 			<View className='flex-row justify-between p-0 m-0 px-4'>
 				<Title color={'lightGray'} className='text-center mt-1' size={20}>
-					{Number(CurrentPosition / duration * 100.0).toFixed(2)}
+					{
+						isSeeking ? seek.toFixed(2) : position.toFixed(2)
+					}
 				</Title>
 				<Title color={'lightGray'} className='text-center mt-1' size={20}>
 					{duration.toFixed(2)}

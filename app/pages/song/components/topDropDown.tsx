@@ -31,7 +31,7 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 		<AnimatedPressable
 			style={[{
 				paddingTop: WindowHeight * 0.05,
-			}, topBarAnimation]} className='bg-lightBlack   rounded-b-3xl p-3'>
+			}, topBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
 			<View className='flex-row justify-between mb-5 items-center'>
 				<UIcon
 					onPress={() => goBack()}

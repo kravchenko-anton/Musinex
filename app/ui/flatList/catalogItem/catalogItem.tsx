@@ -36,7 +36,7 @@ const CatalogItem: FC<ISongItem> = ({
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	const activeTrack = useActiveTrack()
 	const playBackState = usePlaybackState()
-	const {opacityAnimation} = useOpacityAnimation(activeTrack?.title === props.text1 && activeTrack?.artist === props.text2 && playBackState.state === 'playing')
+	const {opacityAnimation} = useOpacityAnimation(activeTrack?.title === props.text1 && playBackState.state === 'playing')
 	return (
 		<AnimatedPressable
 			className='flex-row items-center mb-3 justify-between'
@@ -54,7 +54,7 @@ const CatalogItem: FC<ISongItem> = ({
 				<View
 					className='ml-3'
 					style={{
-						width: !noHeart ? '65%' : '73%'
+						width: !noHeart ? '60%' : '73%'
 					}}
 				>
 					<Title
@@ -75,7 +75,7 @@ const CatalogItem: FC<ISongItem> = ({
 					)}
 				</View>
 			</View>
-			<View className='flex-row items-center'>
+			<View className='items-center flex-row'>
 				<AnimatedView style={opacityAnimation}>
 						<Lottie source={require('@/assets/music-play.json')} style={{
 						width: 30,

@@ -36,11 +36,7 @@ const RepeatIcon = () => {
 	return (
 		<MaterialCommunityIcons
 			name={`${repeatIcon() as 'repeat-off' | 'repeat-once' | 'repeat'}`}
-			style={{
-				justifyContent: 'center',
-				alignSelf: 'center',
-				padding: 5,
-			}}
+			className='p-[5px] self-center justify-center'
 			onPress={changeRepeatMode}
 			size={30}
 			color={color.silver}

@@ -27,24 +27,18 @@ const Dropdown: FC<CustomDropdownProps> = ({ isOpen, value, ...props }) => {
 	const { colorScheme } = useColorScheme()
 
 	return (
-		<View
-			style={{
-				zIndex: 100000
-			}}
+		<View className='z-50'
 		>
 			<Pressable
-				className='p-4 border-b-primaryBlack'
+				className='p-4 border-b-midnight rounded-[10px] h-[60px] relative'
 				style={{
-					borderRadius: 10,
 					borderBottomLeftRadius: isOpen ? 0 : 10,
 					borderBottomRightRadius: isOpen ? 0 : 10,
 					borderBottomWidth: isOpen ? 1 : 0,
-					height: 60,
 					backgroundColor:
 						colorScheme === 'light'
 							? color.charcoal
 							: color.twilight,
-					position: 'relative'
 				}}
 				onPress={() => props.setIsOpen(!isOpen)}
 			>

@@ -22,7 +22,7 @@ const Button: FC<IButton> = ({
 	const { pressFunctions, animatedStyle } = usePressAnimation()
 	return (
 		<AnimatedPressable {...pressFunctions}
-		                   style={[{
+		 style={[{
 				backgroundColor:
 					variant === 'primary'
 						? color.primary
@@ -37,13 +37,11 @@ const Button: FC<IButton> = ({
 		 {...props}>
 				<View
 					style={{
-						flexDirection: 'row',
-						alignItems: 'center',
-						display: 'flex',
 						justifyContent: props.icon ? 'space-between' : 'center',
 						marginVertical: center ? 0 : 5,
 						gap: size === 'small' ? 10 : size === 'medium' ? 10 : 10
 					}}
+					className='flex-row items-center'
 				>
 					<Title
 						color={'white'}

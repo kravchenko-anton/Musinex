@@ -44,21 +44,15 @@ const Ball: FC<BallProps> = ({
 								width: width ? width : 200,
 								height: height ? height : 200,
 								borderWidth: 12,
-								borderColor: 'transparent',
-								justifyContent: 'center'
 						  }
 				}
+				className='justify-center border-transparent'
 			>
 				<LinearGradient
 					colors={colors}
 					start={[gradient[0], gradient[1]]}
 					end={[gradient[2], gradient[3]]}
-					style={{
-						flex: 1,
-						zIndex: 5,
-						borderRadius: 100,
-						justifyContent: 'center'
-					}}
+					className='flex-1 z-50 rounded-full justify-center'
 				/>
 			</View>
 		</View>

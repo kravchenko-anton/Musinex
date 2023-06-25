@@ -11,7 +11,7 @@ const FavoriteHeader = () => {
 	if (!user) return null
 	console.log(user)
 	return (
-		<View className='justify-between items-center flex-row border-b-2 border-b-lightBlack pb-2'>
+		<View className='justify-between items-center flex-row border-b-2 border-b-twilight pb-2'>
 			<View className='flex-row items-center gap-2'>
 				<View className='bg-primary rounded-full w-[50px] h-[50px] items-center justify-center'>
 					<Title

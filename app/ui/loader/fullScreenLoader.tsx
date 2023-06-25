@@ -11,7 +11,6 @@ const FullScreenLoader = () => {
 	return (
 		<View
 			style={{
-				position: 'absolute',
 				height: ScreenHeight,
 				width: ScreenWidth,
 				backgroundColor:
@@ -19,7 +18,7 @@ const FullScreenLoader = () => {
 						? color.silver
 						: color.midnight
 			}}
-			className={'justify-center items-center'}
+			className={'justify-center items-center absolute'}
 		>
 			<Lottie
 				loop

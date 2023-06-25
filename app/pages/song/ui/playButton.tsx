@@ -12,7 +12,7 @@ const PlayButton:FC<IPlayButton> = ({size, ...props}) => {
 	const playBackState = usePlaybackState()
 	return <UIcon
 		name={
-			playBackState.state === State.Playing || playBackState.state === State.Buffering || playBackState.state === State.Ready
+			playBackState.state === State.Playing
 				? (props.circle ? 'md-pause-circle' : 'pause')
 				: (props.circle ? 'md-play-circle' : 'play')
 		}

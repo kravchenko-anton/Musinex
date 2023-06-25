@@ -22,16 +22,13 @@ interface IBottomDropDown extends songAnimationValue {
 const BottomDropDown:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 	const {opacityAnimation,BottomMenuAnimation,MinusOpacityAnimation,TitleAnimation,panGesture} = useSongAnimation(isOpen)
 	return <GestureDetector gesture={panGesture}>
-		<AnimatedView className='bg-lightBlack pt-4 rounded-t-3xl w-full' style={[{
+		<AnimatedView className='bg-twilight pt-4 rounded-t-3xl w-full' style={[{
 			paddingBottom: WindowHeight * 0.05,
 		}, BottomMenuAnimation]}>
 			<Pressable className='w-full items-center justify-center self-center'>
-				<View className='bg-primaryGray h-[4px] w-10 rounded-full'/>
+				<View className='bg-charcoal h-[4px] w-10 rounded-full'/>
 			</Pressable>
-			<View className='items-center px-4  self-center flex-row justify-between' style={{
-				marginTop: 15,
-				width: '100%',
-			}}>
+			<View className='items-center px-4  self-center flex-row justify-between mt-[15px] w-full'>
 				<AnimatedView style={TitleAnimation}>
 					<Title size={ 25} fontFamily={'Montserrat_600SemiBold'}>
 						{props.title}

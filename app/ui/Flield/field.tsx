@@ -30,13 +30,12 @@ const Field = <T extends Record<string, any>>({
 					<View
 						style={{
 							borderWidth: error ? 1 : 0,
-							borderColor: color.crimson,
 							backgroundColor:
 								colorScheme === 'light'
 									? color.charcoal
 									: color.twilight
 						}}
-						className={'w-full rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
+						className={'w-full border-crimson rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
 					>
 						<TextInput
 							autoCapitalize={'none'}

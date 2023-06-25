@@ -1,45 +1,51 @@
 import Title from '@/ui/title/title'
 import { color } from '@/utils/getColor'
 import Slider from '@react-native-community/slider'
+import { memo, useState } from 'react'
 import { View } from 'react-native'
 import TrackPlayer, { useProgress } from 'react-native-track-player'
 
 const Sliders = () => {
-	const { duration, position } = useProgress(10)
+	const { position, duration } = useProgress(0);
+	const [isSeeking, setIsSeeking] = useState(false);
+	const [sliderValue, setSliderValue] = useState(position);
 	return (
-		<View
-			style={{
-				width: '100%',
-				justifyContent: 'center',
-				alignSelf: 'center',
-			}}
-		>
+		<View className='justify-center self-center w-full mt-[10px]'>
 			<Slider
 				minimumValue={0}
 				maximumValue={duration}
-				style={{ height: 15, marginTop: 10, width: '100%', margin: 0, padding: 0 }}
+				style={{ width: '100%', height: 18, margin: 0, padding: 0 }}
 				maximumTrackTintColor={'white'}
 				thumbTintColor={color.white}
-				minimumTrackTintColor={color.primary}
+				minimumTrackTintColor={color.white}
 				step={1}
-				value={position}
-				onSlidingComplete={async (value) => TrackPlayer.seekTo(value)
+				value={
+					isSeeking ? sliderValue : position
 				}
+				onSlidingComplete={async (value) => {
+					setIsSeeking(false);
+				await 	TrackPlayer.seekTo(value);
+					setSliderValue(value)
+				}}
+				onValueChange={(value) => {
+					if (isSeeking) setSliderValue(value)
+				}}
+				onTouchStart={() => setIsSeeking(true)}
 			/>
 			<View className='flex-row justify-between p-0 m-0 px-4'>
 				<Title color={'silver'} className='text-center mt-1' size={20}>
-					{new Date(position * 1000)
-						.toLocaleTimeString()
-						.substring(3).slice(0,5)}
+					{
+						String(position.toFixed(2))
+					}
 				</Title>
 				<Title color={'silver'} className='text-center mt-1' size={20}>
-					{new Date((duration) * 1000)
-						.toLocaleTimeString()
-						.substring(3).slice(0,5)}
+					{
+						String(duration.toFixed(2))
+					}
 				</Title>
 			</View>
 		</View>
 	)
 }
 
-export default Sliders
+export default memo(Sliders)

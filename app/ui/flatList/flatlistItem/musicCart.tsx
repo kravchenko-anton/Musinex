@@ -34,10 +34,7 @@ const MusicCart: FC<IFlatListItem> = ({
 						borderRadius: props.image.border ? props.image.border : 0
 					}}
 				/>
-				<View
-					style={{
-						margin: 5
-					}}
+				<View className='mt-2'
 				>
 					<Title
 						numberOfLines={1}

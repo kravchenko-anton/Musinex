@@ -1,16 +1,16 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
-import { useOpacityAnimation } from '@/animation/opacity-animation'
-import { usePressAnimation } from '@/animation/press-animation'
-import { ISongItem } from '@/ui/flatList/catalog-item/catalogItem.types'
+import { useOpacityAnimation } from '@/animation/opacity.animation'
+import { usePressAnimation } from '@/animation/press.animation'
+import { ICatalogItem } from '@/ui/catalog-item/catalogItem.types'
 import Heart from '@/ui/icon/heart/heart'
 import Lottie from 'lottie-react-native'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { useActiveTrack, usePlaybackState } from 'react-native-track-player'
-import UImage from '../../image/image'
-import Title from '../../title/title'
+import UImage from '../image/image'
+import Title from '../title/title'
 
-const CatalogItem: FC<ISongItem> = ({
+const CatalogItem: FC<ICatalogItem> = ({
 	id,
 	textSize = 22,
 	image,
@@ -28,7 +28,7 @@ const CatalogItem: FC<ISongItem> = ({
 			{...pressFunctions}
 			{...props}
 		>
-			<View className={'flex-row items-center'}>
+			<View className='flex-row items-center'>
 				<UImage
 					source={image.uri}
 					borderRadius={image.border}

@@ -1,5 +1,5 @@
 import { AnimatedPressable } from '@/animation/global'
-import { usePressAnimation } from '@/animation/press-animation'
+import { usePressAnimation } from '@/animation/press.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { IGenre } from '@/services/types/genre.services.types'
 import UImage from '@/ui/image/image'

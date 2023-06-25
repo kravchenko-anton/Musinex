@@ -1,5 +1,5 @@
 import { AnimatedPressable } from '@/animation/global'
-import { usePressAnimation } from '@/animation/press-animation'
+import { usePressAnimation } from '@/animation/press.animation'
 import { IconProps } from '@/ui/icon/default-icon/icon.types'
 import { color as Color } from '@/utils/color'
 import { Ionicons } from '@expo/vector-icons'

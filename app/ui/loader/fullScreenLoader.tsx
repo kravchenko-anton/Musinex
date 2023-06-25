@@ -17,7 +17,7 @@ const FullScreenLoader = () => {
 						? color.silver
 						: color.midnight
 			}}
-			className={'justify-center items-center absolute'}
+			className='justify-center items-center absolute'
 		>
 			<Lottie
 				loop

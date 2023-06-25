@@ -1,6 +1,6 @@
 import { IconType, ITranslateTypes, UPressableProps } from '@/types/global'
 
-export interface ButtonTypes extends UPressableProps {
+export interface IButtonTypes extends UPressableProps {
 	size: 'small' | 'medium' | 'large'
 	text: ITranslateTypes
 	width?: number | string

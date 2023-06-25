@@ -1,6 +1,6 @@
-import { SharedElementTag, UPressableProps } from '@/types/global'
+import { UPressableProps } from '@/types/global'
 
-export interface IMusicCartTypes extends UPressableProps, SharedElementTag {
+export interface IMusicCartTypes extends UPressableProps {
 	name: string
 	image: {
 		url: string

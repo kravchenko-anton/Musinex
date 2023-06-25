@@ -1,7 +1,7 @@
 import { ICatalogRenderType } from '@/pages/catalog/catalog.types'
 import { UPressableProps } from '@/types/global'
 
-export interface ISongItem extends UPressableProps {
+export interface ICatalogItem extends UPressableProps {
 	image: {
 		uri: string
 		width: number

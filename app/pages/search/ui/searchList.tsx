@@ -1,10 +1,10 @@
 import { useAction } from '@/hook/useAction'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { ISearchResult } from '@/services/types/search.services.types'
-import CatalogItem from '@/ui/flatList/catalog-item/catalogItem'
-import MusicCart from '@/ui/flatList/flatlist-item/musicCart'
+import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import FlatList404 from '@/ui/flatList/ui/flatList-404/flatList404'
+import MusicCart from '@/ui/music-cart/musicCart'
 import Tabs from '@/ui/tabs/tabs'
 import { FC } from 'react'
 

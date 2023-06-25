@@ -1,10 +1,10 @@
-import { BlurButtonTypes } from '@/ui/blur-button/blurButton.types'
+import { IBlurButtonTypes } from '@/ui/blur-button/blurButton.types'
 import UIcon from '@/ui/icon/default-icon/icon'
 import { BlurView } from 'expo-blur'
 import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren } from 'react'
 
-const BlurIcon: FC<PropsWithChildren<BlurButtonTypes>> = ({
+const BlurIcon: FC<PropsWithChildren<IBlurButtonTypes>> = ({
 	children,
 	color,
 	iconSize = 21,
@@ -18,7 +18,7 @@ const BlurIcon: FC<PropsWithChildren<BlurButtonTypes>> = ({
 		<BlurView
 			intensity={22}
 			tint='light'
-			className={'items-center justify-center overflow-hidden'}
+			className='items-center justify-center overflow-hidden'
 			style={{
 				width: isSmall ? 15 : 40,
 				height: isSmall ? 15 : 40,

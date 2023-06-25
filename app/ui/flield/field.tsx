@@ -35,7 +35,7 @@ const Field = <T extends Record<string, any>>({
 									? color.charcoal
 									: color.twilight
 						}}
-						className={'w-full border-crimson rounded-lg pb-4 pt-2.5 px-4 my-1.5'}
+						className='w-full border-crimson rounded-lg pb-4 pt-2.5 px-4 my-1.5'
 					>
 						<TextInput
 							autoCapitalize={'none'}

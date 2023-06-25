@@ -1,6 +1,6 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { userServices } from '@/services/user.services'
-import CatalogItem from '@/ui/flatList/catalog-item/catalogItem'
+import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Icon from '@/ui/icon/default-icon/icon'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'

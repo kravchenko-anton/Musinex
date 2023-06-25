@@ -2,7 +2,7 @@ import { UTextProps } from '@/types/global'
 import en from '@/utils/translate/en.json'
 import { theme } from '../../../tailwind.config'
 
-export interface TitleTypes extends UTextProps {
+export interface ITitle extends UTextProps {
 	center?: boolean
 	translate?: boolean
 	children: keyof typeof en | string

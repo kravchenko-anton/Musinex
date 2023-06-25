@@ -17,7 +17,7 @@ const UFlatList = <T,>({
 			{headerText && data.length !== 0 ? (
 				<Title
 					translate
-					className={'mb-3'}
+					className='mb-3'
 					size={20}
 					fontFamily={'Montserrat_600SemiBold'}
 				>

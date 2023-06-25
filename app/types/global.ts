@@ -1,11 +1,5 @@
 import { Ionicons } from '@expo/vector-icons'
-import {
-	ImageProps,
-	PressableProps,
-	ScrollViewProps,
-	TextProps,
-	ViewProps
-} from 'react-native'
+import { ImageProps, PressableProps, ScrollViewProps, TextProps, ViewProps } from 'react-native'
 import en from '../utils/translate/en.json'
 
 export type ITranslateTypes = keyof typeof en | string
@@ -92,6 +86,3 @@ export type CatalogProps = {
 	id: number
 }
 export type Style = UViewProps['style']
-export interface SharedElementTag {
-	sharedElementTag?: string
-}

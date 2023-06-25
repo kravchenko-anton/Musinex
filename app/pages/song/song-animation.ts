@@ -1,9 +1,10 @@
+import { AnimationValue } from '@/pages/song/animation.types'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { useMemo } from 'react'
 import { Gesture } from 'react-native-gesture-handler'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
 
-export const useSongAnimation = (isOpen: {value: boolean}) => {
+export const useSongAnimation = (isOpen: AnimationValue) => {
 	const panGesture = Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
 	}).activeOffsetY([-20, 20])
@@ -82,20 +83,7 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 				damping: 20,
 				velocity: 0.5,
 				stiffness: 90
-				
 			})
-		}
-	})
-	const IconAnimation = useAnimatedStyle(() => {
-		return {
-			transform: [
-				{
-					rotate: withSpring(isOpen.value ? '180deg' : '0deg', {
-						damping: 20,
-						stiffness: 90
-					})
-				}
-			]
 		}
 	})
 	return useMemo(() => {
@@ -108,7 +96,6 @@ export const useSongAnimation = (isOpen: {value: boolean}) => {
 			opacityAnimation,
 			MinusOpacityAnimation,
 			BottomMenuAnimation,
-			IconAnimation
 		}
 	}, [isOpen.value]);
 }

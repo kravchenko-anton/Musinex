@@ -11,19 +11,8 @@ export const useDropdownAnimation = (isOpen: boolean) => {
 			opacity: withTiming(isOpen ? 1 : 0)
 		}
 	})
-	 const dropdownIconAnimation = useAnimatedStyle(() => {
-		return {
-			transform: [
-				{
-					rotate: withSpring(isOpen ? '180deg' : '0deg', {
-						damping: 20,
-						stiffness: 90
-					})
-				}
-			]
-		}
-	})
-	 return useMemo(() => ({ dropdownAnimation, dropdownIconAnimation }), [
+
+	 return useMemo(() => ({ dropdownAnimation }), [
 		dropdownAnimation,
-		dropdownIconAnimation])
+		])
 }

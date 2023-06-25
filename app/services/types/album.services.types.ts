@@ -1,8 +1,8 @@
-import { CoverModel, defaultModelFields } from '@/services/types/global'
+import { CoverModel, DefaultModelFields } from '@/services/types/global'
 import { ISearchResult } from '@/services/types/search.services.types'
 
 export interface IAlbum
-	extends defaultModelFields,
+	extends DefaultModelFields,
 		CoverModel,
 		Pick<ISearchResult, 'songs'> {
 	title: string

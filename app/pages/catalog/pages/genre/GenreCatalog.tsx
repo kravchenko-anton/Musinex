@@ -7,10 +7,10 @@ import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { genreServices } from '@/services/genre.services'
 import { IAlbum } from '@/services/types/album.services.types'
 import { IPlaylist } from '@/services/types/playlist.services.types'
-import MusicCart from '@/ui/flatList/flatlist-item/musicCart'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
+import MusicCart from '@/ui/music-cart/musicCart'
 import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -26,7 +26,7 @@ const GenreCatalog = () => {
 	const { t } = useTranslation()
 	if (!genre) return <FullScreenLoader />
 	return (
-		<Layout className={'p-0'}>
+		<Layout className='p-0'>
 			<CatalogHeader id={params.id} title={t(genre.name)} y={y} />
 			<CatalogBackground color={genre.color} y={y} />
 			<CatalogContent

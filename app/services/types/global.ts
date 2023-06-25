@@ -1,6 +1,6 @@
 import { IArtist } from '@/services/types/artist.services.types'
 
-export interface defaultModelFields {
+export interface DefaultModelFields {
 	id: number
 	createdAt: string
 	updatedAt: string
@@ -18,7 +18,7 @@ export interface PictureModel {
 	pictureSmall: string
 }
 
-export interface ISong extends defaultModelFields, CoverModel {
+export interface ISong extends DefaultModelFields, CoverModel {
 	title: string
 	duration: number
 	releaseDate: string

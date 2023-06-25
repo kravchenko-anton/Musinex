@@ -1,9 +1,9 @@
 import { IAlbum } from '@/services/types/album.services.types'
 import { IArtist } from '@/services/types/artist.services.types'
-import { defaultModelFields, ISong } from '@/services/types/global'
+import { DefaultModelFields, ISong } from '@/services/types/global'
 import { IPlaylist } from '@/services/types/playlist.services.types'
 
-export interface IUser extends defaultModelFields {
+export interface IUser extends DefaultModelFields {
 	email: string
 	name: string
 	userPlaylists: IPlaylist[]

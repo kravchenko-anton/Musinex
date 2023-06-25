@@ -1,5 +1,5 @@
-import { songAnimationValue } from '@/pages/song/animation.types'
+import { SongAnimationState } from '@/pages/song/animation.types'
 
-export interface ITopDropDown extends  songAnimationValue{
+export interface ITopDropDown extends  SongAnimationState{
 	title: string
 }

@@ -1,5 +1,5 @@
 import { AnimatedPressable } from '@/animation/global'
-import { usePressAnimation } from '@/animation/press-animation'
+import { usePressAnimation } from '@/animation/press.animation'
 import Ball from '@/pages/home/ui/banner/ball/ball'
 import { IBanner } from '@/pages/home/ui/banner/banner/banner.types'
 import UImage from '@/ui/image/image'

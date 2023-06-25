@@ -4,7 +4,7 @@ import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBack
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { playlistServices } from '@/services/playlist.services'
-import CatalogItem from '@/ui/flatList/catalog-item/catalogItem'
+import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
@@ -24,7 +24,7 @@ const PlaylistCatalog = () => {
 	console.log(playlist?.id)
 	if (!playlist) return <FullScreenLoader />
 	return (
-		<Layout className={'p-0'}>
+		<Layout className='p-0'>
 			<CatalogHeader
 				type={'playlist'}
 				id={params.id}

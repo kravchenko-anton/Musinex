@@ -1,9 +1,10 @@
-import { AnimatedImage, AnimatedPressable } from '@/animation/global'
-import { usePressAnimation } from '@/animation/press-animation'
-import { IMusicCartTypes } from '@/ui/flatList/flatlist-item/musicCart.types'
+import { AnimatedPressable } from '@/animation/global'
+import { usePressAnimation } from '@/animation/press.animation'
+import { IMusicCartTypes } from '@/ui/music-cart/musicCart.types'
 import { FC } from 'react'
 import { View } from 'react-native'
-import Title from '../../title/title'
+import UImage from '../image/image'
+import Title from '../title/title'
 
 const MusicCart: FC<IMusicCartTypes> = ({
 	textCenter = false,
@@ -22,17 +23,12 @@ const MusicCart: FC<IMusicCartTypes> = ({
 			{...pressFunctions}
 			{...props}>
 		
-				<AnimatedImage
+				<UImage
 					className={props.imageClassNames}
-					sharedTransitionTag={props.sharedElementTag}
-					source={{
-						uri: props.image.url,
-						height: props.image.height,
-						width: props.image.width
-					}}
-					style={{
-						borderRadius: props.image.border ? props.image.border : 0
-					}}
+					source={props.image.url}
+					borderRadius={props.image.border ? props.image.border : 0}
+					height={props.image.height}
+					width={props.image.width}
 				/>
 				<View className='mt-2'
 				>
@@ -40,14 +36,14 @@ const MusicCart: FC<IMusicCartTypes> = ({
 						numberOfLines={1}
 						size={16}
 						center={textCenter}
-						className={'w-full'}
+						className='w-full'
 						fontFamily={'Montserrat_500Medium'}
 					>
 						{props.name}
 					</Title>
 					{props.artists && (
 						<Title
-							className={'mt-0.5 w-10/12'}
+							className='mt-0.5 w-10/12'
 							numberOfLines={1}
 							color={'charcoal'}
 							center={textCenter}

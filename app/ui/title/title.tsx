@@ -12,7 +12,7 @@ import { useColorScheme } from 'nativewind'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'react-native'
-import { TitleTypes } from './title.types'
+import { ITitle } from './title.types'
 
 const Title = ({
 	children,
@@ -22,7 +22,7 @@ const Title = ({
 	center = false,
 	style,
 	...props
-}: TitleTypes) => {
+}: ITitle) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_300Light,
 		Montserrat_500Medium,

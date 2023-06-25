@@ -1,4 +1,4 @@
- export interface IFlatList404 {
+interface IFlatList404 {
 	width: number
 	height: number
 }

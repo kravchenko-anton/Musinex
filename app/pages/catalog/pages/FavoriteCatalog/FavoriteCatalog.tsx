@@ -4,7 +4,7 @@ import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBack
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { userServices } from '@/services/user.services'
-import CatalogItem from '@/ui/flatList/catalog-item/catalogItem'
+import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
@@ -27,7 +27,7 @@ const FavoriteCatalog = () => {
 	)
 	if (!songs) return <FullScreenLoader />
 	return (
-		<Layout className={'p-0'}>
+		<Layout className='p-0'>
 			<CatalogHeader title={t('Favorite songs')} y={y} />
 			<CatalogBackground color={color.primary} y={y} />
 			<CatalogContent

@@ -1,9 +1,10 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
+import { useIconAnimation } from '@/animation/icon.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { ITopDropDown } from '@/pages/song/components/top-dropDown/topDropDown.types'
 import { useSongAnimation } from '@/pages/song/song-animation'
-import CatalogItem from '@/ui/flatList/catalog-item/catalogItem'
+import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UIcon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
 import { trackPause, trackPlay } from '@/utils/player/usePlayer'
@@ -21,8 +22,11 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 		topBarAnimation,
 		panGesture,
 		useDropDownContentAnimation,
-		IconAnimation,
 	} = useSongAnimation(isOpen)
+	const {IconAnimation} = useIconAnimation({
+		direction: 'down',
+		state: isOpen.value,
+	})
 	return 	<GestureDetector gesture={panGesture}>
 		
 		<AnimatedPressable

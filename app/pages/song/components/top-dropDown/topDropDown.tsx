@@ -1,5 +1,5 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
-import { useIconAnimation } from '@/animation/icon.animation'
+import { useRotateAnimation } from '@/animation/rotate.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { ITopDropDown } from '@/pages/song/components/top-dropDown/topDropDown.types'
@@ -18,17 +18,16 @@ import TrackPlayer from 'react-native-track-player'
 const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 	const { goBack } = useTypedNavigation()
 	const selector = useTypedSelector((state) => state.player)
+	const {IconAnimation} = useRotateAnimation({
+		direction: 'down',
+		isOpen,
+	})
 	const {
 		topBarAnimation,
 		panGesture,
 		useDropDownContentAnimation,
-	} = useSongAnimation(isOpen)
-	const {IconAnimation} = useIconAnimation({
-		direction: 'down',
-		state: isOpen.value,
-	})
+	} = useSongAnimation({ isOpen })
 	return 	<GestureDetector gesture={panGesture}>
-		
 		<AnimatedPressable
 			style={[{
 				paddingTop: WindowHeight * 0.05,

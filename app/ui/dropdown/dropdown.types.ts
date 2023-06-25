@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface IDropdownProps {
+export interface IDropdownProps{
 	isOpen: boolean
 	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 	value: string

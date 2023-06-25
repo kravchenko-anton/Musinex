@@ -1,5 +1,5 @@
 import { AnimatedView } from '@/animation/global'
-import { useIconAnimation } from '@/animation/icon.animation'
+import { useRotateAnimation } from '@/animation/rotate.animation'
 import { useDropdownAnimation } from '@/ui/dropdown/dropdown.animation'
 import { IDropdownProps } from '@/ui/dropdown/dropdown.types'
 import DropdownElement from '@/ui/dropdown/ui/dropdown-element/dropdownElement'
@@ -14,11 +14,15 @@ const Dropdown: FC<IDropdownProps> = ({ isOpen, value, ...props }) => {
 	const [dropdownValue, setDropdownValue] = useState(
 		props.options.find(option => option.value === value) || props.options[0]
 	)
-	const {dropdownAnimation} = useDropdownAnimation(isOpen)
+	const {dropdownAnimation} = useDropdownAnimation({ isOpen })
 	const { colorScheme } = useColorScheme()
-const {IconAnimation} = useIconAnimation({
+const {IconAnimation} = useRotateAnimation({
 	direction: 'down',
-	state: isOpen
+	isOpen: {value: isOpen},
+	userConfig: {
+		damping: 20,
+		stiffness: 90
+	}
 })
 	return (
 		<View className='z-50'

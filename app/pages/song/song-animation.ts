@@ -1,10 +1,12 @@
-import { AnimationValue } from '@/pages/song/animation.types'
+import { IAnimatedProps } from '@/animation/global'
+import { SongAnimationState } from '@/pages/song/animation.types'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { useMemo } from 'react'
 import { Gesture } from 'react-native-gesture-handler'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
 
-export const useSongAnimation = (isOpen: AnimationValue) => {
+interface IUseSongAnimation extends IAnimatedProps, SongAnimationState  {}
+export const useSongAnimation = ({isOpen}: SongAnimationState) => {
 	const panGesture = Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
 	}).activeOffsetY([-20, 20])

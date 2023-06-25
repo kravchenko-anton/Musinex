@@ -1,21 +1,23 @@
+import { IAnimatedProps } from '@/animation/global'
 import { useMemo } from 'react'
 import { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 
-export const usePressAnimation = () => {
+export const usePressAnimation =
+	({ userConfig = { duration: 100, }
+		}: IAnimatedProps = {}
+	) => {
 	const scale = useSharedValue(1)
 	const animatedStyle = useAnimatedStyle(() => {
 		return {
-			transform: [{ scale: scale.value }]
+			transform: [{ scale: scale.value}]
 		}
 	})
-	const config = {
-		duration: 100
-	}
+
 	const onPressIn = () => {
-		scale.value = withTiming(0.97, config)
+		scale.value = withTiming(0.97, userConfig)
 	}
 	const onPressOut = () => {
-		scale.value = withTiming(1, config)
+		scale.value = withTiming(1, userConfig)
 	}
 	const pressFunctions = {
 		onPressIn,

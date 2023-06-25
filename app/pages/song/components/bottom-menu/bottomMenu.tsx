@@ -15,7 +15,7 @@ import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
 
 const BottomMenu:FC<IBottomDropDown> = ({isOpen, ...props}) => {
-	const {opacityAnimation,BottomMenuAnimation,MinusOpacityAnimation,TitleAnimation,panGesture} = useSongAnimation(isOpen)
+	const {opacityAnimation,BottomMenuAnimation,MinusOpacityAnimation,TitleAnimation,panGesture} = useSongAnimation({ isOpen })
 	return <GestureDetector gesture={panGesture}>
 		<AnimatedView className='bg-twilight pt-4 rounded-t-3xl w-full' style={[{
 			paddingBottom: WindowHeight * 0.05,

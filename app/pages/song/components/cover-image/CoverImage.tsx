@@ -6,7 +6,9 @@ import { FC } from 'react'
 import { View } from 'react-native'
 
 const CoverImage:FC<ICoverImage> = ({artwork, isOpen}) => {
-	const {ImageAnimation} = useSongAnimation(isOpen)
+	const {ImageAnimation} = useSongAnimation({
+		isOpen
+	})
 	return <View
 		style={{ marginTop: WindowHeight * 0.06}}
 		className='relative items-center  justify-center self-center'

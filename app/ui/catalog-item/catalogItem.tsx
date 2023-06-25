@@ -20,7 +20,9 @@ const CatalogItem: FC<ICatalogItem> = ({
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	const activeTrack = useActiveTrack()
 	const playBackState = usePlaybackState()
-	const {opacityAnimation} = useOpacityAnimation(activeTrack?.title === props.text1 && playBackState.state === 'playing')
+	const {opacityAnimation} = useOpacityAnimation({
+		isOpen: activeTrack?.title === props.text1 && playBackState.state === 'playing'
+	})
 	return (
 		<AnimatedPressable
 			className='flex-row items-center mb-3 justify-between'

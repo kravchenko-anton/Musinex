@@ -1,11 +1,14 @@
+import { IAnimatedProps } from '@/animation/global'
+import { SongState } from '@/pages/song/animation.types'
 import { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 
-export const useOpacityAnimation = (state: boolean) => {
+interface IUseOpacityAnimation extends  IAnimatedProps,SongState {}
+export const useOpacityAnimation = (props: IUseOpacityAnimation) => {
 	
 	const opacityAnimation = useAnimatedStyle(() => {
 		return {
-			opacity: withTiming(state ? 1 : 0, {
-				duration: 700
+			opacity: withTiming(props.isOpen ? 1 : 0, {
+	...props.userConfig
 			}),
 		}
 	})

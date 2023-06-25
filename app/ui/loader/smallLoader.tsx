@@ -4,7 +4,7 @@ import { View } from 'react-native'
 
 const SmallLoader = () => {
 	return (
-		<View className={'justify-center items-center h-full w-full'}>
+		<View className='justify-center items-center h-full w-full'>
 			<Lottie
 				loop
 				source={loader}

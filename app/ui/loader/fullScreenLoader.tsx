@@ -1,12 +1,11 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { color } from '@/utils/getColor'
+import { color } from '@/utils/color'
 import { ScreenHeight, ScreenWidth } from '@/utils/screen'
 import Lottie from 'lottie-react-native'
 import { View } from 'react-native'
 import loader from '../../assets/loader.json'
 
 const FullScreenLoader = () => {
-	// Need for app component
 	const selector = useTypedSelector(state => state.theme)
 	return (
 		<View

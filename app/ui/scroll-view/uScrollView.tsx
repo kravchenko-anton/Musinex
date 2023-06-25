@@ -1,17 +1,6 @@
-import { UScrollViewProps } from '@/types/global'
+import { IUScrollView } from '@/ui/scroll-view/uScrollView.types'
 import { FC, PropsWithChildren } from 'react'
 import { ScrollView } from 'react-native'
-
-export interface IUScrollView
-	extends Omit<
-		UScrollViewProps,
-		| 'renderToHardwareTextureAndroid'
-		| 'showsHorizontalScrollIndicator'
-		| 'showsVerticalScrollIndicator'
-		| 'decelerationRate'
-	> {
-	paddingBottom?: number
-}
 
 const UScrollView: FC<PropsWithChildren<IUScrollView>> = ({
 	children,

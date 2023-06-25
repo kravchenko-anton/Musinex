@@ -1,8 +1,8 @@
 import { useAuth } from '@/hook/useAuth'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import UIcon from '@/ui/icon/defaultIcon/Icon'
+import UIcon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
-import { capitalizeFirstLetter } from '@/utils/capitalizeLatter'
+import { capitalizeFirstLetter } from '@/utils/capitalize.latter'
 import { View } from 'react-native'
 
 const FavoriteHeader = () => {

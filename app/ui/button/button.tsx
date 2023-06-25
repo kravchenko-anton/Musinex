@@ -1,14 +1,14 @@
 import { AnimatedPressable } from '@/animation/global'
-import { usePressAnimation } from '@/animation/usePressAnimation'
-import UIcon from '@/ui/icon/defaultIcon/Icon'
-import { color } from '@/utils/getColor'
+import { usePressAnimation } from '@/animation/press-animation'
+import UIcon from '@/ui/icon/default-icon/icon'
+import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 import Title from '../title/title'
-import { IButton } from './types/Ibutton'
+import { ButtonTypes } from './button.types'
 
-const Button: FC<IButton> = ({
+const Button: FC<ButtonTypes> = ({
 	translate = false,
 	size = 'small',
 	variant = 'light',

@@ -1,5 +1,5 @@
 import { useAuth } from '@/hook/useAuth'
-import { userServices } from '@/services/userServices'
+import { userServices } from '@/services/user.services'
 import { useQuery } from '@tanstack/react-query'
 
 export const useFavorites = () => {

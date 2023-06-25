@@ -11866,7 +11866,7 @@ instanceKlass java/awt/event/FocusListener
 instanceKlass java/awt/image/BufferStrategy
 instanceKlass java/awt/Event
 instanceKlass java/awt/MenuComponent
-instanceKlass java/awt/Image
+instanceKlass java/awt/CoverImage
 instanceKlass javax/swing/event/AncestorListener
 instanceKlass javax/swing/AncestorNotifier
 instanceKlass java/beans/PropertyChangeListener

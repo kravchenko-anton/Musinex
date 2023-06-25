@@ -11125,7 +11125,7 @@ instanceKlass java/awt/Graphics
 instanceKlass java/awt/Event
 instanceKlass java/awt/Font
 instanceKlass java/awt/MenuComponent
-instanceKlass java/awt/Image
+instanceKlass java/awt/CoverImage
 instanceKlass javax/swing/table/TableColumn
 instanceKlass javax/swing/Action
 instanceKlass javax/swing/table/AbstractTableModel

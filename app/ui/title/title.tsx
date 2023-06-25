@@ -1,5 +1,5 @@
 import Skeleton from '@/ui/skeleton/skeleton'
-import { color } from '@/utils/getColor'
+import { color } from '@/utils/color'
 import {
 	Montserrat_300Light,
 	Montserrat_500Medium,
@@ -12,7 +12,7 @@ import { useColorScheme } from 'nativewind'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'react-native'
-import { ITitle } from './types/Ititle'
+import { TitleTypes } from './title.types'
 
 const Title = ({
 	children,
@@ -22,7 +22,7 @@ const Title = ({
 	center = false,
 	style,
 	...props
-}: ITitle) => {
+}: TitleTypes) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_300Light,
 		Montserrat_500Medium,

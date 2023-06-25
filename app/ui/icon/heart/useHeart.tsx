@@ -1,6 +1,6 @@
+import { IHeartProps } from '@/pages/catalog/catalog.types'
 import { useFavorites } from '@/pages/favorites/useFavorites'
-import { userServices } from '@/services/userServices'
-import { IHeartProps } from '@/types/catalogTypes'
+import { userServices } from '@/services/user.services'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 

@@ -1,25 +1,15 @@
 import { AnimatedView } from '@/animation/global'
-import DropdownElement from '@/ui/dropdown/ui/dropdownElement'
-import { useDropdownAnimation } from '@/ui/dropdown/useDropdownAnimation'
-import Icon from '@/ui/icon/defaultIcon/Icon'
+import { useDropdownAnimation } from '@/ui/dropdown/dropdown.animation'
+import { IDropdownProps } from '@/ui/dropdown/dropdown.types'
+import DropdownElement from '@/ui/dropdown/ui/dropdown-element/dropdownElement'
+import Icon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
-import { color } from '@/utils/getColor'
+import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import React, { FC, useState } from 'react'
 import { Pressable, View } from 'react-native'
 
-interface CustomDropdownProps {
-	isOpen: boolean
-	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-	value: string
-	setValue: React.Dispatch<React.SetStateAction<string>>
-	onSelect: (value: string) => void
-	options: {
-		label: string
-		value: string
-	}[]
-}
-const Dropdown: FC<CustomDropdownProps> = ({ isOpen, value, ...props }) => {
+const Dropdown: FC<IDropdownProps> = ({ isOpen, value, ...props }) => {
 	const [dropdownValue, setDropdownValue] = useState(
 		props.options.find(option => option.value === value) || props.options[0]
 	)

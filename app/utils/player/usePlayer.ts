@@ -1,7 +1,7 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { generateRandomBeautifulHexColor } from '@/utils/getRandomColor'
-import { setupPlayer } from '@/utils/player/setupPlayer'
-import { fadeInVolume, fadeOutVolume } from '@/utils/player/songFade'
+import { setupPlayer } from '@/utils/player/setup.player'
+import { fadeInVolume, fadeOutVolume } from '@/utils/player/song.fade'
+import { generateRandomBeautifulHexColor } from '@/utils/random.color'
 import { useEffect, useState } from 'react'
 import TrackPlayer, { RepeatMode } from 'react-native-track-player'
 

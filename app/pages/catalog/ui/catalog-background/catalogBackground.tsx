@@ -1,19 +1,14 @@
-import { ICatalogTypes } from '@/types/catalogTypes'
+import { useBackgroundAnimation } from '@/pages/catalog/ui/catalog-background/background-animation'
+import { ICatalogBackgroundProps } from '@/pages/catalog/ui/catalog-background/catalogBackground.types'
 import UImage from '@/ui/image/image'
-import { color as Color } from '@/utils/getColor'
+import { color as Color } from '@/utils/color'
 import { WindowWidth } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { HEADER_HEIGHT } from '../../catalogConstant'
-import { useBackgroundAnimation } from './useBackgroundAnimation'
-
-interface ICatalogBackgroundProps extends ICatalogTypes {
-	color?: string
-	poster?: string
-}
+import { HEADER_HEIGHT } from '../../catalog.constant'
 
 const CatalogBackground: FC<ICatalogBackgroundProps> = ({
 	poster,

@@ -1,6 +1,6 @@
-import BottomDropDown from '@/pages/song/components/bottomDropDown'
-import Image from '@/pages/song/components/Image'
-import TopDropDown from '@/pages/song/components/topDropDown'
+import BottomMenu from '@/pages/song/components/bottom-menu/bottomMenu'
+import CoverImage from '@/pages/song/components/cover-image/CoverImage'
+import TopDropDown from '@/pages/song/components/top-dropDown/topDropDown'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import { View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -16,9 +16,9 @@ const Song = () => {
 		<View className='h-full bg-midnight justify-between'>
 			<View>
 			<TopDropDown isOpen={isOpen} title={String(trackInfo.title)} />
-			<Image isOpen={isOpen} artwork={trackInfo.artwork}/>
+			<CoverImage isOpen={isOpen} artwork={trackInfo.artwork}/>
 			</View>
-				<BottomDropDown isOpen={isOpen} title={String(trackInfo.title)} id={trackInfo.id} artist={String(trackInfo.artist)}/>
+				<BottomMenu isOpen={isOpen} title={String(trackInfo.title)} id={trackInfo.id} artist={String(trackInfo.artist)}/>
 		</View>
 		</GestureHandlerRootView>
 	)

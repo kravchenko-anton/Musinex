@@ -1,9 +1,9 @@
 import Skeleton from '@/ui/skeleton/skeleton'
 import { FC, memo, useState } from 'react'
 import { Image, View } from 'react-native'
-import { IImage } from './types/IImage'
+import { ImageTypes } from './image.types'
 
-const UImage: FC<IImage> = ({
+const UImage: FC<ImageTypes> = ({
 	height,
 	width,
 	borderRadius,

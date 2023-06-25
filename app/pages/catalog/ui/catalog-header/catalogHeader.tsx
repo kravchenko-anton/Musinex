@@ -1,23 +1,14 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/useHeaderAnimation'
-import { ICatalogRenderType, ICatalogTypes } from '@/types/catalogTypes'
-import { IconType } from '@/types/global'
+import { ICatalogHeaderProps } from '@/pages/catalog/ui/catalog-header/catalogHeader.types'
+import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/header-animation'
 import BlurIcon from '@/ui/blur-button/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
-import { color } from '@/utils/getColor'
+import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-
-interface ICatalogHeaderProps extends ICatalogTypes {
-	title: string
-	rightIcon?: IconType
-	rightIconFunction?: () => void
-	type?: ICatalogRenderType
-	id?: number
-}
 
 const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
 	const { goBack } = useTypedNavigation()

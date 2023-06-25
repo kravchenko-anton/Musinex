@@ -1,4 +1,4 @@
-import { IArtist } from '@/services/types/IArtistServices'
+import { IArtist } from '@/services/types/artist.services.types'
 
 export interface defaultModelFields {
 	id: number

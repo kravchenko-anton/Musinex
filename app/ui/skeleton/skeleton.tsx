@@ -1,16 +1,9 @@
-import { Style } from '@/types/global'
-import { color } from '@/utils/getColor'
+import { ISkeleton } from '@/ui/skeleton/skeleton.types'
+import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 
-interface ISkeleton {
-	width: number
-	height: number
-	borderRadius?: number
-	transparent?: boolean
-	style: Style
-}
 const Skeleton: FC<ISkeleton> = ({
 	style,
 	height,

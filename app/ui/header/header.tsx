@@ -1,11 +1,11 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import UIcon from '@/ui/icon/defaultIcon/Icon'
+import UIcon from '@/ui/icon/default-icon/icon'
 import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import Title from '../title/title'
-import { IHeader } from './types/IHeader'
+import { IHeaderTypes } from './header.types'
 
-const Header: FC<PropsWithChildren<IHeader>> = ({
+const Header: FC<PropsWithChildren<IHeaderTypes>> = ({
 	children,
 	firstIcon,
 	secondIcon,

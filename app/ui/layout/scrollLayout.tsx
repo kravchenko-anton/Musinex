@@ -1,4 +1,5 @@
-import UScrollView, { IUScrollView } from '@/ui/scroll-view/uScrollView'
+import UScrollView from '@/ui/scroll-view/uScrollView'
+import { IUScrollView } from '@/ui/scroll-view/uScrollView.types'
 import { useQueryClient } from '@tanstack/react-query'
 import { FC, PropsWithChildren, useCallback, useState } from 'react'
 import { RefreshControl } from 'react-native'

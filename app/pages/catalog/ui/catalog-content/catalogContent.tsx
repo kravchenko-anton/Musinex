@@ -1,19 +1,13 @@
-import { ICatalogTypes } from '@/types/catalogTypes'
-import { color } from '@/utils/getColor'
+import { ICatalogContent } from '@/pages/catalog/ui/catalog-content/catalogContent.types'
+import { color } from '@/utils/color'
 import { useScrollToTop } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren, useRef } from 'react'
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
-import { HEADER_HEIGHT } from '../../catalogConstant'
-import CatalogContentHeader from './catalogContentHeader'
+import { HEADER_HEIGHT } from '../../catalog.constant'
+import CatalogContentHeader from './content-header/catalogContentHeader'
 
-interface ICatalogContent extends ICatalogTypes {
-	headerTitle: string
-	description: string
-	paddingTop?: number
-	gradientEnd?: number
-}
 const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
 	y,
 	children,

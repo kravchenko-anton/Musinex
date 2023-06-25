@@ -1,5 +1,5 @@
 import { IconType } from '@/types/global'
-import { TypeRootStackParamList } from '@/types/navigation/navigationTypes'
+import { TypeRootStackParamList } from '@/types/navigation/navigation.types'
 
 export interface IMenuItem {
 	iconName: IconType

@@ -1,5 +1,13 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
+import {
+	BackgroundColorSettings,
+	gapSettings,
+	IconColorSettings,
+	IconSizeSettings,
+	sizeSettings,
+	TextSizeSettings
+} from '@/ui/button/button.settings'
 import UIcon from '@/ui/icon/default-icon/icon'
 import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
@@ -11,7 +19,7 @@ import { IButtonTypes } from './button.types'
 const Button: FC<IButtonTypes> = ({
 	translate = false,
 	size = 'small',
-	variant = 'light',
+	variant = 'default',
 	borderRadius = 10,
 	iconSize = 20,
 	center = false,
@@ -20,17 +28,12 @@ const Button: FC<IButtonTypes> = ({
 }) => {
 	const { colorScheme } = useColorScheme()
 	const { pressFunctions, animatedStyle } = usePressAnimation()
-	return (
+			return (
 		<AnimatedPressable {...pressFunctions}
 		 style={[{
-				backgroundColor:
-					variant === 'primary'
-						? color.primary
-						: colorScheme === 'light'
-							? color.charcoal
-							: color.twilight,
+				backgroundColor: variant === 'primary' ? color.primary : BackgroundColorSettings[colorScheme],
 				borderRadius: borderRadius,
-				padding: size === 'small' ? 5 : size === 'medium' ? 8 : 12,
+				padding: sizeSettings[size],
 				width: props.width ? props.width : '100%' },
 			style,
 			animatedStyle]}
@@ -39,22 +42,16 @@ const Button: FC<IButtonTypes> = ({
 					style={{
 						justifyContent: props.icon ? 'space-between' : 'center',
 						marginVertical: center ? 0 : 5,
-						gap: size === 'small' ? 10 : size === 'medium' ? 10 : 10
+						gap:gapSettings[size]
 					}}
 					className='flex-row items-center'
 				>
 					<Title
 						color={'white'}
-						translate={translate ? translate : false}
+						translate={translate}
 						fontFamily={'Montserrat_600SemiBold'}
 						size={
-							props.textSize
-								? props.textSize
-								: size === 'small'
-								? 15
-								: size === 'medium'
-								? 18
-								: 20
+							props.textSize ? props.textSize : TextSizeSettings[size]
 						}
 						style={{
 							textTransform: props.uppercase ? 'uppercase' : 'none',
@@ -66,21 +63,9 @@ const Button: FC<IButtonTypes> = ({
 					{props.icon && (
 						<UIcon
 							size={
-								iconSize
-									? iconSize
-									: size === 'small'
-									? 15
-									: size === 'medium'
-									? 18
-									: 30
+								iconSize ? iconSize : IconSizeSettings[size]
 							}
-							color={
-								variant === 'light'
-									? 'dark'
-									: variant === 'primary'
-									? 'white'
-									: 'dark'
-							}
+							color={IconColorSettings[variant]}
 							name={props.icon}
 						/>
 					)}

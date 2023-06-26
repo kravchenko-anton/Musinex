@@ -1,4 +1,4 @@
-export function shadeColor(color: string, percent: number) {
+export function shadeColor(color: string, percent: number): string {
 	var R = parseInt(color.substring(1, 3), 16)
 	var G = parseInt(color.substring(3, 5), 16)
 	var B = parseInt(color.substring(5, 7), 16)

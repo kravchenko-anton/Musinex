@@ -1,4 +1,3 @@
-interface IFlatList404 {
-	width: number
-	height: number
-}
+import { Width_Height } from '@/types/global'
+
+export interface IFlatList404 extends Width_Height {}

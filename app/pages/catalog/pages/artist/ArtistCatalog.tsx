@@ -47,7 +47,7 @@ const ArtistCatalog = () => {
 								id={song.id}
 								text1={song.title}
 								image={{
-									uri: song.coverSmall,
+									url: song.coverSmall,
 									height: 70,
 									width: 70,
 									border: 5

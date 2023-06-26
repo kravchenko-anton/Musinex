@@ -96,7 +96,7 @@ const FavoriteList = () => {
 						text2={item.type}
 						key={item}
 						image={{
-							uri: picture,
+							url: picture,
 							width: 80,
 							height: 80,
 							border: item.type === 'artist' ? 100 : 2

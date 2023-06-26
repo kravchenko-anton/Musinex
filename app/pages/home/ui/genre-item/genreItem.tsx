@@ -37,7 +37,7 @@ const GenreItem: FC<IGenreItem> = ({ item: genre }) => {
 						transparentSkeleton
 						width={70}
 						height={70}
-						source={getServerFileUrl(genre.icon)}
+						url={getServerFileUrl(genre.icon)}
 					/>
 				</LinearGradient>
 			<Title className='text-center mt-2' numberOfLines={1} translate>

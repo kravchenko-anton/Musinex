@@ -26,7 +26,7 @@ const SongPlayer = () => {
 				className=' flex-row justify-between mx-2 items-center'
 			>
 				<View className='flex-row items-center w-2/3'>
-					<UImage source={String(trackInfo.artwork)} borderRadius={10} width={50} height={50} />
+					<UImage url={String(trackInfo.artwork)} borderRadius={10} width={50} height={50} />
 					<View className='flex flex-col ml-2'>
 						<Title color={'white'}  size={20}>
 							{trackInfo.title}

@@ -1,5 +1,5 @@
-import { SongAnimationState } from '@/pages/song/animation.types'
+import { isOpen } from '@/animation/global'
 
-export interface ITopDropDown extends  SongAnimationState{
+export interface ITopDropDown extends  isOpen{
 	title: string
 }

@@ -1,6 +1,6 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
-import { useOpacityAnimation } from '@/animation/opacity.animation'
 import { usePressAnimation } from '@/animation/press.animation'
+import { useCatalogItemAnimation } from '@/ui/catalog-item/catalogItem.animation'
 import { ICatalogItem } from '@/ui/catalog-item/catalogItem.types'
 import Heart from '@/ui/icon/heart/heart'
 import Lottie from 'lottie-react-native'
@@ -20,7 +20,7 @@ const CatalogItem: FC<ICatalogItem> = ({
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	const activeTrack = useActiveTrack()
 	const playBackState = usePlaybackState()
-	const {opacityAnimation} = useOpacityAnimation({
+	const {opacityAnimation} = useCatalogItemAnimation({
 		isOpen: activeTrack?.title === props.text1 && playBackState.state === 'playing'
 	})
 	return (
@@ -32,7 +32,7 @@ const CatalogItem: FC<ICatalogItem> = ({
 		>
 			<View className='flex-row items-center'>
 				<UImage
-					source={image.uri}
+					url={image.url}
 					borderRadius={image.border}
 					width={image.width}
 					height={image.height}

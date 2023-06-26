@@ -47,7 +47,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 									text1={song.title}
 									id={song.id}
 									image={{
-										uri: song.coverSmall,
+										url: song.coverSmall,
 										width: 80,
 										height: 80,
 										border: 8
@@ -104,7 +104,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 									text1={artist.name}
 									id={artist.id}
 									image={{
-										uri: artist.pictureMedium,
+										url: artist.pictureMedium,
 										width: 80,
 										height: 80,
 										border: 100

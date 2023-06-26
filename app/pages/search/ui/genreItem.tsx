@@ -32,7 +32,7 @@ const GenreItem: FC<{ genre: IGenre }> = ({ genre }) => {
 					{genre.name}
 				</Title>
 				<UImage
-					source={genre.songs[0].coverMedium}
+					url={genre.songs[0].coverMedium}
 					width={70}
 					height={70}
 					borderRadius={100}

@@ -1,4 +1,4 @@
-import { SongAnimationState } from '@/pages/song/animation.types'
+import { isOpen } from '@/animation/global'
 import { Track } from 'react-native-track-player'
 
-export interface ICoverImage  extends SongAnimationState, Pick<Track, 'artwork'>{}
+export interface ICoverImage  extends isOpen, Pick<Track, 'artwork'>{}

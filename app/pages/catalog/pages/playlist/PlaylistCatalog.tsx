@@ -52,7 +52,7 @@ const PlaylistCatalog = () => {
 								image={{
 									width: 70,
 									height: 70,
-									uri: song.coverSmall,
+									url: song.coverSmall,
 									border: 5
 								}}
 								text2={song.artists[0].name}

@@ -19,10 +19,8 @@ const resources = {
 }
 
 i18n.use(initReactI18next)
-i18n.on('languageChanged', lng => {
-	AsyncStorage.setItem('language', lng).then(() => {
-		console.log('Language changed to: ', lng)
-	})
+i18n.on('languageChanged', async lng => {
+ await	AsyncStorage.setItem('language', lng)
 })
 const initializeLanguage = async () => {
 	const language = await AsyncStorage.getItem('language').then((res: any) =>

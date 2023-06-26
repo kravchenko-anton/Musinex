@@ -34,7 +34,7 @@ const CatalogBackground: FC<ICatalogBackgroundProps> = ({
 				<>
 					<UImage
 						style={StyleSheet.absoluteFill}
-						source={poster}
+						url={poster}
 						width={WindowWidth}
 						height={HEADER_HEIGHT}
 					/>

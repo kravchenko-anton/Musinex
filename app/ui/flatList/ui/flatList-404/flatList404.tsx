@@ -1,3 +1,4 @@
+import { IFlatList404 } from '@/ui/flatList/ui/flatList-404/flatList404.types'
 import Lottie from 'lottie-react-native'
 import { FC } from 'react'
 import { View } from 'react-native'

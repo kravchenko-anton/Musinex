@@ -86,3 +86,10 @@ export type CatalogProps = {
 	id: number
 }
 export type Style = UViewProps['style']
+export type Width_Height = { width: number; height: number }
+export type imageType = {
+	url: string
+	border?: number
+} & Width_Height
+
+

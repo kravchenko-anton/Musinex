@@ -51,7 +51,7 @@ const Banner: FC<PropsWithChildren<IBanner>> = ({
 									zIndex: 5 + index
 								}}
 								className='rotate-12'
-								source={coverMedium}
+								url={coverMedium}
 							/>
 						)
 					})}

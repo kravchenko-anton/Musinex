@@ -1,12 +1,9 @@
-import { IAnimatedProps } from '@/animation/global'
-import { SongAnimationState } from '@/pages/song/animation.types'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { useMemo } from 'react'
 import { Gesture } from 'react-native-gesture-handler'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
 
-interface IUseSongAnimation extends IAnimatedProps, SongAnimationState  {}
-export const useSongAnimation = ({isOpen}: SongAnimationState) => {
+export const useSongAnimation = ({isOpen}: any) => {
 	const panGesture = Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
 	}).activeOffsetY([-20, 20])
@@ -20,6 +17,21 @@ export const useSongAnimation = ({isOpen}: SongAnimationState) => {
 				}),
 			}
 		}, [isOpen.value])
+	const IconAnimation = useAnimatedStyle(() => {
+		return {
+			transform: [
+				{
+					rotate: withSpring(isOpen.value ? "180deg" : '0deg',
+						{
+							damping: 20,
+							velocity: 0.5,
+							stiffness:90,
+						}
+					)
+				}
+			]
+		}
+	})
 
 	const TitleAnimation = useAnimatedStyle(() => {
 		return {
@@ -94,6 +106,7 @@ export const useSongAnimation = ({isOpen}: SongAnimationState) => {
 			topBarAnimation,
 			ImageAnimation,
 			TitleAnimation,
+			IconAnimation,
 			useDropDownContentAnimation,
 			opacityAnimation,
 			MinusOpacityAnimation,

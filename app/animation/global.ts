@@ -1,5 +1,5 @@
 import { Image, Pressable, View } from 'react-native'
-import Animated, { WithSpringConfig, WithTimingConfig } from 'react-native-reanimated'
+import Animated, { SharedValue, WithSpringConfig, WithTimingConfig } from 'react-native-reanimated'
 
 export const AnimatedPressable = Animated.createAnimatedComponent(Pressable)
 export const AnimatedView = Animated.createAnimatedComponent(View)
@@ -12,3 +12,6 @@ export interface IAnimatedProps  {
 	userConfig?: WithSpringConfig | WithTimingConfig
 }
 
+export interface isOpen {
+	isOpen: boolean | SharedValue<boolean>
+}

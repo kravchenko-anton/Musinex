@@ -4,11 +4,11 @@ import { Image, View } from 'react-native'
 import { ImageTypes } from './image.types'
 
 const UImage: FC<ImageTypes> = ({
-	height,
-	width,
-	borderRadius,
+	height = 100,
+	width = 100,
+	borderRadius = 5,
 	transparentSkeleton = false,
-	source,
+	url,
 	style,
 	wrapperClassName,
 	...props
@@ -21,16 +21,16 @@ const UImage: FC<ImageTypes> = ({
 					setIsImageLoading(false)
 				}}
 				source={{
-					uri: source,
-					width: width,
-					height: height
+					uri: url,
+					width,
+					height
 				}}
 				style={[
 					{
-						width: width,
-						height: height,
+						width,
+						height,
 						display: imageLoading ? 'none' : 'flex',
-						borderRadius: borderRadius
+						borderRadius
 					},
 					style
 				]}

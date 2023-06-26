@@ -1,13 +1,8 @@
-import { UPressableProps } from '@/types/global'
+import { imageType, UPressableProps } from '@/types/global'
 
 export interface IMusicCartTypes extends UPressableProps {
 	name: string
-	image: {
-		url: string
-		width: number
-		height: number
-		border?: number
-	}
+	image: imageType
 	wrapperWidth?: number | string
 	imageClassNames?: string
 	wrapClassNames?: string

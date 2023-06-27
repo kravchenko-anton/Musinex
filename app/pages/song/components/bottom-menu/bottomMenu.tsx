@@ -1,4 +1,5 @@
 import { AnimatedView } from '@/animation/global'
+import { useOpacityAnimation } from '@/animation/opacity.animation'
 import { IBottomDropDown } from '@/pages/song/components/bottom-menu/bottomMenu.types'
 import { useSongAnimation } from '@/pages/song/song-animation'
 import PlayButton from '@/pages/song/ui/play-button/playButton'
@@ -15,8 +16,11 @@ import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
 
 const BottomMenu:FC<IBottomDropDown> = ({isOpen, ...props}) => {
-	const {opacityAnimation,BottomMenuAnimation,MinusOpacityAnimation,TitleAnimation,panGesture} = useSongAnimation({ isOpen })
-	return <GestureDetector gesture={panGesture}>
+	const {BottomMenuAnimation,WidthAnimation,PanGesture} = useSongAnimation({ isOpen })
+	const {OpacityAnimation, MinusOpacityAnimation} = useOpacityAnimation({ isOpen, userConfig: {
+		duration: 400,
+		} })
+	return <GestureDetector gesture={PanGesture}>
 		<AnimatedView className='bg-twilight pt-4 rounded-t-3xl w-full' style={[{
 			paddingBottom: WindowHeight * 0.05,
 		}, BottomMenuAnimation]}>
@@ -24,7 +28,7 @@ const BottomMenu:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 				<View className='bg-charcoal h-[4px] w-10 rounded-full'/>
 			</Pressable>
 			<View className='items-center px-4  self-center flex-row justify-between mt-[15px] w-full'>
-				<AnimatedView style={TitleAnimation}>
+				<AnimatedView style={WidthAnimation}>
 					<Title size={ 25} fontFamily={'Montserrat_600SemiBold'}>
 						{props.title}
 					</Title>
@@ -32,7 +36,7 @@ const BottomMenu:FC<IBottomDropDown> = ({isOpen, ...props}) => {
 						{props.artist}
 					</Title>
 				</AnimatedView>
-				<AnimatedView style={opacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
+				<AnimatedView style={OpacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
 					<UIcon
 						name='play-skip-back'
 						onPress={() => skipToPrevious()}

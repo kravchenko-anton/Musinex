@@ -18,16 +18,16 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 	const { goBack } = useTypedNavigation()
 	const selector = useTypedSelector((state) => state.player)
 	const {
-		topBarAnimation,
-		panGesture,
-		IconAnimation,
+		TopBarAnimation,
+		PanGesture,
+		RotateAnimation,
 		useDropDownContentAnimation,
 	} = useSongAnimation({ isOpen })
-	return 	<GestureDetector gesture={panGesture}>
+	return <GestureDetector gesture={PanGesture}>
 		<AnimatedPressable
 			style={[{
 				paddingTop: WindowHeight * 0.05,
-			}, topBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
+			}, TopBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
 			<View className='flex-row justify-between mb-5 items-center'>
 				<UIcon
 					onPress={() => goBack()}
@@ -76,7 +76,7 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 					/>
 				}/>
 			</AnimatedView>
-			<UIcon style={IconAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
+			<UIcon style={RotateAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
 		</AnimatedPressable>
 	</GestureDetector>
 }

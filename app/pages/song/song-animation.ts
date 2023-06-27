@@ -4,10 +4,11 @@ import { Gesture } from 'react-native-gesture-handler'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
 
 export const useSongAnimation = ({isOpen}: any) => {
-	const panGesture = Gesture.Pan().onEnd(() => {
+	const PanGesture = useMemo(() => Gesture.Pan().onEnd(() => {
 		isOpen.value = !isOpen.value
-	}).activeOffsetY([-20, 20])
-		const topBarAnimation = useAnimatedStyle(() => {
+	}).activeOffsetY([-20, 20]), [isOpen.value])
+	
+		const TopBarAnimation = useAnimatedStyle(() => {
 			return {
 				height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
 					damping: 20,
@@ -17,7 +18,7 @@ export const useSongAnimation = ({isOpen}: any) => {
 				}),
 			}
 		}, [isOpen.value])
-	const IconAnimation = useAnimatedStyle(() => {
+	const RotateAnimation = useAnimatedStyle(() => {
 		return {
 			transform: [
 				{
@@ -33,7 +34,7 @@ export const useSongAnimation = ({isOpen}: any) => {
 		}
 	})
 
-	const TitleAnimation = useAnimatedStyle(() => {
+	const WidthAnimation = useAnimatedStyle(() => {
 		return {
 			width: withSpring(isOpen.value	? '50%' : '80%', {
 				damping: 20,
@@ -75,22 +76,7 @@ export const useSongAnimation = ({isOpen}: any) => {
 			pointerEvents: isOpen.value ? 'auto' : 'none',
 		}
 	}, [isOpen.value])
-	const opacityAnimation = useAnimatedStyle(() => {
-		return {
-			opacity: withTiming(isOpen.value ? 1 : 0, {
-				duration: 700
-			}),
-			display: isOpen.value ? "flex" : "none",
-		}
-	})
-	const MinusOpacityAnimation = useAnimatedStyle(() => {
-		return {
-			opacity: withTiming(isOpen.value ? 0 : 1, {
-				duration: 700
-			}),
-			display: isOpen.value ? "none" : "flex",
-		}
-	})
+	
 	const BottomMenuAnimation = useAnimatedStyle(() => {
 		return {
 			height: withSpring(isOpen.value ? 220 : 280, {
@@ -102,14 +88,12 @@ export const useSongAnimation = ({isOpen}: any) => {
 	})
 	return useMemo(() => {
 		return {
-			panGesture,
-			topBarAnimation,
+			PanGesture,
+			TopBarAnimation,
 			ImageAnimation,
-			TitleAnimation,
-			IconAnimation,
+			WidthAnimation,
+			RotateAnimation,
 			useDropDownContentAnimation,
-			opacityAnimation,
-			MinusOpacityAnimation,
 			BottomMenuAnimation,
 		}
 	}, [isOpen.value]);

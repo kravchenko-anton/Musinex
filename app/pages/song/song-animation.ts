@@ -18,21 +18,7 @@ export const useSongAnimation = ({isOpen}: any) => {
 				}),
 			}
 		}, [isOpen.value])
-	const RotateAnimation = useAnimatedStyle(() => {
-		return {
-			transform: [
-				{
-					rotate: withSpring(isOpen.value ? "180deg" : '0deg',
-						{
-							damping: 20,
-							velocity: 0.5,
-							stiffness:90,
-						}
-					)
-				}
-			]
-		}
-	})
+	
 
 	const WidthAnimation = useAnimatedStyle(() => {
 		return {
@@ -92,7 +78,6 @@ export const useSongAnimation = ({isOpen}: any) => {
 			TopBarAnimation,
 			ImageAnimation,
 			WidthAnimation,
-			RotateAnimation,
 			useDropDownContentAnimation,
 			BottomMenuAnimation,
 		}

@@ -1,4 +1,5 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
+import { useRotateAnimation } from '@/animation/rotate.animation'
 import { useDropdownAnimation } from '@/ui/dropdown/dropdown.animation'
 import { IDropdownProps } from '@/ui/dropdown/dropdown.types'
 import DropdownElement from '@/ui/dropdown/ui/dropdown-element/dropdownElement'
@@ -13,7 +14,8 @@ const Dropdown: FC<IDropdownProps> = ({ isOpen, value, ...props }) => {
 	const [dropdownValue, setDropdownValue] = useState(
 		props.options.find(option => option.value === value) || props.options[0]
 	)
-	const {dropdownAnimation, IconAnimation} = useDropdownAnimation({ isOpen })
+	const {dropdownAnimation} = useDropdownAnimation({ isOpen })
+	const {RotateAnimation} = useRotateAnimation({isOpen, direction: 'down'})
 	const { colorScheme } = useColorScheme()
 	return (
 		<View className='z-50'
@@ -36,7 +38,7 @@ const Dropdown: FC<IDropdownProps> = ({ isOpen, value, ...props }) => {
 						{dropdownValue.label}
 					</Title>
 					
-					<AnimatedPressable style={IconAnimation}>
+					<AnimatedPressable style={RotateAnimation}>
 						<Icon padding={0} name='chevron-down' {...props} />
 					</AnimatedPressable>
 				</View>

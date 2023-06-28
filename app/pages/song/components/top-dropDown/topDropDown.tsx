@@ -1,4 +1,5 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
+import { useRotateAnimation } from '@/animation/rotate.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { ITopDropDown } from '@/pages/song/components/top-dropDown/topDropDown.types'
@@ -20,9 +21,9 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 	const {
 		TopBarAnimation,
 		PanGesture,
-		RotateAnimation,
 		useDropDownContentAnimation,
 	} = useSongAnimation({ isOpen })
+	const {RotateAnimation} = useRotateAnimation({isOpen, direction: 'down'})
 	return <GestureDetector gesture={PanGesture}>
 		<AnimatedPressable
 			style={[{

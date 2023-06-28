@@ -5,13 +5,13 @@ import { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 
 interface IOpacityAnimation extends IAnimatedProps, isOpen {}
 export const useOpacityAnimation = ({isOpen,  userConfig = {
-	duration: 100
+	duration: 400
 } }: IOpacityAnimation) => {
 const IsOpenType = typeof isOpen === 'boolean'
 		const OpacityAnimation = useAnimatedStyle(() => {
 		return {
 		opacity: withTiming((IsOpenType ? isOpen : isOpen.value) ? 1 : 0, userConfig),
-			display: (IsOpenType ? isOpen : isOpen.value) ? 'flex' : 'none'
+		display: (IsOpenType ? isOpen : isOpen.value) ? 'flex' : 'none',
 		}
 	})
 	const MinusOpacityAnimation = useAnimatedStyle(() => {

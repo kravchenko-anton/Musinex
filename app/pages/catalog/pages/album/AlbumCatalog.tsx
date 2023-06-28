@@ -61,7 +61,8 @@ const AlbumCatalog = () => {
 												title: track.title,
 												url: track.mp3Path,
 												artist: track.artists[0].name,
-												artwork: track.coverMedium
+												coverBig: track.coverBig,
+												coverSmall: track.coverSmall,
 											}
 										}),
 										songIndex: index

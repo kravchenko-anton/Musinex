@@ -1,14 +1,9 @@
+import { ITrack } from '@/types/player/ITrack'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type PlayerState = {
 	songIndex: number
-	data: {
-		id: number
-		url: string
-		title: string
-		artist: string
-		artwork: string
-	}[]
+	data: Omit<Required<ITrack>, 'color'>[]
 }
 export const playerSlice = createSlice({
 	name: 'player',

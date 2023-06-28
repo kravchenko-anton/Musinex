@@ -20,7 +20,7 @@ const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
 						return (
 							<Button
 								uppercase
-								translate={translate}
+								translate={false}
 								size={'small'}
 								onPress={() => setActiveTab(tab.name)}
 								variant={tab.name === activeTab ? 'primary' : 'default'}

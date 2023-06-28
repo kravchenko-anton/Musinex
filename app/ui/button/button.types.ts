@@ -1,15 +1,25 @@
-import { IconType, ITranslateTypes, UPressableProps } from '@/types/global'
+import { IconType, UPressableProps } from '@/types/global'
+import en from '@/utils/translate/en.json'
 
-export interface IButtonTypes extends UPressableProps {
+type TranslateTypeTrue = {
+	translate: true
+	text: keyof typeof en
+}
+
+type TranslateTypeFalse = {
+	translate: false
+	text: string
+}
+
+export type IButtonTypes = UPressableProps & {
 	size: 'small' | 'medium' | 'large'
-	text: ITranslateTypes
 	width?: number | string
 	textSize?: number
+	icon?: IconType
 	iconSize?: number
 	center?: boolean
-	icon?: IconType
 	borderRadius?: number
 	variant?: 'primary' | 'default'
-	translate?: boolean
 	uppercase?: boolean
-}
+} & (TranslateTypeTrue | TranslateTypeFalse)
+

@@ -35,7 +35,8 @@ export const usePlayer = () => {
 						url: value.url,
 						title: value.title,
 						artist: value.artist,
-						artwork: value.artwork,
+						coverBig: value.coverBig,
+						coverSmall: value.coverSmall,
 						color,
 					}
 				})

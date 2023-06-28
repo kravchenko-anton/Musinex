@@ -56,7 +56,8 @@ const Home = () => {
 											id: track.id,
 											title: track.title,
 											url: track.mp3Path,
-											artwork: track.coverMedium
+											coverBig: track.coverBig,
+											coverSmall: track.coverSmall,
 										}
 									}),
 									songIndex: index

@@ -1,8 +1,8 @@
-import { IAnimatedProps, isOpen } from '@/animation/global'
+import { IAnimatedProps, IsOpenType } from '@/animation/global'
 import { useMemo } from 'react'
 import { useAnimatedStyle, withSpring } from 'react-native-reanimated'
 
-interface IRotateAnimation extends IAnimatedProps, isOpen {
+interface IRotateAnimation extends IAnimatedProps, IsOpenType {
 	direction?: 'up' | 'down'
 }
 export const useRotateAnimation = ({isOpen, direction, userConfig = {

@@ -1,4 +1,4 @@
-import { isOpen } from '@/animation/global'
+import { IsOpenType } from '@/animation/global'
 import { Track } from 'react-native-track-player'
 
-export interface ICoverImage  extends isOpen, Pick<Track, 'artwork'>{}
+export interface ICoverImage  extends IsOpenType, Pick<Track, 'artwork'>{}

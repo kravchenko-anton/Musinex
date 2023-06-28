@@ -1,6 +1,6 @@
-import { isOpen } from '@/animation/global'
+import { IsOpenType } from '@/animation/global'
 
-export interface IBottomDropDown extends isOpen {
+export interface IBottomDropDown extends IsOpenType {
 	title: string
 	artist: string
 	id: number

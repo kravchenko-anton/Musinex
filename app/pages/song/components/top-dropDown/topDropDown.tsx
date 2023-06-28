@@ -37,10 +37,10 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 					color='white'
 				/>
 				<View className='items-center w-2/3'>
-					<Title translate fontFamily={'Montserrat_700Bold'}>
-						Now	Playing
+					<Title translate={true} fontFamily={'Montserrat_700Bold'}>
+						{"Now Playing"}
 					</Title>
-					<Title	translate color={'silver'} size={16}>
+					<Title	translate={false} color={'silver'} size={16}>
 						{title}
 					</Title>
 				</View>
@@ -49,27 +49,28 @@ const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
 			<AnimatedView style={[{
 				height: WindowHeight * 0.58,
 			},useDropDownContentAnimation]}>
-				<FlatList data={selector[0].data}  showsVerticalScrollIndicator={false}   renderItem={({item}) =>
+				<FlatList data={selector[0].data}  showsVerticalScrollIndicator={false}   renderItem={({item: track}) =>
 					<CatalogItem
-						text1={item.title}
-						text2={item.artist}
+						text1={track.title}
+						text2={track.artist}
 						type={'song'}
 						onPress={async () => {
 					await trackPause()
 							const color	= generateRandomBeautifulHexColor()
 						await 	TrackPlayer.load({
-								title: item.title,
-								artist: item.artist,
-								artwork: item.artwork,
-								id: item.id,
-								url: item.url,
+								title: track.title,
+								artist: track.artist,
+							coverBig: track.coverBig,
+							coverSmall: track.coverSmall,
+								id: track.id,
+								url: track.url,
 								color,
 							})
 							await trackPlay()
 						}}
-						id={item.id}
+						id={track.id}
 						image={{
-							url: String(item.artwork),
+							url: String(track.coverSmall),
 							height: 50,
 							width: 50,
 							border: 5

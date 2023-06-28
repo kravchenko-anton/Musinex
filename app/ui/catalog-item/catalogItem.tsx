@@ -1,6 +1,7 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
 import { useOpacityAnimation } from '@/animation/opacity.animation'
 import { usePressAnimation } from '@/animation/press.animation'
+import { ITrack } from '@/types/player/ITrack'
 import { ICatalogItem } from '@/ui/catalog-item/catalogItem.types'
 import Heart from '@/ui/icon/heart/heart'
 import Lottie from 'lottie-react-native'
@@ -18,7 +19,7 @@ const CatalogItem: FC<ICatalogItem> = ({
 	...props
 }) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
-	const activeTrack = useActiveTrack()
+	const activeTrack = useActiveTrack() as ITrack
 	const playBackState = usePlaybackState()
 	const {OpacityAnimation} = useOpacityAnimation({
 		isOpen: activeTrack?.title === props.text1 && playBackState.state === 'playing'

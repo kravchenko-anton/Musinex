@@ -42,7 +42,7 @@ const Auth = () => {
 				/>
 				<View className='w-full'>
 					<Title
-						translate
+						translate={true}
 						className='text-center mb-4'
 						size={24}
 						fontFamily={'Montserrat_900Black'}
@@ -57,9 +57,9 @@ const Auth = () => {
 							onPress={handleSubmit(onSubmit)}
 							size={'large'}
 							className='mt-2'
-							translate
+							translate={true}
 							text={type}
-						/>
+						 />
 
 						<Title
 							className='mt-4'

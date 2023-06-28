@@ -13,6 +13,7 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 	const { navigate } = useTypedNavigation()
 	return (
 		<Tabs
+			translate={false}
 			data={[
 				{
 					title: 'Songs',
@@ -38,7 +39,8 @@ const SearchList: FC<{ searchResult: ISearchResult }> = ({ searchResult }) => {
 													id: track.id,
 													title: track.title,
 													url: track.mp3Path,
-													artwork: track.coverMedium
+													coverBig: track.coverBig,
+													coverSmall: track.coverSmall,
 												}
 											}),
 											songIndex: index

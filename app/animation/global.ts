@@ -12,6 +12,6 @@ export interface IAnimatedProps  {
 	userConfig?: WithSpringConfig | WithTimingConfig
 }
 
-export interface isOpen {
+export interface IsOpenType {
 	isOpen: boolean | SharedValue<boolean>
 }

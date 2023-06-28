@@ -92,4 +92,3 @@ export type imageType = {
 	border?: number
 } & Width_Height
 
-

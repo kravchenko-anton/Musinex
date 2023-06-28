@@ -1,8 +1,8 @@
-import { IAnimatedProps, isOpen } from '@/animation/global'
+import { IAnimatedProps, IsOpenType } from '@/animation/global'
 import { useMemo } from 'react'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
 
-interface IDropdownAnimation extends IAnimatedProps, isOpen {
+interface IDropdownAnimation extends IAnimatedProps, IsOpenType {
 }
 export const useDropdownAnimation = (props: IDropdownAnimation) => {
 	 const dropdownAnimation = useAnimatedStyle(() => {

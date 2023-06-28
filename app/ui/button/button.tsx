@@ -8,13 +8,14 @@ import {
 	sizeSettings,
 	TextSizeSettings
 } from '@/ui/button/button.settings'
+import { IButtonTypes } from '@/ui/button/button.types'
 import UIcon from '@/ui/icon/default-icon/icon'
 import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 import Title from '../title/title'
-import { IButtonTypes } from './button.types'
 
 const Button: FC<IButtonTypes> = ({
 	translate = false,
@@ -27,6 +28,7 @@ const Button: FC<IButtonTypes> = ({
 	...props
 }) => {
 	const { colorScheme } = useColorScheme()
+	const { t } = useTranslation()
 	const { pressFunctions, animatedStyle } = usePressAnimation()
 			return (
 		<AnimatedPressable {...pressFunctions}
@@ -58,7 +60,7 @@ const Button: FC<IButtonTypes> = ({
 							letterSpacing: props.uppercase ? 1.4 : 1
 						}}
 					>
-						{props.text}
+						{props.text && translate ? t(props.text) : props.text}
 					</Title>
 					{props.icon && (
 						<UIcon

@@ -1,12 +1,12 @@
-import { IAnimatedProps, IsOpenType } from '@/animation/global'
+import { AnimationConfigType, IsOpenType } from '@/animation/global'
 import { useMemo } from 'react'
 import { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 
 
-interface IOpacityAnimation extends IAnimatedProps, IsOpenType {}
+interface OpacityAnimationProps extends AnimationConfigType, IsOpenType {}
 export const useOpacityAnimation = ({isOpen,  userConfig = {
 	duration: 400
-} }: IOpacityAnimation) => {
+} }: OpacityAnimationProps) => {
 const IsOpenType = typeof isOpen === 'boolean'
 		const OpacityAnimation = useAnimatedStyle(() => {
 		return {

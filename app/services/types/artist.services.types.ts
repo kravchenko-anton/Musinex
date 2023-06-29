@@ -1,10 +1,10 @@
 import { DefaultModelFields, PictureModel } from '@/services/types/global'
-import { ISearchResult } from '@/services/types/search.services.types'
+import { SearchResultType } from '@/services/types/search.services.types'
 
-export interface IArtist
+export interface ArtistType
 	extends DefaultModelFields,
 		PictureModel,
-		Pick<ISearchResult, 'songs'> {
+		Pick<SearchResultType, 'songs'> {
 	name: string
 	followers: number
 }

@@ -1,8 +1,8 @@
-import { UScrollViewProps } from '@/types/global'
+import { UScrollViewType } from '@/types/global'
 
-export interface IUScrollView
+export interface UScrollViewProps
 	extends Omit<
-		UScrollViewProps,
+		UScrollViewType,
 		| 'renderToHardwareTextureAndroid'
 		| 'showsHorizontalScrollIndicator'
 		| 'showsVerticalScrollIndicator'

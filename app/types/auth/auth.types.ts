@@ -1,21 +1,21 @@
-import { IUser } from '@/services/types/user.services.types'
+import { UserType } from '@/services/types/user.services.types'
 
-export interface IAuthFields extends Pick<IUser, 'email'> {
+export interface AuthFieldsType extends Pick<UserType, 'email'> {
 	password: string
 }
 
-export interface IAuthState extends Pick<IUser, 'email' | 'id'> {}
+export type IAuthState = Pick<UserType, 'email' | 'id'>
 
 export enum EnumSecureStore {
 	ACCESS_TOKEN = 'access_token',
 	REFRESH_TOKEN = 'refresh_token'
 }
 
-export interface ITokens {
+export interface TokensType {
 	access_token: string
 	refresh_token: string
 }
 
-export interface IAuthResponse extends ITokens {
-	user: Pick<IUser, 'id' | 'email'>
+export interface AuthResponseType extends TokensType {
+	user: Pick<UserType, 'id' | 'email'>
 }

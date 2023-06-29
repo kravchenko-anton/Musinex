@@ -1,4 +1,4 @@
-import { IArtist } from '@/services/types/artist.services.types'
+import { ArtistType } from '@/services/types/artist.services.types'
 
 export interface DefaultModelFields {
 	id: number
@@ -18,10 +18,10 @@ export interface PictureModel {
 	pictureSmall: string
 }
 
-export interface ISong extends DefaultModelFields, CoverModel {
+export interface SongType extends DefaultModelFields, CoverModel {
 	title: string
 	duration: number
 	releaseDate: string
 	mp3Path: string
-	artists: IArtist[]
+	artists: ArtistType[]
 }

@@ -5,6 +5,7 @@ export async function setupPlayer() {
 	try {
 		await TrackPlayer.getActiveTrack()
 		isSetup = true
+		return isSetup
 	} catch {
 		await TrackPlayer.setupPlayer({
 			autoHandleInterruptions: true,
@@ -34,7 +35,6 @@ export async function setupPlayer() {
 		})
 		
 		isSetup = true
-	} finally {
 		return isSetup
 	}
 }

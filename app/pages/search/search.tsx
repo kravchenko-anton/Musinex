@@ -31,8 +31,8 @@ const Search = () => {
 			{searchTerm && searchTerm.length > 2 && !isLoading && loading ? (
 				<FlatList404 width={WindowWidth} height={WindowHeight * 0.3} />
 			) : searchTerm &&
-			  searchTerm.length > 2 &&
-			  isLoading ? null : !searchTerm || !searchResult || loading ? (
+			searchTerm.length > 2 &&
+			isLoading ? null : !searchTerm || !searchResult || loading ? (
 				<UFlatList
 					data={genres}
 					fixBottom

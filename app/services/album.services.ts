@@ -1,10 +1,10 @@
 import { request } from '@/services/api/request.api'
-import { IAlbum } from '@/services/types/album.services.types'
+import { AlbumTypes } from '@/services/types/IAlbum'
 import { getAlbumUrl } from '@/utils/api.config'
 
 export const albumServices = {
 	async getById(id: number) {
-		return request<IAlbum>({
+		return request<AlbumTypes>({
 			url: getAlbumUrl(`/${id}`),
 			method: 'GET'
 		})

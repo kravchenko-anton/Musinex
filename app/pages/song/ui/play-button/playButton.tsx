@@ -1,10 +1,10 @@
-import { IPlayButton } from '@/pages/song/ui/play-button/playButton.types'
+import { PlayButtonProps } from '@/pages/song/ui/play-button/playButton.types'
 import UIcon from '@/ui/icon/default-icon/icon'
 import { trackPause, trackPlay } from '@/utils/player/usePlayer'
 import { FC } from 'react'
 import { State, usePlaybackState } from 'react-native-track-player'
 
-const PlayButton:FC<IPlayButton> = ({size, ...props}) => {
+const PlayButton:FC<PlayButtonProps> = ({size, ...props}) => {
 	const playBackState = usePlaybackState()
 	return <UIcon
 		name={

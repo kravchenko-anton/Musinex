@@ -1,10 +1,10 @@
 import { CoverModel, DefaultModelFields } from '@/services/types/global'
-import { ISearchResult } from '@/services/types/search.services.types'
+import { SearchResultType } from '@/services/types/search.services.types'
 
-export interface IAlbum
+export interface AlbumTypes
 	extends DefaultModelFields,
 		CoverModel,
-		Pick<ISearchResult, 'songs'> {
+		Pick<SearchResultType, 'songs'> {
 	title: string
 	fans: number
 	releaseDate: string

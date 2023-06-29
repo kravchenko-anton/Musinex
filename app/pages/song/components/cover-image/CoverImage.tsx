@@ -1,10 +1,10 @@
 import { AnimatedImage } from '@/animation/global'
-import { ICoverImage } from '@/pages/song/components/cover-image/CoverImage.types'
+import { CoverImageProps } from '@/pages/song/components/cover-image/CoverImage.types'
 import { useSongAnimation } from '@/pages/song/song-animation'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { FC } from 'react'
 
-const CoverImage:FC<ICoverImage> = ({coverBig, isOpen}) => {
+const CoverImage:FC<CoverImageProps> = ({coverBig, isOpen}) => {
 	const {ImageAnimation} = useSongAnimation({
 		isOpen
 	})

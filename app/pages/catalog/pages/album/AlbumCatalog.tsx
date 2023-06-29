@@ -9,11 +9,11 @@ import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import { useQuery } from '@tanstack/react-query'
-import { useRef } from 'react'
+import { FC, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Animated } from 'react-native'
 
-const AlbumCatalog = () => {
+const AlbumCatalog:FC = () => {
 	const { params } = useTypedRoute<'AlbumCatalog'>()
 	const { addToPlayer } = useAction()
 	const y = useRef(new Animated.Value(0)).current

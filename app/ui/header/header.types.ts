@@ -5,7 +5,7 @@ export type IHeaderIcon = {
 	onPress: () => void
 }
 
-export interface IHeaderTypes extends UViewProps {
+export interface HeaderProps extends UViewProps {
 	firstIcon?: IHeaderIcon
 	secondIcon?: IHeaderIcon
 }

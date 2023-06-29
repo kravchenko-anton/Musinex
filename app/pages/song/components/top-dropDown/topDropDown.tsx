@@ -2,7 +2,7 @@ import { AnimatedPressable, AnimatedView } from '@/animation/global'
 import { useRotateAnimation } from '@/animation/rotate.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { ITopDropDown } from '@/pages/song/components/top-dropDown/topDropDown.types'
+import { TopDropDownProps } from '@/pages/song/components/top-dropDown/topDropDown.types'
 import { useSongAnimation } from '@/pages/song/song-animation'
 import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UIcon from '@/ui/icon/default-icon/icon'
@@ -15,7 +15,7 @@ import { View } from 'react-native'
 import { GestureDetector, ScrollView } from 'react-native-gesture-handler'
 import TrackPlayer from 'react-native-track-player'
 
-const TopDropDown:FC<ITopDropDown> = ({isOpen, title}) => {
+const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 	const { goBack } = useTypedNavigation()
 	const selector = useTypedSelector((state) => state.player)
 	const {

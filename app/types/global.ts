@@ -52,7 +52,7 @@ export type UImageProps = Pick<
 	| 'onError'
 >
 
-export type UScrollViewProps = Pick<
+export type UScrollViewType = Pick<
 	ScrollViewProps,
 	| 'scrollEnabled'
 	| 'keyboardDismissMode'

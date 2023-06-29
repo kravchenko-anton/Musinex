@@ -1,10 +1,10 @@
 import Button from '@/ui/button/button'
 import UFlatList from '@/ui/flatList/uFlatList'
-import { ITabs } from '@/ui/tabs/tabs.types'
+import { TabsProps } from '@/ui/tabs/tabs.types'
 import React, { FC, memo, useMemo, useState } from 'react'
 import { View } from 'react-native'
 
-const Tabs: FC<ITabs> = ({ data: tabs, translate = false }) => {
+const Tabs: FC<TabsProps> = ({ data: tabs, translate = false }) => {
 	const [activeTab, setActiveTab] = useState(tabs[0].name)
 	const activeComponent = useMemo(() => {
 		const activeTabData = tabs.find(tab => tab.name === activeTab)

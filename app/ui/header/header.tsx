@@ -3,9 +3,9 @@ import UIcon from '@/ui/icon/default-icon/icon'
 import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import Title from '../title/title'
-import { IHeaderTypes } from './header.types'
+import { HeaderProps } from './header.types'
 
-const Header: FC<PropsWithChildren<IHeaderTypes>> = ({
+const Header: FC<PropsWithChildren<HeaderProps>> = ({
 	children,
 	firstIcon,
 	secondIcon,

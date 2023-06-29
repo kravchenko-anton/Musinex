@@ -1,7 +1,7 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
 import { useRotateAnimation } from '@/animation/rotate.animation'
 import { useDropdownAnimation } from '@/ui/dropdown/dropdown.animation'
-import { IDropdownProps } from '@/ui/dropdown/dropdown.types'
+import { DropdownProps } from '@/ui/dropdown/dropdown.types'
 import DropdownElement from '@/ui/dropdown/ui/dropdown-element/dropdownElement'
 import Icon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
@@ -10,7 +10,7 @@ import { useColorScheme } from 'nativewind'
 import React, { FC, useState } from 'react'
 import { Pressable, View } from 'react-native'
 
-const Dropdown: FC<IDropdownProps> = ({ isOpen, value, ...props }) => {
+const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 	const [dropdownValue, setDropdownValue] = useState(
 		props.options.find(option => option.value === value) || props.options[0]
 	)

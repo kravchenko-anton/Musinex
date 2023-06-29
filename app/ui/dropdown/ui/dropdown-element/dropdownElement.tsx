@@ -1,10 +1,10 @@
-import { IDropdownElement } from '@/ui/dropdown/ui/dropdown-element/dropdownElement.types'
+import { DropdownElementProps } from '@/ui/dropdown/ui/dropdown-element/dropdownElement.types'
 import Icon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
 import { FC } from 'react'
 import { Pressable } from 'react-native'
 
-const DropdownElement: FC<IDropdownElement> = ({ ...props }) => {
+const DropdownElement: FC<DropdownElementProps> = ({ ...props }) => {
 	return (
 		<Pressable
 			style={[

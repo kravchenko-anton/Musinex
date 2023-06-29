@@ -1,4 +1,4 @@
-import { ICatalogContent } from '@/pages/catalog/ui/catalog-content/catalogContent.types'
+import { CatalogContentProps } from '@/pages/catalog/ui/catalog-content/catalogContent.types'
 import { color } from '@/utils/color'
 import { useScrollToTop } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -8,7 +8,7 @@ import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { HEADER_HEIGHT } from '../../catalog.constant'
 import CatalogContentHeader from './content-header/catalogContentHeader'
 
-const CatalogContent: FC<PropsWithChildren<ICatalogContent>> = ({
+const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 	y,
 	children,
 	gradientEnd = 0.8,

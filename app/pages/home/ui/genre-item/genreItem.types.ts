@@ -1,5 +1,5 @@
-import { IGenre } from '@/services/types/genre.services.types'
+import { GenreType } from '@/services/types/genre.services.types'
 
-export interface IGenreItem {
-	item: IGenre
+export interface GenreItemType {
+	item: GenreType
 }

@@ -1,7 +1,7 @@
-import { ICatalogRenderType, ICatalogTypes } from '@/pages/catalog/catalog.types'
+import { ICatalogRenderType, YPositionType } from '@/pages/catalog/catalog.types'
 import { IconType } from '@/types/global'
 
-export interface ICatalogHeaderProps extends ICatalogTypes {
+export interface CatalogHeaderProps extends YPositionType {
 	title: string
 	rightIcon?: IconType
 	rightIconFunction?: () => void

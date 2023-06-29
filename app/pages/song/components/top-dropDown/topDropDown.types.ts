@@ -1,5 +1,5 @@
 import { IsOpenType } from '@/animation/global'
 
-export interface ITopDropDown extends  IsOpenType{
+export interface TopDropDownProps extends IsOpenType {
 	title: string
 }

@@ -1,6 +1,6 @@
-import { ICatalogTypes } from '@/pages/catalog/catalog.types'
+import { YPositionType } from '@/pages/catalog/catalog.types'
 
-export interface ICatalogBackgroundProps extends ICatalogTypes {
+export interface CatalogBackgroundProps extends YPositionType {
 	color?: string
 	poster?: string
 }

@@ -1,14 +1,14 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { IGenre } from '@/services/types/genre.services.types'
+import { GenreType } from '@/services/types/genre.services.types'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 
-const GenreItem: FC<{ genre: IGenre }> = ({ genre }) => {
+const GenreItem: FC<{ genre: GenreType }> = ({ genre }) => {
 	const { navigate } = useTypedNavigation()
 	const { colorScheme } = useColorScheme()
 	const { animatedStyle, pressFunctions } = usePressAnimation()

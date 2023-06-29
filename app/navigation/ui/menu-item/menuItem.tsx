@@ -1,10 +1,10 @@
-import { IMenuItemProps } from '@/navigation/ui/menu-item/menuItem.types'
+import { MenuItemProps } from '@/navigation/ui/menu-item/menuItem.types'
 import UIcon from '@/ui/icon/default-icon/icon'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { menuItems } from '../../menuList'
 
-const MenuItem: FC<IMenuItemProps> = ({ nav, item, currentRoute }) => {
+const MenuItem: FC<MenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
 	return (
 		<View

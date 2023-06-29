@@ -1,15 +1,14 @@
-import { IAlbum } from '@/services/types/album.services.types'
-import { DefaultModelFields, ISong } from '@/services/types/global'
-import { IPlaylist } from '@/services/types/playlist.services.types'
+import { DefaultModelFields, SongType } from '@/services/types/global'
+import { AlbumTypes } from '@/services/types/IAlbum'
+import { PlaylistType } from '@/services/types/playlist.services.types'
 
-export interface IGenre extends DefaultModelFields {
+export interface GenreType extends DefaultModelFields {
 	color: string
 	icon: string
 	name: string
-	songs: ISong[]
-	albums: IAlbum[]
-	playlists: IPlaylist[]
+	songs: SongType[]
+	albums: AlbumTypes[]
+	playlists: PlaylistType[]
 }
 
-export interface IGenreList
-	extends Omit<IGenre[], 'albums' | 'playlists' | 'songs'> {}
+export type GenreListType = Omit<GenreType[], 'albums' | 'playlists' | 'songs'>

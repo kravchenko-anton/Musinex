@@ -1,4 +1,4 @@
-import { EnumSecureStore, ITokens } from '@/types/auth/auth.types'
+import { EnumSecureStore, TokensType } from '@/types/auth/auth.types'
 import { deleteItemAsync, getItemAsync, setItemAsync } from 'expo-secure-store'
 
 export const getAccessToken = async () => {
@@ -6,7 +6,7 @@ export const getAccessToken = async () => {
 	return accessToken || null
 }
 
-export const saveTokensStorage = async (data: ITokens) => {
+export const saveTokensStorage = async (data: TokensType) => {
 	await setItemAsync(EnumSecureStore.ACCESS_TOKEN, data.access_token)
 	await setItemAsync(EnumSecureStore.REFRESH_TOKEN, data.refresh_token)
 }

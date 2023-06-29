@@ -5,8 +5,8 @@ import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBack
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { genreServices } from '@/services/genre.services'
-import { IAlbum } from '@/services/types/album.services.types'
-import { IPlaylist } from '@/services/types/playlist.services.types'
+import { AlbumTypes } from '@/services/types/IAlbum'
+import { PlaylistType } from '@/services/types/playlist.services.types'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
@@ -78,7 +78,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={0}
 					headerText='Albums'
-					renderItem={({ item: album }: { item: IAlbum }) => {
+					renderItem={({ item: album }: { item: AlbumTypes }) => {
 						return (
 							<MusicCart
 								image={{
@@ -98,7 +98,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={25}
 					headerText='Playlist'
-					renderItem={({ item: playlist }: { item: IPlaylist }) => {
+					renderItem={({ item: playlist }: { item: PlaylistType }) => {
 						return (
 							<MusicCart
 								image={{

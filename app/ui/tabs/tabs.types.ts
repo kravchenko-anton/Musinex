@@ -19,4 +19,4 @@ type TranslateTypeFalse = {
 }
 
 
-export type ITabs = (TranslateTypeTrue | TranslateTypeFalse)
+export type TabsProps = (TranslateTypeTrue | TranslateTypeFalse)

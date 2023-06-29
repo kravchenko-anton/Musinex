@@ -1,12 +1,12 @@
 import { IconType } from '@/types/global'
 import { TypeRootStackParamList } from '@/types/navigation/navigation.types'
 
-interface IMenuItem {
+interface MenuItemType {
 	iconName: IconType
 	path: keyof TypeRootStackParamList
 }
 
-export const menuItems: IMenuItem[] = [
+export const menuItems: MenuItemType[] = [
 	{
 		iconName: 'home',
 		path: 'Home'

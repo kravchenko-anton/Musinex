@@ -14,7 +14,7 @@ export const usePlayer = () => {
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
 	useEffect(() => {
 		async function setup() {
-			let isSetup = await setupPlayer()
+			const isSetup = await setupPlayer()
 			setIsPlayerReady(isSetup)
 			await TrackPlayer.setRepeatMode(RepeatMode.Queue)
 		}

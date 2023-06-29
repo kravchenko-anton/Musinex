@@ -1,6 +1,6 @@
-import { ICatalogTypes } from '@/pages/catalog/catalog.types'
+import { YPositionType } from '@/pages/catalog/catalog.types'
 
-export interface ICatalogContent extends ICatalogTypes {
+export interface CatalogContentProps extends YPositionType {
 	headerTitle: string
 	description: string
 	paddingTop?: number

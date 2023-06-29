@@ -1,6 +1,5 @@
 import { useAction } from '@/hook/useAction'
 import { useAuth } from '@/hook/useAuth'
-import { getNewToken, logout } from '@/redux/auth/auth.action'
 import { EnumSecureStore } from '@/types/auth/auth.types'
 import { errorToast } from '@/ui/toast/error.toast'
 import { errorCatch } from '@/utils/error.catch'
@@ -23,7 +22,7 @@ export const useCheckAuth = (routeName?: string) => {
 				}
 			}
 		}
-		let ignore = checkToken()
+		checkToken()
 	}, [user])
 
 	useEffect(() => {
@@ -34,6 +33,6 @@ export const useCheckAuth = (routeName?: string) => {
 			}
 		}
 
-		let ignore = checkRefreshToken()
+	checkRefreshToken()
 	}, [routeName])
 }

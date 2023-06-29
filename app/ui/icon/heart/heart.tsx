@@ -1,7 +1,7 @@
 import { AnimatedView } from '@/animation/global'
 import { Style } from '@/types/global'
 import { useHeartAnimation } from '@/ui/icon/heart/heart.animation'
-import { IHeart } from '@/ui/icon/heart/heart.types'
+import { HeartProps } from '@/ui/icon/heart/heart.types'
 import { useHeart } from '@/ui/icon/heart/useHeart'
 import { color } from '@/utils/color'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
@@ -9,7 +9,7 @@ import { FC, memo } from 'react'
 import { Pressable, StyleSheet } from 'react-native'
 import { withSpring } from 'react-native-reanimated'
 
-const Heart: FC<IHeart> = ({ size = 28, type, id, style, ...props }) => {
+const Heart: FC<HeartProps> = ({ size = 28, type, id, style, ...props }) => {
 	const { toggleFavorite, isSmashed } = useHeart({ id, type })
 	const { outlineStyle, fillStyle, liked } = useHeartAnimation(isSmashed)
 

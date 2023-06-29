@@ -1,8 +1,8 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
 import { useOpacityAnimation } from '@/animation/opacity.animation'
 import { usePressAnimation } from '@/animation/press.animation'
-import { ITrack } from '@/types/player/ITrack'
-import { ICatalogItem } from '@/ui/catalog-item/catalogItem.types'
+import { TrackType } from '@/types/player/ITrack'
+import { CatalogItemProps } from '@/ui/catalog-item/catalogItem.types'
 import Heart from '@/ui/icon/heart/heart'
 import Lottie from 'lottie-react-native'
 import { FC, memo } from 'react'
@@ -11,7 +11,7 @@ import { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import UImage from '../image/image'
 import Title from '../title/title'
 
-const CatalogItem: FC<ICatalogItem> = ({
+const CatalogItem: FC<CatalogItemProps> = ({
 	id,
 	textSize = 22,
 	image,
@@ -19,14 +19,14 @@ const CatalogItem: FC<ICatalogItem> = ({
 	...props
 }) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
-	const activeTrack = useActiveTrack() as ITrack
+	const activeTrack = useActiveTrack() as TrackType
 	const playBackState = usePlaybackState()
 	const {OpacityAnimation} = useOpacityAnimation({
 		isOpen: activeTrack?.title === props.text1 && playBackState.state === 'playing'
 	})
 	return (
 		<AnimatedPressable
-			className='flex-row items-center mb-3 justify-between h-[50px]'
+			className='flex-row items-center mb-3 justify-between'
 			style={animatedStyle}
 			{...pressFunctions}
 			{...props}

@@ -15,7 +15,7 @@ export type TypeRootStackParamList = {
 	Song: undefined
 }
 
-export interface iRoutes {
+export interface RoutesType {
 	name: keyof TypeRootStackParamList
 	component: ComponentType
 }

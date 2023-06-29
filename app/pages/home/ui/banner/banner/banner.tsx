@@ -1,21 +1,21 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
 import Ball from '@/pages/home/ui/banner/ball/ball'
-import { IBanner } from '@/pages/home/ui/banner/banner/banner.types'
+import { BannerProps } from '@/pages/home/ui/banner/banner/banner.types'
 import UImage from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { color } from '@/utils/color'
-import { shadeColor } from '@/utils/shade.color'
+import { shadeRGBColor } from '@/utils/shade.color'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 
-const Banner: FC<PropsWithChildren<IBanner>> = ({
+const Banner: FC<PropsWithChildren<BannerProps>> = ({
 	songs,
 	colors = [
-		`${shadeColor(color.primary, -15)}`,
-		`${shadeColor(color.primary, 0)}`,
-		`${shadeColor(color.primary, 30)}`
+		`${shadeRGBColor(color.primary, -15)}`,
+		`${shadeRGBColor(color.primary, 0)}`,
+		`${shadeRGBColor(color.primary, 30)}`
 	],
 	children
 }) => {

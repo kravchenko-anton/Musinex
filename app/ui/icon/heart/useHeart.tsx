@@ -1,10 +1,10 @@
-import { IHeartProps } from '@/pages/catalog/catalog.types'
 import { useFavorites } from '@/pages/favorites/useFavorites'
 import { userServices } from '@/services/user.services'
+import { HeartProps } from '@/ui/icon/heart/heart.types'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
-export const useHeart = ({ id, type }: IHeartProps) => {
+export const useHeart = ({ id, type }: HeartProps) => {
 	const [isSmashed, setIsSmashed] = useState(false)
 	const queryClient = useQueryClient()
 	const { user } = useFavorites()

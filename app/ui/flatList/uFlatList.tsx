@@ -1,16 +1,15 @@
-import { IUFlatList } from '@/ui/flatList/uFlatList.types'
+import { UFlatListProps } from '@/ui/flatList/uFlatList.types'
 import { FlatList, View } from 'react-native'
 import Title from '../title/title'
 
 const UFlatList = <T,>({
 	data,
-	headerNavigate,
 	wrapClassNames,
 	headerText,
 	mt = 0,
 	style,
 	...props
-}: IUFlatList<T>) => {
+}: UFlatListProps<T>) => {
 	if (data.length && data.length === 0 && !props.ListEmptyComponent) return null
 	return (
 		<View className={wrapClassNames} style={{ marginTop: mt }}>
@@ -34,7 +33,7 @@ const UFlatList = <T,>({
 									width: '100%'
 								},
 								props.columnWrapperStyle
-						  ]
+						]
 						: props.columnWrapperStyle
 				}
 				style={[
@@ -50,7 +49,7 @@ const UFlatList = <T,>({
 									paddingBottom: 130
 								},
 								props.contentContainerStyle
-						  ]
+						]
 						: props.contentContainerStyle
 				}
 				renderToHardwareTextureAndroid={true}

@@ -24,10 +24,10 @@ i18n.on('languageChanged', async lng => {
 })
 const initializeLanguage = async () => {
 	const language = await AsyncStorage.getItem('language').then((res: any) =>
-			 res || 'en'
+	res || 'en'
 	)
 	if (!i18n.isInitialized) {
-		 await i18next.init({
+	await i18next.init({
 			resources,
 			compatibilityJSON: 'v2',
 			returnNull: false,
@@ -42,7 +42,7 @@ const initializeLanguage = async () => {
 			}
 		}).catch((err) => {
 			console.error('Error: ', err)
-		 })
+		})
 	}
 }
 

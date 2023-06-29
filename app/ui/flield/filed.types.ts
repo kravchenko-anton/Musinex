@@ -1,13 +1,8 @@
 import { ITranslateTypes } from '@/types/global'
-import {
-	Control,
-	FieldPath,
-	FieldValues,
-	RegisterOptions
-} from 'react-hook-form'
+import { Control, FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import { TextInputProps } from 'react-native'
 
-export interface IField<T extends FieldValues>
+export interface FieldProps<T extends FieldValues>
 	extends Omit<
 		TextInputProps,
 		'onChange' | 'onChangeText' | 'value' | 'placeholder'

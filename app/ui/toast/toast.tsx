@@ -1,5 +1,5 @@
 import { color } from '@/utils/color'
-import { shadeColor } from '@/utils/shade.color'
+import { shadeRGBColor } from '@/utils/shade.color'
 import { FC } from 'react'
 import RnToast, { BaseToast } from 'react-native-toast-message'
 
@@ -29,7 +29,7 @@ const Toast: FC = () => {
 				success: props => (
 					<BaseToast
 						{...props}
-						{...options(shadeColor(color.primary, 50))}
+						{...options(shadeRGBColor(color.primary, 50))}
 					/>
 				),
 				info: props => (

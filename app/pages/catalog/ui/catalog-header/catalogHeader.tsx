@@ -1,5 +1,5 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { ICatalogHeaderProps } from '@/pages/catalog/ui/catalog-header/catalogHeader.types'
+import { CatalogHeaderProps } from '@/pages/catalog/ui/catalog-header/catalogHeader.types'
 import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/header-animation'
 import BlurIcon from '@/ui/blur-button/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
@@ -10,7 +10,7 @@ import { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-const CatalogHeader: FC<ICatalogHeaderProps> = ({ y, ...props }) => {
+const CatalogHeader: FC<CatalogHeaderProps> = ({ y, ...props }) => {
 	const { goBack } = useTypedNavigation()
 	const { top } = useSafeAreaInsets()
 	const { width } = useWindowDimensions()

@@ -1,8 +1,8 @@
-import { IUScrollView } from '@/ui/scroll-view/uScrollView.types'
+import { UScrollViewProps } from '@/ui/scroll-view/uScrollView.types'
 import { FC, PropsWithChildren } from 'react'
 import { ScrollView } from 'react-native'
 
-const UScrollView: FC<PropsWithChildren<IUScrollView>> = ({
+const UScrollView: FC<PropsWithChildren<UScrollViewProps>> = ({
 	children,
 	paddingBottom = 100,
 	...props

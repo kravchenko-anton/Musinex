@@ -1,10 +1,10 @@
-import { IAuthFields } from '@/types/auth/auth.types'
+import { AuthFieldsType } from '@/types/auth/auth.types'
 import Field from '@/ui/flield/field'
 import { FC } from 'react'
 import { Control } from 'react-hook-form'
 import { View } from 'react-native'
 
-const AuthForm: FC<{ control: Control<IAuthFields, unknown> }> = ({
+const AuthForm: FC<{ control: Control<AuthFieldsType, unknown> }> = ({
 	control
 }) => {
 	return (

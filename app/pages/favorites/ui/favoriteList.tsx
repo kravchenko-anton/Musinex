@@ -6,7 +6,7 @@ import Icon from '@/ui/icon/default-icon/icon'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Title from '@/ui/title/title'
 import { color } from '@/utils/color'
-import { shadeColor } from '@/utils/shade.color'
+import { shadeRGBColor } from '@/utils/shade.color'
 import { useQuery } from '@tanstack/react-query'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useTranslation } from 'react-i18next'
@@ -60,9 +60,9 @@ const FavoriteList = () => {
 						>
 							<LinearGradient
 								colors={[
-									shadeColor(color.primary, -20),
-									shadeColor(color.primary, 0),
-									shadeColor(color.primary, +20)
+									shadeRGBColor(color.primary, -20),
+									shadeRGBColor(color.primary, 0),
+									shadeRGBColor(color.primary, +20)
 								]}
 								start={[0.2, 0.8]}
 								end={[0.8, 0.4]}

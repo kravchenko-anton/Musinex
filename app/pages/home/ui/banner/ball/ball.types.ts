@@ -1,6 +1,6 @@
 import { Style } from '@/types/global'
 
-export interface IBallProps {
+export interface BallProps {
 	style?: Style
 	gradient?: [number, number, number, number]
 	colors?: string[]

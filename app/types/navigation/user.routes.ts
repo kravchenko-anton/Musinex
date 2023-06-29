@@ -9,9 +9,9 @@ import Home from '@/pages/home/home'
 import Search from '@/pages/search/search'
 import Settings from '@/pages/settings/settings'
 import Song from '@/pages/song/song'
-import { iRoutes } from './navigation.types'
+import { RoutesType } from './navigation.types'
 
-export const userRoutes: iRoutes[] = [
+export const userRoutes: RoutesType[] = [
 	{
 		name: 'Home',
 		component: Home

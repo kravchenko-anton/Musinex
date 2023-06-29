@@ -5,13 +5,13 @@ import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { TextInput, View } from 'react-native'
 import Title from '../title/title'
-import { IField } from './filed.types'
+import { FieldProps } from './filed.types'
 
 const Field = <T extends Record<string, any>>({
 	placeholder,
 	...props
-}: IField<T>): JSX.Element | null => {
-	let [fontsLoaded] = useFonts({
+}: FieldProps<T>): JSX.Element | null => {
+	const [fontsLoaded] = useFonts({
 		Montserrat_700Bold
 	})
 	const { t } = useTranslation()

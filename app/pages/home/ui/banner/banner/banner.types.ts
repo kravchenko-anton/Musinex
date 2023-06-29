@@ -1,6 +1,6 @@
-import { ISong } from '@/services/types/global'
+import { SongType } from '@/services/types/global'
 
-export interface IBanner {
-	songs: ISong[]
+export interface BannerProps {
+	songs: SongType[]
 	colors?: string[]
 }

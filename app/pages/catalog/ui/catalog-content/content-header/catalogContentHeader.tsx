@@ -1,10 +1,10 @@
-import { ICatalogContentHeader } from '@/pages/catalog/ui/catalog-content/content-header/catalogContentHeader.types'
+import { CatalogContentHeaderProps } from '@/pages/catalog/ui/catalog-content/content-header/catalogContentHeader.types'
 import Title from '@/ui/title/title'
 import { FC } from 'react'
 import { Animated, View } from 'react-native'
 import { HEADER_HEIGHT } from '../../../catalog.constant'
 
-const CatalogContentHeader: FC<ICatalogContentHeader> = ({
+const CatalogContentHeader: FC<CatalogContentHeaderProps> = ({
 	title,
 	description,
 	y

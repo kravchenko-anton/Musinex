@@ -31,15 +31,13 @@ const Button: FC<IButtonTypes> = ({
 	const { t } = useTranslation()
 	const { pressFunctions, animatedStyle } = usePressAnimation()
 			return (
-		<AnimatedPressable {...pressFunctions}
-		 style={[{
+		<AnimatedPressable {...pressFunctions} style={[{
 				backgroundColor: variant === 'primary' ? color.primary : BackgroundColorSettings[colorScheme],
 				borderRadius: borderRadius,
 				padding: sizeSettings[size],
 				width: props.width ? props.width : '100%' },
 			style,
-			animatedStyle]}
-		 {...props}>
+			animatedStyle]} {...props}>
 				<View
 					style={{
 						justifyContent: props.icon ? 'space-between' : 'center',

@@ -1,11 +1,11 @@
-import { IAnimatedProps, IsOpenType } from '@/animation/global'
+import { AnimationConfigType, IsOpenType } from '@/animation/global'
 import { useMemo } from 'react'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
 
-interface IDropdownAnimation extends IAnimatedProps, IsOpenType {
+interface DropdownAnimationProps extends AnimationConfigType, IsOpenType {
 }
-export const useDropdownAnimation = (props: IDropdownAnimation) => {
-	 const dropdownAnimation = useAnimatedStyle(() => {
+export const useDropdownAnimation = (props: DropdownAnimationProps) => {
+		const dropdownAnimation = useAnimatedStyle(() => {
 		return {
 			height: withSpring(props.isOpen ? '100%' : 0, {
 				damping: 20,
@@ -16,7 +16,7 @@ export const useDropdownAnimation = (props: IDropdownAnimation) => {
 	})
 
 
-	 return useMemo(() => ({ dropdownAnimation }), [
+	return useMemo(() => ({ dropdownAnimation }), [
 		dropdownAnimation
 		])
 }

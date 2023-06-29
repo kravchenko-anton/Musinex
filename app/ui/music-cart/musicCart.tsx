@@ -1,12 +1,12 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
-import { IMusicCartTypes } from '@/ui/music-cart/musicCart.types'
+import { MusicCartProps } from '@/ui/music-cart/musicCart.types'
 import { FC } from 'react'
 import { View } from 'react-native'
 import UImage from '../image/image'
 import Title from '../title/title'
 
-const MusicCart: FC<IMusicCartTypes> = ({
+const MusicCart: FC<MusicCartProps> = ({
 	textCenter = false,
 	wrapClassNames = 'mr-3',
 	...props

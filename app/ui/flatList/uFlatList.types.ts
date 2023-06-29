@@ -1,7 +1,7 @@
 import { ITranslateTypes } from '@/types/global'
 import { FlatListProps, ListRenderItem } from 'react-native'
 
-export interface IUFlatList<T>
+export interface UFlatListProps<T>
 	extends Pick<
 		FlatListProps<T>,
 		| 'horizontal'
@@ -23,7 +23,6 @@ export interface IUFlatList<T>
 	renderItem: ListRenderItem<T>
 	headerText?: ITranslateTypes
 	wrapClassNames?: string
-	headerNavigate?: () => void
 	fixBottom?: boolean
 	mt?: number
 }

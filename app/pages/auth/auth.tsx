@@ -2,8 +2,7 @@ import { useAction } from '@/hook/useAction'
 import { useAuth } from '@/hook/useAuth'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import AuthForm from '@/pages/auth/ui/authForm'
-import { login } from '@/redux/auth/auth.action'
-import { IAuthFields } from '@/types/auth/auth.types'
+import { AuthFieldsType } from '@/types/auth/auth.types'
 import Button from '@/ui/button/button'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
@@ -17,14 +16,14 @@ const Auth = () => {
 	const { register, login } = useAction()
 	const { navigate } = useTypedNavigation()
 	const [type, setType] = useState<'Login' | 'Register'>('Login')
-	const { control, handleSubmit } = useForm<IAuthFields>({
+	const { control, handleSubmit } = useForm<AuthFieldsType>({
 		mode: 'onSubmit'
 	})
 	if (user) {
 		navigate('Home')
 	}
 
-	const onSubmit: SubmitHandler<IAuthFields> = ({ password, email }) =>
+	const onSubmit: SubmitHandler<AuthFieldsType> = ({ password, email }) =>
 		type === 'Login'
 			? login({ password, email })
 			: register({ password, email })
@@ -58,9 +57,8 @@ const Auth = () => {
 							size={'large'}
 							className='mt-2'
 							translate={true}
-							text={type}
-						 />
-
+							text={type} />
+						
 						<Title
 							className='mt-4'
 							size={16}

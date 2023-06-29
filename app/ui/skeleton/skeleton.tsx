@@ -1,10 +1,10 @@
-import { ISkeleton } from '@/ui/skeleton/skeleton.types'
+import { SkeletonProps } from '@/ui/skeleton/skeleton.types'
 import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 
-const Skeleton: FC<ISkeleton> = ({
+const Skeleton: FC<SkeletonProps> = ({
 	style,
 	height,
 	transparent,

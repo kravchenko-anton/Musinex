@@ -1,5 +1,5 @@
 import { saveTokensStorage } from '@/redux/auth/auth.helper'
-import { EnumSecureStore, IAuthResponse } from '@/types/auth/auth.types'
+import { AuthResponseType, EnumSecureStore } from '@/types/auth/auth.types'
 import { errorToast } from '@/ui/toast/error.toast'
 import { getAuthUrl, SERVER_URL } from '@/utils/api.config'
 import { errorCatch } from '@/utils/error.catch'
@@ -10,7 +10,7 @@ export const getNewTokens = async () => {
 	try {
 		const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
 		const response = await axios
-			.post<string, { data: IAuthResponse }>(
+			.post<string, { data: AuthResponseType }>(
 				SERVER_URL + getAuthUrl('/access-token'),
 				{ refresh_token: refreshToken }
 			)

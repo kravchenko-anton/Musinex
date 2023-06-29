@@ -1,6 +1,6 @@
 import { AnimatedView } from '@/animation/global'
 import { useOpacityAnimation } from '@/animation/opacity.animation'
-import { IBottomDropDown } from '@/pages/song/components/bottom-menu/bottomMenu.types'
+import { BottomDropDownProps } from '@/pages/song/components/bottom-menu/bottomMenu.types'
 import { useSongAnimation } from '@/pages/song/song-animation'
 import PlayButton from '@/pages/song/ui/play-button/playButton'
 import RepeatIcon from '@/pages/song/ui/repeat-icon/repeatIcon'
@@ -15,7 +15,7 @@ import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
 
-const BottomMenu:FC<IBottomDropDown> = ({isOpen, ...props}) => {
+const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 	const {BottomMenuAnimation,WidthAnimation,PanGesture} = useSongAnimation({ isOpen })
 	const {OpacityAnimation, MinusOpacityAnimation} = useOpacityAnimation({ isOpen })
 	return <GestureDetector gesture={PanGesture}>

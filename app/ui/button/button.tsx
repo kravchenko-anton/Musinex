@@ -9,12 +9,12 @@ import {
 	TextSizeSettings
 } from '@/ui/button/button.settings'
 import { IButtonTypes } from '@/ui/button/button.types'
-import UIcon from '@/ui/icon/default-icon/icon'
 import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
+import Icon from '../icon/default-icon/icon'
 import Title from '../title/title'
 
 const Button: FC<IButtonTypes> = ({
@@ -61,7 +61,7 @@ const Button: FC<IButtonTypes> = ({
 						{props.text && translate ? t(props.text) : props.text}
 					</Title>
 					{props.icon && (
-						<UIcon
+						<Icon
 							size={
 								iconSize ? iconSize : IconSizeSettings[size]
 							}

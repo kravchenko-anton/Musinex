@@ -2,7 +2,7 @@ import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { GenreType } from '@/services/types/genre.services.types'
-import UImage from '@/ui/image/image'
+import Image from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
@@ -31,7 +31,7 @@ const GenreItem: FC<{ genre: GenreType }> = ({ genre }) => {
 				>
 					{genre.name}
 				</Title>
-				<UImage
+				<Image
 					url={genre.songs[0].coverMedium}
 					width={70}
 					height={70}

@@ -1,5 +1,4 @@
 export const errorCatch = (error: any): string => {
-	console.log(error)
 	const message = error?.response?.data?.message
 
 	return message

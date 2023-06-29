@@ -1,7 +1,6 @@
 import { useAuth } from '@/hook/useAuth'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import UIcon from '@/ui/icon/default-icon/icon'
-import Title from '@/ui/title/title'
+import { Icon, Title } from '@/ui'
 import { capitalizeFirstLetter } from '@/utils/capitalize.latter'
 import { View } from 'react-native'
 
@@ -9,7 +8,6 @@ const FavoriteHeader = () => {
 	const { navigate } = useTypedNavigation()
 	const { user } = useAuth()
 	if (!user) return null
-	console.log(user)
 	return (
 		<View className='justify-between items-center flex-row border-b-2 border-b-twilight pb-2'>
 			<View className='flex-row items-center gap-2'>
@@ -27,7 +25,7 @@ const FavoriteHeader = () => {
 				</Title>
 			</View>
 			<View className='flex-row items-center gap-5 justify-between'>
-				<UIcon
+				<Icon
 					onPress={() => navigate('Settings')}
 					name={'settings'}
 					size={30}

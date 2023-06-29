@@ -9,7 +9,6 @@ export const AnimatedImage	= Animated.createAnimatedComponent(Image)
 export const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient)
 
 
-
 export interface AnimationConfigType  {
 	userConfig?: WithSpringConfig | WithTimingConfig
 }

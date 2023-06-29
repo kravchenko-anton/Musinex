@@ -11,7 +11,6 @@ export async function setupPlayer() {
 			autoHandleInterruptions: true,
 			maxCacheSize: 10,
 			maxBuffer:0,
-			waitForBuffer: true,
 		})
 		await TrackPlayer.updateOptions({
 			android: {

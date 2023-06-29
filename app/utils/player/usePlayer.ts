@@ -29,7 +29,7 @@ export const usePlayer = () => {
 			await trackPause()
 			await TrackPlayer.stop()
 			await TrackPlayer.add(
-				selector[0].data.map((value, index) => {
+				selector[0].data.map((value) => {
 					return {
 						id: value.id,
 						url: value.url,

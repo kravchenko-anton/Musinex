@@ -1,5 +1,5 @@
 import { AuthFieldsType } from '@/types/auth/auth.types'
-import Field from '@/ui/flield/field'
+import { Field } from '@/ui'
 import { FC } from 'react'
 import { Control } from 'react-hook-form'
 import { View } from 'react-native'

@@ -1,12 +1,12 @@
 import { PlayButtonProps } from '@/pages/song/ui/play-button/playButton.types'
-import UIcon from '@/ui/icon/default-icon/icon'
+import Icon from '@/ui/icon/default-icon/icon'
 import { trackPause, trackPlay } from '@/utils/player/usePlayer'
 import { FC } from 'react'
 import { State, usePlaybackState } from 'react-native-track-player'
 
 const PlayButton:FC<PlayButtonProps> = ({size, ...props}) => {
 	const playBackState = usePlaybackState()
-	return <UIcon
+	return <Icon
 		name={
 			playBackState.state === State.Playing
 				? (props.circle ? 'md-pause-circle' : 'pause')

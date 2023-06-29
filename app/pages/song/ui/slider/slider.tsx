@@ -1,21 +1,27 @@
 import { AnimatedView } from '@/animation/global'
-import Title from '@/ui/title/title'
+import { Title } from '@/ui'
 import { WindowWidth } from '@/utils/screen'
 import { memo, useMemo } from 'react'
 import { View } from 'react-native'
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
-import { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
+import { runOnJS, useAnimatedStyle, useDerivedValue, useSharedValue } from 'react-native-reanimated'
 import TrackPlayer, { useProgress } from 'react-native-track-player'
 
-const PlayerWidth = WindowWidth * 0.91
+const PlayerWidth = WindowWidth * 0.90
 const Sliders = () => {
 	const { position, duration } = useProgress(10);
 	const isOpen = useSharedValue(0)
 	const isSliding = useSharedValue(false)
+	useDerivedValue(() => {
+		if (isSliding.value) return
+		isOpen.value = position / duration * PlayerWidth
+	})
 	const PanGesture = useMemo(() => Gesture.Pan().activeOffsetX([0, 0])
-		.onBegin((ctx) => {
+		.onBegin((e) => {
 				isSliding.value = true
-			isOpen.value = ctx.x
+			if (e.x < 10 || e.x > PlayerWidth) return isOpen.value = e.x < 10 ? 10 : PlayerWidth
+			isOpen.value = e.x
+
 		}).onChange(((e) => {
 		if (e.x < 10 || e.x > PlayerWidth) return isOpen.value = e.x < 10 ? 10 : PlayerWidth
 			isOpen.value = e.x
@@ -27,7 +33,7 @@ const Sliders = () => {
 		[isSliding.value, duration])
 	const SliderStyle = useAnimatedStyle(() => {
 		return {
-			width: isSliding.value ? isOpen.value : position / duration * PlayerWidth,
+			width: isOpen.value,
 			zIndex: 1000,
 			backgroundColor: 'white',
 		}

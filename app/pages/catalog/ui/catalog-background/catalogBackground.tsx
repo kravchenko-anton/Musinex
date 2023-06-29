@@ -1,6 +1,6 @@
 import { useBackgroundAnimation } from '@/pages/catalog/ui/catalog-background/background-animation'
 import { CatalogBackgroundProps } from '@/pages/catalog/ui/catalog-background/catalogBackground.types'
-import UImage from '@/ui/image/image'
+import { Image } from '@/ui'
 import { color as Color } from '@/utils/color'
 import { WindowWidth } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -32,7 +32,7 @@ const CatalogBackground: FC<CatalogBackgroundProps> = ({
 		>
 			{poster ? (
 				<>
-					<UImage
+					<Image
 						style={StyleSheet.absoluteFill}
 						url={poster}
 						width={WindowWidth}

@@ -10,6 +10,7 @@ const UImage: FC<ImageTypes> = ({
 	transparentSkeleton = false,
 	url,
 	style,
+	className,
 	wrapperClassName,
 	...props
 }) => {
@@ -17,6 +18,7 @@ const UImage: FC<ImageTypes> = ({
 	return (
 		<View className={wrapperClassName}>
 			<Image
+				className={className}
 				onLoadEnd={() => {
 					setIsImageLoading(false)
 				}}

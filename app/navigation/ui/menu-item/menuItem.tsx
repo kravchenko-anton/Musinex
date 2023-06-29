@@ -1,5 +1,5 @@
 import { MenuItemProps } from '@/navigation/ui/menu-item/menuItem.types'
-import UIcon from '@/ui/icon/default-icon/icon'
+import { Icon } from '@/ui'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { menuItems } from '../../menuList'
@@ -11,7 +11,7 @@ const MenuItem: FC<MenuItemProps> = ({ nav, item, currentRoute }) => {
 			pointerEvents={'auto'}
 			className='items-center pointer-events-auto justify-center p-1.5 rounded-lg'
 		>
-			<UIcon
+			<Icon
 				onPress={() => nav(item.path)}
 				name={
 					isActive

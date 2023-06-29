@@ -1,9 +1,9 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
+import Image from '@/ui/image/image'
 import { MusicCartProps } from '@/ui/music-cart/musicCart.types'
 import { FC } from 'react'
 import { View } from 'react-native'
-import UImage from '../image/image'
 import Title from '../title/title'
 
 const MusicCart: FC<MusicCartProps> = ({
@@ -23,7 +23,7 @@ const MusicCart: FC<MusicCartProps> = ({
 			{...pressFunctions}
 			{...props}>
 		
-				<UImage
+				<Image
 					className={props.imageClassNames}
 					url={props.image.url}
 					borderRadius={props.image.border ? props.image.border : 0}

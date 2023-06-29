@@ -1,5 +1,5 @@
 import { CatalogContentHeaderProps } from '@/pages/catalog/ui/catalog-content/content-header/catalogContentHeader.types'
-import Title from '@/ui/title/title'
+import { Title } from '@/ui'
 import { FC } from 'react'
 import { Animated, View } from 'react-native'
 import { HEADER_HEIGHT } from '../../../catalog.constant'

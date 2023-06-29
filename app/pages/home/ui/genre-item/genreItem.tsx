@@ -2,7 +2,7 @@ import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { GenreItemType } from '@/pages/home/ui/genre-item/genreItem.types'
-import UImage from '@/ui/image/image'
+import Image from '@/ui/image/image'
 import Title from '@/ui/title/title'
 import { getServerFileUrl } from '@/utils/api.config'
 import { shadeRGBColor } from '@/utils/shade.color'
@@ -33,7 +33,7 @@ const GenreItem: FC<GenreItemType> = ({ item: genre }) => {
 					start={[0.2, 0.8]}
 					end={[0.3, 0.2]}
 				>
-					<UImage
+					<Image
 						transparentSkeleton
 						width={70}
 						height={70}

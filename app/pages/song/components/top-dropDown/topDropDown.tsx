@@ -4,15 +4,13 @@ import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { TopDropDownProps } from '@/pages/song/components/top-dropDown/topDropDown.types'
 import { useSongAnimation } from '@/pages/song/song-animation'
-import CatalogItem from '@/ui/catalog-item/catalogItem'
-import UIcon from '@/ui/icon/default-icon/icon'
-import Title from '@/ui/title/title'
+import { CatalogItem, Icon, Title, UScrollView } from '@/ui'
 import { trackPause, trackPlay } from '@/utils/player/usePlayer'
 import { generateRandomBeautifulHexColor } from '@/utils/random.color'
 import { WindowHeight } from '@/utils/screen'
 import { FC } from 'react'
 import { View } from 'react-native'
-import { GestureDetector, ScrollView } from 'react-native-gesture-handler'
+import { GestureDetector } from 'react-native-gesture-handler'
 import TrackPlayer from 'react-native-track-player'
 
 const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
@@ -31,7 +29,7 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 				overflow: 'hidden',
 			}, TopBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
 			<View className='flex-row justify-between mb-5 items-center'>
-				<UIcon
+				<Icon
 					onPress={() => goBack()}
 					name='arrow-down'
 					size={24}
@@ -45,14 +43,14 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 						{title}
 					</Title>
 				</View>
-				<UIcon name='ellipsis-vertical' size={24} color='white' />
+				<Icon name='ellipsis-vertical' size={24} color='white' />
 			</View>
 			<AnimatedView style={[{
 				height: WindowHeight * 0.57,
 				overflow: 'hidden',
 				minHeight: WindowHeight * 0.57,
 			},useDropDownContentAnimation]}>
-				<ScrollView showsVerticalScrollIndicator={false}>
+				<UScrollView>
 				{selector[0].data.map((track) => {
 						return <CatalogItem key={track.id}
 							text1={track.title}
@@ -82,9 +80,9 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 						/>
 					})
 				}
-				</ScrollView>
+				</UScrollView>
 			</AnimatedView>
-			<UIcon style={RotateAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
+			<Icon style={RotateAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
 		</AnimatedPressable>
 	</GestureDetector>
 }

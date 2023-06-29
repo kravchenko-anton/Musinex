@@ -4,11 +4,7 @@ import Banner from '@/pages/home/ui/banner/banner/banner'
 import GenreItem from '@/pages/home/ui/genre-item/genreItem'
 import { genreServices } from '@/services/genre.services'
 import { searchServices } from '@/services/search.services'
-import UFlatList from '@/ui/flatList/uFlatList'
-import Header from '@/ui/header/header'
-import ScrollLayout from '@/ui/layout/scrollLayout'
-import FullScreenLoader from '@/ui/loader/fullScreenLoader'
-import MusicCart from '@/ui/music-cart/musicCart'
+import { FullScreenLoader, Header, MusicCart, ScrollLayout, UFlatList } from '@/ui'
 import { useQuery } from '@tanstack/react-query'
 
 const Home = () => {

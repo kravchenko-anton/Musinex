@@ -1,9 +1,9 @@
 import { AnimatedLinearGradient } from '@/animation/global'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import PlayButton from '@/pages/song/ui/play-button/playButton'
-import { TrackType } from '@/types/player/ITrack'
+import { TrackType } from '@/types/player/TrackType'
 import Heart from '@/ui/icon/heart/heart'
-import UImage from '@/ui/image/image'
+import Image from '@/ui/image/image'
 import { usePlayer } from '@/utils/player/usePlayer'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { Pressable, View } from 'react-native'
@@ -29,7 +29,7 @@ const SongPlayer = () => {
 				className=' flex-row justify-between mx-2 items-center'
 			>
 				<View className='flex-row items-center w-2/3'>
-					<UImage url={String(trackInfo.coverSmall)} borderRadius={10} width={50} height={50} />
+					<Image url={String(trackInfo.coverSmall)} borderRadius={10} width={50} height={50} />
 					<View className='flex flex-col ml-2'>
 						<Title color={'white'}   size={20}>
 							{trackInfo?.title}

@@ -1,4 +1,4 @@
-import { TrackType } from '@/types/player/ITrack'
+import { TrackType } from '@/types/player/TrackType'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type PlayerState = {

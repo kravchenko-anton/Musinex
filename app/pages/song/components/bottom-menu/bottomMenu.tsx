@@ -5,9 +5,7 @@ import { useSongAnimation } from '@/pages/song/song-animation'
 import PlayButton from '@/pages/song/ui/play-button/playButton'
 import RepeatIcon from '@/pages/song/ui/repeat-icon/repeatIcon'
 import Sliders from '@/pages/song/ui/slider/slider'
-import UIcon from '@/ui/icon/default-icon/icon'
-import Heart from '@/ui/icon/heart/heart'
-import Title from '@/ui/title/title'
+import { Heart, Icon, Title } from '@/ui'
 import { handleShuffle } from '@/utils/player/handle.shaffle'
 import { skipToNext, skipToPrevious } from '@/utils/player/usePlayer'
 import { WindowHeight } from '@/utils/screen'
@@ -35,14 +33,14 @@ const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 					</Title>
 				</AnimatedView>
 				<AnimatedView style={OpacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
-					<UIcon
+					<Icon
 						name='play-skip-back'
 						onPress={() => skipToPrevious()}
 						size={22}
 						color='white'
 					/>
 			<PlayButton size={52} circle={true}/>
-					<UIcon
+					<Icon
 						name='play-skip-forward'
 						onPress={() => skipToNext()}
 						size={22}
@@ -60,20 +58,20 @@ const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 			<Sliders />
 			
 			<AnimatedView style={[MinusOpacityAnimation]}  className='flex-row self-center items-center justify-evenly w-full px-3'>
-				<UIcon
+				<Icon
 					name='shuffle'
 					onPress={() => handleShuffle()}
 					size={30}
 					color='silver'
 				/>
-				<UIcon
+				<Icon
 					name='play-skip-back'
 					onPress={() => skipToPrevious()}
 					size={30}
 					color='white'
 				/>
 				<PlayButton size={65}  circle={true}/>
-				<UIcon
+				<Icon
 					name='play-skip-forward'
 					onPress={() =>	skipToNext()}
 					size={30}

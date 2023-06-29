@@ -1,6 +1,6 @@
 import FavoriteList from '@/pages/favorites/ui/favoriteList'
 import FavoriteHeader from '@/pages/favorites/ui/header/favoriteHeader'
-import Layout from '@/ui/layout/layout'
+import { Layout } from '@/ui'
 
 const Favorites = () => {
 	return (

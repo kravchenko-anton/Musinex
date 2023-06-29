@@ -3,30 +3,25 @@ import { ICoverImage } from '@/pages/song/components/cover-image/CoverImage.type
 import { useSongAnimation } from '@/pages/song/song-animation'
 import { WindowHeight, WindowWidth } from '@/utils/screen'
 import { FC } from 'react'
-import { View } from 'react-native'
 
-const CoverImage:FC<ICoverImage> = ({artwork, isOpen}) => {
+const CoverImage:FC<ICoverImage> = ({coverBig, isOpen}) => {
 	const {ImageAnimation} = useSongAnimation({
 		isOpen
 	})
-	return <View
-		style={{ marginTop: WindowHeight * 0.06}}
-		className='relative items-center  justify-center self-center'
-	>
-		<AnimatedImage
+	return <AnimatedImage
 			source={{
-				uri: String(artwork),
+				uri: String(coverBig),
 				height: WindowWidth * 0.8,
 				width: WindowWidth * 0.8,
 			}}
 			style={[{
 				borderRadius: 15,
+				marginTop: WindowHeight * 0.06
 			}, ImageAnimation]}
 			
 			resizeMode={'cover'}
-			className=' relative items-center  justify-center'
+			className=' relative items-center  justify-center self-center'
 		/>
-	</View>
 }
 
 export default CoverImage

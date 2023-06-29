@@ -17,7 +17,7 @@ const Song = () => {
 		<View className='h-full bg-midnight justify-between'>
 			<View>
 			<TopDropDown isOpen={isOpen} title={trackInfo.title} />
-			<CoverImage isOpen={isOpen} artwork={trackInfo.coverBig}/>
+			<CoverImage isOpen={isOpen} coverBig={trackInfo.coverBig}/>
 			</View>
 				<BottomMenu isOpen={isOpen} title={trackInfo.title} id={trackInfo.id}
 				            artist={trackInfo.artist}/>

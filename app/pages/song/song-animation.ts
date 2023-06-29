@@ -11,20 +11,19 @@ export const useSongAnimation = ({isOpen}: any) => {
 		const TopBarAnimation = useAnimatedStyle(() => {
 			return {
 				height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
-					damping: 20,
-					velocity: 0.5,
-					stiffness:90,
-					mass: 0.5,
+					damping: 90,
+					velocity: 1,
+					stiffness: 90,
 				}),
 			}
-		}, [isOpen.value])
+		})
 	
 
 	const WidthAnimation = useAnimatedStyle(() => {
 		return {
 			width: withSpring(isOpen.value	? '50%' : '80%', {
 				damping: 20,
-				velocity: 0.5,
+				velocity: 1,
 				stiffness: 90
 			}),
 		}
@@ -33,13 +32,13 @@ export const useSongAnimation = ({isOpen}: any) => {
 		return {
 			height: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
 				damping: 20,
-				velocity: 0.5,
+				velocity: 1,
 				stiffness:90,
 				mass: 0.5
 			}),
 			width: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
 				damping: 20,
-				velocity: 0.5,
+				velocity: 1,
 				stiffness:90,
 				mass: 0.5
 			}),
@@ -52,12 +51,11 @@ export const useSongAnimation = ({isOpen}: any) => {
 		return {
 			opacity: withSpring(isOpen.value ? 1 : 0, {
 				damping: 20,
-				velocity: 0.5,
+				velocity: 1,
 				stiffness:90,
-				mass: 0.5,
 			}),
 			translateY: withTiming(isOpen.value ? 0 : -400, {
-				duration: 400,
+				duration: 600,
 			}),
 			pointerEvents: isOpen.value ? 'auto' : 'none',
 		}
@@ -65,9 +63,9 @@ export const useSongAnimation = ({isOpen}: any) => {
 	
 	const BottomMenuAnimation = useAnimatedStyle(() => {
 		return {
-			height: withSpring(isOpen.value ? 220 : 280, {
+			height: withSpring(isOpen.value ? 180 : 250, {
 				damping: 20,
-				velocity: 0.5,
+				velocity: 1,
 				stiffness: 90
 			})
 		}

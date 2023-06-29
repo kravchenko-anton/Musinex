@@ -1,4 +1,4 @@
 import { IsOpenType } from '@/animation/global'
-import { Track } from 'react-native-track-player'
+import { ITrack } from '@/types/player/ITrack'
 
-export interface ICoverImage  extends IsOpenType, Pick<Track, 'artwork'>{}
+export interface ICoverImage  extends IsOpenType, Pick<ITrack, 'coverBig'>{}

@@ -37,6 +37,7 @@ export const usePlayer = () => {
 						artist: value.artist,
 						coverBig: value.coverBig,
 						coverSmall: value.coverSmall,
+						artwork: value.coverBig,
 						color,
 					}
 				})

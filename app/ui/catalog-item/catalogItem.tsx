@@ -5,7 +5,7 @@ import { ITrack } from '@/types/player/ITrack'
 import { ICatalogItem } from '@/ui/catalog-item/catalogItem.types'
 import Heart from '@/ui/icon/heart/heart'
 import Lottie from 'lottie-react-native'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { View } from 'react-native'
 import { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 import UImage from '../image/image'
@@ -26,7 +26,7 @@ const CatalogItem: FC<ICatalogItem> = ({
 	})
 	return (
 		<AnimatedPressable
-			className='flex-row items-center mb-3 justify-between'
+			className='flex-row items-center mb-3 justify-between h-[50px]'
 			style={animatedStyle}
 			{...pressFunctions}
 			{...props}
@@ -76,4 +76,4 @@ const CatalogItem: FC<ICatalogItem> = ({
 	)
 }
 
-export default CatalogItem
+export default memo(CatalogItem)

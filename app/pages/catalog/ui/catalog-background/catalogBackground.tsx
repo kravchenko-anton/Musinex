@@ -1,6 +1,6 @@
 import { useBackgroundAnimation } from '@/pages/catalog/ui/catalog-background/background-animation'
 import { CatalogBackgroundProps } from '@/pages/catalog/ui/catalog-background/catalogBackground.types'
-import { Image } from '@/ui'
+import Image from '@/ui/image/image'
 import { color as Color } from '@/utils/color'
 import { WindowWidth } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'

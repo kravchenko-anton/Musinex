@@ -1,6 +1,6 @@
 import ThemeProvider from '@/providers/themeProvider'
 import { persistor, store } from '@/redux/store'
-import { FullScreenLoader } from '@/ui'
+import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Toast from '@/ui/toast/toast'
 import { color } from '@/utils/color'
 import AsyncStorage from '@react-native-async-storage/async-storage'

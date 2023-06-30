@@ -1,5 +1,6 @@
 import { AnimatedView } from '@/animation/global'
-import { Title } from '@/ui'
+import Title from '@/ui/title/title'
+
 import { WindowWidth } from '@/utils/screen'
 import { memo, useMemo } from 'react'
 import { View } from 'react-native'

@@ -1,5 +1,10 @@
 import { useAction } from '@/hook/useAction'
-import { Button, Dropdown, Header, Layout, Title } from '@/ui'
+import Button from '@/ui/button/button'
+import Dropdown from '@/ui/dropdown/dropdown'
+import Header from '@/ui/header/header'
+import Layout from '@/ui/layout/layout'
+import Title from '@/ui/title/title'
+
 import i18n from 'i18next'
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
@@ -62,7 +67,7 @@ const Settings = () => {
 				onPress={() => logout()}
 				size={'medium'}
 				translate={false}
-				text={'adsdsadas'}
+				text={'Logout'}
 				width={200}
 				className='mt-4 z-0 justify-center items-center self-center'
 			/>

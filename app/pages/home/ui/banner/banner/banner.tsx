@@ -1,7 +1,8 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
 import { BannerProps } from '@/pages/home/ui/banner/banner/banner.types'
-import { Image, Title } from '@/ui'
+import Image from '@/ui/image/image'
+import Title from '@/ui/title/title'
 import { color } from '@/utils/color'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -30,7 +31,7 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 					fontFamily={'Montserrat_700Bold'}
 					color={'white'}
 					numberOfLines={2}
-					className='absolute  text-center top-[15%] w-[50%]'
+					className='absolute text-center top-[15%] w-[50%]'
 					translate
 				>
 					Enjoy the music you love

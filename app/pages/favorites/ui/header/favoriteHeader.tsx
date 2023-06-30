@@ -1,6 +1,7 @@
 import { useAuth } from '@/hook/useAuth'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { Icon, Title } from '@/ui'
+import Icon from '@/ui/icon/default-icon/icon'
+import Title from '@/ui/title/title'
 import { capitalizeFirstLetter } from '@/utils/capitalize.latter'
 import { View } from 'react-native'
 

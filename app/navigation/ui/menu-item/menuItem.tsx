@@ -1,5 +1,5 @@
 import { MenuItemProps } from '@/navigation/ui/menu-item/menuItem.types'
-import { Icon } from '@/ui'
+import Icon from '@/ui/icon/default-icon/icon'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { menuItems } from '../../menuList'

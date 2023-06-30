@@ -55,6 +55,7 @@ const Title = ({
 				},
 				style
 			]}
+			className={props.className}
 			numberOfLines={numberOfLines}
 			{...props}
 		>

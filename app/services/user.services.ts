@@ -1,6 +1,6 @@
+import { getUsersUrl } from '@/services/api.config'
 import { request } from '@/services/api/request.api'
 import { UserType } from '@/services/types/user.services.types'
-import { getUsersUrl } from '@/utils/api.config'
 
 export const userServices = {
 	async getProfile() {

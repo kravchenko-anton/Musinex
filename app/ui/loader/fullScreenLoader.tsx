@@ -1,6 +1,6 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { color } from '@/utils/color'
-import { ScreenHeight, ScreenWidth } from '@/utils/screen'
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@/utils/screen'
 import Lottie from 'lottie-react-native'
 import { View } from 'react-native'
 import loader from '../../assets/loader.json'
@@ -10,8 +10,8 @@ const FullScreenLoader = () => {
 	return (
 		<View
 			style={{
-				height: ScreenHeight,
-				width: ScreenWidth,
+				height: SCREEN_HEIGHT,
+				width: SCREEN_WIDTH,
 				backgroundColor:
 					selector === 'light'
 						? color.silver

@@ -1,9 +1,9 @@
 import TrackPlayer from 'react-native-track-player'
 
 const targetVolume = 1;
-const tick = 10;
-const duration = 50;
-	const fadeSteps = 7;
+const tick = 5;
+const duration = 10;
+	const fadeSteps = 3;
 
 export const fadeInVolume = async () => {
 	const volumeIncrease = targetVolume / (duration / tick);

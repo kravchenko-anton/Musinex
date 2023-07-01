@@ -1,7 +1,7 @@
 import { saveTokensStorage } from '@/redux/auth/auth.helper'
+import { getAuthUrl, SERVER_URL } from '@/services/api.config'
 import { AuthResponseType, EnumSecureStore } from '@/types/auth/auth.types'
 import { errorToast } from '@/ui/toast/error.toast'
-import { getAuthUrl, SERVER_URL } from '@/utils/api.config'
 import { errorCatch } from '@/utils/error.catch'
 import axios from 'axios'
 import { getItemAsync } from 'expo-secure-store'

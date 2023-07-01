@@ -1,6 +1,6 @@
+import { getSearchUrl } from '@/services/api.config'
 import { request } from '@/services/api/request.api'
 import { SearchResultType } from '@/services/types/search.services.types'
-import { getSearchUrl } from '@/utils/api.config'
 
 export const searchServices = {
 	async getSearchResult(query: string) {

@@ -1,6 +1,6 @@
+import { getGenresUrl } from '@/services/api.config'
 import { request } from '@/services/api/request.api'
 import { GenreListType, GenreType } from '@/services/types/genre.services.types'
-import { getGenresUrl } from '@/utils/api.config'
 
 export const genreServices = {
 	async getById(id: number) {

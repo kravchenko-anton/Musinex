@@ -1,7 +1,7 @@
 import { deleteTokensStorage, getAccessToken } from '@/redux/auth/auth.helper'
+import { SERVER_URL } from '@/services/api.config'
 import { getNewTokens } from '@/services/api/helper.auth'
 import { errorToast } from '@/ui/toast/error.toast'
-import { SERVER_URL } from '@/utils/api.config'
 import { errorCatch } from '@/utils/error.catch'
 import axios from 'axios'
 

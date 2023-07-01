@@ -10,7 +10,7 @@ import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
 import { handleShuffle } from '@/utils/player/handle.shaffle'
 import { skipToNext, skipToPrevious } from '@/utils/player/usePlayer'
-import { WindowHeight } from '@/utils/screen'
+import { WINDOW_HEIGHT } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
@@ -20,7 +20,7 @@ const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 	const {OpacityAnimation, MinusOpacityAnimation} = useOpacityAnimation({ isOpen })
 	return <GestureDetector gesture={PanGesture}>
 		<AnimatedView className='bg-twilight pt-4 rounded-t-3xl w-full' style={[{
-			paddingBottom: WindowHeight * 0.05,
+			paddingBottom: WINDOW_HEIGHT * 0.05,
 		}, BottomMenuAnimation]}>
 			<Pressable className='w-full items-center justify-center self-center'>
 				<View className='bg-charcoal h-[4px] w-10 rounded-full'/>

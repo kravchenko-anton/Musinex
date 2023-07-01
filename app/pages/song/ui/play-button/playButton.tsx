@@ -6,9 +6,10 @@ import { State, usePlaybackState } from 'react-native-track-player'
 
 const PlayButton:FC<PlayButtonProps> = ({size, ...props}) => {
 	const playBackState = usePlaybackState()
+	console.log(playBackState.state)
 	return <Icon
 		name={
-			playBackState.state === State.Playing
+			playBackState.state === State.Playing || playBackState.state === State.Buffering || playBackState.state === State.Ready
 				? (props.circle ? 'md-pause-circle' : 'pause')
 				: (props.circle ? 'md-play-circle' : 'play')
 		}

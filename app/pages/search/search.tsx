@@ -7,7 +7,7 @@ import FlatList404 from '@/ui/flatList/ui/flatList-404/flatList404'
 import Field from '@/ui/flield/field'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
-import { WindowHeight, WindowWidth } from '@/utils/screen'
+import { WINDOW_HEIGHT, WINDOW_WIDTH } from '@/utils/screen'
 import { useQuery } from '@tanstack/react-query'
 
 const Search = () => {
@@ -29,7 +29,7 @@ const Search = () => {
 				placeholder={'Type anything'}
 			/>
 			{searchTerm && searchTerm.length > 2 && !isLoading && loading ? (
-				<FlatList404 width={WindowWidth} height={WindowHeight * 0.3} />
+				<FlatList404 width={WINDOW_WIDTH} height={WINDOW_HEIGHT * 0.3} />
 			) : searchTerm &&
 			searchTerm.length > 2 &&
 			isLoading ? null : !searchTerm || !searchResult || loading ? (

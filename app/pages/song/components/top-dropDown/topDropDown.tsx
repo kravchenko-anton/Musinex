@@ -10,7 +10,7 @@ import UScrollView from '@/ui/scroll-view/uScrollView'
 import Title from '@/ui/title/title'
 import { trackPause, trackPlay } from '@/utils/player/usePlayer'
 import { generateRandomBeautifulHexColor } from '@/utils/random.color'
-import { WindowHeight } from '@/utils/screen'
+import { WINDOW_HEIGHT } from '@/utils/screen'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
@@ -28,7 +28,7 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 	return <GestureDetector gesture={PanGesture}>
 		<AnimatedPressable
 			style={[{
-				paddingTop: WindowHeight * 0.05,
+				paddingTop: WINDOW_HEIGHT * 0.05,
 				overflow: 'hidden',
 			}, TopBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
 			<View className='flex-row justify-between mb-5 items-center'>
@@ -49,9 +49,9 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 				<Icon name='ellipsis-vertical' size={24} color='white' />
 			</View>
 			<AnimatedView style={[{
-				height: WindowHeight * 0.57,
+				height: WINDOW_HEIGHT * 0.57,
 				overflow: 'hidden',
-				minHeight: WindowHeight * 0.57,
+				minHeight: WINDOW_HEIGHT * 0.57,
 			},useDropDownContentAnimation]}>
 				<UScrollView>
 				{selector[0].data.map((track) => {

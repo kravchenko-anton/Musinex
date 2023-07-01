@@ -16,6 +16,7 @@ export async function setupPlayer() {
 			android: {
 				alwaysPauseOnInterruption: true
 			},
+			progressUpdateEventInterval: 0,
 			capabilities: [
 				Capability.Play,
 				Capability.Pause,

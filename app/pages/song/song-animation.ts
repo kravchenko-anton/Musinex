@@ -1,4 +1,4 @@
-import { WindowHeight, WindowWidth } from '@/utils/screen'
+import { WINDOW_HEIGHT, WINDOW_WIDTH } from '@/utils/screen'
 import { useMemo } from 'react'
 import { Gesture } from 'react-native-gesture-handler'
 import { useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated'
@@ -10,7 +10,7 @@ export const useSongAnimation = ({isOpen}: any) => {
 	
 		const TopBarAnimation = useAnimatedStyle(() => {
 			return {
-				height: withSpring(isOpen.value	? WindowHeight * 0.75 : 130, {
+				height: withSpring(isOpen.value	? WINDOW_HEIGHT * 0.75 : 130, {
 					damping: 90,
 					velocity: 1,
 					stiffness: 90,
@@ -30,13 +30,13 @@ export const useSongAnimation = ({isOpen}: any) => {
 	})
 	const ImageAnimation = useAnimatedStyle(() => {
 		return {
-			height: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
+			height: withSpring(isOpen.value ? 0 : WINDOW_WIDTH * 0.8, {
 				damping: 20,
 				velocity: 1,
 				stiffness:90,
 				mass: 0.5
 			}),
-			width: withSpring(isOpen.value ? 0 : WindowWidth * 0.8, {
+			width: withSpring(isOpen.value ? 0 : WINDOW_WIDTH * 0.8, {
 				damping: 20,
 				velocity: 1,
 				stiffness:90,

@@ -4,7 +4,6 @@ import Dropdown from '@/ui/dropdown/dropdown'
 import Header from '@/ui/header/header'
 import Layout from '@/ui/layout/layout'
 import Title from '@/ui/title/title'
-
 import i18n from 'i18next'
 import Lottie from 'lottie-react-native'
 import { useColorScheme } from 'nativewind'
@@ -15,7 +14,7 @@ const Settings = () => {
 	const { setColorScheme, colorScheme } = useColorScheme()
 	const { setTheme, logout } = useAction()
 	const lottieRef = useRef<Lottie>()
-	const [DropDownOpen, setDropDownOpen] = useState(false)
+	const [isDropDownOpen, setDropDownOpen] = useState(false)
 	const [DropDownValue, setDropDownValue] = useState(i18n.language)
 	useEffect(() => {
 		lottieRef.current?.play(
@@ -56,7 +55,7 @@ const Settings = () => {
 					value={DropDownValue}
 					setValue={setDropDownValue}
 					setIsOpen={setDropDownOpen}
-					isOpen={DropDownOpen}
+					isOpen={isDropDownOpen}
 					onSelect={async value => {
 						await i18n.changeLanguage(value)
 					}}

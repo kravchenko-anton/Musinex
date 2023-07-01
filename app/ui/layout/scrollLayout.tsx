@@ -10,7 +10,7 @@ const ScrollLayout: FC<PropsWithChildren<UScrollViewProps>> = ({
 	paddingBottom = 80,
 	...props
 }) => {
-	const [refreshing, setRefreshing] = useState(false)
+	const [isRefreshing, setRefreshing] = useState(false)
 	const queryClient = useQueryClient()
 	const onRefresh = useCallback(async () => {
 		setRefreshing(true)
@@ -21,7 +21,7 @@ const ScrollLayout: FC<PropsWithChildren<UScrollViewProps>> = ({
 		<SafeAreaView>
 			<UScrollView
 				refreshControl={
-					<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+					<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
 				}
 				className='p-3'
 				paddingBottom={paddingBottom}

@@ -10,12 +10,12 @@ export const useRotateAnimation = ({isOpen, direction, userConfig = {
 	mass: 0.5,
 	stiffness: 100,
 } }: RotateAnimationProps) => {
-const IsOpenType = typeof isOpen === 'boolean'
+const isOpenType = typeof isOpen === 'boolean'
 	const RotateAnimation = useAnimatedStyle(() => {
 		return {
 			transform: [
 				{
-					rotate: withSpring((IsOpenType ? isOpen : isOpen.value) ?
+					rotate: withSpring((isOpenType ? isOpen : isOpen.value) ?
 							direction === 'up' ? '0deg' : "180deg" :
 							direction === 'down' ? '0deg' : "180deg",
 							userConfig

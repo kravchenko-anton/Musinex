@@ -11,12 +11,12 @@ const Field = <T extends Record<string, any>>({
 	placeholder,
 	...props
 }: FieldProps<T>): JSX.Element | null => {
-	const [fontsLoaded] = useFonts({
+	const [isFontsLoaded] = useFonts({
 		Montserrat_700Bold
 	})
 	const { t } = useTranslation()
 	const { colorScheme } = useColorScheme()
-	if (!fontsLoaded) return null
+	if (!isFontsLoaded) return null
 	return (
 		<Controller
 			control={props.control}

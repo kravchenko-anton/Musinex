@@ -14,7 +14,7 @@ const Search = () => {
 	const { searchTerm, searchResult, isLoading, control } = useSearch()
 	const { data: genres } = useQuery(['genre'], genreServices.getAll)
 
-	const loading =
+	const isSearchLoading =
 		searchResult &&
 		!searchResult.songs.length &&
 		!searchResult.artists.length &&
@@ -28,11 +28,11 @@ const Search = () => {
 				name={'searchTerm'}
 				placeholder={'Type anything'}
 			/>
-			{searchTerm && searchTerm.length > 2 && !isLoading && loading ? (
+			{searchTerm && searchTerm.length > 2 && !isLoading && isSearchLoading ? (
 				<FlatList404 width={WINDOW_WIDTH} height={WINDOW_HEIGHT * 0.3} />
 			) : searchTerm &&
 			searchTerm.length > 2 &&
-			isLoading ? null : !searchTerm || !searchResult || loading ? (
+			isLoading ? null : !searchTerm || !searchResult || isSearchLoading ? (
 				<UFlatList
 					data={genres}
 					fixBottom

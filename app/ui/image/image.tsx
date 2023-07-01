@@ -14,7 +14,7 @@ const UImage: FC<ImageTypes> = ({
 	wrapperClassName,
 	...props
 }) => {
-	const [imageLoading, setIsImageLoading] = useState(true)
+	const [isImageLoading, setIsImageLoading] = useState(true)
 	return (
 		<View className={wrapperClassName}>
 			<Image
@@ -31,14 +31,14 @@ const UImage: FC<ImageTypes> = ({
 					{
 						width,
 						height,
-						display: imageLoading ? 'none' : 'flex',
+						display: isImageLoading ? 'none' : 'flex',
 						borderRadius
 					},
 					style
 				]}
 				{...props}
 			/>
-			{imageLoading && (
+			{isImageLoading && (
 				<Skeleton
 					width={width}
 					transparent={transparentSkeleton}

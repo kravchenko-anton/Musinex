@@ -23,7 +23,7 @@ const Title = ({
 	style,
 	...props
 }: TitleProps) => {
-	const [fontsLoaded] = useFonts({
+	const [isFontsLoaded] = useFonts({
 		Montserrat_300Light,
 		Montserrat_500Medium,
 		Montserrat_600SemiBold,
@@ -32,7 +32,7 @@ const Title = ({
 	})
 	const { t } = useTranslation()
 	const { colorScheme } = useColorScheme()
-	if (!fontsLoaded || !children)
+	if (!isFontsLoaded || !children)
 		return (
 			<Skeleton
 				width={children.length * 10}

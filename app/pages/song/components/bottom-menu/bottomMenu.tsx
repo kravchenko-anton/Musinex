@@ -14,6 +14,7 @@ import { WINDOW_HEIGHT } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
+
 const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 	const {bottomMenuAnimation,widthAnimation,panGesture} = useSongAnimation({ isOpen })
 	const {opacityAnimation, minusOpacityAnimation} = useOpacityAnimation({ isOpen })

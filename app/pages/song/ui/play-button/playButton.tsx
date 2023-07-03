@@ -8,7 +8,7 @@ const PlayButton:FC<PlayButtonProps> = ({size, ...props}) => {
 	const playBackState = usePlaybackState()
 	return <Icon
 		name={
-			playBackState.state === State.Playing || playBackState.state === State.Buffering || playBackState.state === State.Ready
+			playBackState.state === State.Playing || playBackState.state === State.Buffering
 				? (props.circle ? 'md-pause-circle' : 'pause')
 				: (props.circle ? 'md-play-circle' : 'play')
 		}

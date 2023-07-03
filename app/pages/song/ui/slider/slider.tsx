@@ -4,7 +4,11 @@ import Slider from '@react-native-community/slider'
 import { memo } from 'react'
 import { View } from 'react-native'
 import TrackPlayer, { useProgress } from 'react-native-track-player'
-
+const timeFormat = (time:number) => {
+	const minutes = Math.floor(time / 60)
+	const seconds = Math.floor(time - minutes * 60)
+	return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+}
 const Sliders = () => {
 	const { position, duration } = useProgress();
 	return (
@@ -22,12 +26,12 @@ const Sliders = () => {
 			<View className='flex-row justify-between px-4 m-0'>
 				<Title color={'silver'} className='text-center' size={20}>
 					{
-						String(position.toFixed(2))
+						timeFormat(position)
 					}
 				</Title>
 				<Title color={'silver'} className='text-center' size={20}>
 					{
-						String(duration.toFixed(2))
+						timeFormat(duration)
 					}
 				</Title>
 			</View>

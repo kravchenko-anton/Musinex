@@ -8,5 +8,6 @@
 		"paths": {
 			"@/*": ["./app/*"]
 		},
-	},
+		"allowJs": true
+	}
 }

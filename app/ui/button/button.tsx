@@ -1,12 +1,11 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
 import {
-	BackgroundColorSettings,
-	gapSettings,
-	IconColorSettings,
-	IconSizeSettings,
+	backgroundColorSettings,
+	gapSettings, iconColorSettings,
+	iconSizeSettings,
 	sizeSettings,
-	TextSizeSettings
+	textSizeSettings
 } from '@/ui/button/button.settings'
 import { IButtonTypes } from '@/ui/button/button.types'
 import { color } from '@/utils/color'
@@ -16,7 +15,6 @@ import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 import Icon from '../icon/default-icon/icon'
 import Title from '../title/title'
-
 const Button: FC<IButtonTypes> = ({
 	translate = false,
 	size = 'small',
@@ -32,7 +30,7 @@ const Button: FC<IButtonTypes> = ({
 	const { pressFunctions, animatedStyle } = usePressAnimation()
 			return (
 		<AnimatedPressable {...pressFunctions} style={[{
-				backgroundColor: variant === 'primary' ? color.primary : BackgroundColorSettings[colorScheme],
+				backgroundColor: variant === 'primary' ? color.primary : backgroundColorSettings[colorScheme],
 				borderRadius: borderRadius,
 				padding: sizeSettings[size],
 				width: props.width ? props.width : '100%' },
@@ -51,7 +49,7 @@ const Button: FC<IButtonTypes> = ({
 						translate={translate}
 						fontFamily={'Montserrat_600SemiBold'}
 						size={
-							props.textSize ? props.textSize : TextSizeSettings[size]
+							props.textSize ? props.textSize : textSizeSettings[size]
 						}
 						style={{
 							textTransform: props.uppercase ? 'uppercase' : 'none',
@@ -63,9 +61,9 @@ const Button: FC<IButtonTypes> = ({
 					{props.icon && (
 						<Icon
 							size={
-								iconSize ? iconSize : IconSizeSettings[size]
+								iconSize ? iconSize : iconSizeSettings[size]
 							}
-							color={IconColorSettings[variant]}
+							color={iconColorSettings[variant]}
 							name={props.icon}
 						/>
 					)}

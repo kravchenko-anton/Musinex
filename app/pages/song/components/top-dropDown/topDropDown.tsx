@@ -15,22 +15,21 @@ import { FC } from 'react'
 import { View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
 import TrackPlayer from 'react-native-track-player'
-
 const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 	const { goBack } = useTypedNavigation()
 	const selector = useTypedSelector((state) => state.player)
 	const {
-		TopBarAnimation,
-		PanGesture,
-		useDropDownContentAnimation,
+		topBarAnimation,
+		panGesture,
+		dropDownContentAnimation,
 	} = useSongAnimation({ isOpen })
-	const {RotateAnimation} = useRotateAnimation({isOpen, direction: 'down'})
-	return <GestureDetector gesture={PanGesture}>
+	const {rotateAnimation} = useRotateAnimation({isOpen, direction: 'down'})
+	return <GestureDetector gesture={panGesture}>
 		<AnimatedPressable
 			style={[{
 				paddingTop: WINDOW_HEIGHT * 0.05,
 				overflow: 'hidden',
-			}, TopBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
+			}, topBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
 			<View className='flex-row justify-between mb-5 items-center'>
 				<Icon
 					onPress={() => goBack()}
@@ -52,10 +51,9 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 				height: WINDOW_HEIGHT * 0.57,
 				overflow: 'hidden',
 				minHeight: WINDOW_HEIGHT * 0.57,
-			},useDropDownContentAnimation]}>
+			},dropDownContentAnimation]}>
 				<UScrollView>
-				{selector[0].data.map((track) => {
-						return <CatalogItem key={track.id}
+				{selector[0].data.map((track) => <CatalogItem key={track.id}
 							text1={track.title}
 							text2={track.artist}
 							type={'song'}
@@ -80,12 +78,11 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 								width: 50,
 								border: 5
 							}}
-						/>
-					})
+						/>)
 				}
 				</UScrollView>
 			</AnimatedView>
-			<Icon style={RotateAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
+			<Icon style={rotateAnimation} name={'ios-chevron-down'}  className=' absolute bottom-1 z-40  self-center rounded-full'/>
 		</AnimatedPressable>
 	</GestureDetector>
 }

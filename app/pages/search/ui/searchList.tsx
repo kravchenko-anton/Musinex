@@ -32,8 +32,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({ searchResult }) =>
 									type={'song'}
 									onPress={() =>
 										addToPlayer({
-											data: searchResult.songs.map(track => {
-												return {
+											data: searchResult.songs.map(track => ({
 													artist: track.artists[0].name,
 													duration: track.duration,
 													id: track.id,
@@ -41,8 +40,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({ searchResult }) =>
 													url: track.mp3Path,
 													coverBig: track.coverBig,
 													coverSmall: track.coverSmall,
-												}
-											}),
+												})),
 											songIndex: index
 										})
 									}

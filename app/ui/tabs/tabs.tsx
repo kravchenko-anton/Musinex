@@ -16,8 +16,7 @@ const Tabs: FC<TabsProps> = ({ data: tabs, translate = false }) => {
 				<UFlatList
 					horizontal
 					data={tabs}
-					renderItem={({ item: tab }) => {
-						return (
+					renderItem={({ item: tab }) => (
 							<Button
 								uppercase
 								translate={false}
@@ -28,8 +27,7 @@ const Tabs: FC<TabsProps> = ({ data: tabs, translate = false }) => {
 								width={110}
 								text={tab.title}
 							/>
-						)
-					}}
+						)}
 				/>
 			</View>
 			{activeComponent}

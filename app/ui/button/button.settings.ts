@@ -12,23 +12,23 @@ export const gapSettings = {
 	"large": 10
 }
 
-export const TextSizeSettings = {
+export const textSizeSettings = {
 	"small": 15,
 	"medium": 18,
 	"large": 20
 }
 
-export const IconSizeSettings = {
+export const iconSizeSettings = {
 	"small": 15,
 	"medium": 18,
 	"large": 20
 }
-export const IconColorSettings: { default: 'dark'; primary: 'white' } = {
+export const iconColorSettings: { default: 'dark'; primary: 'white' } = {
 	'default': 'dark',
 	'primary': 'white',
 }
 
-export const BackgroundColorSettings = {
+export const backgroundColorSettings = {
 "light": color.charcoal,
 	"dark": color.twilight,
 }

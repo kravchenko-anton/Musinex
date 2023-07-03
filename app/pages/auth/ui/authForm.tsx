@@ -6,8 +6,7 @@ import { View } from 'react-native'
 
 const AuthForm: FC<{ control: Control<AuthFieldsType, unknown> }> = ({
 	control
-}) => {
-	return (
+}) => (
 		<View>
 			<Field
 				rules={{
@@ -43,6 +42,5 @@ const AuthForm: FC<{ control: Control<AuthFieldsType, unknown> }> = ({
 			/>
 		</View>
 	)
-}
 
 export default AuthForm

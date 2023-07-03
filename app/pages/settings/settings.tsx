@@ -15,7 +15,7 @@ const Settings = () => {
 	const { setTheme, logout } = useAction()
 	const lottieRef = useRef<Lottie>()
 	const [isDropDownOpen, setDropDownOpen] = useState(false)
-	const [DropDownValue, setDropDownValue] = useState(i18n.language)
+	const [dropDownValue, setDropDownValue] = useState(i18n.language)
 	useEffect(() => {
 		lottieRef.current?.play(
 			colorScheme === 'light' ? 80 : 0,
@@ -52,7 +52,7 @@ const Settings = () => {
 						{ label: 'Polish', value: 'pl' },
 						{ label: 'Ukrainian', value: 'ua' }
 					]}
-					value={DropDownValue}
+					value={dropDownValue}
 					setValue={setDropDownValue}
 					setIsOpen={setDropDownOpen}
 					isOpen={isDropDownOpen}

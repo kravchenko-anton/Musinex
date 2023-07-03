@@ -17,8 +17,7 @@ const Ball: FC<BallProps> = ({
 	wrapperStyle = {},
 	style,
 	...props
-}) => {
-	return (
+}) => (
 		<View
 			style={[
 				{
@@ -47,6 +46,5 @@ const Ball: FC<BallProps> = ({
 			</View>
 		</View>
 	)
-}
 
 export default Ball

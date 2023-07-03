@@ -4,8 +4,7 @@ import Title from '@/ui/title/title'
 import { FC } from 'react'
 import { Pressable } from 'react-native'
 
-const DropdownElement: FC<DropdownElementProps> = ({ ...props }) => {
-	return (
+const DropdownElement: FC<DropdownElementProps> = ({ ...props }) => (
 		<Pressable
 			style={[
 				props.isSelected && {
@@ -24,6 +23,5 @@ const DropdownElement: FC<DropdownElementProps> = ({ ...props }) => {
 			{props.isSelected && <Icon name='checkmark' padding={0} />}
 		</Pressable>
 	)
-}
 
 export default DropdownElement

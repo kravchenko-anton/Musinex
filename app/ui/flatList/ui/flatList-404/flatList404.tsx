@@ -4,8 +4,7 @@ import { FC } from 'react'
 import { View } from 'react-native'
 import Title from '../../../title/title'
 
-const FlatList404: FC<IFlatList404> = props => {
-	return (
+const FlatList404: FC<IFlatList404> = props => (
 		<View className='w-full h-full'>
 			<Lottie
 				source={require('../../../../assets/90988-no-results.json')}
@@ -26,6 +25,5 @@ const FlatList404: FC<IFlatList404> = props => {
 			</Title>
 		</View>
 	)
-}
 
 export default FlatList404

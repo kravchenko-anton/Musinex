@@ -9,13 +9,12 @@ import { color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import React, { FC, useState } from 'react'
 import { Pressable, View } from 'react-native'
-
 const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 	const [dropdownValue, setDropdownValue] = useState(
 		props.options.find(option => option.value === value) || props.options[0]
 	)
 	const {dropdownAnimation} = useDropdownAnimation({ isOpen })
-	const {RotateAnimation} = useRotateAnimation({isOpen, direction: 'down'})
+	const {rotateAnimation} = useRotateAnimation({isOpen, direction: 'down'})
 	const { colorScheme } = useColorScheme()
 	return (
 		<View className='z-50'
@@ -38,7 +37,7 @@ const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 						{dropdownValue.label}
 					</Title>
 					
-					<AnimatedPressable style={RotateAnimation}>
+					<AnimatedPressable style={rotateAnimation}>
 						<Icon padding={0} name='chevron-down' {...props} />
 					</AnimatedPressable>
 				</View>
@@ -62,8 +61,7 @@ const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 					dropdownAnimation
 				]}
 			>
-				{props.options.map((option, index) => {
-					return (
+				{props.options.map((option, index) => (
 						<DropdownElement
 							label={option.label}
 							value={option.value}
@@ -75,8 +73,7 @@ const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 								props.onSelect(option.value)
 							}}
 						/>
-					)
-				})}
+					))}
 			</AnimatedView>
 		</View>
 	)

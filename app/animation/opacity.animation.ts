@@ -8,20 +8,16 @@ export const useOpacityAnimation = ({isOpen,  userConfig = {
 	duration: 400
 } }: OpacityAnimationProps) => {
 const isOpenType = typeof isOpen === 'boolean'
-		const OpacityAnimation = useAnimatedStyle(() => {
-		return {
+		const opacityAnimation = useAnimatedStyle(() => ({
 		opacity: withTiming((isOpenType ? isOpen : isOpen.value) ? 1 : 0, userConfig),
 		display: (isOpenType ? isOpen : isOpen.value) ? 'flex' : 'none',
-		}
-	})
-	const MinusOpacityAnimation = useAnimatedStyle(() => {
-		return {
+		}))
+	const minusOpacityAnimation = useAnimatedStyle(() => ({
 			opacity: withTiming((isOpenType ? isOpen : isOpen.value) ? 0 : 1, userConfig),
 			display: (isOpenType ? isOpen : isOpen.value) ? 'none' : 'flex'
-		}
-	})
+		}))
 	return useMemo(
-		() => ({ OpacityAnimation, MinusOpacityAnimation }),
+		() => ({ opacityAnimation, minusOpacityAnimation }),
 		[isOpen]
 	)
 }

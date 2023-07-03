@@ -29,8 +29,7 @@ export const usePlayer = () => {
 			await trackPause()
 			await TrackPlayer.stop()
 			await TrackPlayer.add(
-				selector[0].data.map((value) => {
-					return {
+				selector[0].data.map((value) => ({
 						id: value.id,
 						url: value.url,
 						title: value.title,
@@ -39,8 +38,7 @@ export const usePlayer = () => {
 						coverSmall: value.coverSmall,
 						artwork: value.coverBig,
 						color,
-					}
-				})
+					}))
 			)
 			await TrackPlayer.skip(selector[0].songIndex, 0)
 			await trackPlay()

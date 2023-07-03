@@ -14,19 +14,18 @@ import { WINDOW_HEIGHT } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'
 import { GestureDetector } from 'react-native-gesture-handler'
-
 const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
-	const {BottomMenuAnimation,WidthAnimation,PanGesture} = useSongAnimation({ isOpen })
-	const {OpacityAnimation, MinusOpacityAnimation} = useOpacityAnimation({ isOpen })
-	return <GestureDetector gesture={PanGesture}>
+	const {bottomMenuAnimation,widthAnimation,panGesture} = useSongAnimation({ isOpen })
+	const {opacityAnimation, minusOpacityAnimation} = useOpacityAnimation({ isOpen })
+	return <GestureDetector gesture={panGesture}>
 		<AnimatedView className='bg-twilight pt-4 rounded-t-3xl w-full' style={[{
 			paddingBottom: WINDOW_HEIGHT * 0.05,
-		}, BottomMenuAnimation]}>
+		}, bottomMenuAnimation]}>
 			<Pressable className='w-full items-center justify-center self-center'>
 				<View className='bg-charcoal h-[4px] w-10 rounded-full'/>
 			</Pressable>
 			<View className='items-center px-4  self-center flex-row justify-between mt-[15px] w-full'>
-				<AnimatedView style={WidthAnimation}>
+				<AnimatedView style={widthAnimation}>
 					<Title size={ 25} fontFamily={'Montserrat_600SemiBold'}>
 						{props.title}
 					</Title>
@@ -34,7 +33,7 @@ const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 						{props.artist}
 					</Title>
 				</AnimatedView>
-				<AnimatedView style={OpacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
+				<AnimatedView style={opacityAnimation} className='items-center justify-between flex-row p-0 m-0'>
 					<Icon
 						name='play-skip-back'
 						onPress={() => skipToPrevious()}
@@ -49,7 +48,7 @@ const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 						color='white'
 					/>
 				</AnimatedView>
-				<AnimatedView style={MinusOpacityAnimation}>
+				<AnimatedView style={minusOpacityAnimation}>
 					<Heart
 						size={35}
 						id={props.id}
@@ -59,7 +58,7 @@ const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 			</View>
 			<Sliders />
 			
-			<AnimatedView style={[MinusOpacityAnimation]}  className='flex-row self-center items-center justify-evenly w-full px-3'>
+			<AnimatedView style={[minusOpacityAnimation]}  className='flex-row self-center items-center justify-evenly w-full px-3'>
 				<Icon
 					name='shuffle'
 					onPress={() => handleShuffle()}

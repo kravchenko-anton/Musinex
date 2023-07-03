@@ -15,7 +15,6 @@ import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Animated } from 'react-native'
-
 const GenreCatalog = () => {
 	const { params } = useTypedRoute<'GenreCatalog'>()
 	const { addToPlayer } = useAction()
@@ -42,8 +41,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={25}
 					headerText={'Songs'}
-					renderItem={({ item: song, index }) => {
-						return (
+					renderItem={({ item: song, index }) => (
 							<MusicCart
 								image={{
 									url: song.coverMedium,
@@ -53,24 +51,21 @@ const GenreCatalog = () => {
 								}}
 								onPress={() => {
 									addToPlayer({
-										data: genre.songs.map(track => {
-											return {
+										data: genre.songs.map(track => ({
 												id: track.id,
 												title: track.title,
 												url: track.mp3Path,
 												artist: track.artists[0].name,
 												coverBig: track.coverBig,
 												coverSmall: track.coverSmall,
-											}
-										}),
+											})),
 										songIndex: index
 									})
 								}}
 								name={song.title}
 								artists={song.artists[0].name}
 							/>
-						)
-					}}
+						)}
 				/>
 
 				<UFlatList
@@ -78,8 +73,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={0}
 					headerText='Albums'
-					renderItem={({ item: album }: { item: AlbumTypes }) => {
-						return (
+					renderItem={({ item: album }: { item: AlbumTypes }) => (
 							<MusicCart
 								image={{
 									url: album.coverMedium,
@@ -89,8 +83,7 @@ const GenreCatalog = () => {
 								}}
 								name={album.title}
 							/>
-						)
-					}}
+						)}
 				/>
 
 				<UFlatList
@@ -98,8 +91,7 @@ const GenreCatalog = () => {
 					horizontal
 					mt={25}
 					headerText='Playlist'
-					renderItem={({ item: playlist }: { item: PlaylistType }) => {
-						return (
+					renderItem={({ item: playlist }: { item: PlaylistType }) => (
 							<MusicCart
 								image={{
 									url: playlist.coverMedium,
@@ -108,8 +100,7 @@ const GenreCatalog = () => {
 								}}
 								name={playlist.title}
 							/>
-						)
-					}}
+						)}
 				/>
 			</CatalogContent>
 		</Layout>

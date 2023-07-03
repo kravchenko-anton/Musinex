@@ -40,8 +40,7 @@ const FavoriteCatalog = () => {
 				<UFlatList
 					data={songs}
 					scrollEnabled={false}
-					renderItem={({ item: song, index }) => {
-						return (
+					renderItem={({ item: song, index }) => (
 							<CatalogItem
 								type={'song'}
 								id={song.id}
@@ -55,22 +54,19 @@ const FavoriteCatalog = () => {
 								text2={song.artists[0].name}
 								onPress={() => {
 									addToPlayer({
-										data: songs.map(track => {
-											return {
+										data: songs.map(track => ({
 												id: track.id,
 												title: track.title,
 												url: track.mp3Path,
 												artist: track.artists[0].name,
 												coverBig: track.coverBig,
 												coverSmall: track.coverSmall,
-											}
-										}),
+											})),
 										songIndex: index
 									})
 								}}
 							/>
-						)
-					}}
+						)}
 				/>
 			</CatalogContent>
 		</Layout>

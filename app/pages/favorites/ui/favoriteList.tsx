@@ -18,7 +18,7 @@ const FavoriteList = () => {
 	const { navigate } = useTypedNavigation()
 	if (!user) return <FullScreenLoader />
 
-	const FavoriteArray = [
+	const favoriteArray = [
 		{
 			id: 'Songs' + 0,
 			type: 'favoriteSongs',
@@ -48,7 +48,7 @@ const FavoriteList = () => {
 				</View>
 			)}
 			keyExtractor={(item, index) => index.toString()}
-			data={FavoriteArray}
+			data={favoriteArray}
 			renderItem={({ item }: any) => {
 				const title = item.title ? item.title : item.name
 				const picture = item.coverMedium ? item.coverMedium : item.pictureMedium

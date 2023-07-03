@@ -10,7 +10,6 @@ import Lottie from 'lottie-react-native'
 import { FC, memo } from 'react'
 import { View } from 'react-native'
 import { useActiveTrack, usePlaybackState } from 'react-native-track-player'
-
 const CatalogItem: FC<CatalogItemProps> = ({
 	id,
 	textSize = 22,
@@ -21,7 +20,7 @@ const CatalogItem: FC<CatalogItemProps> = ({
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	const activeTrack = useActiveTrack() as TrackType
 	const playBackState = usePlaybackState()
-	const {OpacityAnimation} = useOpacityAnimation({
+	const {opacityAnimation} = useOpacityAnimation({
 		isOpen: activeTrack?.title === props.text1 && playBackState.state === 'playing'
 	})
 	return (
@@ -63,7 +62,7 @@ const CatalogItem: FC<CatalogItemProps> = ({
 				</View>
 			</View>
 			<View className='items-center flex-row'>
-				<AnimatedView style={OpacityAnimation}>
+				<AnimatedView style={opacityAnimation}>
 						<Lottie source={require('@/assets/music-play.json')} style={{
 						width: 30,
 						height: 30,

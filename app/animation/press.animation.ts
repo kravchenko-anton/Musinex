@@ -7,11 +7,9 @@ export const usePressAnimation =
 		}: AnimationConfigType = {}
 	) => {
 	const scale = useSharedValue(1)
-	const animatedStyle = useAnimatedStyle(() => {
-		return {
+	const animatedStyle = useAnimatedStyle(() => ({
 			transform: [{ scale: scale.value}]
-		}
-	})
+		}))
 
 	const onPressIn = () => {
 		scale.value = withTiming(0.97, userConfig)

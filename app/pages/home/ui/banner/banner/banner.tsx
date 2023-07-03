@@ -9,7 +9,6 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import Ball from '../ball/ball'
-
 const Banner: FC<PropsWithChildren<BannerProps>> = ({
 	songs,
 	colors = [
@@ -38,8 +37,7 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 				</Title>
 
 				<View className='absolute bottom-[-10] flex-row gap-[-10] justify-center items-center'>
-					{songs.slice(0, 3).map(({ coverMedium, id }, index) => {
-						return (
+					{songs.slice(0, 3).map(({ coverMedium, id }, index) => (
 							<Image
 								key={id}
 								width={100}
@@ -53,8 +51,7 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 								className='rotate-12'
 								url={coverMedium}
 							/>
-						)
-					})}
+						))}
 				</View>
 			</LinearGradient>
 			{children || (

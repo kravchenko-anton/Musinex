@@ -11,8 +11,7 @@ export const useRotateAnimation = ({isOpen, direction, userConfig = {
 	stiffness: 100,
 } }: RotateAnimationProps) => {
 const isOpenType = typeof isOpen === 'boolean'
-	const RotateAnimation = useAnimatedStyle(() => {
-		return {
+	const rotateAnimation = useAnimatedStyle(() => ({
 			transform: [
 				{
 					rotate: withSpring((isOpenType ? isOpen : isOpen.value) ?
@@ -22,10 +21,9 @@ const isOpenType = typeof isOpen === 'boolean'
 					)
 				}
 			]
-		}
-	})
+		}))
 	return useMemo(
-		() => ({ RotateAnimation }),
+		() => ({ rotateAnimation }),
 		[isOpen]
 	)
 }

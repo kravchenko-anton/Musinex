@@ -35,22 +35,18 @@ const Home = () => {
 				horizontal
 				mt={20}
 				headerText='Categories'
-				renderItem={({ item: genre }) => {
-					return <GenreItem item={genre} />
-				}}
+				renderItem={({ item: genre }) => <GenreItem item={genre} />}
 			/>
 			<UFlatList
 				data={chart.songs}
 				horizontal
 				mt={25}
 				headerText={'Trending Songs'}
-				renderItem={({ item: song, index }) => {
-					return (
+				renderItem={({ item: song, index }) => (
 						<MusicCart
 							onPress={() =>
 								addToPlayer({
-									data: chart.songs.map(track => {
-										return {
+									data: chart.songs.map(track => ({
 											artist: track.artists[0].name,
 											duration: track.duration,
 											id: track.id,
@@ -58,8 +54,7 @@ const Home = () => {
 											url: track.mp3Path,
 											coverBig: track.coverBig,
 											coverSmall: track.coverSmall,
-										}
-									}),
+										})),
 									songIndex: index
 								})
 							}
@@ -72,16 +67,14 @@ const Home = () => {
 							name={song.title}
 							artists={song.artists[0].name}
 						/>
-					)
-				}}
+					)}
 			/>
 			<UFlatList
 				data={chart.artists}
 				horizontal
 				mt={25}
 				headerText='Rated Artists'
-				renderItem={({ item: artist }) => {
-					return (
+				renderItem={({ item: artist }) => (
 						<MusicCart
 							onPress={() => navigate('ArtistCatalog', { id: artist.id })}
 							image={{
@@ -93,8 +86,7 @@ const Home = () => {
 							name={artist.name}
 							textCenter
 						/>
-					)
-				}}
+					)}
 			/>
 
 			<UFlatList
@@ -102,8 +94,7 @@ const Home = () => {
 				horizontal
 				mt={25}
 				headerText='Wonderful Albums'
-				renderItem={({ item: album }) => {
-					return (
+				renderItem={({ item: album }) => (
 						<MusicCart
 							onPress={() => navigate('AlbumCatalog', { id: album.id })}
 							image={{
@@ -114,8 +105,7 @@ const Home = () => {
 							}}
 							name={album.title}
 						/>
-					)
-				}}
+					)}
 			/>
 
 			<UFlatList
@@ -123,8 +113,7 @@ const Home = () => {
 				horizontal
 				mt={25}
 				headerText='Best Playlist'
-				renderItem={({ item: playlist }) => {
-					return (
+				renderItem={({ item: playlist }) => (
 						<MusicCart
 							onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}
 							image={{
@@ -134,8 +123,7 @@ const Home = () => {
 							}}
 							name={playlist.title}
 						/>
-					)
-				}}
+					)}
 			/>
 		</ScrollLayout>
 	)

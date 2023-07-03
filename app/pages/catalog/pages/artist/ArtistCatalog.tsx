@@ -40,8 +40,7 @@ const ArtistCatalog = () => {
 				<UFlatList
 					data={artist.songs}
 					scrollEnabled={false}
-					renderItem={({ item: song, index }) => {
-						return (
+					renderItem={({ item: song, index }) => (
 							<CatalogItem
 								type={'song'}
 								id={song.id}
@@ -55,22 +54,19 @@ const ArtistCatalog = () => {
 								text2={artist.name}
 								onPress={() => {
 									addToPlayer({
-										data: artist.songs.map(track => {
-											return {
+										data: artist.songs.map(track => ({
 												id: track.id,
 												title: track.title,
 												url: track.mp3Path,
 												artist: artist.name,
 												coverBig: track.coverBig,
 												coverSmall: track.coverSmall,
-											}
-										}),
+											})),
 										songIndex: index
 									})
 								}}
 							/>
-						)
-					}}
+						)}
 				/>
 			</CatalogContent>
 		</Layout>

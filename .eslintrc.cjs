@@ -7,13 +7,23 @@ module.exports = {
 		project: './tsconfig.json',
 	},
 	rules: {
+		"arrow-body-style": ["error", "as-needed"],
 		"@typescript-eslint/naming-convention": [
-			"error",
+			"warn",
 			{
 				selector: "variable",
 				types: ["boolean"],
 				format: ["PascalCase"],
 				prefix: ["is", "should", "has", "can", "did", "will"]
+			},
+			{
+				selector: "variable",
+				types: ["function"],
+				format: ["camelCase", "PascalCase"]
+			},
+			{
+				selector: "variable",
+				format: ["camelCase", "UPPER_CASE"]
 			},
 			{
 				selector: "interface",

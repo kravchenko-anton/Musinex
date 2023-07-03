@@ -19,8 +19,7 @@ const options = (primaryColor: string) => ({
 		fontSize: 14
 	}
 })
-const Toast: FC = () => {
-	return (
+const Toast: FC = () => (
 		<RnToast
 			topOffset={50}
 			autoHide={true}
@@ -46,6 +45,5 @@ const Toast: FC = () => {
 			}}
 		/>
 	)
-}
 
 export default Toast

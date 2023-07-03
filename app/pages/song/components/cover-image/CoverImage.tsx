@@ -3,9 +3,8 @@ import { CoverImageProps } from '@/pages/song/components/cover-image/CoverImage.
 import { useSongAnimation } from '@/pages/song/song-animation'
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '@/utils/screen'
 import { FC } from 'react'
-
 const CoverImage:FC<CoverImageProps> = ({coverBig, isOpen}) => {
-	const {ImageAnimation} = useSongAnimation({
+	const {imageAnimation} = useSongAnimation({
 		isOpen
 	})
 	return <AnimatedImage
@@ -17,7 +16,7 @@ const CoverImage:FC<CoverImageProps> = ({coverBig, isOpen}) => {
 			style={[{
 				borderRadius: 15,
 				marginTop: WINDOW_HEIGHT * 0.06
-			}, ImageAnimation]}
+			}, imageAnimation]}
 			
 			resizeMode={'cover'}
 			className=' relative items-center  justify-center self-center'

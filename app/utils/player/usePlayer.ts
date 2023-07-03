@@ -7,8 +7,8 @@ import TrackPlayer, { RepeatMode } from 'react-native-track-player'
 
 export const trackPlay = async () => await fadeInVolume().then(() => TrackPlayer.play())
 	export const trackPause = async () => await fadeOutVolume().then(() => TrackPlayer.pause())
-	export const skipToNext = async () => await TrackPlayer.skipToNext().then(() => trackPlay())
-	export const skipToPrevious = async () => await TrackPlayer.skipToPrevious().then(() => trackPlay())
+	export const skipToNext = async () => await fadeOutVolume().then(() => TrackPlayer.skipToNext().then(() => trackPlay()))
+	export const skipToPrevious = async () => await fadeOutVolume().then(() => TrackPlayer.skipToPrevious().then(() => trackPlay()))
 export const usePlayer = () => {
 	const selector = useTypedSelector(state => state.player)
 	const [isPlayerReady, setIsPlayerReady] = useState(false)

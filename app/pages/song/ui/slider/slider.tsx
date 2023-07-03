@@ -11,15 +11,16 @@ const timeFormat = (time:number) => {
 }
 const Sliders = () => {
 	const { position, duration } = useProgress();
+	console.log(position, duration)
 	return (
 		<View>
 			<Slider
 				style={{ width: '100%', height: 35 }}
-				value={position}
+				value={position || 1}
 				minimumValue={0}
-				maximumValue={duration}
+				maximumValue={duration || 10}
 				thumbTintColor="white"
-				minimumTrackTintColor={color.primary}
+				minimumTrackTintColor={color.white}
 				maximumTrackTintColor="#FFFFFF"
 				onSlidingComplete={TrackPlayer.seekTo}
 			/>

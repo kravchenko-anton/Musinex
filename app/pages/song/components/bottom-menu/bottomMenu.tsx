@@ -31,10 +31,10 @@ const BottomMenu:FC<BottomDropDownProps> = ({isOpen, ...props}) => {
 			</Pressable>
 			<View className='items-center px-4  self-center flex-row justify-between mt-[15px] w-full'>
 				<AnimatedView style={widthAnimation}>
-					<Title size={ 25} fontFamily={'Montserrat_600SemiBold'}>
+					<Title size={ 25} weight={'semiBold'}>
 						{props.title}
 					</Title>
-					<Title color={midnightToSilver} fontFamily={'Montserrat_500Medium'} size={18}>
+					<Title color={midnightToSilver} weight={'medium'} size={18}>
 						{props.artist}
 					</Title>
 				</AnimatedView>

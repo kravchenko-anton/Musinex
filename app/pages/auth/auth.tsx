@@ -44,7 +44,7 @@ const Auth = () => {
 						translate={true}
 						className='text-center mb-4'
 						size={24}
-						fontFamily={'Montserrat_900Black'}
+						weight={'extraBold'}
 					>
 						{type === 'Login' ? 'Login' : 'Register'}
 					</Title>

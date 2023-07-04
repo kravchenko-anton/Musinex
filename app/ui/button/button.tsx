@@ -45,7 +45,7 @@ const Button: FC<IButtonTypes> = ({
 					<Title
 						color={Color.white}
 						translate={translate}
-						fontFamily={'Montserrat_600SemiBold'}
+						weight={'semiBold'}
 						size={
 							props.textSize ? props.textSize : textSizeSettings[size]
 						}

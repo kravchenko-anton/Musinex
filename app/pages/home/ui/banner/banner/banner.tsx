@@ -9,6 +9,8 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import Ball from '../ball/ball'
+
+
 const Banner: FC<PropsWithChildren<BannerProps>> = ({
 	songs,
 	colors = [
@@ -27,7 +29,7 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 		>
 			<LinearGradient colors={colors} className='flex-1 items-center'>
 				<Title
-					fontFamily={'Montserrat_700Bold'}
+					weight={'bold'}
 					color={Color.white}
 					numberOfLines={2}
 					className='absolute text-center top-[15%] w-[50%]'

@@ -1,6 +1,6 @@
 import { useColorTheme } from '@/hook/useColorTheme'
 import Skeleton from '@/ui/skeleton/skeleton'
-import { Color } from '@/utils/color'
+import { weightSettings } from '@/ui/title/title.settings'
 import {
 	Montserrat_300Light,
 	Montserrat_500Medium,
@@ -9,7 +9,6 @@ import {
 	Montserrat_900Black,
 	useFonts
 } from '@expo-google-fonts/montserrat'
-import { useColorScheme } from 'nativewind'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'react-native'
@@ -18,7 +17,7 @@ import { TitleProps } from './title.types'
 const Title = ({
 	children,
 	numberOfLines = 1,
-	fontFamily = 'Montserrat_300Light',
+	weight = 'light',
 	size = 20,
 	center = false,
 	style,
@@ -45,7 +44,7 @@ const Title = ({
 		<Text
 			style={[
 				{
-					fontFamily: fontFamily,
+					fontFamily: weightSettings[weight],
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
 					color: props.color

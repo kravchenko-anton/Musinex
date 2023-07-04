@@ -36,7 +36,7 @@ const FavoriteList = () => {
 				<View className='h-[85vh] justify-center items-center'>
 					<Title
 						translate
-						fontFamily={'Montserrat_700Bold'}
+						weight={'bold'}
 						size={26}
 						className='mb-2'
 					>
@@ -74,13 +74,13 @@ const FavoriteList = () => {
 							<View>
 								<Title
 									translate
-									fontFamily={'Montserrat_700Bold'}
+									weight={'bold'}
 									size={22}
 									color={Color.primary}
 								>
 									Favorite songs
 								</Title>
-								<Title size={22 * 0.75} fontFamily={'Montserrat_500Medium'}>
+								<Title size={22 * 0.75} weight={'medium'}>
 									{`${t('Playlists')} · ${user?.favoritesSong.length} ${t(
 										'songs'
 									)} `}

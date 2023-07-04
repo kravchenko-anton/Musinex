@@ -1,5 +1,5 @@
-import { ColorProps } from '@/types/color'
 import { UTextProps } from '@/types/global'
+import { ColorProps } from '@/utils/color'
 import en from '@/utils/translate/en.json'
 
 export interface TitleProps extends UTextProps, ColorProps {
@@ -7,10 +7,10 @@ export interface TitleProps extends UTextProps, ColorProps {
 	translate?: boolean
 	children: keyof typeof en | string
 	size?: number
-	fontFamily?:
-		| 'Montserrat_300Light'
-		| 'Montserrat_500Medium'
-		| 'Montserrat_600SemiBold'
-		| 'Montserrat_700Bold'
-		| 'Montserrat_900Black'
+	weight?:
+		| 'light'
+		| 'medium'
+		| 'semiBold'
+		| 'bold'
+		| 'extraBold'
 }

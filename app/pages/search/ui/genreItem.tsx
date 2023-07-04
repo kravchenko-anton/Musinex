@@ -27,7 +27,7 @@ const GenreItem: FC<{ genre: GenreType }> = ({ genre }) => {
 					className='mb-3'
 					size={18}
 					color={duskToWhite}
-					fontFamily='Montserrat_700Bold'
+					weight='bold'
 				>
 					{genre.name}
 				</Title>

@@ -18,7 +18,7 @@ const UFlatList = <T,>({
 					translate
 					className='mb-3'
 					size={20}
-					fontFamily={'Montserrat_600SemiBold'}
+					weight={'semiBold'}
 				>
 					{headerText}
 				</Title>

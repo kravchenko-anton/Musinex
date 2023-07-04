@@ -1,5 +1,5 @@
-import { ColorProps } from '@/types/color'
 import { IconType, UPressableProps, UViewProps } from '@/types/global'
+import { ColorProps } from '@/utils/color'
 
 export interface BlurButtonProps
 	extends UViewProps,

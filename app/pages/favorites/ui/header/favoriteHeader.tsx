@@ -15,14 +15,14 @@ const FavoriteHeader = () => {
 			<View className='flex-row items-center gap-2'>
 				<View className='bg-primary rounded-full w-[50px] h-[50px] items-center justify-center'>
 					<Title
-						fontFamily={'Montserrat_700Bold'}
+						weight={'bold'}
 						size={24}
 						color={Color.midnight}
 					>
 						{capitalizeFirstLetter(user.email.charAt(0))}
 					</Title>
 				</View>
-				<Title translate fontFamily={'Montserrat_700Bold'}>
+				<Title translate weight={'bold'}>
 					Your library
 				</Title>
 			</View>

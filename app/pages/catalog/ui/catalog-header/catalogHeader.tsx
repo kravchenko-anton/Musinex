@@ -46,7 +46,7 @@ const CatalogHeader: FC<CatalogHeaderProps> = ({ y, ...props }) => {
 				<Title
 					numberOfLines={1}
 					className='max-w-[300px]'
-					fontFamily={'Montserrat_500Medium'}
+					weight={'medium'}
 				>
 					{props.title}
 				</Title>

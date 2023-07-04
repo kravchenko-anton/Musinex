@@ -42,7 +42,7 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 					color={Color.white}
 				/>
 				<View className='items-center w-2/3'>
-					<Title translate={true} fontFamily={'Montserrat_700Bold'}>
+					<Title translate={true} weight={'bold'}>
 						{"Now Playing"}
 					</Title>
 					<Title	translate={false} color={midnightToSilver} size={16}>

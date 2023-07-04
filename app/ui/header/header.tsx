@@ -23,7 +23,7 @@ const Header: FC<PropsWithChildren<HeaderProps>> = ({
 			<Title
 				translate
 				onPress={() => navigate('Home')}
-				fontFamily={'Montserrat_900Black'}
+				weight={'extraBold'}
 				size={28}
 			>
 				Musinex

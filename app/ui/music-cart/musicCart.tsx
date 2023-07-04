@@ -38,7 +38,7 @@ const MusicCart: FC<MusicCartProps> = ({
 						size={16}
 						center={textCenter}
 						className='w-full'
-						fontFamily={'Montserrat_500Medium'}
+						weight={'medium'}
 					>
 						{props.name}
 					</Title>
@@ -49,7 +49,7 @@ const MusicCart: FC<MusicCartProps> = ({
 							color={Color.charcoal}
 							center={textCenter}
 							size={16}
-							fontFamily={'Montserrat_500Medium'}
+							weight={'medium'}
 						>
 							{props.artists}
 						</Title>

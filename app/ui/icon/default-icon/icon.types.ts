@@ -1,5 +1,5 @@
-import { ColorProps } from '@/types/color'
 import { IconType, UPressableProps } from '@/types/global'
+import { ColorProps } from '@/utils/color'
 
 export interface IconProps extends UPressableProps, ColorProps {
 	name: IconType

@@ -45,7 +45,7 @@ const CatalogItem: FC<CatalogItemProps> = ({
 					}}
 				>
 					<Title
-						fontFamily={'Montserrat_600SemiBold'}
+						weight={'semiBold'}
 						numberOfLines={1}
 						size={textSize}
 					>
@@ -54,7 +54,7 @@ const CatalogItem: FC<CatalogItemProps> = ({
 					{props.text2 && (
 						<Title
 							color={Color.silver}
-							fontFamily={'Montserrat_300Light'}
+							weight={'light'}
 							size={textSize * 0.75}
 						>
 							{props.text2}

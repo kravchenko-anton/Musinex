@@ -7,36 +7,39 @@ import DropdownElement from '@/ui/dropdown/ui/dropdown-element/dropdownElement'
 import Icon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
 import { Color } from '@/utils/color'
-import { useColorScheme } from 'nativewind'
 import React, { FC, useState } from 'react'
 import { Pressable, View } from 'react-native'
+
 const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 	const [dropdownValue, setDropdownValue] = useState(
 		props.options.find(option => option.value === value) || props.options[0]
 	)
-	const {dropdownAnimation} = useDropdownAnimation({ isOpen })
-	const {rotateAnimation} = useRotateAnimation({isOpen, direction: 'down'})
-	const { colorScheme, charcoalToTwilight} = useColorTheme()
+	const { dropdownAnimation } = useDropdownAnimation({ isOpen })
+	const { rotateAnimation } = useRotateAnimation({ isOpen, direction: 'down' })
+	const { colorScheme, charcoalToTwilight } = useColorTheme()
 	return (
-		<View className='z-50'
-		>
+		<View className='z-50'>
 			<Pressable
-				className='p-4 border-b-midnight rounded-[10px] h-[60px] relative'
+				className='relative h-[60px] rounded-[10px] border-b-midnight p-4'
 				style={{
 					borderBottomLeftRadius: isOpen ? 0 : 10,
 					borderBottomRightRadius: isOpen ? 0 : 10,
 					borderBottomWidth: isOpen ? 1 : 0,
 					backgroundColor: charcoalToTwilight
 				}}
-				onPress={() => props.setIsOpen(!isOpen)}
-			>
-				<View className='justify-between items-center flex-row'>
+				onPress={() => props.setIsOpen(!isOpen)}>
+				<View className='flex-row items-center justify-between'>
 					<Title translate color={Color.white} weight={'medium'}>
 						{dropdownValue.label}
 					</Title>
-					
+
 					<AnimatedPressable style={rotateAnimation}>
-						<Icon padding={0} name='chevron-down' color={Color.white} {...props} />
+						<Icon
+							padding={0}
+							name='chevron-down'
+							color={Color.white}
+							{...props}
+						/>
 					</AnimatedPressable>
 				</View>
 			</Pressable>
@@ -51,25 +54,23 @@ const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 						width: '100%',
 						top: 60,
 						borderBottomRightRadius: 10,
-						backgroundColor:
-							charcoalToTwilight
+						backgroundColor: charcoalToTwilight
 					},
 					dropdownAnimation
-				]}
-			>
+				]}>
 				{props.options.map((option, index) => (
-						<DropdownElement
-							label={option.label}
-							value={option.value}
-							isSelected={option.value === dropdownValue.value}
-							key={index}
-							onPress={() => {
-								setDropdownValue(option)
-								props.setIsOpen(false)
-								props.onSelect(option.value)
-							}}
-						/>
-					))}
+					<DropdownElement
+						label={option.label}
+						value={option.value}
+						isSelected={option.value === dropdownValue.value}
+						key={index}
+						onPress={() => {
+							setDropdownValue(option)
+							props.setIsOpen(false)
+							props.onSelect(option.value)
+						}}
+					/>
+				))}
 			</AnimatedView>
 		</View>
 	)

@@ -1,9 +1,7 @@
 import { useColorTheme } from '@/hook/useColorTheme'
 import { CatalogContentProps } from '@/pages/catalog/ui/catalog-content/catalogContent.types'
-import { Color } from '@/utils/color'
 import { useScrollToTop } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren, useRef } from 'react'
 import { Animated, ScrollView, StyleSheet, View } from 'react-native'
 import { HEADER_HEIGHT } from '../../catalog.constant'
@@ -37,8 +35,7 @@ const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 				paddingTop: paddingTop,
 				paddingBottom: 50,
 				zIndex: 100
-			}}
-		>
+			}}>
 			<CatalogContentHeader
 				description={description}
 				title={headerTitle}
@@ -51,18 +48,13 @@ const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 				}}
 				start={[0, 0.1]}
 				end={[0, gradientEnd]}
-				colors={[
-					'transparent',
-					silverToMidnight
-				]}
+				colors={['transparent', silverToMidnight]}
 			/>
 			<View
 				style={{
-					backgroundColor:
-					silverToMidnight
+					backgroundColor: silverToMidnight
 				}}
-				className='pt-1 px-3 pb-5 w-full flex-1'
-			>
+				className='w-full flex-1 px-3 pb-5 pt-1'>
 				{children}
 			</View>
 		</Animated.ScrollView>

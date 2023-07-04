@@ -8,12 +8,14 @@ import MusicCart from '@/ui/music-cart/musicCart'
 import Tabs from '@/ui/tabs/tabs'
 import { FC } from 'react'
 
-const SearchList: FC<{ searchResult: SearchResultType }> = ({ searchResult }) => {
+const SearchList: FC<{ searchResult: SearchResultType }> = ({
+	searchResult
+}) => {
 	const { addToPlayer } = useAction()
 	const { navigate } = useTypedNavigation()
 	return (
 		<Tabs
-			translate={false}
+			translate={true}
 			data={[
 				{
 					title: 'Songs',
@@ -33,14 +35,14 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({ searchResult }) =>
 									onPress={() =>
 										addToPlayer({
 											data: searchResult.songs.map(track => ({
-													artist: track.artists[0].name,
-													duration: track.duration,
-													id: track.id,
-													title: track.title,
-													url: track.mp3Path,
-													coverBig: track.coverBig,
-													coverSmall: track.coverSmall,
-												})),
+												artist: track.artists[0].name,
+												duration: track.duration,
+												id: track.id,
+												title: track.title,
+												url: track.mp3Path,
+												coverBig: track.coverBig,
+												coverSmall: track.coverSmall
+											})),
 											songIndex: index
 										})
 									}

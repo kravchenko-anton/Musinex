@@ -1,19 +1,17 @@
 import { useColorTheme } from '@/hook/useColorTheme'
 import { MenuItemProps } from '@/navigation/ui/menu-item/menuItem.types'
 import Icon from '@/ui/icon/default-icon/icon'
-import { Color } from '@/utils/color'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { menuItems } from '../../menuList'
 
 const MenuItem: FC<MenuItemProps> = ({ nav, item, currentRoute }) => {
 	const isActive = currentRoute === item.path
-	const {  darkToWhite, midnightToSilver } = useColorTheme()
+	const { darkToWhite, midnightToSilver } = useColorTheme()
 	return (
 		<View
 			pointerEvents={'auto'}
-			className='items-center pointer-events-auto justify-center p-1.5 rounded-lg'
-		>
+			className='pointer-events-auto items-center justify-center rounded-lg p-1.5'>
 			<Icon
 				onPress={() => nav(item.path)}
 				name={

@@ -12,22 +12,22 @@ const Tabs: FC<TabsProps> = ({ data: tabs, translate = false }) => {
 	}, [tabs, activeTab])
 	return (
 		<>
-			<View className='mt-2 mb-4'>
+			<View className='mb-4 mt-2'>
 				<UFlatList
 					horizontal
 					data={tabs}
 					renderItem={({ item: tab }) => (
-							<Button
-								uppercase
-								translate={false}
-								size={'small'}
-								onPress={() => setActiveTab(tab.name)}
-								variant={tab.name === activeTab ? 'primary' : 'default'}
-								className='mr-3'
-								width={110}
-								text={tab.title}
-							/>
-						)}
+						<Button
+							uppercase
+							translate={translate}
+							size={'small'}
+							onPress={() => setActiveTab(tab.name)}
+							variant={tab.name === activeTab ? 'primary' : 'default'}
+							className='mr-3'
+							width={110}
+							text={tab.title}
+						/>
+					)}
 				/>
 			</View>
 			{activeComponent}

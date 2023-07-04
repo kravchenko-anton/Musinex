@@ -2,7 +2,6 @@ import { useColorTheme } from '@/hook/useColorTheme'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import MenuItem from '@/navigation/ui/menu-item/menuItem'
 import { LinearGradient } from 'expo-linear-gradient'
-import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -13,23 +12,20 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 }) => {
 	const { navigate } = useTypedNavigation()
 	const { bottom } = useSafeAreaInsets()
-	const { silverToMidnight} = useColorTheme()
+	const { silverToMidnight } = useColorTheme()
 	return (
 		<>
 			<LinearGradient
 				pointerEvents={'none'}
 				start={[0, 0.01]}
 				end={[0, 0.85]}
-				className='w-full absolute bottom-0 right-0 left-0 flex-1 h-[150px]'
-				colors={[
-					'transparent',
-					silverToMidnight
-				]}
+				className='absolute bottom-0 left-0 right-0 h-[150px] w-full flex-1'
+				colors={['transparent', silverToMidnight]}
 				style={{
 					paddingBottom: bottom
 				}}
 			/>
-			<View className='flex-row justify-around w-full bottom-1 absolute items-center'>
+			<View className='absolute bottom-1 w-full flex-row items-center justify-around'>
 				{menuItems.map(item => (
 					<MenuItem
 						item={item}

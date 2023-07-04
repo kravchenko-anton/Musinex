@@ -1,22 +1,10 @@
-import en from '@/utils/translate/en.json'
+import { ITranslateTypes } from '@/types/global'
 
-type TranslateTypeTrue = {
-	translate: true
+export type TabsProps = {
+	translate: boolean
 	data: {
 		name: string
-		title: keyof typeof en
+		title: ITranslateTypes
 		component: () => JSX.Element
 	}[]
 }
-
-type TranslateTypeFalse = {
-	translate: false
-	data: {
-		name: string
-		title: string
-		component: () => JSX.Element
-	}[]
-}
-
-
-export type TabsProps = (TranslateTypeTrue | TranslateTypeFalse)

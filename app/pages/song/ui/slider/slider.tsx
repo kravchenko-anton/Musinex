@@ -2,11 +2,11 @@ import { useColorTheme } from '@/hook/useColorTheme'
 import Title from '@/ui/title/title'
 import { Color } from '@/utils/color'
 import Slider from '@react-native-community/slider'
-import { useColorScheme } from 'nativewind'
 import { memo } from 'react'
 import { View } from 'react-native'
 import TrackPlayer, { useProgress } from 'react-native-track-player'
-const timeFormat = (time:number) => {
+
+const timeFormat = (time: number) => {
 	const minutes = Math.floor(time / 60)
 	const seconds = Math.floor(time - minutes * 60)
 	return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
@@ -21,21 +21,17 @@ const Sliders = () => {
 				value={position || 1}
 				minimumValue={0}
 				maximumValue={duration || 10}
-				thumbTintColor="white"
+				thumbTintColor='white'
 				minimumTrackTintColor={Color.white}
-				maximumTrackTintColor="#FFFFFF"
+				maximumTrackTintColor='#FFFFFF'
 				onSlidingComplete={TrackPlayer.seekTo}
 			/>
-			<View className='flex-row justify-between px-4 m-0'>
+			<View className='m-0 flex-row justify-between px-4'>
 				<Title color={midnightToSilver} className='text-center' size={20}>
-					{
-						timeFormat(position)
-					}
+					{timeFormat(position)}
 				</Title>
 				<Title color={midnightToSilver} className='text-center' size={20}>
-					{
-						timeFormat(duration)
-					}
+					{timeFormat(duration)}
 				</Title>
 			</View>
 		</View>

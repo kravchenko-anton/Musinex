@@ -1,16 +1,11 @@
-import { UTextProps } from '@/types/global'
+import { ITranslateTypes, UTextProps } from '@/types/global'
 import { ColorProps } from '@/utils/color'
-import en from '@/utils/translate/en.json'
 
-export interface TitleProps extends UTextProps, ColorProps {
-	center?: boolean
-	translate?: boolean
-	children: keyof typeof en | string
-	size?: number
-	weight?:
-		| 'light'
-		| 'medium'
-		| 'semiBold'
-		| 'bold'
-		| 'extraBold'
-}
+export type TitleProps = UTextProps &
+	ColorProps & {
+		center?: boolean
+		size?: number
+		translate?: boolean
+		children: ITranslateTypes
+		weight?: 'light' | 'medium' | 'semiBold' | 'bold' | 'extraBold'
+	}

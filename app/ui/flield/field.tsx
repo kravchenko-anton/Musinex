@@ -1,7 +1,6 @@
 import { useColorTheme } from '@/hook/useColorTheme'
 import { Color } from '@/utils/color'
 import { Montserrat_700Bold, useFonts } from '@expo-google-fonts/montserrat'
-import { useColorScheme } from 'nativewind'
 import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { TextInput, View } from 'react-native'
@@ -16,7 +15,7 @@ const Field = <T extends Record<string, any>>({
 		Montserrat_700Bold
 	})
 	const { t } = useTranslation()
-	const { colorScheme,charcoalToTwilight } = useColorTheme()
+	const { charcoalToTwilight } = useColorTheme()
 	if (!isFontsLoaded) return null
 	return (
 		<Controller
@@ -33,14 +32,11 @@ const Field = <T extends Record<string, any>>({
 							borderWidth: error ? 1 : 0,
 							backgroundColor: charcoalToTwilight
 						}}
-						className='w-full border-crimson rounded-lg pb-4 pt-2.5 px-4 my-1.5'
-					>
+						className='my-1.5 w-full rounded-lg border-crimson px-4 pb-4 pt-2.5'>
 						<TextInput
 							autoCapitalize={'none'}
 							onBlur={onBlur}
-							onChangeText={
-								onChange as any
-							}
+							onChangeText={onChange as any}
 							keyboardAppearance='dark'
 							keyboardType={'default'}
 							renderToHardwareTextureAndroid={true}

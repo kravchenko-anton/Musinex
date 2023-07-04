@@ -2,10 +2,9 @@ import { useColorTheme } from '@/hook/useColorTheme'
 import { useBackgroundAnimation } from '@/pages/catalog/ui/catalog-background/background-animation'
 import { CatalogBackgroundProps } from '@/pages/catalog/ui/catalog-background/catalogBackground.types'
 import Image from '@/ui/image/image'
-import {  Color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { WINDOW_WIDTH } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'
-import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -17,7 +16,7 @@ const CatalogBackground: FC<CatalogBackgroundProps> = ({
 	y
 }) => {
 	const { top } = useSafeAreaInsets()
-	const {  silverToMidnight } = useColorTheme()
+	const { silverToMidnight } = useColorTheme()
 	const { translateY, opacity, scale } = useBackgroundAnimation(y)
 	return (
 		<Animated.View
@@ -29,8 +28,7 @@ const CatalogBackground: FC<CatalogBackgroundProps> = ({
 					opacity,
 					transform: [{ scale }, { translateY }]
 				}
-			]}
-		>
+			]}>
 			{poster ? (
 				<>
 					<Image
@@ -46,11 +44,7 @@ const CatalogBackground: FC<CatalogBackgroundProps> = ({
 						}}
 						start={[0, 0.1]}
 						end={[0, 0.8]}
-						colors={[
-							'transparent',
-							'rgba(0, 0, 0, 0.2)',
-							silverToMidnight
-						]}
+						colors={['transparent', 'rgba(0, 0, 0, 0.2)', silverToMidnight]}
 					/>
 				</>
 			) : (

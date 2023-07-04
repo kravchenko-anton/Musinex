@@ -3,6 +3,7 @@ import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import Icon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
 import { capitalizeFirstLetter } from '@/utils/capitalize.latter'
+import { Color } from '@/utils/color'
 import { View } from 'react-native'
 
 const FavoriteHeader = () => {
@@ -16,7 +17,7 @@ const FavoriteHeader = () => {
 					<Title
 						fontFamily={'Montserrat_700Bold'}
 						size={24}
-						color={'midnight'}
+						color={Color.midnight}
 					>
 						{capitalizeFirstLetter(user.email.charAt(0))}
 					</Title>

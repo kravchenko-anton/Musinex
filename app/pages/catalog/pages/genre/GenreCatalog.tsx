@@ -7,6 +7,7 @@ import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { genreServices } from '@/services/genre.services'
 import { AlbumTypes } from '@/services/types/IAlbum'
 import { PlaylistType } from '@/services/types/playlist.services.types'
+import { ColorProps, lineColorType } from '@/types/color'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
@@ -27,7 +28,7 @@ const GenreCatalog = () => {
 	return (
 		<Layout className='p-0'>
 			<CatalogHeader id={params.id} title={t(genre.name)} y={y} />
-			<CatalogBackground color={genre.color} y={y} />
+			<CatalogBackground color={genre.color as lineColorType} y={y} />
 			<CatalogContent
 				paddingTop={HEADER_HEIGHT * 0.3}
 				gradientEnd={0.52}

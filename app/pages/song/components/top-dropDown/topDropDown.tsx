@@ -1,5 +1,6 @@
 import { AnimatedPressable, AnimatedView } from '@/animation/global'
 import { useRotateAnimation } from '@/animation/rotate.animation'
+import { useColorTheme } from '@/hook/useColorTheme'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { TopDropDownProps } from '@/pages/song/components/top-dropDown/topDropDown.types'
@@ -8,6 +9,7 @@ import CatalogItem from '@/ui/catalog-item/catalogItem'
 import Icon from '@/ui/icon/default-icon/icon'
 import UScrollView from '@/ui/scroll-view/uScrollView'
 import Title from '@/ui/title/title'
+import { Color } from '@/utils/color'
 import { trackPause, trackPlay } from '@/utils/player/usePlayer'
 import { generateRandomBeautifulHexColor } from '@/utils/random.color'
 import { WINDOW_HEIGHT } from '@/utils/screen'
@@ -17,6 +19,7 @@ import { GestureDetector } from 'react-native-gesture-handler'
 import TrackPlayer from 'react-native-track-player'
 const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 	const { goBack } = useTypedNavigation()
+	const {charcoalToTwilight, midnightToSilver} = useColorTheme()
 	const selector = useTypedSelector((state) => state.player)
 	const {
 		topBarAnimation,
@@ -29,23 +32,24 @@ const TopDropDown:FC<TopDropDownProps> = ({isOpen, title}) => {
 			style={[{
 				paddingTop: WINDOW_HEIGHT * 0.05,
 				overflow: 'hidden',
-			}, topBarAnimation]} className='bg-twilight rounded-b-3xl p-3'>
+				backgroundColor:charcoalToTwilight
+			}, topBarAnimation]} className='rounded-b-3xl p-3'>
 			<View className='flex-row justify-between mb-5 items-center'>
 				<Icon
 					onPress={() => goBack()}
 					name='arrow-down'
 					size={24}
-					color='white'
+					color={Color.white}
 				/>
 				<View className='items-center w-2/3'>
 					<Title translate={true} fontFamily={'Montserrat_700Bold'}>
 						{"Now Playing"}
 					</Title>
-					<Title	translate={false} color={'silver'} size={16}>
+					<Title	translate={false} color={midnightToSilver} size={16}>
 						{title}
 					</Title>
 				</View>
-				<Icon name='ellipsis-vertical' size={24} color='white' />
+				<Icon name='ellipsis-vertical' size={24} color={Color.white} />
 			</View>
 			<AnimatedView style={[{
 				height: WINDOW_HEIGHT * 0.57,

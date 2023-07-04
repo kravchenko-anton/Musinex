@@ -1,3 +1,4 @@
+import { useColorTheme } from '@/hook/useColorTheme'
 import BottomMenu from '@/pages/song/components/bottom-menu/bottomMenu'
 import CoverImage from '@/pages/song/components/cover-image/CoverImage'
 import TopDropDown from '@/pages/song/components/top-dropDown/topDropDown'
@@ -12,10 +13,11 @@ import { useActiveTrack } from 'react-native-track-player'
 const Song = () => {
 	const trackInfo = useActiveTrack() as TrackType
 	const isOpen = useSharedValue(false)
+	const {silverToMidnight, charcoalToTwilight} = useColorTheme()
 	if (!trackInfo || !trackInfo.title || !trackInfo.artist || !trackInfo.coverSmall || !trackInfo.id) return <FullScreenLoader/>
 	return (
 		<GestureHandlerRootView>
-		<View className='h-full bg-midnight justify-between'>
+		<View style={{backgroundColor:silverToMidnight}} className='h-full justify-between'>
 			<View>
 			<TopDropDown isOpen={isOpen} title={trackInfo.title} />
 			<CoverImage isOpen={isOpen} coverBig={trackInfo.coverBig}/>

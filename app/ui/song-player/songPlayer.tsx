@@ -4,6 +4,7 @@ import PlayButton from '@/pages/song/ui/play-button/playButton'
 import { TrackType } from '@/types/player/TrackType'
 import Heart from '@/ui/icon/heart/heart'
 import Image from '@/ui/image/image'
+import { Color } from '@/utils/color'
 import { usePlayer } from '@/utils/player/usePlayer'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { Pressable, View } from 'react-native'
@@ -31,10 +32,10 @@ const SongPlayer = () => {
 				<View className='flex-row items-center w-2/3'>
 					<Image url={String(trackInfo.coverSmall)} borderRadius={10} width={50} height={50} />
 					<View className='flex flex-col ml-2'>
-						<Title color={'white'}   size={20}>
+						<Title color={Color.white}   size={20}>
 							{trackInfo?.title}
 						</Title>
-						<Title color={'white'}  size={16}>
+						<Title color={Color.white}  size={16}>
 							{trackInfo?.artist}
 						</Title>
 					</View>

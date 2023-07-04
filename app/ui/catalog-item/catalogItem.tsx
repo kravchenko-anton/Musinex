@@ -6,6 +6,7 @@ import { CatalogItemProps } from '@/ui/catalog-item/catalogItem.types'
 import Heart from '@/ui/icon/heart/heart'
 import Image from '@/ui/image/image'
 import Title from '@/ui/title/title'
+import { Color } from '@/utils/color'
 import Lottie from 'lottie-react-native'
 import { FC, memo } from 'react'
 import { View } from 'react-native'
@@ -52,7 +53,7 @@ const CatalogItem: FC<CatalogItemProps> = ({
 					</Title>
 					{props.text2 && (
 						<Title
-							color={'silver'}
+							color={Color.silver}
 							fontFamily={'Montserrat_300Light'}
 							size={textSize * 0.75}
 						>

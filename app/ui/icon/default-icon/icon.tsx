@@ -1,9 +1,8 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
+import { useColorTheme } from '@/hook/useColorTheme'
 import { IconProps } from '@/ui/icon/default-icon/icon.types'
-import { color as Color } from '@/utils/color'
 import { Ionicons } from '@expo/vector-icons'
-import { useColorScheme } from 'nativewind'
 import { FC, memo } from 'react'
 
 const UIcon: FC<IconProps> = ({
@@ -16,7 +15,7 @@ const UIcon: FC<IconProps> = ({
 	padding = 8,
 	...props
 }) => {
-	const { colorScheme } = useColorScheme()
+	const { darkToWhite,darkToTwilight } = useColorTheme()
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
 		<AnimatedPressable
@@ -25,10 +24,7 @@ const UIcon: FC<IconProps> = ({
 				alignItems: 'center',
 				padding: padding,
 				borderWidth: border ? 2 : 0,
-				borderColor:
-					colorScheme === 'light'
-						? Color.dark
-						: Color.twilight,
+				borderColor: darkToTwilight,
 				backgroundColor: backgroundColor,
 				borderRadius: borderRadius
 			},
@@ -40,10 +36,8 @@ const UIcon: FC<IconProps> = ({
 					name={name}
 					color={
 						color
-							? Color[color]
-							: colorScheme === 'light'
-							? Color.dark
-							: Color.white
+							? color
+							: darkToWhite
 					}
 					size={size}
 				/>

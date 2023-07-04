@@ -1,16 +1,16 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
+import { useColorTheme } from '@/hook/useColorTheme'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { GenreType } from '@/services/types/genre.services.types'
 import Image from '@/ui/image/image'
 import Title from '@/ui/title/title'
-import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 
 const GenreItem: FC<{ genre: GenreType }> = ({ genre }) => {
 	const { navigate } = useTypedNavigation()
-	const { colorScheme } = useColorScheme()
+	const { duskToWhite } = useColorTheme()
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
 		<AnimatedPressable
@@ -26,7 +26,7 @@ const GenreItem: FC<{ genre: GenreType }> = ({ genre }) => {
 				<Title
 					className='mb-3'
 					size={18}
-					color={colorScheme === 'light' ? 'dusk' : 'white'}
+					color={duskToWhite}
 					fontFamily='Montserrat_700Bold'
 				>
 					{genre.name}

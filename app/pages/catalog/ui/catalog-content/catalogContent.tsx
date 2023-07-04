@@ -1,5 +1,6 @@
+import { useColorTheme } from '@/hook/useColorTheme'
 import { CatalogContentProps } from '@/pages/catalog/ui/catalog-content/catalogContent.types'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { useScrollToTop } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
@@ -18,7 +19,7 @@ const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 }) => {
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
-	const { colorScheme } = useColorScheme()
+	const { silverToMidnight } = useColorTheme()
 	return (
 		<Animated.ScrollView
 			ref={ref}
@@ -52,17 +53,13 @@ const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 				end={[0, gradientEnd]}
 				colors={[
 					'transparent',
-					colorScheme === 'light'
-						? color.silver
-						: color.midnight
+					silverToMidnight
 				]}
 			/>
 			<View
 				style={{
 					backgroundColor:
-						colorScheme === 'light'
-							? color.silver
-							: color.midnight
+					silverToMidnight
 				}}
 				className='pt-1 px-3 pb-5 w-full flex-1'
 			>

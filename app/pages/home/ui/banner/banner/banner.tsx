@@ -3,7 +3,7 @@ import { usePressAnimation } from '@/animation/press.animation'
 import { BannerProps } from '@/pages/home/ui/banner/banner/banner.types'
 import Image from '@/ui/image/image'
 import Title from '@/ui/title/title'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
@@ -12,9 +12,9 @@ import Ball from '../ball/ball'
 const Banner: FC<PropsWithChildren<BannerProps>> = ({
 	songs,
 	colors = [
-		`${shadeRGBColor(color.primary, -15)}`,
-		`${shadeRGBColor(color.primary, 0)}`,
-		`${shadeRGBColor(color.primary, 30)}`
+		`${shadeRGBColor(Color.primary, -15)}`,
+		`${shadeRGBColor(Color.primary, 0)}`,
+		`${shadeRGBColor(Color.primary, 30)}`
 	],
 	children
 }) => {
@@ -28,7 +28,7 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 			<LinearGradient colors={colors} className='flex-1 items-center'>
 				<Title
 					fontFamily={'Montserrat_700Bold'}
-					color={'white'}
+					color={Color.white}
 					numberOfLines={2}
 					className='absolute text-center top-[15%] w-[50%]'
 					translate
@@ -45,7 +45,7 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 								borderRadius={12}
 								style={{
 									borderWidth: 2,
-									borderColor: color.white,
+									borderColor: Color.white,
 									zIndex: 5 + index
 								}}
 								className='rotate-12'

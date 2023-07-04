@@ -5,7 +5,7 @@ import UFlatList from '@/ui/flatList/uFlatList'
 import Icon from '@/ui/icon/default-icon/icon'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import Title from '@/ui/title/title'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { useQuery } from '@tanstack/react-query'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -60,23 +60,23 @@ const FavoriteList = () => {
 						>
 							<LinearGradient
 								colors={[
-									shadeRGBColor(color.primary, -20),
-									shadeRGBColor(color.primary, 0),
-									shadeRGBColor(color.primary, +20)
+									shadeRGBColor(Color.primary, -20),
+									shadeRGBColor(Color.primary, 0),
+									shadeRGBColor(Color.primary, +20)
 								]}
 								start={[0.2, 0.8]}
 								end={[0.8, 0.4]}
 								pointerEvents={'none'}
 								className='h-[80px] w-[80px] items-center justify-center rounded-[2px]'
 							>
-								<Icon name={'heart'} size={40} color={'white'} />
+								<Icon name={'heart'} size={40} color={Color.white} />
 							</LinearGradient>
 							<View>
 								<Title
 									translate
 									fontFamily={'Montserrat_700Bold'}
 									size={22}
-									color={'primary'}
+									color={Color.primary}
 								>
 									Favorite songs
 								</Title>

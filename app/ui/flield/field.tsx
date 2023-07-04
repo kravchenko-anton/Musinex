@@ -1,4 +1,5 @@
-import { color } from '@/utils/color'
+import { useColorTheme } from '@/hook/useColorTheme'
+import { Color } from '@/utils/color'
 import { Montserrat_700Bold, useFonts } from '@expo-google-fonts/montserrat'
 import { useColorScheme } from 'nativewind'
 import { Controller } from 'react-hook-form'
@@ -15,7 +16,7 @@ const Field = <T extends Record<string, any>>({
 		Montserrat_700Bold
 	})
 	const { t } = useTranslation()
-	const { colorScheme } = useColorScheme()
+	const { colorScheme,charcoalToTwilight } = useColorTheme()
 	if (!isFontsLoaded) return null
 	return (
 		<Controller
@@ -30,10 +31,7 @@ const Field = <T extends Record<string, any>>({
 					<View
 						style={{
 							borderWidth: error ? 1 : 0,
-							backgroundColor:
-								colorScheme === 'light'
-									? color.charcoal
-									: color.twilight
+							backgroundColor: charcoalToTwilight
 						}}
 						className='w-full border-crimson rounded-lg pb-4 pt-2.5 px-4 my-1.5'
 					>
@@ -46,7 +44,7 @@ const Field = <T extends Record<string, any>>({
 							keyboardAppearance='dark'
 							keyboardType={'default'}
 							renderToHardwareTextureAndroid={true}
-							placeholderTextColor={color.white}
+							placeholderTextColor={Color.white}
 							value={(value ? value : '').toString()}
 							className='text-base text-white'
 							style={{
@@ -57,7 +55,7 @@ const Field = <T extends Record<string, any>>({
 						/>
 					</View>
 					{error && (
-						<Title color={'crimson'} size={16}>
+						<Title color={Color.crimson} size={16}>
 							{error.message ? error.message : 'error!'}
 						</Title>
 					)}

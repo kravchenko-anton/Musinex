@@ -1,6 +1,6 @@
+import { useColorTheme } from '@/hook/useColorTheme'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import MenuItem from '@/navigation/ui/menu-item/menuItem'
-import { color } from '@/utils/color'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
@@ -13,7 +13,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 }) => {
 	const { navigate } = useTypedNavigation()
 	const { bottom } = useSafeAreaInsets()
-	const { colorScheme } = useColorScheme()
+	const { silverToMidnight} = useColorTheme()
 	return (
 		<>
 			<LinearGradient
@@ -23,9 +23,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 				className='w-full absolute bottom-0 right-0 left-0 flex-1 h-[150px]'
 				colors={[
 					'transparent',
-					colorScheme === 'light'
-						? color.silver
-						: color.midnight
+					silverToMidnight
 				]}
 				style={{
 					paddingBottom: bottom

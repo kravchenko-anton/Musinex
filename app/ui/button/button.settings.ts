@@ -1,4 +1,4 @@
-import { color } from '@/utils/color'
+import { Color} from '@/utils/color'
 
 export const sizeSettings = {
 	"small": 5,
@@ -23,12 +23,12 @@ export const iconSizeSettings = {
 	"medium": 18,
 	"large": 20
 }
-export const iconColorSettings: { default: 'dark'; primary: 'white' } = {
-	'default': 'dark',
-	'primary': 'white',
+export const iconColorSettings = {
+	'default': Color.dark,
+	'primary': Color.white,
 }
 
 export const backgroundColorSettings = {
-"light": color.charcoal,
-	"dark": color.twilight,
+"light": Color.charcoal,
+	"dark": Color.twilight,
 }

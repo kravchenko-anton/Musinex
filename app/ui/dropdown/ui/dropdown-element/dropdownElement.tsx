@@ -1,6 +1,7 @@
 import { DropdownElementProps } from '@/ui/dropdown/ui/dropdown-element/dropdownElement.types'
 import Icon from '@/ui/icon/default-icon/icon'
 import Title from '@/ui/title/title'
+import { Color } from '@/utils/color'
 import { FC } from 'react'
 import { Pressable } from 'react-native'
 
@@ -19,7 +20,7 @@ const DropdownElement: FC<DropdownElementProps> = ({ ...props }) => (
 			]}
 			{...props}
 		>
-			<Title color={'white'}>{props.label}</Title>
+			<Title color={Color.white}>{props.label}</Title>
 			{props.isSelected && <Icon name='checkmark' padding={0} />}
 		</Pressable>
 	)

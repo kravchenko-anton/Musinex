@@ -1,7 +1,8 @@
+import { useColorTheme } from '@/hook/useColorTheme'
 import { useBackgroundAnimation } from '@/pages/catalog/ui/catalog-background/background-animation'
 import { CatalogBackgroundProps } from '@/pages/catalog/ui/catalog-background/catalogBackground.types'
 import Image from '@/ui/image/image'
-import { color as Color } from '@/utils/color'
+import {  Color } from '@/utils/color'
 import { WINDOW_WIDTH } from '@/utils/screen'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useColorScheme } from 'nativewind'
@@ -16,7 +17,7 @@ const CatalogBackground: FC<CatalogBackgroundProps> = ({
 	y
 }) => {
 	const { top } = useSafeAreaInsets()
-	const { colorScheme } = useColorScheme()
+	const {  silverToMidnight } = useColorTheme()
 	const { translateY, opacity, scale } = useBackgroundAnimation(y)
 	return (
 		<Animated.View
@@ -48,9 +49,7 @@ const CatalogBackground: FC<CatalogBackgroundProps> = ({
 						colors={[
 							'transparent',
 							'rgba(0, 0, 0, 0.2)',
-							colorScheme === 'light'
-								? Color.silver
-								: Color.midnight
+							silverToMidnight
 						]}
 					/>
 				</>

@@ -1,19 +1,17 @@
 import { BlurButtonProps } from '@/ui/blur-button/blurButton.types'
 import Icon from '@/ui/icon/default-icon/icon'
 import { BlurView } from 'expo-blur'
-import { useColorScheme } from 'nativewind'
+import { Color } from '@/utils/color'
 import { FC, PropsWithChildren } from 'react'
 const BlurIcon: FC<PropsWithChildren<BlurButtonProps>> = ({
 	children,
-	color,
+	color = Color.white,
 	iconSize = 21,
 	isSmall = false,
 	icon,
 	onPress,
 	...props
-}) => {
-	const { colorScheme } = useColorScheme()
-	return (
+}) => (
 		<BlurView
 			intensity={22}
 			tint='light'
@@ -33,11 +31,10 @@ const BlurIcon: FC<PropsWithChildren<BlurButtonProps>> = ({
 					onPress={onPress}
 					name={icon}
 					size={iconSize}
-					color={color ? color : colorScheme === 'light' ? 'dark' : 'white'}
+					color={color ? color : Color.white}
 				/>
 			)}
 		</BlurView>
 	)
-}
 
 export default BlurIcon

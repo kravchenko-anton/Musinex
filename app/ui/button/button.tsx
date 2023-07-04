@@ -1,5 +1,6 @@
 import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
+import { useColorTheme } from '@/hook/useColorTheme'
 import {
 	backgroundColorSettings,
 	gapSettings, iconColorSettings,
@@ -8,8 +9,7 @@ import {
 	textSizeSettings
 } from '@/ui/button/button.settings'
 import { IButtonTypes } from '@/ui/button/button.types'
-import { color } from '@/utils/color'
-import { useColorScheme } from 'nativewind'
+import { Color } from '@/utils/color'
 import { FC } from 'react'
 import { View } from 'react-native'
 import Icon from '../icon/default-icon/icon'
@@ -24,11 +24,11 @@ const Button: FC<IButtonTypes> = ({
 	style,
 	...props
 }) => {
-	const { colorScheme } = useColorScheme()
+	const {charcoalToTwilight} = useColorTheme()
 	const { pressFunctions, animatedStyle } = usePressAnimation()
 			return (
 		<AnimatedPressable {...pressFunctions} testID={'button'} style={[{
-				backgroundColor: variant === 'primary' ? color.primary : backgroundColorSettings[colorScheme],
+				backgroundColor: variant === 'primary' ? Color.primary : charcoalToTwilight,
 				borderRadius: borderRadius,
 				padding: sizeSettings[size],
 				width: props.width ? props.width : '100%' },
@@ -43,7 +43,7 @@ const Button: FC<IButtonTypes> = ({
 					className='flex-row items-center'
 				>
 					<Title
-						color={'white'}
+						color={Color.white}
 						translate={translate}
 						fontFamily={'Montserrat_600SemiBold'}
 						size={

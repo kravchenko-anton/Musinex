@@ -1,18 +1,18 @@
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { FC } from 'react'
 import RnToast, { BaseToast } from 'react-native-toast-message'
 
 const options = (primaryColor: string) => ({
 	style: {
-		backgroundColor: color.twilight,
+		backgroundColor: Color.twilight,
 		borderLeftColor: primaryColor,
 		borderLeftWidth: 8,
 		zIndex: 1000,
-		shadowColor: color.transparent
+		shadowColor: Color.transparent
 	},
 	text1Style: {
-		color: color.white,
+		color: Color.white,
 		fontSize: 16
 	},
 	text2Style: {
@@ -28,17 +28,17 @@ const Toast: FC = () => (
 				success: props => (
 					<BaseToast
 						{...props}
-						{...options(shadeRGBColor(color.primary, 50))}
+						{...options(shadeRGBColor(Color.primary, 50))}
 					/>
 				),
 				info: props => (
-					<BaseToast {...props} {...options(color.sunshine)} />
+					<BaseToast {...props} {...options(Color.sunshine)} />
 				),
 				error: props => (
 					<BaseToast
 						{...props}
 						{...{
-							...options(color.crimson)
+							...options(Color.crimson)
 						}}
 					/>
 				)

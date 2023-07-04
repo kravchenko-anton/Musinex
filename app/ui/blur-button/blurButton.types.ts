@@ -1,11 +1,10 @@
+import { ColorProps } from '@/types/color'
 import { IconType, UPressableProps, UViewProps } from '@/types/global'
-import { theme } from '../../../tailwind.config'
 
 export interface BlurButtonProps
 	extends UViewProps,
-		Pick<UPressableProps, 'onPress'> {
+		Pick<UPressableProps, 'onPress'>, ColorProps {
 	icon?: IconType
 	iconSize?: number
-	color?: keyof typeof theme.colors
 	isSmall?: boolean
 }

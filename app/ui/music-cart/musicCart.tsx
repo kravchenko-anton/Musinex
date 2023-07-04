@@ -2,6 +2,7 @@ import { AnimatedPressable } from '@/animation/global'
 import { usePressAnimation } from '@/animation/press.animation'
 import Image from '@/ui/image/image'
 import { MusicCartProps } from '@/ui/music-cart/musicCart.types'
+import { Color } from '@/utils/color'
 import { FC } from 'react'
 import { View } from 'react-native'
 import Title from '../title/title'
@@ -45,7 +46,7 @@ const MusicCart: FC<MusicCartProps> = ({
 						<Title
 							className='mt-0.5 w-10/12'
 							numberOfLines={1}
-							color={'charcoal'}
+							color={Color.charcoal}
 							center={textCenter}
 							size={16}
 							fontFamily={'Montserrat_500Medium'}

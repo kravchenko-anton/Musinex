@@ -1,9 +1,8 @@
+import { ColorProps } from '@/types/color'
 import { IconType, UPressableProps } from '@/types/global'
-import { theme } from '../../../../tailwind.config'
 
-export interface IconProps extends UPressableProps {
+export interface IconProps extends UPressableProps, ColorProps {
 	name: IconType
-	color?: keyof typeof theme.colors
 	size?: number
 	border?: boolean
 	backgroundColor?: string

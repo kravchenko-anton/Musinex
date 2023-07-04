@@ -8,12 +8,11 @@ import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Animated } from 'react-native'
-
 const FavoriteCatalog = () => {
 	const y = useRef(new Animated.Value(0)).current
 	const { addToPlayer } = useAction()
@@ -29,7 +28,7 @@ const FavoriteCatalog = () => {
 	return (
 		<Layout className='p-0'>
 			<CatalogHeader title={t('Favorite songs')} y={y} />
-			<CatalogBackground color={color.primary} y={y} />
+			<CatalogBackground color={Color.primary} y={y} />
 			<CatalogContent
 				description={`${songs.length} ${t('songs')}`}
 				paddingTop={HEADER_HEIGHT * 0.3}

@@ -1,5 +1,5 @@
 import { BallProps } from '@/pages/home/ui/banner/ball/ball.types'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC } from 'react'
@@ -8,8 +8,8 @@ import { View } from 'react-native'
 const Ball: FC<BallProps> = ({
 	gradient = [0, 1, 1, 1],
 	colors = [
-		shadeRGBColor(color.primary, -10),
-		shadeRGBColor(color.primary, 20),
+		shadeRGBColor(Color.primary, -10),
+		shadeRGBColor(Color.primary, 20),
 		'transparent'
 	],
 	height = 200,

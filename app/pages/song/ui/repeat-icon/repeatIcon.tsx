@@ -1,5 +1,5 @@
 import useRepeatIcon from '@/pages/song/ui/repeat-icon/useRepeatIcon'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const RepeatIcon = () => {
@@ -10,7 +10,7 @@ const { repeatMode, changeRepeatMode } = useRepeatIcon()
 			className='p-[5px] self-center justify-center'
 			onPress={changeRepeatMode}
 			size={30}
-			color={color.silver}
+			color={Color.silver}
 		/>
 	)
 }

@@ -1,6 +1,5 @@
+import { useColorTheme } from '@/hook/useColorTheme'
 import { SkeletonProps } from '@/ui/skeleton/skeleton.types'
-import { color } from '@/utils/color'
-import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { View } from 'react-native'
 
@@ -11,7 +10,7 @@ const Skeleton: FC<SkeletonProps> = ({
 	width,
 	borderRadius = 6
 }) => {
-	const { colorScheme } = useColorScheme()
+	const { colorScheme,charcoalToTwilight } = useColorTheme()
 	return (
 		<View
 			style={[
@@ -21,9 +20,7 @@ const Skeleton: FC<SkeletonProps> = ({
 					borderRadius,
 					backgroundColor: transparent
 						? 'transparent'
-						: colorScheme === 'light'
-						? color.charcoal
-						: color.twilight
+						: charcoalToTwilight
 				},
 				style
 			]}

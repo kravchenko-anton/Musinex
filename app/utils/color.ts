@@ -1,3 +1,5 @@
+import { colorsType } from '@/types/color'
 import { theme } from '../../tailwind.config'
 
-export const color = theme.colors
+
+export const Color = theme.colors as colorsType

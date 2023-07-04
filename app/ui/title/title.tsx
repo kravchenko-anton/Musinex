@@ -1,5 +1,6 @@
+import { useColorTheme } from '@/hook/useColorTheme'
 import Skeleton from '@/ui/skeleton/skeleton'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import {
 	Montserrat_300Light,
 	Montserrat_500Medium,
@@ -31,7 +32,7 @@ const Title = ({
 		Montserrat_900Black
 	})
 	const { t } = useTranslation()
-	const { colorScheme } = useColorScheme()
+	const { darkToSilver } = useColorTheme()
 	if (!isFontsLoaded || !children)
 		return (
 			<Skeleton
@@ -48,10 +49,8 @@ const Title = ({
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
 					color: props.color
-						? color[props.color]
-						: colorScheme === 'light'
-						? color.dark
-						: color.silver
+						? props.color
+						: darkToSilver
 				},
 				style
 			]}

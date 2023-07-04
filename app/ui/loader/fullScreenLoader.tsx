@@ -1,5 +1,5 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@/utils/screen'
 import Lottie from 'lottie-react-native'
 import { View } from 'react-native'
@@ -14,8 +14,8 @@ const FullScreenLoader = () => {
 				width: SCREEN_WIDTH,
 				backgroundColor:
 					selector === 'light'
-						? color.silver
-						: color.midnight
+						? Color.silver
+						: Color.midnight
 			}}
 			className='justify-center items-center absolute'
 		>

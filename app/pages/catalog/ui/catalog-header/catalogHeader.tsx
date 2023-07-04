@@ -1,10 +1,11 @@
+import { useColorTheme } from '@/hook/useColorTheme'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { CatalogHeaderProps } from '@/pages/catalog/ui/catalog-header/catalogHeader.types'
 import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/header-animation'
 import BlurIcon from '@/ui/blur-button/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
-import { color } from '@/utils/color'
+import { Color } from '@/utils/color'
 import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native'
@@ -14,7 +15,7 @@ const CatalogHeader: FC<CatalogHeaderProps> = ({ y, ...props }) => {
 	const { goBack } = useTypedNavigation()
 	const { top } = useSafeAreaInsets()
 	const { width } = useWindowDimensions()
-	const { colorScheme } = useColorScheme()
+	const { whiteToMidnight } = useColorTheme()
 	const { opacity } = useHeaderAnimation(y)
 	return (
 		<View
@@ -32,9 +33,7 @@ const CatalogHeader: FC<CatalogHeaderProps> = ({ y, ...props }) => {
 						...StyleSheet.absoluteFillObject,
 						opacity,
 						backgroundColor:
-							colorScheme === 'light'
-								? color.white
-								: color.midnight
+						whiteToMidnight
 					}
 				]}
 			/>

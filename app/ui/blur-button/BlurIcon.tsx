@@ -3,7 +3,6 @@ import Icon from '@/ui/icon/default-icon/icon'
 import { BlurView } from 'expo-blur'
 import { useColorScheme } from 'nativewind'
 import { FC, PropsWithChildren } from 'react'
-
 const BlurIcon: FC<PropsWithChildren<BlurButtonProps>> = ({
 	children,
 	color,
@@ -18,6 +17,7 @@ const BlurIcon: FC<PropsWithChildren<BlurButtonProps>> = ({
 		<BlurView
 			intensity={22}
 			tint='light'
+			testID={'blur-icon'}
 			className='items-center justify-center overflow-hidden'
 			style={{
 				width: isSmall ? 15 : 40,

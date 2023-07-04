@@ -65,7 +65,7 @@ const Settings = () => {
 				borderRadius={4}
 				onPress={() => logout()}
 				size={'medium'}
-				translate={false}
+				translate={true}
 				text={'Logout'}
 				width={200}
 				className='mt-4 z-0 justify-center items-center self-center'

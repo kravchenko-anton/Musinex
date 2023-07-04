@@ -8,7 +8,7 @@
 		"i": "expo run:ios",
 		"w": "expo start --web",
 		"lint": "tsc --noEmit && eslint --fix --ext .js,.jsx,.ts,.tsx ./",
-		"test": "jest"
+		"t": "jest"
 	},
 	"dependencies": {
 		"@expo-google-fonts/montserrat": "^0.2.3",

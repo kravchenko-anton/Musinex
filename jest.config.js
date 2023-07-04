@@ -9,6 +9,10 @@ module.exports = {
 		'**/tests/**/*.test.(ts|js)',
 		"**/?(*.)+(spec|test).[ty]s?(x)",
 	],
+	setupFilesAfterEnv: [
+		"./jest.setup.js",
+		"@testing-library/jest-dom/extend-expect",
+	],
 	moduleNameMapper: {
 		'^@/(.*)$': '<rootDir>/app/$1',
 		"^/app/(.*)$": "<rootDir>/app/$1",

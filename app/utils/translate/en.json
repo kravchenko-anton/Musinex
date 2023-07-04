@@ -23,6 +23,7 @@
 	"Email": "Email",
 	"Password": "Password",
 	"Login": "Login",
+	"Logout": "Logout",
 	"Register": "Register",
 	"Password is required": "Password is required",
 	"Password must have at least 8 characters": "Password must have at least 8 characters",
@@ -61,5 +62,5 @@
 	"Add music and other": "Add music and other",
 	"Save your favorite songs, albums, to listen to them at any time": "Save your favorite songs, albums, to listen to them at any time",
 	"Favorite songs": "Favorite songs",
-	"Now Playing": "Now Playing",
+	"Now Playing": "Now Playing"
 }

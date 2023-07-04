@@ -23,6 +23,7 @@
 	"Email": "Емейл",
 	"Password": "Пароль",
 	"Login": "Войти",
+	"Logout": "Выйти",
 	"Register": "Зарегистрироваться",
 	"Password is required": "Пароль обязателен",
 	"Password must have at least 8 characters": "Пароль должен содержать не менее 8 символов",

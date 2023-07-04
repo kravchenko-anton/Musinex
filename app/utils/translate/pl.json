@@ -23,6 +23,7 @@
 	"Email": "Poczta",
 	"Password": "Hasło",
 	"Login": "Zaloguj się",
+	"Logout": "Wyloguj się",
 	"Register": "Zarejestruj się",
 	"Password is required": "Hasło jest wymagane",
 	"Password must have at least 8 characters": "Hasło musi mieć co najmniej 8 znaków",

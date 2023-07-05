@@ -42,20 +42,18 @@ const Title = ({
 		)
 	return (
 		<Text
+			testID={'title'}
 			style={[
 				{
 					fontFamily: weightSettings[weight],
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
-					color: props.color
-						? props.color
-						: darkToSilver
+					color: props.color ? props.color : darkToSilver
 				},
 				style
 			]}
 			numberOfLines={numberOfLines}
-			{...props}
-		>
+			{...props}>
 			{props.translate ? t(children.toString()) : children}
 		</Text>
 	)

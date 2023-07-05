@@ -1,0 +1,10 @@
+import { IconType, UPressableProps, UViewProps } from '@/types/global'
+import { ColorProps } from '@/utils/color'
+
+export interface BlurButtonProps
+	extends UViewProps,
+		Pick<UPressableProps, 'onPress'>, ColorProps {
+	icon?: IconType
+	iconSize?: number
+	isSmall?: boolean
+}

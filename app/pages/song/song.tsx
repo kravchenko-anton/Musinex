@@ -4,7 +4,6 @@ import CoverImage from '@/pages/song/components/cover-image/CoverImage'
 import TopDropDown from '@/pages/song/components/top-dropDown/topDropDown'
 import { TrackType } from '@/types/player/TrackType'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
-
 import { View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { useSharedValue } from 'react-native-reanimated'

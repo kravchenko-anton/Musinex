@@ -10,17 +10,16 @@ const Skeleton: FC<SkeletonProps> = ({
 	width,
 	borderRadius = 6
 }) => {
-	const { colorScheme,charcoalToTwilight } = useColorTheme()
+	const { charcoalToTwilight } = useColorTheme()
 	return (
 		<View
+			testID={'skeleton'}
 			style={[
 				{
 					height,
 					width,
 					borderRadius,
-					backgroundColor: transparent
-						? 'transparent'
-						: charcoalToTwilight
+					backgroundColor: transparent ? 'transparent' : charcoalToTwilight
 				},
 				style
 			]}

@@ -15,16 +15,15 @@ const Heart: FC<HeartProps> = ({ size = 28, type, id, style, ...props }) => {
 
 	return (
 		<Pressable
-				onPress={() => {
+			testID={'heart'}
+			onPress={() => {
 				liked.value = withSpring(liked.value === 1 ? 0 : 1)
 				toggleFavorite()
 			}}
 			style={[{ height: size, width: size }, style as Style]}
-			{...props}
-		>
+			{...props}>
 			<AnimatedView
-				style={[StyleSheet.absoluteFill, outlineStyle, style as Style]}
-			>
+				style={[StyleSheet.absoluteFill, outlineStyle, style as Style]}>
 				<MaterialCommunityIcons
 					name={'heart-outline'}
 					size={size}

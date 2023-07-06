@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`title should render currect 1`] = `
+<Text
+  className="mb-4"
+  numberOfLines={1}
+  style={
+    [
+      {
+        "color": "#000",
+        "fontFamily": "Montserrat_300Light",
+        "fontSize": 20,
+        "textAlign": "left",
+      },
+      {
+        "backgroundColor": "red",
+      },
+    ]
+  }
+  testID="title"
+>
+  by
+</Text>
+`;

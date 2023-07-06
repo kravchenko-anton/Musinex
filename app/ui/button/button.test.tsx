@@ -22,6 +22,22 @@ jest.mock('react-i18next', () => ({
 afterEach(() => cleanup())
 const mockFn = jest.fn()
 describe('blurIcon', () => {
+	it('should render currect', function () {
+		const renders = render(
+			<Button
+				text={'by'}
+				size={'large'}
+				style={{
+					backgroundColor: 'red'
+				}}
+				onPress={mockFn}
+				className='mb-4'
+				icon={'search'}
+			/>
+		)
+		expect(renders).toMatchSnapshot()
+	})
+
 	it('press function', () => {
 		render(
 			<Button text={'by'} size={'large'} onPress={mockFn} icon={'search'} />
@@ -43,33 +59,5 @@ describe('blurIcon', () => {
 		)
 		await waitFor(() => expect(queryByTestId('skeleton')).toBeNull())
 		expect(getByTestId('title')).toHaveTextContent('by')
-	})
-	it('check style', function () {
-		const { getByTestId } = render(
-			<Button
-				text={'by'}
-				size={'large'}
-				onPress={mockFn}
-				icon={'search'}
-				style={{
-					backgroundColor: 'red'
-				}}
-			/>
-		)
-		expect(getByTestId('button')).toHaveStyle({
-			backgroundColor: 'red'
-		})
-	})
-	it('check className', function () {
-		const { getByTestId } = render(
-			<Button
-				text={'by'}
-				size={'large'}
-				onPress={mockFn}
-				className='mb-4'
-				icon={'search'}
-			/>
-		)
-		expect(getByTestId('button')).toHaveProp('className', 'mb-4')
 	})
 })

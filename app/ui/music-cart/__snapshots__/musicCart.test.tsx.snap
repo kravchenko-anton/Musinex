@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`musicCart should render currect 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  artists="artists"
+  className="mb-5"
+  collapsable={false}
+  focusable={true}
+  image={
+    {
+      "border": 10,
+      "height": 20,
+      "url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+      "width": 20,
+    }
+  }
+  imageClassNames="mb-5"
+  name="search"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "width": 20,
+    }
+  }
+  testID="music-cart-wrapper"
+  wrapperWidth={20}
+>
+  <View>
+    <Image
+      className="mb-5"
+      onLoadEnd={[Function]}
+      source={
+        {
+          "height": 20,
+          "uri": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+          "width": 20,
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 10,
+            "display": "none",
+            "height": 20,
+            "width": 20,
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#888888",
+            "borderRadius": 6,
+            "height": 20,
+            "width": 20,
+          },
+          [
+            {
+              "borderRadius": 10,
+            },
+            undefined,
+          ],
+        ]
+      }
+      testID="skeleton"
+    />
+  </View>
+  <View
+    className="mt-2"
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#888888",
+            "borderRadius": 6,
+            "height": 16,
+            "width": 60,
+          },
+          undefined,
+        ]
+      }
+      testID="skeleton"
+    />
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#888888",
+            "borderRadius": 6,
+            "height": 16,
+            "width": 70,
+          },
+          undefined,
+        ]
+      }
+      testID="skeleton"
+    />
+  </View>
+</View>
+`;

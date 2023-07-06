@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should render currect 1`] = `
+<View>
+  <Image
+    className="mb-5"
+    onLoadEnd={[Function]}
+    source={
+      {
+        "height": 20,
+        "uri": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+        "width": 20,
+      }
+    }
+    style={
+      [
+        {
+          "borderRadius": 10,
+          "display": "none",
+          "height": 20,
+          "width": 20,
+        },
+        {
+          "width": 20,
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#888888",
+          "borderRadius": 6,
+          "height": 20,
+          "width": 20,
+        },
+        [
+          {
+            "borderRadius": 10,
+          },
+          {
+            "width": 20,
+          },
+        ],
+      ]
+    }
+    testID="skeleton"
+  />
+</View>
+`;

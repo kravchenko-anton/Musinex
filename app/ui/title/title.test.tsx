@@ -1,6 +1,6 @@
 import Title from '@/ui/title/title'
 import { Color } from '@/utils/color'
-import { cleanup, render, waitFor } from '@testing-library/react-native'
+import { cleanup, render, screen, waitFor } from '@testing-library/react-native'
 
 jest.mock('react-i18next', () => ({
 	useTranslation: () => ({
@@ -16,6 +16,19 @@ jest.mock('react-i18next', () => ({
 }))
 afterEach(() => cleanup())
 describe('title', () => {
+	it('should render currect', async function () {
+		const renders = render(
+			<Title
+				style={{
+					backgroundColor: 'red'
+				}}
+				className='mb-4'>
+				by
+			</Title>
+		)
+		await waitFor(() => expect(screen.queryByTestId('skeleton')).toBeNull())
+		expect(renders).toMatchSnapshot()
+	})
 	it('Check text in title', async function () {
 		const { getByTestId, queryByTestId } = render(<Title>by</Title>)
 		await waitFor(() => expect(queryByTestId('skeleton')).toBeNull())

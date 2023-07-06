@@ -28,6 +28,7 @@ const Field = <T extends Record<string, any>>({
 			}) => (
 				<>
 					<View
+						testID={'field'}
 						style={{
 							borderWidth: error ? 1 : 0,
 							backgroundColor: charcoalToTwilight

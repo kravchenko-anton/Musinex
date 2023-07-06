@@ -1,6 +1,6 @@
 import Dropdown from '@/ui/dropdown/dropdown'
 import '@testing-library/jest-native/extend-expect'
-import { cleanup, render, waitFor } from '@testing-library/react-native'
+import { cleanup, render, screen, waitFor } from '@testing-library/react-native'
 
 jest.mock('react-i18next', () => ({
 	useTranslation: () => ({
@@ -15,9 +15,8 @@ jest.mock('react-i18next', () => ({
 	}
 }))
 afterEach(() => cleanup())
+const mockOnSelect = jest.fn()
 describe('Dropdowns', () => {
-	const mockOnSelect = jest.fn()
-
 	const props = {
 		isOpen: false,
 		setIsOpen: jest.fn(),
@@ -30,6 +29,11 @@ describe('Dropdowns', () => {
 			{ label: 'Option 3', value: '3' }
 		]
 	}
+	it('should render currect', async function () {
+		const renders = render(<Dropdown {...props} />)
+		await waitFor(() => expect(screen.queryByTestId('skeleton')).toBeNull())
+		expect(renders).toMatchSnapshot()
+	})
 	it('Check label in dropdown', async function () {
 		const { getAllByTestId, queryByTestId } = render(<Dropdown {...props} />)
 		await waitFor(() => expect(queryByTestId('skeleton')).toBeNull())

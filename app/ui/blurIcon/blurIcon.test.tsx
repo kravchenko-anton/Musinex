@@ -9,6 +9,19 @@ import {
 afterEach(() => cleanup())
 const mockFn = jest.fn()
 describe('blurIcon', () => {
+	it('should render currect', function () {
+		const renders = render(
+			<BlurIcon
+				onPress={mockFn}
+				icon={'search'}
+				style={{
+					backgroundColor: 'red'
+				}}
+				className='mb-4'
+			/>
+		)
+		expect(renders).toMatchSnapshot()
+	})
 	it('press function', () => {
 		render(<BlurIcon onPress={mockFn} icon={'search'} />)
 		expect(screen.getByTestId('blur-icon')).toBeDefined()

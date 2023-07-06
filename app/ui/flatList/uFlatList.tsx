@@ -1,5 +1,4 @@
 import { UFlatListProps } from '@/ui/flatList/uFlatList.types'
-import { memo } from 'react'
 import { FlatList, View } from 'react-native'
 import Title from '../title/title'
 
@@ -20,6 +19,7 @@ const UFlatList = <T,>({
 				</Title>
 			) : null}
 			<FlatList
+				testID='uFlatList'
 				bounces={false}
 				columnWrapperStyle={
 					props.numColumns === 2
@@ -64,4 +64,4 @@ const UFlatList = <T,>({
 	)
 }
 
-export default memo(UFlatList)
+export default UFlatList

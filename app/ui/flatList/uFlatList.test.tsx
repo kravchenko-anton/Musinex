@@ -1,7 +1,20 @@
-import UFlatList from '@/ui/flatList/uFlatList'
-import { render } from '@testing-library/react-native'
-import { Pressable, View } from 'react-native'
+import { cleanup, render, screen, waitFor } from '@testing-library/react-native'
+import { Pressable } from 'react-native'
+import UFlatList from './uFlatList'
 
+jest.mock('react-i18next', () => ({
+	useTranslation: () => ({
+		t: (str: string) => str,
+		i18n: {
+			changeLanguage: () => new Promise(() => {})
+		}
+	}),
+	initReactI18next: {
+		type: '3rdParty',
+		init: () => {}
+	}
+}))
+afterEach(() => cleanup())
 const data = [
 	{
 		id: 1,
@@ -18,18 +31,36 @@ const data = [
 ]
 
 describe('uFlatList', () => {
-	it('test with no data', () => {
-		const { getByTestId } = render(
-			<UFlatList data={[]} renderItem={() => <View />} />
+	it('should render currect', async function () {
+		const renders = render(
+			<UFlatList
+				data={data}
+				renderItem={() => <Pressable />}
+				style={{ backgroundColor: 'red' }}
+			/>
 		)
-		expect(getByTestId('uFlatList')).toBeNull()
+		await waitFor(() => expect(screen.queryByTestId('skeleton')).toBeNull())
+		expect(renders).toMatchSnapshot()
 	})
-	it('test with data and data.length', () => {
+	it('test style', () => {
 		const { getByTestId } = render(
-			<UFlatList data={data} renderItem={() => <Pressable />} />
+			<UFlatList
+				data={data}
+				renderItem={() => <Pressable />}
+				style={{ backgroundColor: 'red' }}
+			/>
 		)
-		expect(getByTestId('uFlatList')).toBeTruthy()
+		expect(getByTestId('uFlatList')).toHaveStyle({ backgroundColor: 'red' })
 	})
-	it('test style', () => {})
-	it('headerText', () => {})
+	it('headerText', async () => {
+		const { getByTestId, queryByTestId } = render(
+			<UFlatList
+				data={data}
+				renderItem={() => <Pressable />}
+				headerText='headerText'
+			/>
+		)
+		await waitFor(() => expect(queryByTestId('skeleton')).toBeNull())
+		expect(getByTestId('title')).toHaveTextContent('headerText')
+	})
 })

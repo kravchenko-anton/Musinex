@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uScrollView should render currect 1`] = `
+<RCTScrollView
+  className="mb-5"
+  contentContainerStyle={
+    {
+      "backgroundColor": "blue",
+    }
+  }
+  decelerationRate="fast"
+  pointerEvents="box-none"
+  renderToHardwareTextureAndroid={true}
+  showsHorizontalScrollIndicator={false}
+  showsVerticalScrollIndicator={false}
+  style={
+    {
+      "backgroundColor": "red",
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#888888",
+            "borderRadius": 6,
+            "height": 50,
+            "width": 40,
+          },
+          {
+            "backgroundColor": "red",
+          },
+        ]
+      }
+      testID="skeleton"
+    />
+  </View>
+</RCTScrollView>
+`;

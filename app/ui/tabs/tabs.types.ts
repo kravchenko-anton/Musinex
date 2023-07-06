@@ -1,7 +1,7 @@
 import { ITranslateTypes } from '@/types/global'
 
 export type TabsProps = {
-	translate: boolean
+	translate?: boolean
 	data: {
 		name: string
 		title: ITranslateTypes

@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs should render current 1`] = `
+[
+  <View
+    className="mb-4 mt-2"
+  >
+    <View
+      style={
+        {
+          "marginTop": 0,
+        }
+      }
+    >
+      <RCTScrollView
+        alwaysBounceHorizontal={false}
+        alwaysBounceVertical={false}
+        bounces={false}
+        data={
+          [
+            {
+              "component": [Function],
+              "name": "test",
+              "title": "test",
+            },
+            {
+              "component": [Function],
+              "name": "test2",
+              "title": "test2",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={true}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={true}
+        renderItem={[Function]}
+        renderToHardwareTextureAndroid={true}
+        scrollEventThrottle={50}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={[]}
+        style={
+          [
+            {
+              "height": "auto",
+            },
+            undefined,
+          ]
+        }
+        testID="uFlatList"
+        viewabilityConfigCallbackPairs={[]}
+      >
+        <View>
+          <View
+            onFocusCapture={[Function]}
+            onLayout={[Function]}
+            style={
+              [
+                {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              className="mr-3"
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                [
+                  {
+                    "backgroundColor": "#32B47D",
+                    "borderRadius": 10,
+                    "padding": 5,
+                    "width": 110,
+                  },
+                  undefined,
+                  {
+                    "transform": [
+                      {
+                        "scale": 1,
+                      },
+                    ],
+                  },
+                ]
+              }
+              testID="button"
+              text="test"
+              uppercase={true}
+              width={110}
+            >
+              <View
+                className="flex-row items-center"
+                style={
+                  {
+                    "gap": 10,
+                    "justifyContent": "center",
+                    "marginVertical": 5,
+                  }
+                }
+              >
+                <View
+                  style={
+                    [
+                      {
+                        "backgroundColor": "#888888",
+                        "borderRadius": 6,
+                        "height": 15,
+                        "width": 40,
+                      },
+                      {
+                        "letterSpacing": 1.4,
+                        "textTransform": "uppercase",
+                      },
+                    ]
+                  }
+                  testID="skeleton"
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            onFocusCapture={[Function]}
+            onLayout={[Function]}
+            style={
+              [
+                {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              className="mr-3"
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                [
+                  {
+                    "backgroundColor": "#888888",
+                    "borderRadius": 10,
+                    "padding": 5,
+                    "width": 110,
+                  },
+                  undefined,
+                  {
+                    "transform": [
+                      {
+                        "scale": 1,
+                      },
+                    ],
+                  },
+                ]
+              }
+              testID="button"
+              text="test2"
+              uppercase={true}
+              width={110}
+            >
+              <View
+                className="flex-row items-center"
+                style={
+                  {
+                    "gap": 10,
+                    "justifyContent": "center",
+                    "marginVertical": 5,
+                  }
+                }
+              >
+                <View
+                  style={
+                    [
+                      {
+                        "backgroundColor": "#888888",
+                        "borderRadius": 6,
+                        "height": 15,
+                        "width": 50,
+                      },
+                      {
+                        "letterSpacing": 1.4,
+                        "textTransform": "uppercase",
+                      },
+                    ]
+                  }
+                  testID="skeleton"
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>,
+  <View />,
+]
+`;

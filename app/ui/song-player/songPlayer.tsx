@@ -16,26 +16,42 @@ const SongPlayer = () => {
 	const { navigate } = useTypedNavigation()
 	const trackInfo = useActiveTrack() as TrackType
 	const { isPlayerReady, selector } = usePlayer()
-	if (!isPlayerReady || selector.length <= 0 || !trackInfo || !trackInfo.title || !trackInfo.artist || !trackInfo.color || !trackInfo.id)  return  null
-
+	if (
+		!isPlayerReady ||
+		selector.length <= 0 ||
+		!trackInfo ||
+		!trackInfo.title ||
+		!trackInfo.artist ||
+		!trackInfo.color ||
+		!trackInfo.id
+	)
+		return null
 	return (
-		<AnimatedLinearGradient exiting={FadeOutDown} entering={FadeInDown}  colors={[
-			shadeRGBColor(trackInfo?.color, -40),
-			shadeRGBColor(trackInfo?.color, -10),
-		]} start={[0.407, 0.8]} end={[0.41, 0.2]}
-			className='rounded-xl absolute justify-center self-center bottom-[70px] h-[65px] w-11/12 bg-dark'
-		>
+		<AnimatedLinearGradient
+			exiting={FadeOutDown}
+			entering={FadeInDown}
+			colors={[
+				shadeRGBColor(trackInfo?.color, -40),
+				shadeRGBColor(trackInfo?.color, -10)
+			]}
+			start={[0.407, 0.8]}
+			end={[0.41, 0.2]}
+			className='absolute bottom-[70px] h-[65px] w-11/12 justify-center self-center rounded-xl bg-dark'>
 			<Pressable
 				onPress={() => navigate('Song')}
-				className=' flex-row justify-between mx-2 items-center'
-			>
-				<View className='flex-row items-center w-2/3'>
-					<Image url={String(trackInfo.coverSmall)} borderRadius={10} width={50} height={50} />
-					<View className='flex flex-col ml-2'>
-						<Title color={Color.white}   size={20}>
+				className=' mx-2 flex-row items-center justify-between'>
+				<View className='w-2/3 flex-row items-center'>
+					<Image
+						url={String(trackInfo.coverSmall)}
+						borderRadius={10}
+						width={50}
+						height={50}
+					/>
+					<View className='ml-2 flex flex-col'>
+						<Title color={Color.white} size={20}>
 							{trackInfo?.title}
 						</Title>
-						<Title color={Color.white}  size={16}>
+						<Title color={Color.white} size={16}>
 							{trackInfo?.artist}
 						</Title>
 					</View>

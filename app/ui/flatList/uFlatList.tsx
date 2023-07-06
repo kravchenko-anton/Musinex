@@ -1,4 +1,5 @@
 import { UFlatListProps } from '@/ui/flatList/uFlatList.types'
+import { memo } from 'react'
 import { FlatList, View } from 'react-native'
 import Title from '../title/title'
 
@@ -14,12 +15,7 @@ const UFlatList = <T,>({
 	return (
 		<View className={wrapClassNames} style={{ marginTop: mt }}>
 			{headerText && data.length !== 0 ? (
-				<Title
-					translate
-					className='mb-3'
-					size={20}
-					weight={'semiBold'}
-				>
+				<Title translate className='mb-3' size={20} weight={'semiBold'}>
 					{headerText}
 				</Title>
 			) : null}
@@ -33,7 +29,7 @@ const UFlatList = <T,>({
 									width: '100%'
 								},
 								props.columnWrapperStyle
-						]
+						  ]
 						: props.columnWrapperStyle
 				}
 				style={[
@@ -49,7 +45,7 @@ const UFlatList = <T,>({
 									paddingBottom: 130
 								},
 								props.contentContainerStyle
-						]
+						  ]
 						: props.contentContainerStyle
 				}
 				renderToHardwareTextureAndroid={true}
@@ -68,4 +64,4 @@ const UFlatList = <T,>({
 	)
 }
 
-export default UFlatList
+export default memo(UFlatList)

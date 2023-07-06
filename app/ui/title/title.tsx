@@ -31,7 +31,7 @@ const Title = ({
 		Montserrat_900Black
 	})
 	const { t } = useTranslation()
-	const { darkToSilver } = useColorTheme()
+	const { darkToWhite } = useColorTheme()
 	if (!isFontsLoaded || !children)
 		return (
 			<Skeleton
@@ -48,7 +48,7 @@ const Title = ({
 					fontFamily: weightSettings[weight],
 					fontSize: size,
 					textAlign: center ? 'center' : 'left',
-					color: props.color ? props.color : darkToSilver
+					color: props.color ? props.color : darkToWhite
 				},
 				style
 			]}

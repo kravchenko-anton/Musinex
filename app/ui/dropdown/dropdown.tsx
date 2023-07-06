@@ -16,7 +16,7 @@ const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 	)
 	const { dropdownAnimation } = useDropdownAnimation({ isOpen })
 	const { rotateAnimation } = useRotateAnimation({ isOpen, direction: 'down' })
-	const { colorScheme, charcoalToTwilight } = useColorTheme()
+	const { charcoalToTwilight } = useColorTheme()
 	return (
 		<View className='z-50'>
 			<Pressable

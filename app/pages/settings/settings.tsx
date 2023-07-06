@@ -11,7 +11,7 @@ import { Ref, useEffect, useRef, useState } from 'react'
 import { Pressable } from 'react-native'
 
 const Settings = () => {
-	const { setColorScheme, colorScheme } = useColorScheme()
+	const { colorScheme, toggleColorScheme } = useColorScheme()
 	const { setTheme, logout } = useAction()
 	const lottieRef = useRef<Lottie>()
 	const [isDropDownOpen, setDropDownOpen] = useState(false)
@@ -21,16 +21,15 @@ const Settings = () => {
 			colorScheme === 'light' ? 80 : 0,
 			colorScheme === 'light' ? 180 : 80
 		)
-	}, [colorScheme, setColorScheme])
+	}, [colorScheme])
 	return (
 		<Layout>
-			<Header className='justify-between items-center'>
+			<Header className='items-center justify-between'>
 				<Pressable
 					onPress={() => {
 						setTheme(colorScheme === 'light' ? 'dark' : 'light')
-						setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
-					}}
-				>
+						toggleColorScheme()
+					}}>
 					<Lottie
 						autoSize={true}
 						autoPlay={false}
@@ -42,7 +41,7 @@ const Settings = () => {
 				</Pressable>
 			</Header>
 			<>
-				<Title translate className='mt-8 mb-4'>
+				<Title translate className='mb-4 mt-8'>
 					Language Settings
 				</Title>
 				<Dropdown
@@ -68,7 +67,7 @@ const Settings = () => {
 				translate={true}
 				text={'Logout'}
 				width={200}
-				className='mt-4 z-0 justify-center items-center self-center'
+				className='z-0 mt-4 items-center justify-center self-center'
 			/>
 		</Layout>
 	)

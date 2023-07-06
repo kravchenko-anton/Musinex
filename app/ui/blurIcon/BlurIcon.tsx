@@ -2,7 +2,7 @@ import { BlurButtonProps } from '@/ui/blurIcon/blurButton.types'
 import Icon from '@/ui/icon/default-icon/icon'
 import { Color } from '@/utils/color'
 import { BlurView } from 'expo-blur'
-import { FC, PropsWithChildren } from 'react'
+import { FC, memo, PropsWithChildren } from 'react'
 
 const BlurIcon: FC<PropsWithChildren<BlurButtonProps>> = ({
 	children,
@@ -41,4 +41,4 @@ const BlurIcon: FC<PropsWithChildren<BlurButtonProps>> = ({
 	</BlurView>
 )
 
-export default BlurIcon
+export default memo(BlurIcon)

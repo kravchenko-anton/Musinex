@@ -10,7 +10,7 @@ import {
 } from '@/ui/button/button.settings'
 import { IButtonTypes } from '@/ui/button/button.types'
 import { Color } from '@/utils/color'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { View } from 'react-native'
 import Icon from '../icon/default-icon/icon'
 import Title from '../title/title'
@@ -73,4 +73,4 @@ const Button: FC<IButtonTypes> = ({
 	)
 }
 
-export default Button
+export default memo(Button)

@@ -1,7 +1,7 @@
 import TrackPlayer, { Capability } from 'react-native-track-player'
 
 export async function setupPlayer() {
-	let isSetup = false
+	let isSetup
 	try {
 		await TrackPlayer.getActiveTrack()
 		isSetup = true
@@ -10,7 +10,7 @@ export async function setupPlayer() {
 		await TrackPlayer.setupPlayer({
 			autoHandleInterruptions: true,
 			maxCacheSize: 10,
-			maxBuffer:0,
+			maxBuffer: 0
 		})
 		await TrackPlayer.updateOptions({
 			android: {
@@ -33,7 +33,7 @@ export async function setupPlayer() {
 				Capability.SeekTo
 			]
 		})
-		
+
 		isSetup = true
 		return isSetup
 	}

@@ -1,4 +1,5 @@
-import { IconType, UPressableProps } from '@/types/global'
+import { UPressableProps } from '@/types/component.types'
+import { IconType } from '@/types/global'
 import { ColorProps } from '@/utils/color'
 
 export interface IconProps extends UPressableProps, ColorProps {

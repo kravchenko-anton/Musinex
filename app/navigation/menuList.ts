@@ -1,5 +1,5 @@
+import { TypeRootStackParamList } from '@/navigation/types/navigation.types'
 import { IconType } from '@/types/global'
-import { TypeRootStackParamList } from '@/types/navigation/navigation.types'
 
 interface MenuItemType {
 	iconName: IconType

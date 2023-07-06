@@ -6,11 +6,6 @@ export interface AuthFieldsType extends Pick<UserType, 'email'> {
 
 export type IAuthState = Pick<UserType, 'email' | 'id'>
 
-export enum EnumSecureStore {
-	ACCESS_TOKEN = 'access_token',
-	REFRESH_TOKEN = 'refresh_token'
-}
-
 export interface TokensType {
 	access_token: string
 	refresh_token: string

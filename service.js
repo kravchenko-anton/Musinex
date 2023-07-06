@@ -1,4 +1,9 @@
-import { skipToNext, skipToPrevious, trackPause, trackPlay } from '@/utils/player/usePlayer'
+import {
+	skipToNext,
+	skipToPrevious,
+	trackPause,
+	trackPlay
+} from '@/ui/song-player/usePlayer'
 import TrackPlayer from 'react-native-track-player'
 
 module.exports = async function () {

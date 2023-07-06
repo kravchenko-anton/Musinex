@@ -1,12 +1,15 @@
 import { useAuth } from '@/hook/useAuth'
 import { useColorTheme } from '@/hook/useColorTheme'
+import { TypeRootStackParamList } from '@/navigation/types/navigation.types'
+import { userRoutes } from '@/navigation/types/user.routes'
 import BottomMenu from '@/navigation/ui/bottom-menu/bottomMenu'
 import Auth from '@/pages/auth/auth'
 import { useCheckAuth } from '@/providers/auth/check.auth'
-import { TypeRootStackParamList } from '@/types/navigation/navigation.types'
-import { userRoutes } from '@/types/navigation/user.routes'
 import SongPlayer from '@/ui/song-player/songPlayer'
-import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
+import {
+	NavigationContainer,
+	useNavigationContainerRef
+} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useEffect, useState } from 'react'
 
@@ -37,8 +40,7 @@ const Navigation = () => {
 						backgroundColor: silverToMidnight,
 						flex: 1
 					}
-				}}
-			>
+				}}>
 				{user ? (
 					userRoutes.map(route => (
 						<Stack.Screen

@@ -1,6 +1,5 @@
 import { useAction } from '@/hook/useAction'
 import { useAuth } from '@/hook/useAuth'
-import { EnumSecureStore } from '@/types/auth/auth.types'
 import { errorToast } from '@/ui/toast/error.toast'
 import { errorCatch } from '@/utils/error.catch'
 import { getItemAsync } from 'expo-secure-store'
@@ -11,8 +10,8 @@ export const useCheckAuth = (routeName?: string) => {
 	const { getNewToken, logout } = useAction()
 	useEffect(() => {
 		const checkToken = async () => {
-			const accessToken = await getItemAsync(EnumSecureStore.ACCESS_TOKEN)
-			const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
+			const accessToken = await getItemAsync('access_token')
+			const refreshToken = await getItemAsync('refresh_token')
 			if (!accessToken && refreshToken) {
 				try {
 					getNewToken(refreshToken)
@@ -27,12 +26,12 @@ export const useCheckAuth = (routeName?: string) => {
 
 	useEffect(() => {
 		const checkRefreshToken = async () => {
-			const refreshToken = await getItemAsync(EnumSecureStore.REFRESH_TOKEN)
+			const refreshToken = await getItemAsync('refresh_token')
 			if (!refreshToken && user) {
 				logout()
 			}
 		}
 
-	checkRefreshToken()
+		checkRefreshToken()
 	}, [routeName])
 }

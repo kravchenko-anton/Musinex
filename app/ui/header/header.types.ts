@@ -1,4 +1,5 @@
-import { IconType, UViewProps } from '@/types/global'
+import { UViewProps } from '@/types/component.types'
+import { IconType } from '@/types/global'
 
 export type IHeaderIcon = {
 	name: IconType

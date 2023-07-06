@@ -1,4 +1,4 @@
-import { UScrollViewType } from '@/types/global'
+import { UScrollViewType } from '@/types/component.types'
 
 export interface UScrollViewProps
 	extends Omit<

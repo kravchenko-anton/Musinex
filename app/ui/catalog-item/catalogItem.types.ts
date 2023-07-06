@@ -1,5 +1,6 @@
 import { ICatalogRenderType } from '@/pages/catalog/catalog.types'
-import { imageType, UPressableProps } from '@/types/global'
+import { UPressableProps } from '@/types/component.types'
+import { imageType } from '@/types/global'
 
 export interface CatalogItemProps extends UPressableProps {
 	image: imageType

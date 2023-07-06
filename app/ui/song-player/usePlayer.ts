@@ -1,14 +1,10 @@
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import { trackPause, trackPlay } from '@/utils/player/player.actions'
 import { setupPlayer } from '@/utils/player/setup.player'
-import { fadeInVolume, fadeOutVolume } from '@/utils/player/song.fade'
 import { generateRandomBeautifulHexColor } from '@/utils/random.color'
 import { useEffect, useState } from 'react'
 import TrackPlayer, { RepeatMode } from 'react-native-track-player'
 
-export const trackPlay = async () => await fadeInVolume().then(() => TrackPlayer.play())
-	export const trackPause = async () => await fadeOutVolume().then(() => TrackPlayer.pause())
-	export const skipToNext = async () => await fadeOutVolume().then(() => TrackPlayer.skipToNext().then(() => trackPlay()))
-	export const skipToPrevious = async () => await fadeOutVolume().then(() => TrackPlayer.skipToPrevious().then(() => trackPlay()))
 export const usePlayer = () => {
 	const selector = useTypedSelector(state => state.player)
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
@@ -20,7 +16,7 @@ export const usePlayer = () => {
 		}
 		setup()
 	}, [])
-	
+
 	useEffect(() => {
 		if (selector.length <= 0 || !isPlayerReady) return
 		const addTracks = async () => {
@@ -29,16 +25,16 @@ export const usePlayer = () => {
 			await trackPause()
 			await TrackPlayer.stop()
 			await TrackPlayer.add(
-				selector[0].data.map((value) => ({
-						id: value.id,
-						url: value.url,
-						title: value.title,
-						artist: value.artist,
-						coverBig: value.coverBig,
-						coverSmall: value.coverSmall,
-						artwork: value.coverBig,
-						color,
-					}))
+				selector[0].data.map(value => ({
+					id: value.id,
+					url: value.url,
+					title: value.title,
+					artist: value.artist,
+					coverBig: value.coverBig,
+					coverSmall: value.coverSmall,
+					artwork: value.coverBig,
+					color
+				}))
 			)
 			await TrackPlayer.skip(selector[0].songIndex, 0)
 			await trackPlay()

@@ -1,4 +1,5 @@
-import { ITranslateTypes, UTextProps } from '@/types/global'
+import { UTextProps } from '@/types/component.types'
+import { ITranslateTypes } from '@/types/global'
 import { ColorProps } from '@/utils/color'
 
 export type TitleProps = UTextProps &

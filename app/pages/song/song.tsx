@@ -2,15 +2,15 @@ import { useColorTheme } from '@/hook/useColorTheme'
 import BottomMenu from '@/pages/song/components/bottom-menu/bottomMenu'
 import CoverImage from '@/pages/song/components/cover-image/CoverImage'
 import TopDropDown from '@/pages/song/components/top-dropDown/topDropDown'
-import { TrackType } from '@/types/player/TrackType'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
+import { PlayerTypes } from '@/utils/player/player.types'
 import { View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { useSharedValue } from 'react-native-reanimated'
 import { useActiveTrack } from 'react-native-track-player'
 
 const Song = () => {
-	const trackInfo = useActiveTrack() as TrackType
+	const trackInfo = useActiveTrack() as PlayerTypes
 	const isOpen = useSharedValue(false)
 	const { silverToMidnight } = useColorTheme()
 	if (

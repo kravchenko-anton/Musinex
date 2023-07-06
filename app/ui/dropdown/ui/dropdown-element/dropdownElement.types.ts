@@ -1,4 +1,4 @@
-import { UPressableProps } from '@/types/global'
+import { UPressableProps } from '@/types/component.types'
 
 export interface DropdownElementProps extends UPressableProps {
 	label: string

@@ -10,8 +10,11 @@ import Icon from '@/ui/icon/default-icon/icon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'
 import { Color } from '@/utils/color'
-import { handleShuffle } from '@/utils/player/handle.shaffle'
-import { skipToNext, skipToPrevious } from '@/utils/player/usePlayer'
+import {
+	handleShuffle,
+	skipToNext,
+	skipToPrevious
+} from '@/utils/player/player.actions'
 import { WINDOW_HEIGHT } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'

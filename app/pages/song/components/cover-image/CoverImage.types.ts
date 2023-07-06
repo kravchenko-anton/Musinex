@@ -1,4 +1,6 @@
 import { IsOpenType } from '@/animation/global'
-import { TrackType } from '@/types/player/TrackType'
+import { PlayerTypes } from '@/utils/player/player.types'
 
-export interface CoverImageProps  extends IsOpenType, Pick<TrackType, 'coverBig'>{}
+export interface CoverImageProps
+	extends IsOpenType,
+		Pick<PlayerTypes, 'coverBig'> {}

@@ -1,4 +1,5 @@
-import { imageType, UPressableProps } from '@/types/global'
+import { UPressableProps } from '@/types/component.types'
+import { imageType } from '@/types/global'
 
 export interface MusicCartProps extends UPressableProps {
 	name: string

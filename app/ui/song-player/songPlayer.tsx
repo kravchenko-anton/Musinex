@@ -1,11 +1,11 @@
 import { AnimatedLinearGradient } from '@/animation/global'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import PlayButton from '@/pages/song/ui/play-button/playButton'
-import { TrackType } from '@/types/player/TrackType'
 import Heart from '@/ui/icon/heart/heart'
 import Image from '@/ui/image/image'
+import { usePlayer } from '@/ui/song-player/usePlayer'
 import { Color } from '@/utils/color'
-import { usePlayer } from '@/utils/player/usePlayer'
+import { PlayerTypes } from '@/utils/player/player.types'
 import { shadeRGBColor } from '@/utils/shade.color'
 import { Pressable, View } from 'react-native'
 import { FadeInDown, FadeOutDown } from 'react-native-reanimated'
@@ -14,7 +14,7 @@ import Title from '../title/title'
 
 const SongPlayer = () => {
 	const { navigate } = useTypedNavigation()
-	const trackInfo = useActiveTrack() as TrackType
+	const trackInfo = useActiveTrack() as PlayerTypes
 	const { isPlayerReady, selector } = usePlayer()
 	if (
 		!isPlayerReady ||

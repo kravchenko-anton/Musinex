@@ -1,5 +1,5 @@
 import { menuItems } from '@/navigation/menuList'
-import { TypeRootStackParamList } from '@/types/navigation/navigation.types'
+import { TypeRootStackParamList } from '@/navigation/types/navigation.types'
 
 export type TypeNavigate = (screenName: keyof TypeRootStackParamList) => void
 export interface MenuItemProps {

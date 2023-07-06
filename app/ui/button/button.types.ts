@@ -1,4 +1,5 @@
-import { IconType, ITranslateTypes, UPressableProps } from '@/types/global'
+import { UPressableProps } from '@/types/component.types'
+import { IconType, ITranslateTypes } from '@/types/global'
 
 export type IButtonTypes = UPressableProps & {
 	size: 'small' | 'medium' | 'large'

@@ -13,7 +13,7 @@ describe('blurIcon', () => {
 		const blurIconRender = render(
 			<BlurIcon
 				onPress={mockFn}
-				icon={'search'}
+				icon='search'
 				style={{
 					backgroundColor: 'red'
 				}}
@@ -23,7 +23,7 @@ describe('blurIcon', () => {
 		expect(blurIconRender).toMatchSnapshot()
 	})
 	it('OnPress', () => {
-		render(<BlurIcon onPress={mockFn} icon={'search'} />)
+		render(<BlurIcon onPress={mockFn} icon='search' />)
 		expect(screen.getByTestId('blur-icon')).toBeDefined()
 		fireEvent.press(screen.getByTestId('icon-wrapper'))
 		expect(mockFn).toHaveBeenCalledTimes(1)

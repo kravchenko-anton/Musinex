@@ -22,7 +22,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 					name: 'songs',
 					component: () => (
 						<UFlatList
-							key={'_'}
+							key='_'
 							keyExtractor={item => '_' + item.id}
 							data={searchResult.songs}
 							fixBottom
@@ -31,7 +31,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 							)}
 							renderItem={({ item: song, index }) => (
 								<CatalogItem
-									type={'song'}
+									type='song'
 									onPress={() =>
 										addToPlayer({
 											data: searchResult.songs.map(track => ({
@@ -65,7 +65,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 					component: () => (
 						<UFlatList
 							fixBottom
-							key={'#'}
+							key='#'
 							keyExtractor={item => '#' + item.id}
 							data={searchResult.albums}
 							ListEmptyComponent={() => (
@@ -79,7 +79,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 										width: 190,
 										height: 190
 									}}
-									wrapClassNames={'mb-4'}
+									wrapClassNames='mb-4'
 									name={album.title}
 								/>
 							)}
@@ -93,7 +93,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 					component: () => (
 						<UFlatList
 							fixBottom
-							key={'%'}
+							key='%'
 							keyExtractor={item => '%' + item.id}
 							data={searchResult.artists}
 							ListEmptyComponent={() => (
@@ -101,7 +101,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 							)}
 							renderItem={({ item: artist }) => (
 								<CatalogItem
-									type={'artist'}
+									type='artist'
 									onPress={() => navigate('ArtistCatalog', { id: artist.id })}
 									text1={artist.name}
 									id={artist.id}
@@ -122,7 +122,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 					component: () => (
 						<UFlatList
 							fixBottom
-							key={'@'}
+							key='@'
 							keyExtractor={item => '@' + item.id}
 							data={searchResult.playlists}
 							ListEmptyComponent={() => (
@@ -138,7 +138,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 										width: 190,
 										height: 190
 									}}
-									wrapClassNames={'mb-4'}
+									wrapClassNames='mb-4'
 									name={playlist.title}
 								/>
 							)}

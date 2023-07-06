@@ -44,11 +44,11 @@ const CatalogItem: FC<CatalogItemProps> = ({
 					style={{
 						width: !noHeart ? '60%' : '73%'
 					}}>
-					<Title weight={'semiBold'} numberOfLines={1} size={textSize}>
+					<Title weight='semiBold' numberOfLines={1} size={textSize}>
 						{props.text1}
 					</Title>
 					{props.text2 && (
-						<Title color={Color.silver} weight={'light'} size={textSize * 0.75}>
+						<Title color={Color.silver} weight='light' size={textSize * 0.75}>
 							{props.text2}
 						</Title>
 					)}

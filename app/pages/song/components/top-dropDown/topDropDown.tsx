@@ -45,7 +45,7 @@ const TopDropDown: FC<TopDropDownProps> = ({ isOpen, title }) => {
 						color={Color.white}
 					/>
 					<View className='w-2/3 items-center'>
-						<Title translate={true} weight={'bold'}>
+						<Title translate={true} weight='bold'>
 							{'Now Playing'}
 						</Title>
 						<Title translate={false} color={midnightToSilver} size={16}>
@@ -69,7 +69,7 @@ const TopDropDown: FC<TopDropDownProps> = ({ isOpen, title }) => {
 								key={track.id}
 								text1={track.title}
 								text2={track.artist}
-								type={'song'}
+								type='song'
 								onPress={async () => {
 									await trackPause()
 									const color = generateRandomBeautifulHexColor()
@@ -97,7 +97,7 @@ const TopDropDown: FC<TopDropDownProps> = ({ isOpen, title }) => {
 				</AnimatedView>
 				<Icon
 					style={rotateAnimation}
-					name={'ios-chevron-down'}
+					name='ios-chevron-down'
 					className=' absolute bottom-1 z-40  self-center rounded-full'
 				/>
 			</AnimatedPressable>

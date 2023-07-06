@@ -42,7 +42,7 @@ const Title = ({
 		)
 	return (
 		<Text
-			testID={'title'}
+			testID='title'
 			style={[
 				{
 					fontFamily: weightSettings[weight],

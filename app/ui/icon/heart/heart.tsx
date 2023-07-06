@@ -15,7 +15,7 @@ const Heart: FC<HeartProps> = ({ size = 28, type, id, style, ...props }) => {
 
 	return (
 		<Pressable
-			testID={'heart'}
+			testID='heart'
 			onPress={() => {
 				liked.value = withSpring(liked.value === 1 ? 0 : 1)
 				toggleFavorite()
@@ -25,7 +25,7 @@ const Heart: FC<HeartProps> = ({ size = 28, type, id, style, ...props }) => {
 			<AnimatedView
 				style={[StyleSheet.absoluteFill, outlineStyle, style as Style]}>
 				<MaterialCommunityIcons
-					name={'heart-outline'}
+					name='heart-outline'
 					size={size}
 					color={Color.white}
 				/>
@@ -33,7 +33,7 @@ const Heart: FC<HeartProps> = ({ size = 28, type, id, style, ...props }) => {
 
 			<AnimatedView style={fillStyle}>
 				<MaterialCommunityIcons
-					name={'heart'}
+					name='heart'
 					size={size}
 					color={Color.crimson}
 				/>

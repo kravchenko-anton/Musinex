@@ -13,7 +13,7 @@ const Skeleton: FC<SkeletonProps> = ({
 	const { charcoalToTwilight } = useColorTheme()
 	return (
 		<View
-			testID={'skeleton'}
+			testID='skeleton'
 			style={[
 				{
 					height,

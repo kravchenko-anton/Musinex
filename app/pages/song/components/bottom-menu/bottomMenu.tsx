@@ -44,10 +44,10 @@ const BottomMenu: FC<BottomDropDownProps> = ({ isOpen, ...props }) => {
 				</Pressable>
 				<View className='mt-[15px] w-full  flex-row items-center justify-between self-center px-4'>
 					<AnimatedView style={widthAnimation}>
-						<Title size={25} weight={'semiBold'}>
+						<Title size={25} weight='semiBold'>
 							{props.title}
 						</Title>
-						<Title color={midnightToSilver} weight={'medium'} size={18}>
+						<Title color={midnightToSilver} weight='medium' size={18}>
 							{props.artist}
 						</Title>
 					</AnimatedView>
@@ -69,7 +69,7 @@ const BottomMenu: FC<BottomDropDownProps> = ({ isOpen, ...props }) => {
 						/>
 					</AnimatedView>
 					<AnimatedView style={minusOpacityAnimation}>
-						<Heart size={35} id={props.id} type={'song'} />
+						<Heart size={35} id={props.id} type='song' />
 					</AnimatedView>
 				</View>
 				<Sliders />

@@ -41,33 +41,33 @@ const Home = () => {
 				data={chart.songs}
 				horizontal
 				mt={25}
-				headerText={'Trending Songs'}
+				headerText='Trending Songs'
 				renderItem={({ item: song, index }) => (
-						<MusicCart
-							onPress={() =>
-								addToPlayer({
-									data: chart.songs.map(track => ({
-											artist: track.artists[0].name,
-											duration: track.duration,
-											id: track.id,
-											title: track.title,
-											url: track.mp3Path,
-											coverBig: track.coverBig,
-											coverSmall: track.coverSmall,
-										})),
-									songIndex: index
-								})
-							}
-							image={{
-								url: song.coverMedium,
-								width: 130,
-								height: 130,
-								border: 16
-							}}
-							name={song.title}
-							artists={song.artists[0].name}
-						/>
-					)}
+					<MusicCart
+						onPress={() =>
+							addToPlayer({
+								data: chart.songs.map(track => ({
+									artist: track.artists[0].name,
+									duration: track.duration,
+									id: track.id,
+									title: track.title,
+									url: track.mp3Path,
+									coverBig: track.coverBig,
+									coverSmall: track.coverSmall
+								})),
+								songIndex: index
+							})
+						}
+						image={{
+							url: song.coverMedium,
+							width: 130,
+							height: 130,
+							border: 16
+						}}
+						name={song.title}
+						artists={song.artists[0].name}
+					/>
+				)}
 			/>
 			<UFlatList
 				data={chart.artists}
@@ -75,18 +75,18 @@ const Home = () => {
 				mt={25}
 				headerText='Rated Artists'
 				renderItem={({ item: artist }) => (
-						<MusicCart
-							onPress={() => navigate('ArtistCatalog', { id: artist.id })}
-							image={{
-								url: artist.pictureMedium,
-								width: 80,
-								height: 80,
-								border: 100
-							}}
-							name={artist.name}
-							textCenter
-						/>
-					)}
+					<MusicCart
+						onPress={() => navigate('ArtistCatalog', { id: artist.id })}
+						image={{
+							url: artist.pictureMedium,
+							width: 80,
+							height: 80,
+							border: 100
+						}}
+						name={artist.name}
+						textCenter
+					/>
+				)}
 			/>
 
 			<UFlatList
@@ -95,17 +95,17 @@ const Home = () => {
 				mt={25}
 				headerText='Wonderful Albums'
 				renderItem={({ item: album }) => (
-						<MusicCart
-							onPress={() => navigate('AlbumCatalog', { id: album.id })}
-							image={{
-								url: album.coverMedium,
-								width: 140,
-								height: 140,
-								border: 6
-							}}
-							name={album.title}
-						/>
-					)}
+					<MusicCart
+						onPress={() => navigate('AlbumCatalog', { id: album.id })}
+						image={{
+							url: album.coverMedium,
+							width: 140,
+							height: 140,
+							border: 6
+						}}
+						name={album.title}
+					/>
+				)}
 			/>
 
 			<UFlatList
@@ -114,16 +114,16 @@ const Home = () => {
 				mt={25}
 				headerText='Best Playlist'
 				renderItem={({ item: playlist }) => (
-						<MusicCart
-							onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}
-							image={{
-								url: playlist.coverMedium,
-								width: 150,
-								height: 150
-							}}
-							name={playlist.title}
-						/>
-					)}
+					<MusicCart
+						onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}
+						image={{
+							url: playlist.coverMedium,
+							width: 150,
+							height: 150
+						}}
+						name={playlist.title}
+					/>
+				)}
 			/>
 		</ScrollLayout>
 	)

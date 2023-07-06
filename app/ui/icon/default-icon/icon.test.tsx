@@ -7,7 +7,7 @@ describe('Icon', () => {
 	test('should render currect', () => {
 		const iconRender = render(
 			<Icon
-				name={'search'}
+				name='search'
 				style={{
 					width: 20
 				}}
@@ -19,7 +19,7 @@ describe('Icon', () => {
 	test('press', () => {
 		const { getByTestId } = render(
 			<Icon
-				name={'search'}
+				name='search'
 				style={{
 					width: 20
 				}}

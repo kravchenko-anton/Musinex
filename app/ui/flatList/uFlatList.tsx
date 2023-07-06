@@ -14,7 +14,7 @@ const UFlatList = <T,>({
 	return (
 		<View className={wrapClassNames} style={{ marginTop: mt }}>
 			{headerText && data.length !== 0 ? (
-				<Title translate className='mb-3' size={20} weight={'semiBold'}>
+				<Title translate className='mb-3' size={20} weight='semiBold'>
 					{headerText}
 				</Title>
 			) : null}
@@ -56,7 +56,7 @@ const UFlatList = <T,>({
 				alwaysBounceVertical={false}
 				showsHorizontalScrollIndicator={false}
 				showsVerticalScrollIndicator={false}
-				decelerationRate={'fast'}
+				decelerationRate='fast'
 				data={data}
 				{...props}
 			/>

@@ -17,7 +17,7 @@ const BlurIcon: FC<PropsWithChildren<BlurButtonProps>> = ({
 	<BlurView
 		intensity={22}
 		tint='light'
-		testID={'blur-icon'}
+		testID='blur-icon'
 		className='items-center justify-center overflow-hidden'
 		style={[
 			{

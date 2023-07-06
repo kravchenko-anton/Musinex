@@ -17,6 +17,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Animated } from 'react-native'
+
 const GenreCatalog = () => {
 	const { params } = useTypedRoute<'GenreCatalog'>()
 	const { addToPlayer } = useAction()
@@ -35,39 +36,38 @@ const GenreCatalog = () => {
 				gradientEnd={0.52}
 				description={`${t('In you heart')} - ${t(genre.name)}`}
 				headerTitle={t(genre.name)}
-				y={y}
-			>
+				y={y}>
 				<UFlatList
-					wrapClassNames={'w-full justify-center items-center'}
+					wrapClassNames='w-full justify-center items-center'
 					data={genre.songs.slice(0, 10)}
 					horizontal
 					mt={25}
-					headerText={'Songs'}
+					headerText='Songs'
 					renderItem={({ item: song, index }) => (
-							<MusicCart
-								image={{
-									url: song.coverMedium,
-									width: 130,
-									height: 130,
-									border: 16
-								}}
-								onPress={() => {
-									addToPlayer({
-										data: genre.songs.map(track => ({
-												id: track.id,
-												title: track.title,
-												url: track.mp3Path,
-												artist: track.artists[0].name,
-												coverBig: track.coverBig,
-												coverSmall: track.coverSmall,
-											})),
-										songIndex: index
-									})
-								}}
-								name={song.title}
-								artists={song.artists[0].name}
-							/>
-						)}
+						<MusicCart
+							image={{
+								url: song.coverMedium,
+								width: 130,
+								height: 130,
+								border: 16
+							}}
+							onPress={() => {
+								addToPlayer({
+									data: genre.songs.map(track => ({
+										id: track.id,
+										title: track.title,
+										url: track.mp3Path,
+										artist: track.artists[0].name,
+										coverBig: track.coverBig,
+										coverSmall: track.coverSmall
+									})),
+									songIndex: index
+								})
+							}}
+							name={song.title}
+							artists={song.artists[0].name}
+						/>
+					)}
 				/>
 
 				<UFlatList
@@ -76,16 +76,16 @@ const GenreCatalog = () => {
 					mt={0}
 					headerText='Albums'
 					renderItem={({ item: album }: { item: AlbumTypes }) => (
-							<MusicCart
-								image={{
-									url: album.coverMedium,
-									width: 140,
-									height: 140,
-									border: 6
-								}}
-								name={album.title}
-							/>
-						)}
+						<MusicCart
+							image={{
+								url: album.coverMedium,
+								width: 140,
+								height: 140,
+								border: 6
+							}}
+							name={album.title}
+						/>
+					)}
 				/>
 
 				<UFlatList
@@ -94,15 +94,15 @@ const GenreCatalog = () => {
 					mt={25}
 					headerText='Playlist'
 					renderItem={({ item: playlist }: { item: PlaylistType }) => (
-							<MusicCart
-								image={{
-									url: playlist.coverMedium,
-									width: 150,
-									height: 150
-								}}
-								name={playlist.title}
-							/>
-						)}
+						<MusicCart
+							image={{
+								url: playlist.coverMedium,
+								width: 150,
+								height: 150
+							}}
+							name={playlist.title}
+						/>
+					)}
 				/>
 			</CatalogContent>
 		</Layout>

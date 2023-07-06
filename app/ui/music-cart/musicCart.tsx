@@ -15,7 +15,7 @@ const MusicCart: FC<MusicCartProps> = ({
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
 		<AnimatedPressable
-			testID={'music-cart-wrapper'}
+			testID='music-cart-wrapper'
 			className={wrapClassNames}
 			style={[
 				{
@@ -39,7 +39,7 @@ const MusicCart: FC<MusicCartProps> = ({
 					size={16}
 					center={textCenter}
 					className='w-full'
-					weight={'medium'}>
+					weight='medium'>
 					{props.name}
 				</Title>
 				{props.artists && (
@@ -49,7 +49,7 @@ const MusicCart: FC<MusicCartProps> = ({
 						color={Color.charcoal}
 						center={textCenter}
 						size={16}
-						weight={'medium'}>
+						weight='medium'>
 						{props.artists}
 					</Title>
 				)}

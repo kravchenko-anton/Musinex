@@ -16,7 +16,7 @@ const BottomMenu: FC<{ currentRoute: string | undefined }> = ({
 	return (
 		<>
 			<LinearGradient
-				pointerEvents={'none'}
+				pointerEvents='none'
 				start={[0, 0.01]}
 				end={[0, 0.85]}
 				className='absolute bottom-0 left-0 right-0 h-[150px] w-full flex-1'

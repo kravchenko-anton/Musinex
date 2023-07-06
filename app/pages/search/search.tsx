@@ -23,16 +23,12 @@ const Search = () => {
 	if (!genres) return <FullScreenLoader />
 	return (
 		<Layout>
-			<Field
-				control={control}
-				name={'searchTerm'}
-				placeholder={'Type anything'}
-			/>
+			<Field control={control} name='searchTerm' placeholder='Type anything' />
 			{searchTerm && searchTerm.length > 2 && !isLoading && isSearchLoading ? (
 				<FlatList404 width={WINDOW_WIDTH} height={WINDOW_HEIGHT * 0.3} />
 			) : searchTerm &&
-			searchTerm.length > 2 &&
-			isLoading ? null : !searchTerm || !searchResult || isSearchLoading ? (
+			  searchTerm.length > 2 &&
+			  isLoading ? null : !searchTerm || !searchResult || isSearchLoading ? (
 				<UFlatList
 					data={genres}
 					fixBottom

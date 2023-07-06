@@ -19,7 +19,7 @@ const UIcon: FC<IconProps> = ({
 	const { animatedStyle, pressFunctions } = usePressAnimation()
 	return (
 		<AnimatedPressable
-			testID={'icon-wrapper'}
+			testID='icon-wrapper'
 			style={[
 				{
 					justifyContent: 'center',
@@ -32,11 +32,11 @@ const UIcon: FC<IconProps> = ({
 				},
 				animatedStyle
 			]}
-			pointerEvents={'auto'}
+			pointerEvents='auto'
 			{...pressFunctions}
 			{...props}>
 			<Ionicons
-				testID={'icon'}
+				testID='icon'
 				name={name}
 				color={color ? color : darkToWhite}
 				size={size}

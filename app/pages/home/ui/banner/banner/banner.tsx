@@ -10,7 +10,6 @@ import { FC, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import Ball from '../ball/ball'
 
-
 const Banner: FC<PropsWithChildren<BannerProps>> = ({
 	songs,
 	colors = [
@@ -25,39 +24,37 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 		<AnimatedPressable
 			{...pressFunctions}
 			style={animatedStyle}
-			className='h-[200px] overflow-hidden w-full bg-primary rounded-3xl mt-8'
-		>
+			className='mt-8 h-[200px] w-full overflow-hidden rounded-3xl bg-primary'>
 			<LinearGradient colors={colors} className='flex-1 items-center'>
 				<Title
-					weight={'bold'}
+					weight='bold'
 					color={Color.white}
 					numberOfLines={2}
-					className='absolute text-center top-[15%] w-[50%]'
-					translate
-				>
+					className='absolute top-[15%] w-[50%] text-center'
+					translate>
 					Enjoy the music you love
 				</Title>
 
-				<View className='absolute bottom-[-10] flex-row gap-[-10] justify-center items-center'>
+				<View className='absolute bottom-[-10] flex-row items-center justify-center gap-[-10]'>
 					{songs.slice(0, 3).map(({ coverMedium, id }, index) => (
-							<Image
-								key={id}
-								width={100}
-								height={100}
-								borderRadius={12}
-								style={{
-									borderWidth: 2,
-									borderColor: Color.white,
-									zIndex: 5 + index
-								}}
-								className='rotate-12'
-								url={coverMedium}
-							/>
-						))}
+						<Image
+							key={id}
+							width={100}
+							height={100}
+							borderRadius={12}
+							style={{
+								borderWidth: 2,
+								borderColor: Color.white,
+								zIndex: 5 + index
+							}}
+							className='rotate-12'
+							url={coverMedium}
+						/>
+					))}
 				</View>
 			</LinearGradient>
 			{children || (
-				<View className='h-full w-full absolute'>
+				<View className='absolute h-full w-full'>
 					<Ball
 						wrapperStyle={{
 							left: -100,

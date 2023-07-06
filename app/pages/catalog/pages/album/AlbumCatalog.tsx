@@ -13,7 +13,7 @@ import { FC, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Animated } from 'react-native'
 
-const AlbumCatalog:FC = () => {
+const AlbumCatalog: FC = () => {
 	const { params } = useTypedRoute<'AlbumCatalog'>()
 	const { addToPlayer } = useAction()
 	const y = useRef(new Animated.Value(0)).current
@@ -25,48 +25,47 @@ const AlbumCatalog:FC = () => {
 	return (
 		<Layout className='p-0'>
 			<CatalogHeader
-				type={'album'}
+				type='album'
 				id={params.id}
 				title={album.title}
-				rightIcon={'heart'}
+				rightIcon='heart'
 				y={y}
 			/>
 			<CatalogBackground poster={album.coverBig} y={y} />
 			<CatalogContent
 				description={`${album.title} - ${album.songs.length} ${t('songs')}`}
 				headerTitle={album.title}
-				y={y}
-			>
+				y={y}>
 				<UFlatList
 					data={album.songs}
 					scrollEnabled={false}
 					renderItem={({ item: song, index }) => (
-							<CatalogItem
-								type={'song'}
-								id={song.id}
-								text1={song.title}
-								image={{
-									url: song.coverSmall,
-									height: 70,
-									width: 70,
-									border: 5
-								}}
-								text2={song.artists[0].name}
-								onPress={() => {
-									addToPlayer({
-										data: album.songs.map(track => ({
-												id: track.id,
-												title: track.title,
-												url: track.mp3Path,
-												artist: track.artists[0].name,
-												coverBig: track.coverBig,
-												coverSmall: track.coverSmall,
-											})),
-										songIndex: index
-									})
-								}}
-							/>
-						)}
+						<CatalogItem
+							type='song'
+							id={song.id}
+							text1={song.title}
+							image={{
+								url: song.coverSmall,
+								height: 70,
+								width: 70,
+								border: 5
+							}}
+							text2={song.artists[0].name}
+							onPress={() => {
+								addToPlayer({
+									data: album.songs.map(track => ({
+										id: track.id,
+										title: track.title,
+										url: track.mp3Path,
+										artist: track.artists[0].name,
+										coverBig: track.coverBig,
+										coverSmall: track.coverSmall
+									})),
+									songIndex: index
+								})
+							}}
+						/>
+					)}
 				/>
 			</CatalogContent>
 		</Layout>

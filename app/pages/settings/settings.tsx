@@ -63,9 +63,9 @@ const Settings = () => {
 			<Button
 				borderRadius={4}
 				onPress={() => logout()}
-				size={'medium'}
+				size='medium'
 				translate={true}
-				text={'Logout'}
+				text='Logout'
 				width={200}
 				className='z-0 mt-4 items-center justify-center self-center'
 			/>

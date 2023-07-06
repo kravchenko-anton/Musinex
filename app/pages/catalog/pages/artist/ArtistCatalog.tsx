@@ -25,48 +25,47 @@ const ArtistCatalog = () => {
 	return (
 		<Layout className='p-0'>
 			<CatalogHeader
-				type={'artist'}
+				type='artist'
 				id={params.id}
 				title={artist.name}
-				rightIcon={'heart'}
+				rightIcon='heart'
 				y={y}
 			/>
 			<CatalogBackground poster={artist.pictureBig} y={y} />
 			<CatalogContent
 				description={`${artist.name} - ${artist.songs.length} ${t('songs')}`}
 				headerTitle={artist.name}
-				y={y}
-			>
+				y={y}>
 				<UFlatList
 					data={artist.songs}
 					scrollEnabled={false}
 					renderItem={({ item: song, index }) => (
-							<CatalogItem
-								type={'song'}
-								id={song.id}
-								text1={song.title}
-								image={{
-									url: song.coverSmall,
-									height: 70,
-									width: 70,
-									border: 5
-								}}
-								text2={artist.name}
-								onPress={() => {
-									addToPlayer({
-										data: artist.songs.map(track => ({
-												id: track.id,
-												title: track.title,
-												url: track.mp3Path,
-												artist: artist.name,
-												coverBig: track.coverBig,
-												coverSmall: track.coverSmall,
-											})),
-										songIndex: index
-									})
-								}}
-							/>
-						)}
+						<CatalogItem
+							type='song'
+							id={song.id}
+							text1={song.title}
+							image={{
+								url: song.coverSmall,
+								height: 70,
+								width: 70,
+								border: 5
+							}}
+							text2={artist.name}
+							onPress={() => {
+								addToPlayer({
+									data: artist.songs.map(track => ({
+										id: track.id,
+										title: track.title,
+										url: track.mp3Path,
+										artist: artist.name,
+										coverBig: track.coverBig,
+										coverSmall: track.coverSmall
+									})),
+									songIndex: index
+								})
+							}}
+						/>
+					)}
 				/>
 			</CatalogContent>
 		</Layout>

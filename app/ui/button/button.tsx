@@ -30,7 +30,7 @@ const Button: FC<IButtonTypes> = ({
 	return (
 		<AnimatedPressable
 			{...pressFunctions}
-			testID={'button'}
+			testID='button'
 			style={[
 				{
 					backgroundColor:
@@ -53,7 +53,7 @@ const Button: FC<IButtonTypes> = ({
 				<Title
 					color={Color.white}
 					translate={translate}
-					weight={'semiBold'}
+					weight='semiBold'
 					size={props.textSize ? props.textSize : textSizeSettings[size]}
 					style={{
 						textTransform: props.uppercase ? 'uppercase' : 'none',

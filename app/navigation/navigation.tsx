@@ -32,7 +32,7 @@ const Navigation = () => {
 	return (
 		<NavigationContainer ref={navRef}>
 			<Stack.Navigator
-				initialRouteName={'Home'}
+				initialRouteName='Home'
 				screenOptions={{
 					animation: 'fade',
 					headerShown: false,
@@ -50,7 +50,7 @@ const Navigation = () => {
 						/>
 					))
 				) : (
-					<Stack.Screen name={'Auth'} component={Auth} />
+					<Stack.Screen name='Auth' component={Auth} />
 				)}
 			</Stack.Navigator>
 			{currentRoute === 'Song' ||

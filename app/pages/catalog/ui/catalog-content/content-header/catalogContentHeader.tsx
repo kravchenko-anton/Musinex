@@ -18,7 +18,7 @@ const CatalogContentHeader: FC<CatalogContentHeaderProps> = ({
 		<Animated.View className='z-10 px-3' style={{ opacity }}>
 			<Title
 				translate={true}
-				weight={'semiBold'}
+				weight='semiBold'
 				size={40}
 				className='mb-2 pr-8 font-semibold'
 				numberOfLines={2}>

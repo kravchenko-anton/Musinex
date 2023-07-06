@@ -28,18 +28,18 @@ const Field = <T extends Record<string, any>>({
 			}) => (
 				<>
 					<View
-						testID={'field'}
+						testID='field'
 						style={{
 							borderWidth: error ? 1 : 0,
 							backgroundColor: charcoalToTwilight
 						}}
 						className='my-1.5 w-full rounded-lg border-crimson px-4 pb-4 pt-2.5'>
 						<TextInput
-							autoCapitalize={'none'}
+							autoCapitalize='none'
 							onBlur={onBlur}
 							onChangeText={onChange as any}
 							keyboardAppearance='dark'
-							keyboardType={'default'}
+							keyboardType='default'
 							renderToHardwareTextureAndroid={true}
 							placeholderTextColor={Color.white}
 							value={(value ? value : '').toString()}

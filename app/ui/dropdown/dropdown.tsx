@@ -29,7 +29,7 @@ const Dropdown: FC<DropdownProps> = ({ isOpen, value, ...props }) => {
 				}}
 				onPress={() => props.setIsOpen(!isOpen)}>
 				<View className='flex-row items-center justify-between'>
-					<Title translate color={Color.white} weight={'medium'}>
+					<Title translate color={Color.white} weight='medium'>
 						{dropdownValue.label}
 					</Title>
 

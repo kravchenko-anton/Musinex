@@ -10,7 +10,7 @@ const MenuItem: FC<MenuItemProps> = ({ nav, item, currentRoute }) => {
 	const { darkToWhite, midnightToSilver } = useColorTheme()
 	return (
 		<View
-			pointerEvents={'auto'}
+			pointerEvents='auto'
 			className='pointer-events-auto items-center justify-center rounded-lg p-1.5'>
 			<Icon
 				onPress={() => nav(item.path)}

@@ -33,13 +33,8 @@ const FavoriteList = () => {
 	return (
 		<UFlatList
 			ListEmptyComponent={() => (
-				<View className='h-[85vh] justify-center items-center'>
-					<Title
-						translate
-						weight={'bold'}
-						size={26}
-						className='mb-2'
-					>
+				<View className='h-[85vh] items-center justify-center'>
+					<Title translate weight='bold' size={26} className='mb-2'>
 						Add music and other
 					</Title>
 					<Title translate numberOfLines={3} center size={14}>
@@ -56,8 +51,7 @@ const FavoriteList = () => {
 					return (
 						<Pressable
 							onPress={() => navigate('FavoriteCatalog')}
-							className='items-center flex-row gap-2 mb-2 mt-4'
-						>
+							className='mb-2 mt-4 flex-row items-center gap-2'>
 							<LinearGradient
 								colors={[
 									shadeRGBColor(Color.primary, -20),
@@ -66,21 +60,15 @@ const FavoriteList = () => {
 								]}
 								start={[0.2, 0.8]}
 								end={[0.8, 0.4]}
-								pointerEvents={'none'}
-								className='h-[80px] w-[80px] items-center justify-center rounded-[2px]'
-							>
-								<Icon name={'heart'} size={40} color={Color.white} />
+								pointerEvents='none'
+								className='h-[80px] w-[80px] items-center justify-center rounded-[2px]'>
+								<Icon name='heart' size={40} color={Color.white} />
 							</LinearGradient>
 							<View>
-								<Title
-									translate
-									weight={'bold'}
-									size={22}
-									color={Color.primary}
-								>
+								<Title translate weight='bold' size={22} color={Color.primary}>
 									Favorite songs
 								</Title>
-								<Title size={22 * 0.75} weight={'medium'}>
+								<Title size={22 * 0.75} weight='medium'>
 									{`${t('Playlists')} · ${user?.favoritesSong.length} ${t(
 										'songs'
 									)} `}

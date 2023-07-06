@@ -13,6 +13,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Animated } from 'react-native'
+
 const FavoriteCatalog = () => {
 	const y = useRef(new Animated.Value(0)).current
 	const { addToPlayer } = useAction()
@@ -34,38 +35,37 @@ const FavoriteCatalog = () => {
 				paddingTop={HEADER_HEIGHT * 0.3}
 				gradientEnd={0.75}
 				headerTitle={t('Favorite songs')}
-				y={y}
-			>
+				y={y}>
 				<UFlatList
 					data={songs}
 					scrollEnabled={false}
 					renderItem={({ item: song, index }) => (
-							<CatalogItem
-								type={'song'}
-								id={song.id}
-								text1={song.title}
-								image={{
-									url: song.coverSmall,
-									height: 70,
-									width: 70,
-									border: 5
-								}}
-								text2={song.artists[0].name}
-								onPress={() => {
-									addToPlayer({
-										data: songs.map(track => ({
-												id: track.id,
-												title: track.title,
-												url: track.mp3Path,
-												artist: track.artists[0].name,
-												coverBig: track.coverBig,
-												coverSmall: track.coverSmall,
-											})),
-										songIndex: index
-									})
-								}}
-							/>
-						)}
+						<CatalogItem
+							type='song'
+							id={song.id}
+							text1={song.title}
+							image={{
+								url: song.coverSmall,
+								height: 70,
+								width: 70,
+								border: 5
+							}}
+							text2={song.artists[0].name}
+							onPress={() => {
+								addToPlayer({
+									data: songs.map(track => ({
+										id: track.id,
+										title: track.title,
+										url: track.mp3Path,
+										artist: track.artists[0].name,
+										coverBig: track.coverBig,
+										coverSmall: track.coverSmall
+									})),
+									songIndex: index
+								})
+							}}
+						/>
+					)}
 				/>
 			</CatalogContent>
 		</Layout>

@@ -13,19 +13,18 @@ const Header: FC<PropsWithChildren<HeaderProps>> = ({
 }) => {
 	const { navigate, goBack } = useTypedNavigation()
 	return (
-		<View className='flex-row justify-between items-center' {...props}>
+		<View className='flex-row items-center justify-between' {...props}>
 			{firstIcon && !children ? (
 				<Icon border name={firstIcon.name} onPress={firstIcon.onPress} />
 			) : (
-				<Icon name={'arrow-back'} border onPress={() => goBack()} />
+				<Icon name='arrow-back' border onPress={() => goBack()} />
 			)}
 
 			<Title
 				translate
 				onPress={() => navigate('Home')}
-				weight={'extraBold'}
-				size={28}
-			>
+				weight='extraBold'
+				size={28}>
 				Musinex
 			</Title>
 			{!children && secondIcon ? (

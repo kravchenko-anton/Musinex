@@ -20,30 +20,25 @@ const options = (primaryColor: string) => ({
 	}
 })
 const Toast: FC = () => (
-		<RnToast
-			topOffset={50}
-			autoHide={true}
-			position={'top'}
-			config={{
-				success: props => (
-					<BaseToast
-						{...props}
-						{...options(shadeRGBColor(Color.primary, 50))}
-					/>
-				),
-				info: props => (
-					<BaseToast {...props} {...options(Color.sunshine)} />
-				),
-				error: props => (
-					<BaseToast
-						{...props}
-						{...{
-							...options(Color.crimson)
-						}}
-					/>
-				)
-			}}
-		/>
-	)
+	<RnToast
+		topOffset={50}
+		autoHide={true}
+		position='top'
+		config={{
+			success: props => (
+				<BaseToast {...props} {...options(shadeRGBColor(Color.primary, 50))} />
+			),
+			info: props => <BaseToast {...props} {...options(Color.sunshine)} />,
+			error: props => (
+				<BaseToast
+					{...props}
+					{...{
+						...options(Color.crimson)
+					}}
+				/>
+			)
+		}}
+	/>
+)
 
 export default Toast

@@ -11,7 +11,7 @@ describe('uScrollView', () => {
 				}}
 				paddingBottom={100}
 				className='mb-5'
-				pointerEvents={'box-none'}
+				pointerEvents='box-none'
 				contentContainerStyle={{
 					backgroundColor: 'blue'
 				}}>

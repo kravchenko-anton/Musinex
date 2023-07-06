@@ -42,29 +42,28 @@ const Auth = () => {
 				<View className='w-full'>
 					<Title
 						translate={true}
-						className='text-center mb-4'
+						className='mb-4 text-center'
 						size={24}
-						weight={'extraBold'}
-					>
+						weight='extraBold'>
 						{type === 'Login' ? 'Login' : 'Register'}
 					</Title>
-					<View className='w-5/6 mx-auto'>
+					<View className='mx-auto w-5/6'>
 						<AuthForm control={control} />
 
 						<Button
-							variant={'primary'}
+							variant='primary'
 							onPress={handleSubmit(onSubmit)}
-							size={'large'}
+							size='large'
 							className='mt-2'
 							translate={true}
-							text={type} />
-						
+							text={type}
+						/>
+
 						<Title
 							className='mt-4'
 							size={16}
 							translate
-							onPress={() => setType(type === 'Login' ? 'Register' : 'Login')}
-						>
+							onPress={() => setType(type === 'Login' ? 'Register' : 'Login')}>
 							{type === 'Login'
 								? 'Dont have an account?'
 								: 'Already have an account?'}

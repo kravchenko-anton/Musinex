@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`uFlatList should render currect 1`] = `
+exports[`uFlatList Render 1`] = `
 <View
   style={
     {

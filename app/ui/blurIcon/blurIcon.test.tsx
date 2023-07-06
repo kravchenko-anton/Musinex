@@ -9,8 +9,8 @@ import {
 afterEach(() => cleanup())
 const mockFn = jest.fn()
 describe('blurIcon', () => {
-	it('should render currect', function () {
-		const renders = render(
+	it('Render', function () {
+		const blurIconRender = render(
 			<BlurIcon
 				onPress={mockFn}
 				icon={'search'}
@@ -20,32 +20,12 @@ describe('blurIcon', () => {
 				className='mb-4'
 			/>
 		)
-		expect(renders).toMatchSnapshot()
+		expect(blurIconRender).toMatchSnapshot()
 	})
-	it('press function', () => {
+	it('OnPress', () => {
 		render(<BlurIcon onPress={mockFn} icon={'search'} />)
 		expect(screen.getByTestId('blur-icon')).toBeDefined()
 		fireEvent.press(screen.getByTestId('icon-wrapper'))
 		expect(mockFn).toHaveBeenCalledTimes(1)
-	})
-	it('check style', function () {
-		const { getByTestId } = render(
-			<BlurIcon
-				onPress={mockFn}
-				icon={'search'}
-				style={{
-					backgroundColor: 'red'
-				}}
-			/>
-		)
-		expect(getByTestId('blur-icon')).toHaveStyle({
-			backgroundColor: 'red'
-		})
-	})
-	it('Check className', function () {
-		const { getByTestId } = render(
-			<BlurIcon onPress={mockFn} icon={'search'} className={'mb-4'} />
-		)
-		expect(getByTestId('blur-icon')).toHaveProp('className', 'mb-4')
 	})
 })

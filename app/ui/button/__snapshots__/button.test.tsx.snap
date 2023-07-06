@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`blurIcon should render currect 1`] = `
+exports[`Button Render 1`] = `
 <View
   accessibilityState={
     {

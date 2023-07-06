@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`uScrollView should render currect 1`] = `
+exports[`uScrollView Render 1`] = `
 <RCTScrollView
   className="mb-5"
   contentContainerStyle={

@@ -3,8 +3,8 @@ import { cleanup, render } from '@testing-library/react-native'
 
 afterEach(() => cleanup())
 describe('Image', () => {
-	test('should render currect', () => {
-		const renders = render(
+	test('Render', () => {
+		const imageRender = render(
 			<Image
 				width={20}
 				height={20}
@@ -18,6 +18,6 @@ describe('Image', () => {
 				className='mb-5'
 			/>
 		)
-		expect(renders).toMatchSnapshot()
+		expect(imageRender).toMatchSnapshot()
 	})
 })

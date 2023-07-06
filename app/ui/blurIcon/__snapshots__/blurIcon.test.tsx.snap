@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`blurIcon should render currect 1`] = `
+exports[`blurIcon Render 1`] = `
 <View
   className="mb-4"
   style={

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdowns should render currect 1`] = `
+exports[`Dropdown Render 1`] = `
 <View
   className="z-50"
 >

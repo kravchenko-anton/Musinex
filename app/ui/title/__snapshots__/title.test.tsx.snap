@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`title should render currect 1`] = `
+exports[`title Render 1`] = `
 <Text
   className="mb-4"
   numberOfLines={1}

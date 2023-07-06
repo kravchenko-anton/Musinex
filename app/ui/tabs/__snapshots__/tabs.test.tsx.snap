@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs should render current 1`] = `
+exports[`Tabs Render 1`] = `
 [
   <View
     className="mb-4 mt-2"

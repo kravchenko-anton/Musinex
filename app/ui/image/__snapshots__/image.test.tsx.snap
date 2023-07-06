@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image should render currect 1`] = `
+exports[`Image Render 1`] = `
 <View>
   <Image
     className="mb-5"

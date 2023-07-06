@@ -4,7 +4,7 @@ import { fireEvent, render } from '@testing-library/react-native'
 const mockFn = jest.fn()
 describe('musicCart', () => {
 	test('should render currect', () => {
-		const renders = render(
+		const musicCartRender = render(
 			<MusicCart
 				name={'search'}
 				onPress={mockFn}
@@ -25,7 +25,7 @@ describe('musicCart', () => {
 				className='mb-5'
 			/>
 		)
-		expect(renders).toMatchSnapshot()
+		expect(musicCartRender).toMatchSnapshot()
 	})
 	test('press', () => {
 		const { getByTestId } = render(

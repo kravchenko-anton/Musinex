@@ -3,8 +3,8 @@ import Title from '@/ui/title/title'
 import { render } from '@testing-library/react-native'
 
 describe('uScrollView', () => {
-	test('should render currect', () => {
-		const renders = render(
+	test('Render', () => {
+		const uScrollViewRender = render(
 			<UScrollView
 				style={{
 					backgroundColor: 'red'
@@ -24,6 +24,6 @@ describe('uScrollView', () => {
 				</Title>
 			</UScrollView>
 		)
-		expect(renders).toMatchSnapshot()
+		expect(uScrollViewRender).toMatchSnapshot()
 	})
 })

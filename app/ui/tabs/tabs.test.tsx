@@ -3,8 +3,8 @@ import { render } from '@testing-library/react-native'
 import { View } from 'react-native'
 
 describe('Tabs', () => {
-	it('should render current', function () {
-		const rendered = render(
+	it('Render', function () {
+		const tabsRender = render(
 			<Tabs
 				data={[
 					{
@@ -20,6 +20,6 @@ describe('Tabs', () => {
 				]}
 			/>
 		)
-		expect(rendered).toMatchSnapshot()
+		expect(tabsRender).toMatchSnapshot()
 	})
 })

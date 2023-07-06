@@ -5,7 +5,7 @@ const mockFn = jest.fn()
 afterEach(() => cleanup())
 describe('Icon', () => {
 	test('should render currect', () => {
-		const renders = render(
+		const iconRender = render(
 			<Icon
 				name={'search'}
 				style={{
@@ -14,7 +14,7 @@ describe('Icon', () => {
 				className='mb-5'
 			/>
 		)
-		expect(renders).toMatchSnapshot()
+		expect(iconRender).toMatchSnapshot()
 	})
 	test('press', () => {
 		const { getByTestId } = render(

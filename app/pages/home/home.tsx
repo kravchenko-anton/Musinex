@@ -64,8 +64,8 @@ const Home = () => {
 							height: 130,
 							border: 16
 						}}
-						name={song.title}
-						artists={song.artists[0].name}
+						text1={song.title}
+						text2={song.artists[0].name}
 					/>
 				)}
 			/>
@@ -83,7 +83,7 @@ const Home = () => {
 							height: 80,
 							border: 100
 						}}
-						name={artist.name}
+						text1={artist.name}
 						textCenter
 					/>
 				)}
@@ -103,7 +103,7 @@ const Home = () => {
 							height: 140,
 							border: 6
 						}}
-						name={album.title}
+						text1={album.title}
 					/>
 				)}
 			/>
@@ -121,7 +121,7 @@ const Home = () => {
 							width: 150,
 							height: 150
 						}}
-						name={playlist.title}
+						text1={playlist.title}
 					/>
 				)}
 			/>

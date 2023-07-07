@@ -64,8 +64,8 @@ const GenreCatalog = () => {
 									songIndex: index
 								})
 							}}
-							name={song.title}
-							artists={song.artists[0].name}
+							text1={song.title}
+							text2={song.artists[0].name}
 						/>
 					)}
 				/>
@@ -83,7 +83,7 @@ const GenreCatalog = () => {
 								height: 140,
 								border: 6
 							}}
-							name={album.title}
+							text1={album.title}
 						/>
 					)}
 				/>
@@ -100,7 +100,7 @@ const GenreCatalog = () => {
 								width: 150,
 								height: 150
 							}}
-							name={playlist.title}
+							text1={playlist.title}
 						/>
 					)}
 				/>

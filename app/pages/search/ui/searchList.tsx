@@ -80,7 +80,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 										height: 190
 									}}
 									wrapClassNames='mb-4'
-									name={album.title}
+									text1={album.title}
 								/>
 							)}
 							numColumns={2}
@@ -139,7 +139,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 										height: 190
 									}}
 									wrapClassNames='mb-4'
-									name={playlist.title}
+									text1={playlist.title}
 								/>
 							)}
 							numColumns={2}

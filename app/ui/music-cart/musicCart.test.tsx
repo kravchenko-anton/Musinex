@@ -6,13 +6,11 @@ describe('musicCart', () => {
 	test('should render currect', () => {
 		const musicCartRender = render(
 			<MusicCart
-				name='search'
+				text1='search'
 				onPress={mockFn}
 				wrapClassNames='mb-5'
-				imageClassNames='mb-5'
-				artists='artists'
+				text2='artists'
 				textCenter
-				wrapperWidth={20}
 				image={{
 					width: 20,
 					height: 20,
@@ -30,13 +28,11 @@ describe('musicCart', () => {
 	test('press', () => {
 		const { getByTestId } = render(
 			<MusicCart
-				name='search'
+				text1='search'
 				onPress={mockFn}
 				wrapClassNames='mb-5'
-				imageClassNames='mb-5'
-				artists='artists'
+				text2='artists'
 				textCenter
-				wrapperWidth={20}
 				image={{
 					width: 20,
 					height: 20,

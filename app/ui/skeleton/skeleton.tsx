@@ -5,9 +5,9 @@ import { View } from 'react-native'
 
 const Skeleton: FC<SkeletonProps> = ({
 	style,
-	height,
-	transparent,
-	width,
+	height = 100,
+	transparent = false,
+	width = 100,
 	borderRadius = 6
 }) => {
 	const { charcoalToTwilight } = useColorTheme()

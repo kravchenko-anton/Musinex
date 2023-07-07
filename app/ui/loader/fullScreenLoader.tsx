@@ -1,4 +1,4 @@
-import { useTypedSelector } from '@/hook/useTypedSelector'
+import { useColorTheme } from '@/hook/useColorTheme'
 import { Color } from '@/utils/color'
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@/utils/screen'
 import Lottie from 'lottie-react-native'
@@ -7,13 +7,13 @@ import { View } from 'react-native'
 import loader from '../../assets/loader.json'
 
 const FullScreenLoader = () => {
-	const selector = useTypedSelector(state => state.theme)
+	const { colorScheme } = useColorTheme()
 	return (
 		<View
 			style={{
 				height: SCREEN_HEIGHT,
 				width: SCREEN_WIDTH,
-				backgroundColor: selector === 'light' ? Color.silver : Color.midnight
+				backgroundColor: colorScheme === 'light' ? Color.silver : Color.midnight
 			}}
 			className='absolute items-center justify-center'>
 			<Lottie

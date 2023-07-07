@@ -10,6 +10,8 @@ import Title from '../title/title'
 const MusicCart: FC<MusicCartProps> = ({
 	textCenter = false,
 	wrapClassNames = 'mr-3',
+	style,
+	className,
 	...props
 }) => {
 	const { animatedStyle, pressFunctions } = usePressAnimation()
@@ -19,7 +21,7 @@ const MusicCart: FC<MusicCartProps> = ({
 			className={wrapClassNames}
 			style={[
 				{
-					width: props.wrapperWidth ? props.wrapperWidth : props.image.width,
+					width: props.image.width,
 					maxWidth: props.image.width
 				},
 				animatedStyle
@@ -27,9 +29,10 @@ const MusicCart: FC<MusicCartProps> = ({
 			{...pressFunctions}
 			{...props}>
 			<Image
-				className={props.imageClassNames}
+				className={className}
+				style={style}
 				url={props.image.url}
-				borderRadius={props.image.border ? props.image.border : 0}
+				borderRadius={props.image.border || 0}
 				height={props.image.height}
 				width={props.image.width}
 			/>
@@ -40,9 +43,9 @@ const MusicCart: FC<MusicCartProps> = ({
 					center={textCenter}
 					className='w-full'
 					weight='medium'>
-					{props.name}
+					{props.text1}
 				</Title>
-				{props.artists && (
+				{props.text2 && (
 					<Title
 						className='mt-0.5 w-10/12'
 						numberOfLines={1}
@@ -50,7 +53,7 @@ const MusicCart: FC<MusicCartProps> = ({
 						center={textCenter}
 						size={16}
 						weight='medium'>
-						{props.artists}
+						{props.text2}
 					</Title>
 				)}
 			</View>

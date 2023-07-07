@@ -12,10 +12,11 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { useTranslation } from 'react-i18next'
 import { Pressable, View } from 'react-native'
 
+type favoriteListType = 'Album' | 'Artist' | 'Playlist'
 const FavoriteList = () => {
 	const { t } = useTranslation()
-	const { data: user } = useQuery(['favorite'], () => userServices.getProfile())
 	const { navigate } = useTypedNavigation()
+	const { data: user } = useQuery(['favorite'], () => userServices.getProfile())
 	if (!user) return <FullScreenLoader />
 
 	const favoriteArray = [
@@ -24,10 +25,9 @@ const FavoriteList = () => {
 			type: 'favoriteSongs',
 			name: 'Favorite songs'
 		},
-		...(user?.favoritesAlbum?.map(obj => ({ ...obj, type: 'album' })) ?? []),
-		...(user?.favoritesArtist?.map(obj => ({ ...obj, type: 'artist' })) ?? []),
-		...(user?.favoritePlayLists?.map(obj => ({ ...obj, type: 'playlist' })) ??
-			[])
+		...(user.favoritesAlbum.map(obj => ({ ...obj, type: 'Album' })) || []),
+		...(user.favoritesArtist.map(obj => ({ ...obj, type: 'Artist' })) || []),
+		...(user.favoritePlayLists.map(obj => ({ ...obj, type: 'Playlist' })) || [])
 	]
 
 	return (
@@ -44,6 +44,7 @@ const FavoriteList = () => {
 			)}
 			keyExtractor={(item, index) => index.toString()}
 			data={favoriteArray}
+			/*Because of the fundamental difference between the objects, it is not possible to add typing here*/
 			renderItem={({ item }: any) => {
 				const title = item.title ? item.title : item.name
 				const picture = item.coverMedium ? item.coverMedium : item.pictureMedium
@@ -91,12 +92,9 @@ const FavoriteList = () => {
 						}}
 						text1={title}
 						onPress={() => {
-							if (item.type === 'artist')
-								navigate('ArtistCatalog', { id: item.id })
-							if (item.type === 'album')
-								navigate('AlbumCatalog', { id: item.id })
-							if (item.type === 'playlist')
-								navigate('PlaylistCatalog', { id: item.id })
+							navigate(`${item.type as favoriteListType}Catalog`, {
+								id: item.id
+							})
 						}}
 					/>
 				)

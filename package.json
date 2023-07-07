@@ -6,7 +6,6 @@
 		"dev": "expo start --dev-client",
 		"a": "expo run:android",
 		"i": "expo run:ios",
-		"w": "expo start --web",
 		"lint": "tsc --noEmit && eslint --fix --ext .js,.jsx,.ts,.tsx ./",
 		"t": "jest -u --clearCache && jest --watch"
 	},

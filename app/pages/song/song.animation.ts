@@ -2,12 +2,17 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from '@/utils/screen'
 import { useMemo } from 'react'
 import { Gesture } from 'react-native-gesture-handler'
 import {
+	SharedValue,
 	useAnimatedStyle,
 	withSpring,
 	withTiming
 } from 'react-native-reanimated'
 
-export const useSongAnimation = ({ isOpen }: any) => {
+export const useSongAnimation = ({
+	isOpen
+}: {
+	isOpen: SharedValue<boolean>
+}) => {
 	const panGesture = useMemo(
 		() =>
 			Gesture.Pan()

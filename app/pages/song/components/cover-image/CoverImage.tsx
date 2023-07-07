@@ -1,6 +1,6 @@
 import { AnimatedImage } from '@/animation/global'
 import { CoverImageProps } from '@/pages/song/components/cover-image/CoverImage.types'
-import { useSongAnimation } from '@/pages/song/song-animation'
+import { useSongAnimation } from '@/pages/song/song.animation'
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '@/utils/screen'
 import { FC } from 'react'
 

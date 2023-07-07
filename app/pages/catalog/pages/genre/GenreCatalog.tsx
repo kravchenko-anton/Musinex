@@ -5,7 +5,7 @@ import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBack
 import CatalogContent from '@/pages/catalog/ui/catalog-content/catalogContent'
 import CatalogHeader from '@/pages/catalog/ui/catalog-header/catalogHeader'
 import { genreServices } from '@/services/genre.services'
-import { AlbumTypes } from '@/services/types/IAlbum'
+import { AlbumTypes } from '@/services/types/album.services.types'
 import { PlaylistType } from '@/services/types/playlist.services.types'
 
 import UFlatList from '@/ui/flatList/uFlatList'

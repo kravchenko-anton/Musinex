@@ -1,5 +1,5 @@
 import { useColorTheme } from '@/hook/useColorTheme'
-import { useBackgroundAnimation } from '@/pages/catalog/ui/catalog-background/background-animation'
+import { useBackgroundAnimation } from '@/pages/catalog/ui/catalog-background/background.animation'
 import { CatalogBackgroundProps } from '@/pages/catalog/ui/catalog-background/catalogBackground.types'
 import Image from '@/ui/image/image'
 import { Color } from '@/utils/color'

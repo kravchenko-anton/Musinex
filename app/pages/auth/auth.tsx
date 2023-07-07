@@ -19,14 +19,12 @@ const Auth = () => {
 	const { control, handleSubmit } = useForm<AuthFieldsType>({
 		mode: 'onSubmit'
 	})
-	if (user) {
-		navigate('Home')
-	}
-
-	const onSubmit: SubmitHandler<AuthFieldsType> = ({ password, email }) =>
+	const onSubmit: SubmitHandler<AuthFieldsType> = ({ password, email }) => {
 		type === 'Login'
 			? login({ password, email })
 			: register({ password, email })
+	}
+	user && navigate('Home')
 	return (
 		<Layout className='justify-center'>
 			<View className='items-center'>

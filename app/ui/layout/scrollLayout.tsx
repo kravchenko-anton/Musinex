@@ -1,7 +1,7 @@
 import UScrollView from '@/ui/scroll-view/uScrollView'
 import { UScrollViewProps } from '@/ui/scroll-view/uScrollView.types'
 import { useQueryClient } from '@tanstack/react-query'
-import { FC, PropsWithChildren, useCallback, useState } from 'react'
+import { FC, memo, PropsWithChildren, useCallback, useState } from 'react'
 import { RefreshControl } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -25,12 +25,11 @@ const ScrollLayout: FC<PropsWithChildren<UScrollViewProps>> = ({
 				}
 				className='p-3'
 				paddingBottom={paddingBottom}
-				{...props}
-			>
+				{...props}>
 				{children}
 			</UScrollView>
 		</SafeAreaView>
 	)
 }
 
-export default ScrollLayout
+export default memo(ScrollLayout)

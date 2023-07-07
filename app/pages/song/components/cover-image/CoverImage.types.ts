@@ -1,6 +1,6 @@
-import { IsOpenType } from '@/animation/global'
+import { IsOpenSharedValueType } from '@/animation/global'
 import { PlayerTypes } from '@/utils/player/player.types'
 
 export interface CoverImageProps
-	extends IsOpenType,
+	extends IsOpenSharedValueType,
 		Pick<PlayerTypes, 'coverBig'> {}

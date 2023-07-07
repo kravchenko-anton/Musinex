@@ -1,5 +1,5 @@
 import { UViewProps } from '@/types/component.types'
-import { FC, PropsWithChildren } from 'react'
+import { FC, memo, PropsWithChildren } from 'react'
 import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -11,4 +11,4 @@ const Layout: FC<PropsWithChildren<UViewProps>> = ({ children, ...props }) => (
 	</SafeAreaView>
 )
 
-export default Layout
+export default memo(Layout)

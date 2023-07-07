@@ -1,6 +1,6 @@
 import { useColorTheme } from '@/hook/useColorTheme'
 import { SkeletonProps } from '@/ui/skeleton/skeleton.types'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { View } from 'react-native'
 
 const Skeleton: FC<SkeletonProps> = ({
@@ -27,4 +27,4 @@ const Skeleton: FC<SkeletonProps> = ({
 	)
 }
 
-export default Skeleton
+export default memo(Skeleton)

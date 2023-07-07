@@ -2,6 +2,7 @@ import { useTypedSelector } from '@/hook/useTypedSelector'
 import { Color } from '@/utils/color'
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@/utils/screen'
 import Lottie from 'lottie-react-native'
+import { memo } from 'react'
 import { View } from 'react-native'
 import loader from '../../assets/loader.json'
 
@@ -12,13 +13,9 @@ const FullScreenLoader = () => {
 			style={{
 				height: SCREEN_HEIGHT,
 				width: SCREEN_WIDTH,
-				backgroundColor:
-					selector === 'light'
-						? Color.silver
-						: Color.midnight
+				backgroundColor: selector === 'light' ? Color.silver : Color.midnight
 			}}
-			className='justify-center items-center absolute'
-		>
+			className='absolute items-center justify-center'>
 			<Lottie
 				loop
 				source={loader}
@@ -32,4 +29,4 @@ const FullScreenLoader = () => {
 	)
 }
 
-export default FullScreenLoader
+export default memo(FullScreenLoader)

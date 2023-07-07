@@ -1,7 +1,7 @@
 import { useColorTheme } from '@/hook/useColorTheme'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { CatalogHeaderProps } from '@/pages/catalog/ui/catalog-header/catalogHeader.types'
-import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/header-animation'
+import { useHeaderAnimation } from '@/pages/catalog/ui/catalog-header/header.animation'
 import BlurIcon from '@/ui/blurIcon/BlurIcon'
 import Heart from '@/ui/icon/heart/heart'
 import Title from '@/ui/title/title'

@@ -1,5 +1,5 @@
+import { AlbumTypes } from '@/services/types/album.services.types'
 import { DefaultModelFields, SongType } from '@/services/types/global'
-import { AlbumTypes } from '@/services/types/IAlbum'
 import { PlaylistType } from '@/services/types/playlist.services.types'
 
 export interface GenreType extends DefaultModelFields {

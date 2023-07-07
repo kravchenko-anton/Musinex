@@ -1,19 +1,20 @@
 import loader from '@/assets/loader.json'
 import Lottie from 'lottie-react-native'
+import { memo } from 'react'
 import { View } from 'react-native'
 
 const SmallLoader = () => (
-		<View className='justify-center items-center h-full w-full'>
-			<Lottie
-				loop
-				source={loader}
-				autoPlay={true}
-				style={{
-					width: 100,
-					height: 100
-				}}
-			/>
-		</View>
-	)
+	<View className='h-full w-full items-center justify-center'>
+		<Lottie
+			loop
+			source={loader}
+			autoPlay={true}
+			style={{
+				width: 100,
+				height: 100
+			}}
+		/>
+	</View>
+)
 
-export default SmallLoader
+export default memo(SmallLoader)

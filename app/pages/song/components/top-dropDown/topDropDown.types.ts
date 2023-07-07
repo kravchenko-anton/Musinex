@@ -1,5 +1,5 @@
-import { IsOpenType } from '@/animation/global'
+import { IsOpenSharedValueType } from '@/animation/global'
 
-export interface TopDropDownProps extends IsOpenType {
+export interface TopDropDownProps extends IsOpenSharedValueType {
 	title: string
 }

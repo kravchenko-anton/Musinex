@@ -3,7 +3,7 @@ import { usePressAnimation } from '@/animation/press.animation'
 import Image from '@/ui/image/image'
 import { MusicCartProps } from '@/ui/music-cart/musicCart.types'
 import { Color } from '@/utils/color'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { View } from 'react-native'
 import Title from '../title/title'
 
@@ -58,4 +58,4 @@ const MusicCart: FC<MusicCartProps> = ({
 	)
 }
 
-export default MusicCart
+export default memo(MusicCart)

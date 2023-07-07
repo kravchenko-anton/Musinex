@@ -10,6 +10,7 @@ module.exports = {
 		project: './tsconfig.json',
 	},
 	rules: {
+		"no-mixed-spaces-and-tabs": 0,
 		"arrow-body-style": ["error", "as-needed"],
 		"@typescript-eslint/naming-convention": [
 			"warn",

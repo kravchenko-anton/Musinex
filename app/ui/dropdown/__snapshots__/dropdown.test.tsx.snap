@@ -37,7 +37,7 @@ exports[`Dropdown Render 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       {
-        "backgroundColor": "#888888",
+        "backgroundColor": "#1B2021",
         "borderBottomLeftRadius": 10,
         "borderBottomRightRadius": 10,
         "borderBottomWidth": 0,
@@ -161,7 +161,7 @@ exports[`Dropdown Render 1`] = `
               {
                 "alignItems": "center",
                 "backgroundColor": "transparent",
-                "borderColor": "#000",
+                "borderColor": "#1B2021",
                 "borderRadius": 16,
                 "borderWidth": 0,
                 "justifyContent": "center",
@@ -208,7 +208,7 @@ exports[`Dropdown Render 1`] = `
     style={
       [
         {
-          "backgroundColor": "#888888",
+          "backgroundColor": "#1B2021",
           "borderBottomLeftRadius": 10,
           "borderBottomRightRadius": 10,
           "overflow": "hidden",
@@ -326,7 +326,7 @@ exports[`Dropdown Render 1`] = `
             {
               "alignItems": "center",
               "backgroundColor": "transparent",
-              "borderColor": "#000",
+              "borderColor": "#1B2021",
               "borderRadius": 16,
               "borderWidth": 0,
               "justifyContent": "center",
@@ -349,7 +349,7 @@ exports[`Dropdown Render 1`] = `
           style={
             [
               {
-                "color": "#000",
+                "color": "#fff",
                 "fontSize": 24,
               },
               undefined,

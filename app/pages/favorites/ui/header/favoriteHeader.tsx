@@ -11,7 +11,7 @@ const FavoriteHeader = () => {
 	const { user } = useAuth()
 	if (!user) return null
 	return (
-		<View className='flex-row items-center justify-between border-b-2 border-b-twilight pb-2'>
+		<View className='mb-2 flex-row items-center justify-between border-b-2 border-b-twilight pb-2'>
 			<View className='flex-row items-center gap-2'>
 				<View className='h-[50px] w-[50px] items-center justify-center rounded-full bg-primary'>
 					<Title weight='bold' size={24} color={Color.midnight}>

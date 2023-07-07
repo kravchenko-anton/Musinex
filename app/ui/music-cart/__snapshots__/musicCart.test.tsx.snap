@@ -78,7 +78,7 @@ exports[`musicCart should render currect 1`] = `
       style={
         [
           {
-            "backgroundColor": "#888888",
+            "backgroundColor": "#1B2021",
             "borderRadius": 6,
             "height": 20,
             "width": 20,
@@ -101,7 +101,7 @@ exports[`musicCart should render currect 1`] = `
       style={
         [
           {
-            "backgroundColor": "#888888",
+            "backgroundColor": "#1B2021",
             "borderRadius": 6,
             "height": 16,
             "width": 60,
@@ -115,7 +115,7 @@ exports[`musicCart should render currect 1`] = `
       style={
         [
           {
-            "backgroundColor": "#888888",
+            "backgroundColor": "#1B2021",
             "borderRadius": 6,
             "height": 16,
             "width": 70,

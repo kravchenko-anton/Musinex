@@ -7,7 +7,7 @@ exports[`title Render 1`] = `
   style={
     [
       {
-        "color": "#000",
+        "color": "#fff",
         "fontFamily": "Montserrat_300Light",
         "fontSize": 20,
         "textAlign": "left",

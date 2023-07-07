@@ -1,9 +1,9 @@
+import { useTypedSelector } from '@/hook/useTypedSelector'
 import { Color } from '@/utils/color'
-import { useColorScheme } from 'nativewind'
 import { useMemo } from 'react'
 
 export const useColorTheme = () => {
-	const { colorScheme } = useColorScheme()
+	const colorScheme = useTypedSelector(state => state.theme)
 	const charcoalToTwilight =
 		colorScheme === 'light' ? Color.charcoal : Color.twilight
 	const darkToWhite = colorScheme === 'light' ? Color.dark : Color.white

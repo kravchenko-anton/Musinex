@@ -5,7 +5,6 @@ import { ThemeSwitcherProps } from '@/pages/settings/ui/themeSwitcher.types'
 import { Style } from '@/types/global'
 import { Color } from '@/utils/color'
 import { Ionicons, Octicons } from '@expo/vector-icons'
-import { useColorScheme } from 'nativewind'
 import { FC } from 'react'
 import { Pressable, StyleSheet } from 'react-native'
 import { withSpring } from 'react-native-reanimated'
@@ -16,13 +15,11 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({
 	...props
 }) => {
 	const { darkStyle, lightStyle, scheme } = useThemeSwitcherAnimation()
-	const { toggleColorScheme, colorScheme } = useColorScheme()
-	const { setTheme } = useAction()
+	const { toggleTheme } = useAction()
 	return (
 		<Pressable
 			onPress={async () => {
-				await toggleColorScheme()
-				await setTheme(colorScheme === 'light' ? 'dark' : 'light')
+				await toggleTheme()
 				scheme.value = withSpring(scheme.value === 1 ? 0 : 1)
 			}}
 			style={[{ height: size, width: size }, style as Style]}

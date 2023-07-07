@@ -1,4 +1,4 @@
-import { useColorScheme } from 'nativewind'
+import { useColorTheme } from '@/hook/useColorTheme'
 import { useEffect, useMemo } from 'react'
 import {
 	Extrapolate,
@@ -9,7 +9,7 @@ import {
 } from 'react-native-reanimated'
 
 export const useThemeSwitcherAnimation = () => {
-	const { colorScheme } = useColorScheme()
+	const { colorScheme } = useColorTheme()
 	const scheme = useSharedValue(0)
 
 	useEffect(() => {

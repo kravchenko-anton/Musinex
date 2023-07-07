@@ -14,3 +14,10 @@ jest.mock('react-i18next', () => ({
 		init: () => {}
 	}
 }))
+jest.mock('react-redux', () => ({
+	useDispatch: () => jest.fn(),
+	useSelector: () =>
+		jest.fn({
+			theme: 'dark'
+		})
+}))

@@ -75,7 +75,7 @@ exports[`blurIcon Render 1`] = `
         {
           "alignItems": "center",
           "backgroundColor": "transparent",
-          "borderColor": "#000",
+          "borderColor": "#1B2021",
           "borderRadius": 16,
           "borderWidth": 0,
           "justifyContent": "center",

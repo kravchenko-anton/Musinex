@@ -5,9 +5,8 @@ export const ThemeSlice = createSlice({
 	name: 'theme',
 	initialState: 'dark' as ThemeState,
 	reducers: {
-		setTheme: (state, { payload }: PayloadAction<ThemeState>) => {
-			return payload
-		}
+		setTheme: (state, { payload }: PayloadAction<ThemeState>) => payload,
+		toggleTheme: state => (state === 'dark' ? 'light' : 'dark')
 	}
 })
 export const { reducer: ThemeReducer, actions: ThemeAction } = ThemeSlice

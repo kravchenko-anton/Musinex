@@ -1,4 +1,5 @@
-import { ITranslateTypes } from '@/types/global'
+import { UViewProps } from '@/types/component.types'
+import { ITranslateTypes, WrapperProps } from '@/types/global'
 import {
 	Control,
 	FieldPath,
@@ -9,9 +10,10 @@ import { TextInputProps } from 'react-native'
 
 export interface FieldProps<T extends FieldValues>
 	extends Omit<
-		TextInputProps,
-		'onChange' | 'onChangeText' | 'value' | 'placeholder' | 'testID'
-	> {
+			TextInputProps,
+			'onChange' | 'onChangeText' | 'value' | 'placeholder' | 'testID'
+		>,
+		WrapperProps<UViewProps['style']> {
 	control: Control<T>
 	name: FieldPath<T>
 	placeholder: ITranslateTypes

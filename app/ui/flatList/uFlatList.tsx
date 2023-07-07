@@ -14,7 +14,14 @@ const UFlatList = <T,>({
 	return (
 		<View className={wrapClassNames} style={{ marginTop: mt }}>
 			{headerText && data.length !== 0 ? (
-				<Title translate className='mb-3' size={20} weight='semiBold'>
+				<Title
+					translate
+					className='mb-3'
+					style={{
+						paddingHorizontal: props.horizontal ? 8 : 0
+					}}
+					size={20}
+					weight='semiBold'>
 					{headerText}
 				</Title>
 			) : null}
@@ -34,7 +41,8 @@ const UFlatList = <T,>({
 				}
 				style={[
 					{
-						height: props.fixBottom ? '93%' : 'auto'
+						height: props.fixBottom ? '93%' : 'auto',
+						paddingLeft: props.horizontal && headerText ? 8 : 0
 					},
 					style
 				]}

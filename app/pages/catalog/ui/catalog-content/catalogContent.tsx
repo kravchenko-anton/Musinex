@@ -11,9 +11,8 @@ const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 	y,
 	children,
 	gradientEnd = 0.8,
-	description,
 	paddingTop = HEADER_HEIGHT * 0.52,
-	headerTitle
+	...props
 }) => {
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
@@ -37,8 +36,8 @@ const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 				zIndex: 100
 			}}>
 			<CatalogContentHeader
-				description={description}
-				title={headerTitle}
+				description={props.description}
+				title={props.headerTitle}
 				y={y}
 			/>
 			<LinearGradient
@@ -51,10 +50,14 @@ const CatalogContent: FC<PropsWithChildren<CatalogContentProps>> = ({
 				colors={['transparent', silverToMidnight]}
 			/>
 			<View
-				style={{
-					backgroundColor: silverToMidnight
-				}}
-				className='w-full flex-1 px-3 pb-5 pt-1'>
+				style={[
+					{
+						backgroundColor: silverToMidnight,
+						paddingHorizontal: 8
+					},
+					props.wrapperStyle
+				]}
+				className='w-full flex-1 pb-5 pl-2 pt-1'>
 				{children}
 			</View>
 		</Animated.ScrollView>

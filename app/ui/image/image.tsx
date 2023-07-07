@@ -11,11 +11,12 @@ const UImage: FC<ImageTypes> = ({
 	url,
 	style,
 	wrapperClassName,
+	wrapperStyle,
 	...props
 }) => {
 	const [isImageLoading, setIsImageLoading] = useState(true)
 	return (
-		<View className={wrapperClassName}>
+		<View className={wrapperClassName} style={wrapperStyle}>
 			<Image
 				onLoadEnd={() => {
 					setIsImageLoading(false)

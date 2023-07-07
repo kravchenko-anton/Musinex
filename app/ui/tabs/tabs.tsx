@@ -4,7 +4,7 @@ import { TabsProps } from '@/ui/tabs/tabs.types'
 import React, { FC, memo, useMemo, useState } from 'react'
 import { View } from 'react-native'
 
-const Tabs: FC<TabsProps> = ({ data: tabs, translate = false }) => {
+const Tabs: FC<TabsProps> = ({ data: tabs, translate = false, ...props }) => {
 	const [activeTab, setActiveTab] = useState(tabs[0].name)
 	const activeComponent = useMemo(() => {
 		const activeTabData = tabs.find(tab => tab.name === activeTab)
@@ -12,7 +12,7 @@ const Tabs: FC<TabsProps> = ({ data: tabs, translate = false }) => {
 	}, [tabs, activeTab])
 	return (
 		<>
-			<View className='mb-4 mt-2'>
+			<View className='mb-4 mt-2' style={props.wrapperStyle}>
 				<UFlatList
 					horizontal
 					data={tabs}

@@ -15,6 +15,9 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 	const { navigate } = useTypedNavigation()
 	return (
 		<Tabs
+			wrapperStyle={{
+				paddingLeft: 8
+			}}
 			translate={true}
 			data={[
 				{
@@ -23,6 +26,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 					component: () => (
 						<UFlatList
 							key='_'
+							className='px-2'
 							keyExtractor={item => '_' + item.id}
 							data={searchResult.songs}
 							fixBottom
@@ -66,6 +70,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 						<UFlatList
 							fixBottom
 							key='#'
+							className='px-2'
 							keyExtractor={item => '#' + item.id}
 							data={searchResult.albums}
 							ListEmptyComponent={() => (
@@ -94,6 +99,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 						<UFlatList
 							fixBottom
 							key='%'
+							className='px-2'
 							keyExtractor={item => '%' + item.id}
 							data={searchResult.artists}
 							ListEmptyComponent={() => (
@@ -123,6 +129,7 @@ const SearchList: FC<{ searchResult: SearchResultType }> = ({
 						<UFlatList
 							fixBottom
 							key='@'
+							className='px-2'
 							keyExtractor={item => '@' + item.id}
 							data={searchResult.playlists}
 							ListEmptyComponent={() => (

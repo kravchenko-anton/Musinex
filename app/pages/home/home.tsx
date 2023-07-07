@@ -18,8 +18,9 @@ const Home = () => {
 	const { addToPlayer } = useAction()
 	if (!chart || !genre) return <FullScreenLoader />
 	return (
-		<ScrollLayout>
+		<ScrollLayout className='px-0'>
 			<Header
+				className='px-2'
 				secondIcon={{
 					name: 'mail',
 					onPress: () => console.log('mail')
@@ -29,7 +30,7 @@ const Home = () => {
 					onPress: () => navigate('Search')
 				}}
 			/>
-			<Banner songs={chart.songs.slice(0, 3)} />
+			<Banner songs={chart.songs.slice(0, 3)} wrapperClassName={'px-2'} />
 			<UFlatList
 				data={genre}
 				horizontal

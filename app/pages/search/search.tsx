@@ -7,6 +7,7 @@ import Field from '@/ui/flield/field'
 import Layout from '@/ui/layout/layout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '@/utils/screen'
+import { View } from 'react-native'
 
 const Search = () => {
 	const {
@@ -19,14 +20,20 @@ const Search = () => {
 	} = useSearch()
 	if (!genres) return <FullScreenLoader />
 	return (
-		<Layout>
-			<Field control={control} name='searchTerm' placeholder='Type anything' />
+		<Layout className='px-0'>
+			<Field
+				wrapperClassName='px-2'
+				control={control}
+				name='searchTerm'
+				placeholder='Type anything'
+			/>
 			{searchTerm && searchTerm.length > 2 && !isLoading && isSearchLoading ? (
 				<FlatList404 width={WINDOW_WIDTH} height={WINDOW_HEIGHT * 0.3} />
 			) : searchTerm &&
 			  searchTerm.length > 2 &&
 			  isLoading ? null : !searchTerm || !searchResult || isSearchLoading ? (
 				<UFlatList
+					className='px-2'
 					data={genres}
 					fixBottom
 					numColumns={2}

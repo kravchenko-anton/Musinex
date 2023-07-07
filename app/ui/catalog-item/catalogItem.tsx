@@ -10,6 +10,7 @@ import { PlayerTypes } from '@/utils/player/player.types'
 import Lottie from 'lottie-react-native'
 import { FC, memo } from 'react'
 import { View } from 'react-native'
+import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { useActiveTrack, usePlaybackState } from 'react-native-track-player'
 
 const CatalogItem: FC<CatalogItemProps> = ({

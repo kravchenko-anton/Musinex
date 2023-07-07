@@ -23,7 +23,7 @@ const ScrollLayout: FC<PropsWithChildren<UScrollViewProps>> = ({
 				refreshControl={
 					<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
 				}
-				className='p-3'
+				className='p-2'
 				paddingBottom={paddingBottom}
 				{...props}>
 				{children}

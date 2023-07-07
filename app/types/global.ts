@@ -14,3 +14,8 @@ export type imageType = {
 	url: string
 	border?: number
 } & Width_Height
+
+export interface WrapperProps<T> {
+	wrapperStyle?: T
+	wrapperClassName?: string
+}

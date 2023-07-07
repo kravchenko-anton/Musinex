@@ -1,4 +1,5 @@
-import { ITranslateTypes } from '@/types/global'
+import { UViewProps } from '@/types/component.types'
+import { ITranslateTypes, WrapperProps } from '@/types/global'
 
 export type TabsProps = {
 	translate?: boolean
@@ -7,4 +8,4 @@ export type TabsProps = {
 		title: ITranslateTypes
 		component: () => JSX.Element
 	}[]
-}
+} & Pick<WrapperProps<UViewProps['style']>, 'wrapperStyle'>

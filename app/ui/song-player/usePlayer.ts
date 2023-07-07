@@ -1,18 +1,37 @@
+import { useAction } from '@/hook/useAction'
 import { useTypedSelector } from '@/hook/useTypedSelector'
-import { trackPause, trackPlay } from '@/utils/player/player.actions'
+import { trackPause, trackPlay } from '@/utils/player/player.function'
+import { PlayerTypes } from '@/utils/player/player.types'
 import { setupPlayer } from '@/utils/player/setup.player'
 import { generateRandomBeautifulHexColor } from '@/utils/random.color'
 import { useEffect, useState } from 'react'
-import TrackPlayer, { RepeatMode } from 'react-native-track-player'
+import TrackPlayer, {
+	Event,
+	RepeatMode,
+	useActiveTrack
+} from 'react-native-track-player'
 
 export const usePlayer = () => {
 	const selector = useTypedSelector(state => state.player)
+	const { addToHistory } = useAction()
+	const ActiveTrack = useActiveTrack() as PlayerTypes
 	const [isPlayerReady, setIsPlayerReady] = useState(false)
 	useEffect(() => {
 		async function setup() {
 			const isSetup = await setupPlayer()
 			setIsPlayerReady(isSetup)
 			await TrackPlayer.setRepeatMode(RepeatMode.Queue)
+			// If track progress finish and user listen full song
+			await TrackPlayer.addEventListener(
+				Event.PlaybackActiveTrackChanged,
+				async () => {
+					if (ActiveTrack.duration === ActiveTrack.position) {
+						addToHistory({
+							data: [ActiveTrack]
+						})
+					}
+				}
+			)
 		}
 		setup()
 	}, [])

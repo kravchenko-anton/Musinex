@@ -1,5 +1,6 @@
 import { useAction } from '@/hook/useAction'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
+import { useTypedSelector } from '@/hook/useTypedSelector'
 import Banner from '@/pages/home/ui/banner/banner/banner'
 import GenreItem from '@/pages/home/ui/genre-item/genreItem'
 import { genreServices } from '@/services/genre.services'
@@ -16,6 +17,9 @@ const Home = () => {
 	const { data: genre } = useQuery(['genre'], genreServices.getAll)
 	const { navigate } = useTypedNavigation()
 	const { addToPlayer } = useAction()
+	const selector = useTypedSelector(state => state.history)
+	console.log(selector, '1')
+	console.log('2')
 	if (!chart || !genre) return <FullScreenLoader />
 	return (
 		<ScrollLayout className='px-0'>

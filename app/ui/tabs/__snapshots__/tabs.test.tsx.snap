@@ -55,6 +55,7 @@ exports[`Tabs Render 1`] = `
           [
             {
               "height": "auto",
+              "paddingLeft": 0,
             },
             undefined,
           ]

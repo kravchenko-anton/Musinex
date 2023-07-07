@@ -62,7 +62,7 @@ const FavoriteList = () => {
 								start={[0.2, 0.8]}
 								end={[0.8, 0.4]}
 								pointerEvents='none'
-								className='h-[80px] w-[80px] items-center justify-center rounded-[2px]'>
+								className='h-[80px] w-[80px] items-center justify-center rounded-[14px]'>
 								<Icon name='heart' size={40} color={Color.white} />
 							</LinearGradient>
 							<View>

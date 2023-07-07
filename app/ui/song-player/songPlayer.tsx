@@ -57,7 +57,7 @@ const SongPlayer = () => {
 					</View>
 				</View>
 				<View className='flex-row items-center'>
-					<Heart id={trackInfo?.id} type='song' />
+					<Heart id={trackInfo.id} type='song' />
 					<PlayButton size={28} circle={false} className='ml-3' />
 				</View>
 			</Pressable>

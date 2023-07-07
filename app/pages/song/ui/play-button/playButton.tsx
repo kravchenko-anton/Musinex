@@ -1,7 +1,7 @@
 import { PlayButtonProps } from '@/pages/song/ui/play-button/playButton.types'
 import Icon from '@/ui/icon/default-icon/icon'
 import { Color } from '@/utils/color'
-import { trackPause, trackPlay } from '@/utils/player/player.actions'
+import { trackPause, trackPlay } from '@/utils/player/player.function'
 import { FC } from 'react'
 import { State, usePlaybackState } from 'react-native-track-player'
 

@@ -60,6 +60,7 @@ exports[`uFlatList Render 1`] = `
       [
         {
           "height": "auto",
+          "paddingLeft": 0,
         },
         {
           "backgroundColor": "red",

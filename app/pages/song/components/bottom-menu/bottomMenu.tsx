@@ -14,7 +14,7 @@ import {
 	handleShuffle,
 	skipToNext,
 	skipToPrevious
-} from '@/utils/player/player.actions'
+} from '@/utils/player/player.function'
 import { WINDOW_HEIGHT } from '@/utils/screen'
 import { FC } from 'react'
 import { Pressable, View } from 'react-native'

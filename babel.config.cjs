@@ -11,7 +11,6 @@ module.exports = function (api) {
 				}
 			],
 			['nativewind/babel'],
-			// ['transform-remove-console'],
 				[
 				'module:react-native-dotenv',
 				{

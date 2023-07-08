@@ -11,15 +11,13 @@ import ScrollLayout from '@/ui/layout/scrollLayout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import MusicCart from '@/ui/music-cart/musicCart'
 import { useQuery } from '@tanstack/react-query'
+import TrackPlayer, { Event } from 'react-native-track-player'
 
 const Home = () => {
 	const { data: chart } = useQuery(['chart'], searchServices.getCatalogue)
 	const { data: genre } = useQuery(['genre'], genreServices.getAll)
 	const { navigate } = useTypedNavigation()
 	const { addToPlayer } = useAction()
-	const selector = useTypedSelector(state => state.history)
-	console.log(selector, '1')
-	console.log('2')
 	if (!chart || !genre) return <FullScreenLoader />
 	return (
 		<ScrollLayout className='px-0'>

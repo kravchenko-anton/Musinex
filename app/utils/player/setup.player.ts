@@ -9,14 +9,13 @@ export async function setupPlayer() {
 	} catch {
 		await TrackPlayer.setupPlayer({
 			autoHandleInterruptions: true,
-			maxCacheSize: 10,
-			maxBuffer: 0
+			maxCacheSize: 10
 		})
 		await TrackPlayer.updateOptions({
 			android: {
 				alwaysPauseOnInterruption: true
 			},
-			progressUpdateEventInterval: 0,
+			progressUpdateEventInterval: 1,
 			capabilities: [
 				Capability.Play,
 				Capability.Pause,

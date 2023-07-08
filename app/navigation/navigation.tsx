@@ -5,6 +5,7 @@ import { userRoutes } from '@/navigation/types/user.routes'
 import BottomMenu from '@/navigation/ui/bottom-menu/bottomMenu'
 import Auth from '@/pages/auth/auth'
 import { useCheckAuth } from '@/providers/auth/check.auth'
+import { historyProvider } from '@/providers/history/history.provider'
 import SongPlayer from '@/ui/song-player/songPlayer'
 import {
 	NavigationContainer,
@@ -33,7 +34,7 @@ const Navigation = () => {
 		}
 	}, [])
 	useCheckAuth(currentRoute)
-
+	historyProvider()
 	return (
 		<SafeAreaProvider
 			initialMetrics={initialWindowMetrics}

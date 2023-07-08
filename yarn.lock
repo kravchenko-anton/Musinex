@@ -2439,13 +2439,6 @@
     "@react-native/virtualized-lists" "^0.72.4"
     "@types/react" "*"
 
-"@types/react-test-renderer@^18.0.0":
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-18.0.0.tgz#7b7f69ca98821ea5501b21ba24ea7b6139da2243"
-  integrity sha512-C7/5FBJ3g3sqUahguGi03O79b8afNeSD6T8/GU50oQrJCU0bVCCGQHaGKUbg2Ce8VQEEqTw8/HiS6lXHHdgkdQ==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react@*", "@types/react@^18.2.14":
   version "18.2.14"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.14.tgz#fa7a6fecf1ce35ca94e74874f70c56ce88f7a127"
@@ -7833,10 +7826,10 @@ react-native-toast-message@^2.1.6:
   resolved "https://registry.yarnpkg.com/react-native-toast-message/-/react-native-toast-message-2.1.6.tgz#322827c66901fa22cb3db614c7383cc717f5bbe2"
   integrity sha512-VctXuq20vmRa9AE13acaNZhrLcS3FaBS2zEevS3+vhBsnVZYG0FIlWIis9tVnpnNxUb3ART+BWtwQjzSttXTng==
 
-react-native-track-player@3.2.0-83319792225a9197a3187a33543a341aebdf70b3:
-  version "3.2.0-83319792225a9197a3187a33543a341aebdf70b3"
-  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-3.2.0-83319792225a9197a3187a33543a341aebdf70b3.tgz#fe297103d74b4e86693fefdb1561e8845f0d5b2e"
-  integrity sha512-viAQHBl01FLfUtqo3ZlpyBkdu6m8mCI6ghmNzHV41QPcJdy7Gi3aWVSep1xMdEE08JfhQjYSSqQ/JMBtheB09Q==
+react-native-track-player@3.2.0-af9003b72394ebac2608965b8467623291d96b3d:
+  version "3.2.0-af9003b72394ebac2608965b8467623291d96b3d"
+  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-3.2.0-af9003b72394ebac2608965b8467623291d96b3d.tgz#1e1f818204f4b4c3a191d4c66dd0911ddbdf691f"
+  integrity sha512-1ErEBKj0+kFKYNU0jHnlgFP8bOQm+glXhXo27sAblpV7dRCyZvpR66vf699D+qhf7Xuqiir/J1vx3fZ1iXq8UQ==
 
 react-native@0.71.6:
   version "0.71.6"

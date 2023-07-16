@@ -97,7 +97,7 @@ const Home = () => {
 				data={chart.lastReleases}
 				horizontal
 				mt={25}
-				headerText='Late Releases'
+				headerText='Latest Releases'
 				renderItem={({ item: song, index }) => (
 					<MusicCart
 						onPress={() =>

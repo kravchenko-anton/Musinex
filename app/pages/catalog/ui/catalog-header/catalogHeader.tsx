@@ -38,8 +38,10 @@ const CatalogHeader: FC<CatalogHeaderProps> = ({ y, ...props }) => {
 			<Animated.View
 				className='items-center'
 				style={{ opacity, marginLeft: props.rightIcon ? 0 : 15 }}>
-				<Title numberOfLines={1} className='max-w-[90%]' weight='medium'>
-					{props.title}
+				<Title numberOfLines={1} style={{
+					textAlign: 'center',
+				}} weight='medium'>
+					{(props.title).slice(0, 15)}
 				</Title>
 			</Animated.View>
 			{props.rightIcon &&

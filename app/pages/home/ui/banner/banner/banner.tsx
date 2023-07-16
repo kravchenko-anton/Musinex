@@ -32,8 +32,7 @@ const Banner: FC<PropsWithChildren<BannerProps>> = ({
 						weight='bold'
 						color={Color.white}
 						numberOfLines={2}
-						size={23}
-						className='absolute top-[12%] w-[80%] text-center'
+						className='absolute top-[15%] w-[80%] text-center'
 						translate>
 						Enjoy the music you love
 					</Title>

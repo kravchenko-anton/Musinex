@@ -1,4 +1,5 @@
 import { useAction } from '@/hook/useAction'
+import {useTypedNavigation} from "@/hook/useTypedNavigation";
 import { useTypedRoute } from '@/hook/useTypedRoute'
 import { HEADER_HEIGHT } from '@/pages/catalog/catalog.constant'
 import CatalogBackground from '@/pages/catalog/ui/catalog-background/catalogBackground'
@@ -26,6 +27,7 @@ const GenreCatalog = () => {
 	)
 	const y = useRef(new Animated.Value(0)).current
 	const { t } = useTranslation()
+	const {navigate} = useTypedNavigation()
 	if (!genre) return <FullScreenLoader />
 	return (
 		<Layout className='p-0'>
@@ -44,7 +46,7 @@ const GenreCatalog = () => {
 					wrapClassNames='w-full justify-center items-center'
 					data={genre.songs.slice(0, 10)}
 					horizontal
-					mt={25}
+					mt={15}
 					headerText='Songs'
 					renderItem={({ item: song, index }) => (
 						<MusicCart
@@ -76,10 +78,12 @@ const GenreCatalog = () => {
 				<UFlatList
 					data={genre.albums.slice(0, 10)}
 					horizontal
-					mt={0}
+					wrapClassNames='w-full justify-center items-center'
+					mt={15}
 					headerText='Albums'
 					renderItem={({ item: album }: { item: AlbumTypes }) => (
 						<MusicCart
+							onPress={() => navigate('AlbumCatalog', { id: album.id })}
 							image={{
 								url: album.coverMedium,
 								width: 140,
@@ -94,10 +98,12 @@ const GenreCatalog = () => {
 				<UFlatList
 					data={genre.playlists.slice(0, 10)}
 					horizontal
-					mt={25}
+					wrapClassNames='w-full justify-center items-center'
+					mt={15}
 					headerText='Playlist'
 					renderItem={({ item: playlist }: { item: PlaylistType }) => (
 						<MusicCart
+							onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}
 							image={{
 								url: playlist.coverMedium,
 								width: 150,

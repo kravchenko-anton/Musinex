@@ -1,4 +1,4 @@
-import { getUsersUrl } from '@/services/api.config'
+import { getHistoryUrl, getUsersUrl } from '@/services/api.config'
 import { request } from '@/services/api/request.api'
 import { UserType } from '@/services/types/user.services.types'
 
@@ -9,11 +9,13 @@ export const userServices = {
 			method: 'GET'
 		})
 	},
-	async updateProfile(data: Partial<UserType>) {
-		return request({
-			url: getUsersUrl('/update-user'),
+	async postHistory({ data }: { data: number[] }) {
+		return request<UserType>({
+			url: getHistoryUrl('/add'),
 			method: 'POST',
-			data
+			data: {
+				songsId: data
+			}
 		})
 	},
 	async toggleFavorite(data: {

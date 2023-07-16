@@ -23,5 +23,5 @@ export interface SongType extends DefaultModelFields, CoverModel {
 	duration: number
 	releaseDate: string
 	mp3Path: string
-	artists: ArtistType[]
+	artist: ArtistType
 }

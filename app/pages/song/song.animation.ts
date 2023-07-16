@@ -24,7 +24,7 @@ export const useSongAnimation = ({
 	)
 
 	const topBarAnimation = useAnimatedStyle(() => ({
-		height: withSpring(isOpen.value ? WINDOW_HEIGHT * 0.75 : 130, {
+		height: withSpring(isOpen.value ? WINDOW_HEIGHT * 0.68 : 130, {
 			damping: 90,
 			velocity: 1,
 			stiffness: 90

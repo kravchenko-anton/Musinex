@@ -1,15 +1,10 @@
-import { useAction } from '@/hook/useAction'
 import { useTypedSelector } from '@/hook/useTypedSelector'
+import { getServerFileUrl } from '@/services/api.config'
 import { trackPause, trackPlay } from '@/utils/player/player.function'
-import { PlayerTypes } from '@/utils/player/player.types'
 import { setupPlayer } from '@/utils/player/setup.player'
 import { generateRandomBeautifulHexColor } from '@/utils/random.color'
 import { useEffect, useState } from 'react'
-import TrackPlayer, {
-	Event,
-	RepeatMode,
-	useActiveTrack
-} from 'react-native-track-player'
+import TrackPlayer, { RepeatMode } from 'react-native-track-player'
 
 export const usePlayer = () => {
 	const selector = useTypedSelector(state => state.player)
@@ -35,7 +30,7 @@ export const usePlayer = () => {
 					const color = generateRandomBeautifulHexColor()
 					return {
 						id: value.id,
-						url: value.url,
+						url: getServerFileUrl(value.url),
 						title: value.title,
 						artist: value.artist,
 						coverBig: value.coverBig,

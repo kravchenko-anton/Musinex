@@ -19,3 +19,7 @@ export interface WrapperProps<T> {
 	wrapperStyle?: T
 	wrapperClassName?: string
 }
+
+
+export type ListNavigateType = 'Album' | 'Artist' | 'Playlist'
+

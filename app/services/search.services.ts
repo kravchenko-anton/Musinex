@@ -1,6 +1,6 @@
 import { getSearchUrl } from '@/services/api.config'
 import { request } from '@/services/api/request.api'
-import { SearchResultType } from '@/services/types/search.services.types'
+import {CatalogResultType, SearchResultType,} from '@/services/types/search.services.types'
 
 export const searchServices = {
 	async getSearchResult(query: string) {
@@ -10,7 +10,7 @@ export const searchServices = {
 		})
 	},
 	async getCatalogue() {
-		return request<SearchResultType>({
+		return request<CatalogResultType>({
 			url: getSearchUrl('/catalog'),
 			method: 'GET'
 		})

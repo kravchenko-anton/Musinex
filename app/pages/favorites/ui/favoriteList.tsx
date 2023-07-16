@@ -1,5 +1,6 @@
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { userServices } from '@/services/user.services'
+import {ListNavigateType} from "@/types/global";
 import CatalogItem from '@/ui/catalog-item/catalogItem'
 import UFlatList from '@/ui/flatList/uFlatList'
 import Icon from '@/ui/icon/default-icon/icon'
@@ -12,7 +13,6 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { useTranslation } from 'react-i18next'
 import { Pressable, View } from 'react-native'
 
-type favoriteListType = 'Album' | 'Artist' | 'Playlist'
 const FavoriteList = () => {
 	const { t } = useTranslation()
 	const { navigate } = useTypedNavigation()
@@ -92,7 +92,7 @@ const FavoriteList = () => {
 						}}
 						text1={title}
 						onPress={() => {
-							navigate(`${item.type as favoriteListType}Catalog`, {
+							navigate(`${item.type as ListNavigateType}Catalog`, {
 								id: item.id
 							})
 						}}

@@ -20,7 +20,11 @@ export const useSearch = () => {
 		!searchResult.songs.length &&
 		!searchResult.artists.length &&
 		!searchResult.playlists.length &&
-		!searchResult.albums.length
+		!searchResult.albums.length &&
+		!searchResult.bestResults.artists.length &&
+		!searchResult.bestResults.songs.length &&
+		!searchResult.bestResults.albums.length &&
+		!searchResult.bestResults.playlists.length
 
 	return useMemo(
 		() => ({

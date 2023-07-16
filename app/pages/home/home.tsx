@@ -1,6 +1,5 @@
 import { useAction } from '@/hook/useAction'
 import { useTypedNavigation } from '@/hook/useTypedNavigation'
-import { useTypedSelector } from '@/hook/useTypedSelector'
 import Banner from '@/pages/home/ui/banner/banner/banner'
 import GenreItem from '@/pages/home/ui/genre-item/genreItem'
 import { genreServices } from '@/services/genre.services'
@@ -11,7 +10,6 @@ import ScrollLayout from '@/ui/layout/scrollLayout'
 import FullScreenLoader from '@/ui/loader/fullScreenLoader'
 import MusicCart from '@/ui/music-cart/musicCart'
 import { useQuery } from '@tanstack/react-query'
-import TrackPlayer, { Event } from 'react-native-track-player'
 
 const Home = () => {
 	const { data: chart } = useQuery(['chart'], searchServices.getCatalogue)
@@ -24,15 +22,18 @@ const Home = () => {
 			<Header
 				className='px-2'
 				secondIcon={{
-					name: 'mail',
-					onPress: () => console.log('mail')
+					name: 'settings',
+					onPress: () => navigate('Settings')
 				}}
 				firstIcon={{
 					name: 'search',
 					onPress: () => navigate('Search')
 				}}
 			/>
-			<Banner songs={chart.songs.slice(0, 3)} wrapperClassName={'px-2'} />
+			<Banner
+				songs={chart.lastReleases.slice(0, 3)}
+				wrapperClassName={'px-2'}
+			/>
 			<UFlatList
 				data={genre}
 				horizontal
@@ -41,16 +42,16 @@ const Home = () => {
 				renderItem={({ item: genre }) => <GenreItem item={genre} />}
 			/>
 			<UFlatList
-				data={chart.songs}
+				data={chart.mixes.mix1}
 				horizontal
 				mt={25}
-				headerText='Trending Songs'
+				headerText='Especially for you'
 				renderItem={({ item: song, index }) => (
 					<MusicCart
 						onPress={() =>
 							addToPlayer({
-								data: chart.songs.map(track => ({
-									artist: track.artists[0].name,
+								data: chart.mixes.mix1.map(track => ({
+									artist: track.artist.name,
 									duration: track.duration,
 									id: track.id,
 									title: track.title,
@@ -68,15 +69,16 @@ const Home = () => {
 							border: 16
 						}}
 						text1={song.title}
-						text2={song.artists[0].name}
+						text2={song.artist.name}
 					/>
 				)}
 			/>
+
 			<UFlatList
-				data={chart.artists}
+				data={chart.popularArtists}
 				horizontal
 				mt={25}
-				headerText='Rated Artists'
+				headerText='Popular Artists'
 				renderItem={({ item: artist }) => (
 					<MusicCart
 						onPress={() => navigate('ArtistCatalog', { id: artist.id })}
@@ -91,12 +93,43 @@ const Home = () => {
 					/>
 				)}
 			/>
-
 			<UFlatList
-				data={chart.albums}
+				data={chart.lastReleases}
 				horizontal
 				mt={25}
-				headerText='Wonderful Albums'
+				headerText='Late Releases'
+				renderItem={({ item: song, index }) => (
+					<MusicCart
+						onPress={() =>
+							addToPlayer({
+								data: chart.lastReleases.map(track => ({
+									artist: track.artist.name,
+									duration: track.duration,
+									id: track.id,
+									title: track.title,
+									url: track.mp3Path,
+									coverBig: track.coverBig,
+									coverSmall: track.coverSmall
+								})),
+								songIndex: index
+							})
+						}
+						image={{
+							url: song.coverMedium,
+							width: 130,
+							height: 130,
+							border: 16
+						}}
+						text1={song.title}
+						text2={song.artist.name}
+					/>
+				)}
+			/>
+			<UFlatList
+				data={chart.popularAlbums}
+				horizontal
+				mt={25}
+				headerText='Best Albums'
 				renderItem={({ item: album }) => (
 					<MusicCart
 						onPress={() => navigate('AlbumCatalog', { id: album.id })}
@@ -110,12 +143,43 @@ const Home = () => {
 					/>
 				)}
 			/>
-
 			<UFlatList
-				data={chart.playlists}
+				data={chart.mixes.mix2}
 				horizontal
 				mt={25}
-				headerText='Best Playlist'
+				headerText='May be you like it'
+				renderItem={({ item: song, index }) => (
+					<MusicCart
+						onPress={() =>
+							addToPlayer({
+								data: chart.mixes.mix1.map(track => ({
+									artist: track.artist.name,
+									duration: track.duration,
+									id: track.id,
+									title: track.title,
+									url: track.mp3Path,
+									coverBig: track.coverBig,
+									coverSmall: track.coverSmall
+								})),
+								songIndex: index
+							})
+						}
+						image={{
+							url: song.coverMedium,
+							width: 130,
+							height: 130,
+							border: 16
+						}}
+						text1={song.title}
+						text2={song.artist.name}
+					/>
+				)}
+			/>
+			<UFlatList
+				data={chart.popularPlaylists}
+				horizontal
+				mt={25}
+				headerText='Most Popular Playlists'
 				renderItem={({ item: playlist }) => (
 					<MusicCart
 						onPress={() => navigate('PlaylistCatalog', { id: playlist.id })}

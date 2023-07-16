@@ -57,9 +57,9 @@ const TopDropDown: FC<TopDropDownProps> = ({ isOpen, title }) => {
 				<AnimatedView
 					style={[
 						{
-							height: WINDOW_HEIGHT * 0.57,
+							height: WINDOW_HEIGHT * 0.5,
 							overflow: 'hidden',
-							minHeight: WINDOW_HEIGHT * 0.57
+							minHeight: WINDOW_HEIGHT * 0.5
 						},
 						dropDownContentAnimation
 					]}>

@@ -50,14 +50,14 @@ const FavoriteCatalog = () => {
 								width: 70,
 								border: 5
 							}}
-							text2={song.artists[0].name}
+							text2={song.artist.name}
 							onPress={() => {
 								addToPlayer({
 									data: songs.map(track => ({
 										id: track.id,
 										title: track.title,
 										url: track.mp3Path,
-										artist: track.artists[0].name,
+										artist: track.artist.name,
 										coverBig: track.coverBig,
 										coverSmall: track.coverSmall
 									})),

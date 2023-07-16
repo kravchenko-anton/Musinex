@@ -14,8 +14,10 @@ export default function App() {
 		defaultOptions: {
 			queries: {
 				cacheTime: 1000 * 60 * 60 * 24,
-				networkMode: 'offlineFirst'
-			}
+				networkMode: 'offlineFirst',
+				refetchOnWindowFocus: false,
+				refetchOnReconnect: false,
+			},
 		}
 	})
 

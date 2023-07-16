@@ -60,7 +60,7 @@ const GenreCatalog = () => {
 										id: track.id,
 										title: track.title,
 										url: track.mp3Path,
-										artist: track.artists[0].name,
+										artist: track.artist.name,
 										coverBig: track.coverBig,
 										coverSmall: track.coverSmall
 									})),
@@ -68,7 +68,7 @@ const GenreCatalog = () => {
 								})
 							}}
 							text1={song.title}
-							text2={song.artists[0].name}
+							text2={song.artist.name}
 						/>
 					)}
 				/>

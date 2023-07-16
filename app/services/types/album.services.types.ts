@@ -1,11 +1,10 @@
-import { CoverModel, DefaultModelFields } from '@/services/types/global'
-import { SearchResultType } from '@/services/types/search.services.types'
+import {CoverModel, DefaultModelFields, SongType} from '@/services/types/global'
 
 export interface AlbumTypes
 	extends DefaultModelFields,
-		CoverModel,
-		Pick<SearchResultType, 'songs'> {
+		CoverModel{
 	title: string
 	fans: number
 	releaseDate: string
+	songs: SongType[]
 }

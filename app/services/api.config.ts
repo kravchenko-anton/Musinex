@@ -8,4 +8,4 @@ export const getAlbumUrl = (string: string) => `/album${string}`
 export const getPlaylistUrl = (string: string) => `/playlist${string}`
 export const getSearchUrl = (string: string) => `/search${string}`
 export const getServerFileUrl = (string: string) =>
-	`${process.env.SERVER_URL}/${string}`
+	`${'http://192.168.0.110:7777'}/${string}`

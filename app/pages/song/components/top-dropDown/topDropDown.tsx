@@ -5,6 +5,7 @@ import { useTypedNavigation } from '@/hook/useTypedNavigation'
 import { useTypedSelector } from '@/hook/useTypedSelector'
 import { TopDropDownProps } from '@/pages/song/components/top-dropDown/topDropDown.types'
 import { useSongAnimation } from '@/pages/song/song.animation'
+import {getServerFileUrl} from "@/services/api.config";
 import CatalogItem from '@/ui/catalog-item/catalogItem'
 import Icon from '@/ui/icon/default-icon/icon'
 import UScrollView from '@/ui/scroll-view/uScrollView'
@@ -57,13 +58,12 @@ const TopDropDown: FC<TopDropDownProps> = ({ isOpen, title }) => {
 				<AnimatedView
 					style={[
 						{
-							height: WINDOW_HEIGHT * 0.5,
 							overflow: 'hidden',
-							minHeight: WINDOW_HEIGHT * 0.5
+							height: WINDOW_HEIGHT * 0.5
 						},
 						dropDownContentAnimation
 					]}>
-					<UScrollView>
+					<UScrollView paddingBottom={0} >
 						{selector[0].data.map(track => (
 							<CatalogItem
 								key={track.id}
@@ -79,7 +79,7 @@ const TopDropDown: FC<TopDropDownProps> = ({ isOpen, title }) => {
 										coverBig: track.coverBig,
 										coverSmall: track.coverSmall,
 										id: track.id,
-										url: track.url,
+										url: getServerFileUrl(track.url),
 										color
 									})
 									await trackPlay()

@@ -2,8 +2,7 @@
 
 <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/Anton-Kravkenko/Musinex" /> <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Anton-Kravkenko/Musinex" /> <img alt="GitHub Issues" src="https://img.shields.io/github/issues/Anton-Kravkenko/Musinex" /> <img alt="GitHub Package.json Version" src="https://img.shields.io/github/package-json/v/Anton-Kravkenko/Musinex" /> <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/Anton-Kravkenko/Musinex" /> <img alt="GitHub Commit Activity (Year)" src="https://img.shields.io/github/commit-activity/y/Anton-Kravkenko/Musinex" /> <img alt="GitHub Repo Size" src="https://img.shields.io/github/repo-size/Anton-Kravkenko/Musinex" /> <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/Anton-Kravkenko/Musinex" /> <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Anton-Kravkenko/Musinex?style=social" /> <img alt="GitHub Forks" src="https://img.shields.io/github/forks/Anton-Kravkenko/Musinex?style=social" /> <img alt="GitHub Watchers" src="https://img.shields.io/github/watchers/Anton-Kravkenko/Musinex?style=social" />
 
-## 📌 Introduction:
-Musinex is a music player that allows you to listen music
+
 
 ## 🧑‍💻 Demo:
 <p float="left">
@@ -28,6 +27,10 @@ Musinex is a music player that allows you to listen music
 - security auth with 2 jwt 🔐
 - reusable components 💡
 - guest handler animation 🔥
+
+### 😞 Why he didn't make it to production:
+-To fill the database with tracks for the full application, you need about 30 million tracks (for the work of recommendations that create a progression that ends when the tracks will be connected to existing ones) storing all these files and parsing them all will take a very long time, so this project did not go beyond the demo
+
 
 ## ⚙️ Technologies:
 - React Native
